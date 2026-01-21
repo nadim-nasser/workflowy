@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lastmile | The Last Mile of Enterprise AI Adoption</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Your teams have access to AI tools. What they don't have is the skill to move from prompts to production workflows. We close that gap.">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lastmile-proposal.vercel.app/">
+    <meta property="og:title" content="Lastmile | The Last Mile of Enterprise AI Adoption">
+    <meta property="og:description" content="Your teams have access to AI tools. What they don't have is the skill to move from prompts to production workflows. We close that gap.">
+    <meta property="og:image" content="https://lastmile-proposal.vercel.app/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lastmile-proposal.vercel.app/">
+    <meta name="twitter:title" content="Lastmile | The Last Mile of Enterprise AI Adoption">
+    <meta name="twitter:description" content="Your teams have access to AI tools. What they don't have is the skill to move from prompts to production workflows. We close that gap.">
+    <meta name="twitter:image" content="https://lastmile-proposal.vercel.app/og-image.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            accent: '#3b82f6',
+                            accentLight: '#60a5fa',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        @media (hover: hover) {
+            .card-hover:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            }
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 30%);
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        .grid-lines {
+            background-image:
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .mockup-window {
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        /* Mobile optimizations */
+        @media (max-width: 640px) {
+            .mobile-text-sm { font-size: 0.875rem; }
+            .mobile-px-4 { padding-left: 1rem; padding-right: 1rem; }
+            .mobile-py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        }
+    </style>
+</head>
+<body class="font-sans bg-white text-slate-900 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-slate-900/95 backdrop-blur-md z-50 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a href="#" class="text-lg sm:text-xl font-bold text-white">
+                    Lastmile
+                </a>
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#training" class="text-sm text-slate-400 hover:text-white transition-colors">Training</a>
+                    <a href="#models" class="text-sm text-slate-400 hover:text-white transition-colors">Models</a>
+                    <a href="#platform" class="text-sm text-slate-400 hover:text-white transition-colors">Platform</a>
+                    <a href="#team" class="text-sm text-slate-400 hover:text-white transition-colors">Team</a>
+                </div>
+            </div>
+            <a href="#contact" class="text-xs sm:text-sm font-medium text-slate-900 bg-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-slate-100 transition-colors">
+                Book a Call
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <p class="text-xs sm:text-sm font-medium text-blue-400 uppercase tracking-wider mb-3 sm:mb-4">Enterprise AI Skilling</p>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6 text-white">
+                        The Last Mile of<br><span class="gradient-text">Enterprise AI Adoption</span>
+                    </h1>
+                    <p class="text-base sm:text-lg md:text-xl text-slate-400 max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed">
+                        Your teams have AI tools. What they lack is the skill to move from prompts to production workflows—extracting the knowledge locked in people's heads and systematizing it with AI.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+                        <a href="#training" class="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-colors text-sm sm:text-base">
+                            Explore Training
+                        </a>
+                        <a href="#contact" class="px-6 sm:px-8 py-3 sm:py-4 border border-slate-600 text-white font-medium rounded-full hover:border-slate-500 hover:bg-slate-800/50 transition-colors text-sm sm:text-base">
+                            Schedule a Call
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden lg:block relative">
+                    <!-- Abstract Network Graphic -->
+                    <svg viewBox="0 0 500 400" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.6" />
+                                <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.6" />
+                            </linearGradient>
+                            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        <!-- Outer connection web -->
+                        <line x1="80" y1="80" x2="160" y2="140" stroke="#3b82f6" stroke-width="1" opacity="0.15"/>
+                        <line x1="80" y1="80" x2="180" y2="80" stroke="#3b82f6" stroke-width="1" opacity="0.15"/>
+                        <line x1="180" y1="80" x2="250" y2="120" stroke="#3b82f6" stroke-width="1" opacity="0.2"/>
+                        <line x1="420" y1="80" x2="350" y2="140" stroke="#8b5cf6" stroke-width="1" opacity="0.15"/>
+                        <line x1="420" y1="80" x2="320" y2="80" stroke="#8b5cf6" stroke-width="1" opacity="0.15"/>
+                        <line x1="320" y1="80" x2="250" y2="120" stroke="#8b5cf6" stroke-width="1" opacity="0.2"/>
+                        <line x1="80" y1="320" x2="160" y2="260" stroke="#3b82f6" stroke-width="1" opacity="0.15"/>
+                        <line x1="80" y1="320" x2="180" y2="320" stroke="#3b82f6" stroke-width="1" opacity="0.15"/>
+                        <line x1="180" y1="320" x2="250" y2="280" stroke="#3b82f6" stroke-width="1" opacity="0.2"/>
+                        <line x1="420" y1="320" x2="350" y2="260" stroke="#8b5cf6" stroke-width="1" opacity="0.15"/>
+                        <line x1="420" y1="320" x2="320" y2="320" stroke="#8b5cf6" stroke-width="1" opacity="0.15"/>
+                        <line x1="320" y1="320" x2="250" y2="280" stroke="#8b5cf6" stroke-width="1" opacity="0.2"/>
+
+                        <!-- Mid-layer connections -->
+                        <line x1="160" y1="140" x2="250" y2="160" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
+                        <line x1="160" y1="260" x2="250" y2="240" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
+                        <line x1="350" y1="140" x2="250" y2="160" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+                        <line x1="350" y1="260" x2="250" y2="240" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+                        <line x1="160" y1="140" x2="160" y2="260" stroke="#3b82f6" stroke-width="1" opacity="0.2"/>
+                        <line x1="350" y1="140" x2="350" y2="260" stroke="#8b5cf6" stroke-width="1" opacity="0.2"/>
+
+                        <!-- Core connections to center -->
+                        <line x1="160" y1="200" x2="250" y2="200" stroke="url(#lineGrad)" stroke-width="2" opacity="0.5"/>
+                        <line x1="350" y1="200" x2="250" y2="200" stroke="url(#lineGrad)" stroke-width="2" opacity="0.5"/>
+                        <line x1="250" y1="120" x2="250" y2="200" stroke="url(#lineGrad)" stroke-width="2" opacity="0.4"/>
+                        <line x1="250" y1="280" x2="250" y2="200" stroke="url(#lineGrad)" stroke-width="2" opacity="0.4"/>
+
+                        <!-- Animated pulses traveling to center -->
+                        <circle r="4" fill="#3b82f6" opacity="0.8" filter="url(#glow)">
+                            <animateMotion dur="3s" repeatCount="indefinite" path="M160,200 L250,200"/>
+                            <animate attributeName="opacity" values="0;0.8;0" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle r="4" fill="#8b5cf6" opacity="0.8" filter="url(#glow)">
+                            <animateMotion dur="3s" repeatCount="indefinite" begin="1.5s" path="M350,200 L250,200"/>
+                            <animate attributeName="opacity" values="0;0.8;0" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+                        </circle>
+                        <circle r="3" fill="#3b82f6" opacity="0.6">
+                            <animateMotion dur="4s" repeatCount="indefinite" begin="0.5s" path="M250,120 L250,200"/>
+                            <animate attributeName="opacity" values="0;0.6;0" dur="4s" repeatCount="indefinite" begin="0.5s"/>
+                        </circle>
+                        <circle r="3" fill="#8b5cf6" opacity="0.6">
+                            <animateMotion dur="4s" repeatCount="indefinite" begin="2.5s" path="M250,280 L250,200"/>
+                            <animate attributeName="opacity" values="0;0.6;0" dur="4s" repeatCount="indefinite" begin="2.5s"/>
+                        </circle>
+
+                        <!-- Outer nodes -->
+                        <circle cx="80" cy="80" r="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+                        <circle cx="180" cy="80" r="5" fill="#1e293b" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+                        <circle cx="320" cy="80" r="5" fill="#1e293b" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+                        <circle cx="420" cy="80" r="6" fill="#1e293b" stroke="#8b5cf6" stroke-width="1" opacity="0.4"/>
+                        <circle cx="80" cy="320" r="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+                        <circle cx="180" cy="320" r="5" fill="#1e293b" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+                        <circle cx="320" cy="320" r="5" fill="#1e293b" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+                        <circle cx="420" cy="320" r="6" fill="#1e293b" stroke="#8b5cf6" stroke-width="1" opacity="0.4"/>
+
+                        <!-- Mid-layer nodes -->
+                        <circle cx="160" cy="140" r="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" opacity="0.7"/>
+                        <circle cx="160" cy="260" r="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" opacity="0.7"/>
+                        <circle cx="350" cy="140" r="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5" opacity="0.7"/>
+                        <circle cx="350" cy="260" r="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5" opacity="0.7"/>
+
+                        <!-- Inner ring nodes -->
+                        <circle cx="160" cy="200" r="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+                        <circle cx="350" cy="200" r="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+                        <circle cx="250" cy="120" r="10" fill="#1e293b" stroke="url(#nodeGrad)" stroke-width="2"/>
+                        <circle cx="250" cy="280" r="10" fill="#1e293b" stroke="url(#nodeGrad)" stroke-width="2"/>
+
+                        <!-- Center node with glow -->
+                        <circle cx="250" cy="200" r="28" fill="#1e293b" stroke="url(#nodeGrad)" stroke-width="2" filter="url(#glow)"/>
+                        <circle cx="250" cy="200" r="18" fill="url(#nodeGrad)" opacity="0.9"/>
+                        <circle cx="250" cy="200" r="8" fill="white" opacity="0.9"/>
+
+                        <!-- Subtle floating particles -->
+                        <circle cx="120" cy="170" r="2" fill="#3b82f6" opacity="0.3">
+                            <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="380" cy="170" r="2" fill="#8b5cf6" opacity="0.3">
+                            <animate attributeName="opacity" values="0.6;0.3;0.6" dur="4s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="200" cy="160" r="2" fill="#3b82f6" opacity="0.4">
+                            <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="300" cy="240" r="2" fill="#8b5cf6" opacity="0.4">
+                            <animate attributeName="opacity" values="0.5;0.2;0.5" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section - Scrolling Logos -->
+    <section class="py-8 sm:py-12 border-b border-slate-100 bg-white overflow-hidden">
+        <p class="text-center text-sm font-medium text-slate-500 uppercase tracking-wider mb-8">Trusted by leaders at</p>
+
+        <style>
+            @keyframes scrollLogos {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            .logo-track {
+                animation: scrollLogos 45s linear infinite;
+            }
+            .logo-track:hover {
+                animation-play-state: paused;
+            }
+        </style>
+
+        <div class="relative">
+            <!-- Gradient overlays -->
+            <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+            <div class="logo-track flex items-center gap-14" style="width: max-content;">
+                <!-- First set of logos -->
+                <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idc1hWCJYN/w/800/h/103/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Dell" class="h-5 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idnrCPuv87/w/800/h/347/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Accenture" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idm3_mPMQ7/w/800/h/178/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="RBC" class="h-7 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idgONjBNKe/w/800/h/117/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="ServiceNow" class="h-5 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-7 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-7 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-7 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idiOFtp60S/w/320/h/105/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="United Nations" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <span class="text-slate-400 font-semibold text-lg whitespace-nowrap opacity-60 hover:opacity-100 transition-opacity">Ritz-Carlton</span>
+                <span class="text-slate-400 font-semibold text-lg whitespace-nowrap opacity-60 hover:opacity-100 transition-opacity">Patina Hotels</span>
+
+                <!-- Duplicate set for seamless loop -->
+                <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idc1hWCJYN/w/800/h/103/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Dell" class="h-5 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idnrCPuv87/w/800/h/347/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Accenture" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idm3_mPMQ7/w/800/h/178/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="RBC" class="h-7 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idgONjBNKe/w/800/h/117/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="ServiceNow" class="h-5 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-7 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-7 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-7 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <img src="https://cdn.brandfetch.io/idiOFtp60S/w/320/h/105/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="United Nations" class="h-6 object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                <span class="text-slate-400 font-semibold text-lg whitespace-nowrap opacity-60 hover:opacity-100 transition-opacity">Ritz-Carlton</span>
+                <span class="text-slate-400 font-semibold text-lg whitespace-nowrap opacity-60 hover:opacity-100 transition-opacity">Patina Hotels</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-12 sm:py-20 px-4 sm:px-6 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="max-w-3xl">
+                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">The Problem</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">The bottleneck isn't software.<br>It's human workflow knowledge.</h2>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                    You've invested in Copilot, Gemini, and enterprise AI platforms. But your most critical workflows—approvals, compliance, operations, customer success—remain locked in people's heads. The tools are ready. Your people need the skill to extract, systematize, and operationalize that knowledge.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mt-12">
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 card-hover">
+                    <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Performative Badges</h3>
+                    <p class="text-slate-600">Vendor certifications look good on paper but don't change how work gets done. Your teams get credentials, not capabilities.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 card-hover">
+                    <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Prompt Tips ≠ Capability</h3>
+                    <p class="text-slate-600">Knowing prompt tricks doesn't translate to building workflows, automating operations, or driving real ROI.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 card-hover">
+                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Workflows Stay Hidden</h3>
+                    <p class="text-slate-600">Your most valuable processes exist in people's heads. Organizations need to extract and systematize this knowledge before it walks out the door.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section id="models" class="py-12 sm:py-20 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Our Approach</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">We don't teach AI.<br>We extract and operationalize your workflows.</h2>
+                <p class="text-lg text-slate-600">
+                    Your competitive advantage lives in the tacit knowledge of your people—the approvals, the edge cases, the "how we actually do things here." We help you extract it, systematize it, and connect it to AI platforms you already own.
+                </p>
+            </div>
+
+            <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 text-white">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Workflow Extraction & Live Builds</h3>
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            We work with your teams to surface the workflows locked in their heads—the processes, decisions, and institutional knowledge that make your organization run. Then we build functional AI-powered solutions together, deployed in hours, not months.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-slate-300">Build working prototypes from idea to deployment</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-slate-300">Extract and systematize tacit workflow knowledge</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-slate-300">Master the platforms you already have: Microsoft Copilot, Google Gemini, AWS with Claude</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
+                        <p class="text-sm text-slate-400 mb-2 font-medium">OUR COMMITMENT</p>
+                        <p class="text-xl font-medium text-white leading-relaxed">
+                            "We deliver Results as a Service—not seats, not hours, but measurable workflow improvements tied to your business outcomes."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Ladder -->
+    <section id="training" class="py-12 sm:py-20 px-4 sm:px-6 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Executive Curriculum</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Tailored Learning Pathways</h2>
+                <p class="text-lg text-slate-600 mb-6">
+                    A modular curriculum designed to meet your organization where it is. Each pathway is customized based on your team's baseline assessment, industry context, and strategic priorities.
+                </p>
+                <div class="inline-flex items-center gap-2 text-sm text-slate-500 bg-white px-4 py-2 rounded-full border border-slate-200">
+                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Click any module to explore learning outcomes
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <!-- Module 1: AI Foundations -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleAccordion(this)" class="w-full px-4 sm:px-8 py-5 sm:py-6 flex items-center justify-between hover:bg-slate-50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="text-sm font-bold text-blue-600 bg-blue-100 px-4 py-2 rounded-full whitespace-nowrap">Module 1</span>
+                            <div class="text-left">
+                                <div class="flex items-center gap-3 mb-1">
+                                    <h3 class="text-lg font-semibold text-slate-900">AI Foundations & The Mindset Shift</h3>
+                                    <span class="hidden sm:inline-flex text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">2-3 hours</span>
+                                </div>
+                                <span class="text-sm text-slate-500">Understanding AI capabilities, limitations, and strategic applications</span>
+                            </div>
+                        </div>
+                        <svg class="w-5 h-5 text-slate-400 transform transition-transform accordion-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="accordion-content hidden px-4 sm:px-8 pb-6">
+                        <div class="border-l-2 border-blue-200 ml-0 sm:ml-6 pl-4 sm:pl-8 space-y-4">
+                            <p class="text-slate-600">Build a foundational understanding of what AI can and cannot do. This module shifts mindsets from passive AI consumption to strategic AI partnership—helping teams move beyond the hype to practical business applications.</p>
+
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-900 mb-3">Learning Outcomes</h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Distinguish between different AI modalities (text, image, video, voice) and their enterprise applications
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Frame business problems effectively for AI-assisted solutions
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Evaluate AI outputs critically and iterate effectively
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Understand governance, risk, and responsible AI principles
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Design thinking for AI</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Model selection</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Prompt strategy</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Risk awareness</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2: Workflow Discovery -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleAccordion(this)" class="w-full px-4 sm:px-8 py-5 sm:py-6 flex items-center justify-between hover:bg-slate-50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="text-sm font-bold text-purple-600 bg-purple-100 px-4 py-2 rounded-full whitespace-nowrap">Module 2</span>
+                            <div class="text-left">
+                                <div class="flex items-center gap-3 mb-1">
+                                    <h3 class="text-lg font-semibold text-slate-900">Workflow Discovery & Opportunity Mapping</h3>
+                                    <span class="hidden sm:inline-flex text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">3-4 hours</span>
+                                </div>
+                                <span class="text-sm text-slate-500">Identifying high-impact AI opportunities within existing processes</span>
+                            </div>
+                        </div>
+                        <svg class="w-5 h-5 text-slate-400 transform transition-transform accordion-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="accordion-content hidden px-4 sm:px-8 pb-6">
+                        <div class="border-l-2 border-purple-200 ml-0 sm:ml-6 pl-4 sm:pl-8 space-y-4">
+                            <p class="text-slate-600">The critical skill enterprises often miss: extracting the workflows that live in experienced staff's heads. This module teaches systematic approaches to identify, document, and prioritize processes ripe for AI augmentation.</p>
+
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-900 mb-3">Learning Outcomes</h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Apply workflow extraction methodology to surface tacit knowledge
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Assess processes for AI augmentation vs. automation potential
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Prioritize opportunities based on impact, feasibility, and data availability
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Create business cases for AI initiatives with measurable ROI
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Process mapping</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Opportunity scoring</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Data assessment</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">ROI frameworks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3: Rapid Prototyping -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleAccordion(this)" class="w-full px-4 sm:px-8 py-5 sm:py-6 flex items-center justify-between hover:bg-slate-50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="text-sm font-bold text-emerald-600 bg-emerald-100 px-4 py-2 rounded-full whitespace-nowrap">Module 3</span>
+                            <div class="text-left">
+                                <div class="flex items-center gap-3 mb-1">
+                                    <h3 class="text-lg font-semibold text-slate-900">Rapid Prototyping & Solution Building</h3>
+                                    <span class="hidden sm:inline-flex text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">4-6 hours</span>
+                                </div>
+                                <span class="text-sm text-slate-500">Building functional AI tools without deep technical expertise</span>
+                            </div>
+                        </div>
+                        <svg class="w-5 h-5 text-slate-400 transform transition-transform accordion-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="accordion-content hidden px-4 sm:px-8 pb-6">
+                        <div class="border-l-2 border-emerald-200 ml-0 sm:ml-6 pl-4 sm:pl-8 space-y-4">
+                            <p class="text-slate-600">Hands-on building with modern no-code and low-code platforms. Participants leave with working prototypes they've built themselves—demonstrating the speed at which ideas can become functional solutions.</p>
+
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-900 mb-3">Learning Outcomes</h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Build functional internal tools using AI-assisted development platforms
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Create AI-powered chatbots and assistants for specific use cases
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Deploy solutions securely within enterprise constraints
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Iterate based on user feedback and performance metrics
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">No-code platforms</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">AI assistants</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Secure deployment</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">User testing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 4: Integration & Automation -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleAccordion(this)" class="w-full px-4 sm:px-8 py-5 sm:py-6 flex items-center justify-between hover:bg-slate-50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="text-sm font-bold text-amber-600 bg-amber-100 px-4 py-2 rounded-full whitespace-nowrap">Module 4</span>
+                            <div class="text-left">
+                                <div class="flex items-center gap-3 mb-1">
+                                    <h3 class="text-lg font-semibold text-slate-900">Enterprise Integration & Intelligent Automation</h3>
+                                    <span class="hidden sm:inline-flex text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">4-6 hours</span>
+                                </div>
+                                <span class="text-sm text-slate-500">Connecting AI to existing systems and proprietary data</span>
+                            </div>
+                        </div>
+                        <svg class="w-5 h-5 text-slate-400 transform transition-transform accordion-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="accordion-content hidden px-4 sm:px-8 pb-6">
+                        <div class="border-l-2 border-amber-200 ml-0 sm:ml-6 pl-4 sm:pl-8 space-y-4">
+                            <p class="text-slate-600">Where real competitive advantage emerges: connecting AI capabilities to your organization's proprietary data and existing systems. Learn to build knowledge systems that leverage institutional expertise.</p>
+
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-900 mb-3">Learning Outcomes</h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Design AI systems that leverage company data securely
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Build automated workflows that connect multiple platforms
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Implement knowledge management systems for institutional expertise
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Ensure data governance and compliance throughout
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Knowledge systems</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">API integration</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Data pipelines</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Compliance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 5: Strategic Leadership -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleAccordion(this)" class="w-full px-4 sm:px-8 py-5 sm:py-6 flex items-center justify-between hover:bg-slate-50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="text-sm font-bold text-rose-600 bg-rose-100 px-4 py-2 rounded-full whitespace-nowrap">Module 5</span>
+                            <div class="text-left">
+                                <div class="flex items-center gap-3 mb-1">
+                                    <h3 class="text-lg font-semibold text-slate-900">AI Strategy & Change Leadership</h3>
+                                    <span class="hidden sm:inline-flex text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">3-4 hours</span>
+                                </div>
+                                <span class="text-sm text-slate-500">Leading organizational AI transformation and capability building</span>
+                            </div>
+                        </div>
+                        <svg class="w-5 h-5 text-slate-400 transform transition-transform accordion-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="accordion-content hidden px-4 sm:px-8 pb-6">
+                        <div class="border-l-2 border-rose-200 ml-0 sm:ml-6 pl-4 sm:pl-8 space-y-4">
+                            <p class="text-slate-600">For senior leaders driving AI transformation. Navigate build vs. buy decisions, develop organizational AI capabilities, and lead change management initiatives that stick.</p>
+
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-900 mb-3">Learning Outcomes</h4>
+                                <ul class="space-y-2 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-rose-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Develop AI roadmaps aligned with strategic business objectives
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-rose-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Make informed build vs. buy decisions with vendor evaluation frameworks
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-rose-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Lead change management to drive adoption across teams
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <svg class="w-4 h-4 text-rose-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        Build sustainable AI capability programs within the organization
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Strategic planning</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Vendor assessment</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Change management</span>
+                                <span class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Capability building</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tailored note -->
+            <div class="mt-8 text-center">
+                <p class="text-sm text-slate-500">
+                    Curriculum pathways are customized based on your organization's needs assessment.
+                    <a href="#contact" class="text-blue-600 hover:underline">Contact us</a> to discuss your specific requirements.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.accordion-icon');
+
+            // Toggle current accordion independently (allows multiple open)
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+    </script>
+
+    <!-- Use Cases -->
+    <section class="py-12 sm:py-20 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Applications</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Where We Drive Impact</h2>
+                <p class="text-lg text-slate-600">
+                    We focus on high-impact workflows where AI can deliver measurable returns—across any industry.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Operations & Process</h3>
+                    <p class="text-slate-600">Systematize approval workflows, document processing, and decision-making that currently lives in experienced staff's heads.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Customer Success</h3>
+                    <p class="text-slate-600">Transform customer interactions with AI-augmented support, personalized communication, and proactive engagement workflows.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Knowledge Management</h3>
+                    <p class="text-slate-600">Capture institutional knowledge before it walks out the door. Build searchable, intelligent knowledge bases from tribal wisdom.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Formats -->
+    <section class="py-12 sm:py-20 px-4 sm:px-6 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Engagement Models</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Flexible Delivery Formats</h2>
+                <p class="text-slate-600">Training built around the enterprise AI platforms your organization already uses—Microsoft Copilot, Google Gemini, and AWS with Claude. No new tools to approve.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 card-hover text-center">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">Self-Paced</div>
+                    <h3 class="text-xl font-semibold mb-3">Platform Learning</h3>
+                    <p class="text-slate-600 mb-4">Asynchronous curriculum on the LastmileOS platform. Teams learn at their own pace with structured modules, hands-on exercises, and progress tracking across all major enterprise AI tools.</p>
+                    <p class="text-sm text-slate-500 mb-4">Best for: Broad team enablement, global rollouts</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">On-demand access</span>
+                        <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">Progress analytics</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 card-hover text-center">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">Half Day</div>
+                    <h3 class="text-xl font-semibold mb-3">Executive Intensive</h3>
+                    <p class="text-slate-600 mb-4">High-impact session where your leadership team builds a real AI application together using your existing enterprise tools. Demonstrate what's possible and align on strategy.</p>
+                    <p class="text-sm text-slate-500 mb-4">Best for: C-suite, senior leadership teams</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded">Live facilitation</span>
+                        <span class="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded">Hands-on building</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 card-hover text-center">
+                    <div class="text-3xl font-bold text-emerald-600 mb-2">Subscription</div>
+                    <h3 class="text-xl font-semibold mb-3">Platform Access</h3>
+                    <p class="text-slate-600 mb-4">Ongoing access to LastmileOS with continuous learning updates, new workflow templates, strategic advisory sessions, and implementation guidance as AI capabilities evolve.</p>
+                    <p class="text-sm text-slate-500 mb-4">Best for: Organizations in active transformation</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded">Continuous updates</span>
+                        <span class="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded">Advisory included</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enterprise Platform Focus -->
+            <div class="mt-12 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                        <h4 class="font-semibold text-slate-900">Built for Enterprise AI Ecosystems</h4>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm mb-4">We know enterprises can't just adopt any new tool. Our training is designed around the three cloud platforms that power 99% of enterprise AI:</p>
+                <div class="grid sm:grid-cols-3 gap-4">
+                    <div class="flex items-center gap-3 bg-slate-50 rounded-lg p-4">
+                        <div class="w-10 h-10 flex items-center justify-center flex-shrink-0">
+                            <!-- Microsoft Logo -->
+                            <svg viewBox="0 0 23 23" class="w-8 h-8">
+                                <rect x="1" y="1" width="10" height="10" fill="#f25022"/>
+                                <rect x="12" y="1" width="10" height="10" fill="#7fba00"/>
+                                <rect x="1" y="12" width="10" height="10" fill="#00a4ef"/>
+                                <rect x="12" y="12" width="10" height="10" fill="#ffb900"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-medium text-slate-900 text-sm">Microsoft Copilot</p>
+                            <p class="text-xs text-slate-500">Powered by OpenAI</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-slate-50 rounded-lg p-4">
+                        <div class="w-10 h-10 flex items-center justify-center flex-shrink-0">
+                            <!-- Google Gemini Logo -->
+                            <svg viewBox="0 0 24 24" class="w-8 h-8">
+                                <defs>
+                                    <linearGradient id="geminiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#4285f4"/>
+                                        <stop offset="25%" style="stop-color:#9b72cb"/>
+                                        <stop offset="50%" style="stop-color:#d96570"/>
+                                        <stop offset="75%" style="stop-color:#d96570"/>
+                                        <stop offset="100%" style="stop-color:#9b72cb"/>
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#geminiGrad)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                <path fill="url(#geminiGrad)" d="M12 3l2.5 5.5L20 11l-5.5 2.5L12 19l-2.5-5.5L4 11l5.5-2.5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-medium text-slate-900 text-sm">Google Gemini</p>
+                            <p class="text-xs text-slate-500">Google Cloud Platform</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-slate-50 rounded-lg p-4">
+                        <div class="w-10 h-10 flex items-center justify-center flex-shrink-0">
+                            <!-- Anthropic Claude Logo -->
+                            <svg viewBox="0 0 24 24" class="w-8 h-8">
+                                <circle cx="12" cy="12" r="11" fill="#D4A574"/>
+                                <path d="M7 8.5 L12 16 L17 8.5" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-medium text-slate-900 text-sm">Claude by Anthropic</p>
+                            <p class="text-xs text-slate-500">Amazon Bedrock / Direct</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LastmileOS Section -->
+    <section id="platform" class="py-12 sm:py-20 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Platform</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Introducing <span class="gradient-text">LastmileOS</span>
+                    </h2>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        The AI workflow optimization platform for enterprises. Like Tesla assembled scattered EV parts into a coherent system, LastmileOS brings order to enterprise AI chaos.
+                    </p>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        Your teams are drowning in AI tools—ChatGPT, Copilot, Gemini, Claude, and dozens more. LastmileOS cuts through the confusion with a unified platform that guides users from first prompt to production workflow.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Leave-behind software</span>
+                        <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Integrated training</span>
+                        <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Ongoing engagement</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-slate-900 mb-1">Real-Time Prompt Analysis</h3>
+                                <p class="text-slate-600 text-sm">Side-by-side input and improvement suggestions. Watch your prompts transform in real-time.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-slate-900 mb-1">Tool Recommendation Engine</h3>
+                                <p class="text-slate-600 text-sm">Which AI platform for which use case? LastmileOS tells you—no more guessing.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-slate-900 mb-1">Progressive Skill Building</h3>
+                                <p class="text-slate-600 text-sm">Graduate users from basic prompts to advanced workflows with integrated video training.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LastmileOS App Demo -->
+                <div class="flex items-center justify-center">
+                    <div class="w-full max-w-md">
+                        <!-- App Window -->
+                        <div class="bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-700/50">
+                            <!-- Window Header -->
+                            <div class="bg-slate-800 px-5 py-4 flex items-center justify-between border-b border-slate-700">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);">
+                                        <span class="text-white text-sm font-bold">Z</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-white font-semibold">LastmileOS</span>
+                                        <span class="text-slate-500 text-xs ml-2">Workflow Optimizer</span>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-slate-600"></div>
+                                    <div class="w-3 h-3 rounded-full bg-slate-600"></div>
+                                    <div class="w-3 h-3 rounded-full bg-slate-600"></div>
+                                </div>
+                            </div>
+
+                            <!-- App Content -->
+                            <div class="p-5">
+                                <!-- Input Section -->
+                                <div class="bg-slate-800/50 rounded-xl p-4 mb-4 border border-slate-700/50">
+                                    <div class="text-xs text-slate-500 uppercase tracking-wider mb-2 font-medium">Your Prompt</div>
+                                    <div class="bg-slate-900/60 rounded-lg p-3 text-sm text-slate-300">
+                                        Write me an email to follow up with the client about the proposal we sent last week...
+                                    </div>
+                                </div>
+
+                                <!-- Optimized Output -->
+                                <div class="bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-xl p-4 mb-4 border border-blue-500/30">
+                                    <div class="text-xs text-blue-400 uppercase tracking-wider mb-2 font-medium">Optimized Output</div>
+                                    <div class="text-sm text-slate-200 leading-relaxed space-y-1">
+                                        <p><span class="text-blue-400 font-medium">[Role]</span> Senior account manager at Acme Corp</p>
+                                        <p><span class="text-purple-400 font-medium">[Context]</span> Following up on Q4 proposal #247</p>
+                                        <p><span class="text-emerald-400 font-medium">[Goal]</span> Schedule decision call this week</p>
+                                    </div>
+                                    <div class="mt-3 flex items-center gap-2">
+                                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span class="text-sm text-emerald-400 font-medium">3x more effective</span>
+                                    </div>
+                                </div>
+
+                                <!-- Tool Recommendation with Claude Logo -->
+                                <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50">
+                                    <div class="text-xs text-slate-500 uppercase tracking-wider mb-3 font-medium">Recommended Tool</div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-3">
+                                            <!-- Claude Logo -->
+                                            <div class="w-10 h-10 rounded-xl bg-[#D97757] flex items-center justify-center">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                                    <path d="M4.709 15.955l4.72-2.647.08-.08v-.08l-.08-.08-2.086-.239-.558-.558.319-1.036.718-.399.16-.558-.16-.479-1.116-.718-.16-.638.24-.16.558.08.718-.4.08-.239-.24-.558.16-.16 1.196.08.558-.479-.08-.16-.558-.08-.399-.638.319-.24 1.196.32.319-.24.08-.319-.319-.399.16-.239.558.16.958.877.08.24-.24.159-.558-.08-.718-.558-.16-.08.08-.319.479.16 1.435.797.08.24-.16.239-.877-.239-.319-.24-.16-.08-.08.16.08.399.638.479.24.08.08-.08.08-.319-.24-.399-.16-.16.08-.16.319-.08.957.24 1.356.877.159.16-.08.24-.638-.08-.558-.32-.08-.16v-.08l.16-.08.558.16.877.24.16-.08v-.16l-.4-.479-.159-.24.08-.08.319.08.638.32.718.558.08.08.08-.08.08-.4-.4-.558-.239-.16.16-.08.478.08.718.4.24.08.08-.16-.16-.479-.08-.16.24-.08.558.32.479.319.08-.16-.08-.4-.24-.319.16-.16.479.24.558.479h.08l.08-.24-.16-.479-.16-.24.16-.08.479.32.399.319.08-.08.08-.319-.24-.479.16-.16.399.24.399.399.16-.08v-.24l-.24-.479.08-.16.4.24.24.16v-.16l-.16-.4.08-.08.32.16.159.08v-.16l-.08-.32.08-.08.24.16.08-.08-.08-.24-.08-.08.16-.08.16.08v-.08l-.08-.16 7.267-4.073.08.08-.08.399-7.108 3.913-.08.32.16.08.08-.08 7.108-3.993.16.08-.08.32-7.108 3.993-.08.24.08.08h.08l7.188-3.913.08.08v.319l-7.108 3.913v.24l.08.08h.08l7.108-3.833.08.08-.08.24-7.028 3.833-.08.32.16.08 7.108-3.754v.16l-.08.24-6.949 3.753-.08.24.08.08 7.029-3.674-.08.32-6.869 3.593-.16.32.16.08 6.869-3.514-.08.32-6.79 3.433-.08.32.16.08 6.79-3.354-.08.24-6.71 3.274-.08.32.16.08 6.63-3.195-.08.32-6.55 3.115-.08.24.08.08 6.55-3.035-.08.32-6.47 2.955v.24l.08.08 6.47-2.876-.08.24-6.39 2.796-.08.32.16.08 6.31-2.716-.08.32-6.23 2.636-.08.24.08.08 6.15-2.557-.08.32-6.07 2.477v.24l.08.08 5.99-2.398-.08.32-5.91 2.318v.24l.08.08 5.83-2.239-.08.24-5.75 2.159-.08.32.16.08 5.67-2.08-.08.32-5.59 2v.24l.08.08 5.51-1.92-.08.24-5.43 1.84-.08.32.16.08L19.251 9.4l-.08.32-5.27 1.68-.08.32.16.08 5.19-1.6-.08.24-5.11 1.52-.08.32.16.08 5.03-1.44-.08.32-4.95 1.36v.24l.08.08 4.87-1.28-.08.24L14.06 13l-.08.32.16.08 4.71-1.12-.08.32-4.63 1.04v.24l.08.08 4.55-.96-.08.24-4.47.88-.08.32.16.08 4.39-.8-.08.32-4.31.72v.24l.08.08 4.23-.64-.08.24-4.15.56-.08.32.16.08 4.07-.48-.08.32-3.99.4v.24l.08.08 3.91-.32-.08.24-3.83.24-.08.32.16.08 3.75-.16-.08.32-3.67.08v.24l.08.08h3.59l-.08.24h-3.51l-.08.32.16.08h3.43l-.08.32h-3.35v.24l.08.08h3.27l-.08.24h-3.19l-.08.32.16.08h3.11l-.08.32h-3.03v.24l.08.08h2.95l-.08.24h-2.87l-.08.32.16.08h2.79l-.08.32h-2.71v.24l.08.08h2.63l-.08.24h-2.55l-.08.32.16.08h2.47l-.08.32h-2.39v.24l.08.08h2.31l-.08.24h-2.23l-.08.32h.16z"/>
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <span class="text-white font-medium">Claude 3.5 Sonnet</span>
+                                                <p class="text-xs text-slate-400">Best for business writing</p>
+                                            </div>
+                                        </div>
+                                        <div class="px-4 py-2 rounded-lg text-white text-sm font-medium" style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);">
+                                            Use
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-12 sm:py-20 px-4 sm:px-6 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Leadership Team</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Built by Operators, for Operators</h2>
+                <p class="text-lg text-slate-600">
+                    We've spent our careers building, scaling, and transforming organizations. Now we're helping others do the same with AI.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-8">
+                <!-- Nadim -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200">
+                    <div class="flex flex-col sm:flex-row items-start gap-6">
+                        <img
+                            src="nad.jpeg"
+                            alt="Nadim Nasser"
+                            class="w-24 h-24 rounded-xl object-cover flex-shrink-0"
+                        />
+                        <div>
+                            <h3 class="text-xl font-semibold">Nadim Nasser</h3>
+                            <p class="text-blue-600 font-medium mb-4">Co-Founder & CEO</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Educator and AI transformation specialist with 15+ years designing learning programs for thousands across 50+ countries. Founded Apollo School (exited) and was part of the founding team at University of Central Asia.
+                            </p>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Created and piloted AI initiatives with The Knowledge Society, Mindvalley University, and Alpha School. Leads execution, curriculum design, and hands-on delivery—helping non-technical professionals build with AI, not just use it.
+                            </p>
+                            <div class="flex items-center gap-4 mt-4 text-sm text-slate-500">
+                                <span>1,000+ professionals trained</span>
+                                <span>•</span>
+                                <span>100+ coaching clients</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Armughan -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200">
+                    <div class="flex flex-col sm:flex-row items-start gap-6">
+                        <img
+                            src="arm.jpeg"
+                            alt="Armughan Ahmad"
+                            class="w-24 h-24 rounded-xl object-cover flex-shrink-0"
+                        />
+                        <div>
+                            <h3 class="text-xl font-semibold">Armughan Ahmad</h3>
+                            <p class="text-blue-600 font-medium mb-4">Co-Founder, Strategic Advisor</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Global technology executive, investor, and board director with 25+ years leading enterprise technology transformations. Most recently President & CEO of Appen, leading the publicly traded AI company's transformation to serve hyperscalers and Fortune 50 enterprises.
+                            </p>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Previously Managing Partner at KPMG Digital & Innovation, and SVP/GM at Dell EMC leading Hybrid Cloud and HPC. Executive AI Advisor to ServiceNow and TELUS. Co-Founder of Vision Studio Ventures (AI-focused VC).
+                            </p>
+                            <div class="flex items-center gap-4 mt-4 text-sm text-slate-500">
+                                <span>Board: Flexential, Trillium Health Partners</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Danish -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200">
+                    <div class="flex flex-col sm:flex-row items-start gap-6">
+                        <img
+                            src="https://cdn.theorg.com/af29988e-f76b-410e-8a63-e3bdff543d40_medium.jpg"
+                            alt="Danish Dhamani"
+                            class="w-24 h-24 rounded-xl object-cover flex-shrink-0"
+                        />
+                        <div>
+                            <h3 class="text-xl font-semibold">Danish Dhamani</h3>
+                            <p class="text-blue-600 font-medium mb-4">Chief Learning Officer</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Forbes 30 Under 30 entrepreneur and TEDx speaker with 2.5M+ views. Co-Founder & CEO of Orai, the AI speech coaching platform that has helped 300,000+ people communicate with confidence.
+                            </p>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                TEDx speaker coach who trains the speakers who grace TEDx stages. Previously co-founded Unwire.ai, raising $1M for LLM-powered products. Passionate about making communication a learnable skill for everyone.
+                            </p>
+                            <div class="flex items-center gap-4 mt-4 text-sm text-slate-500">
+                                <span>300K+ people coached</span>
+                                <span>•</span>
+                                <span>2M+ speeches analyzed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Azim -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200">
+                    <div class="flex flex-col sm:flex-row items-start gap-6">
+                        <img
+                            src="azim.jpeg"
+                            alt="Azim Ahmed"
+                            class="w-24 h-24 rounded-xl object-cover flex-shrink-0"
+                        />
+                        <div>
+                            <h3 class="text-xl font-semibold">Azim Ahmed</h3>
+                            <p class="text-blue-600 font-medium mb-4">Chief Technology Officer</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Head of Engineering at Lazer Technologies for 5+ years, building and scaling production systems. Known for streamlining CI/CD pipelines and shipping AI-powered products that teams actually use.
+                            </p>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Open-source contributor with expertise in mobile development, automation systems, and emerging technologies including Web3. Passionate about turning complex technical challenges into simple, deployable solutions.
+                            </p>
+                            <div class="flex items-center gap-4 mt-4 text-sm text-slate-500">
+                                <span>5+ years engineering leadership</span>
+                                <span>•</span>
+                                <span>CI/CD & automation expert</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Board of Advisors Section -->
+    <section class="py-12 sm:py-16 px-4 sm:px-6 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Board of Advisors</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Strategic Guidance</h2>
+                <p class="text-lg text-slate-600">
+                    Industry leaders providing strategic oversight and enterprise connections.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Advisor 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-slate-400 text-2xl">1</span>
+                    </div>
+                    <h3 class="font-semibold text-slate-900">Advisor Name</h3>
+                    <p class="text-sm text-blue-600 mb-2">Title</p>
+                    <p class="text-xs text-slate-500">Company/Background</p>
+                </div>
+
+                <!-- Advisor 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-slate-400 text-2xl">2</span>
+                    </div>
+                    <h3 class="font-semibold text-slate-900">Advisor Name</h3>
+                    <p class="text-sm text-blue-600 mb-2">Title</p>
+                    <p class="text-xs text-slate-500">Company/Background</p>
+                </div>
+
+                <!-- Advisor 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-slate-400 text-2xl">3</span>
+                    </div>
+                    <h3 class="font-semibold text-slate-900">Advisor Name</h3>
+                    <p class="text-sm text-blue-600 mb-2">Title</p>
+                    <p class="text-xs text-slate-500">Company/Background</p>
+                </div>
+
+                <!-- Advisor 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-slate-400 text-2xl">4</span>
+                    </div>
+                    <h3 class="font-semibold text-slate-900">Advisor Name</h3>
+                    <p class="text-sm text-blue-600 mb-2">Title</p>
+                    <p class="text-xs text-slate-500">Company/Background</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consulting Team Section -->
+    <section class="py-12 sm:py-20 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Consulting Team</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Expert Practitioners</h2>
+                <p class="text-lg text-slate-600">
+                    Our consulting team brings deep expertise in AI implementation, engineering, and enterprise transformation.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Will -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-hover">
+                    <img
+                        src="will.jpeg"
+                        alt="William Lancaster"
+                        class="w-20 h-20 rounded-xl object-cover mx-auto mb-4"
+                    />
+                    <h3 class="text-lg font-semibold text-center">William Lancaster</h3>
+                    <p class="text-emerald-600 text-sm text-center mb-4">AI Solutions Architect</p>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span>15+ years software development & AI engineering</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span>Enterprise integrations: Copilot, Gemini, Claude APIs</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span>Former Head of Engineering at TKS</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span>Built AI automation systems for Fortune 500 clients</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span>RAG pipelines & knowledge management specialist</span>
+                        </li>
+                    </ul>
+                    <a href="https://william-lancaster.com" target="_blank" class="mt-4 block text-center text-xs text-emerald-600 hover:text-emerald-800">william-lancaster.com →</a>
+                </div>
+
+                <!-- Mishaal -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-hover">
+                    <img
+                        src="mishaal.jpeg"
+                        alt="Mishaal Lakhani"
+                        class="w-20 h-20 rounded-xl object-cover mx-auto mb-4"
+                    />
+                    <h3 class="text-lg font-semibold text-center">Mishaal Lakhani</h3>
+                    <p class="text-rose-600 text-sm text-center mb-4">AI Learning & Enablement Lead</p>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="text-rose-500 mt-1">•</span>
+                            <span>1,000+ professionals trained in AI fluency</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-rose-500 mt-1">•</span>
+                            <span>AI curriculum deployed across 22 jurisdictions</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-rose-500 mt-1">•</span>
+                            <span>Workflow extraction & process optimization</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-rose-500 mt-1">•</span>
+                            <span>Enterprise change management & AI adoption</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-rose-500 mt-1">•</span>
+                            <span>Custom training programs for executive teams</span>
+                        </li>
+                    </ul>
+                    <a href="https://actuallyuseful.tech" target="_blank" class="mt-4 block text-center text-xs text-rose-600 hover:text-rose-800">actuallyuseful.tech →</a>
+                </div>
+
+                <!-- Kaiz -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-hover">
+                    <img
+                        src="kaiz.jpeg"
+                        alt="Kaiz Alarakyia"
+                        class="w-20 h-20 rounded-xl object-cover mx-auto mb-4"
+                    />
+                    <h3 class="text-lg font-semibold text-center">Kaiz Alarakyia</h3>
+                    <p class="text-indigo-600 text-sm text-center mb-4">AI Strategy & Partnerships</p>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-500 mt-1">•</span>
+                            <span>Google DeepMind—frontier AI research & deployment</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-500 mt-1">•</span>
+                            <span>Harvard Business School</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-500 mt-1">•</span>
+                            <span>Enterprise AI strategy & roadmap development</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-500 mt-1">•</span>
+                            <span>C-suite advisory on AI transformation initiatives</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-500 mt-1">•</span>
+                            <span>Global experience across North America & EMEA</span>
+                        </li>
+                    </ul>
+                    <a href="https://www.linkedin.com/in/kaizalarakyia/" target="_blank" class="mt-4 block text-center text-xs text-indigo-600 hover:text-indigo-800">LinkedIn →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiation -->
+    <section class="py-12 sm:py-20 px-4 sm:px-6 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <p class="text-sm font-medium text-blue-400 uppercase tracking-wider mb-4">Why Us</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">This Is Not Generic AI Training</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">What we are:</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">Hands-on building with enterprise-grade tools</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">Workflow transformation with measurable ROI</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">Real capability transfer, not credentials</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-slate-300">Small, focused engagements with senior practitioners</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">What we're not:</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            <span class="text-slate-400">AI keynote speaking</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            <span class="text-slate-400">Generic prompt training at scale</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            <span class="text-slate-400">Vendor certification replacement</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            <span class="text-slate-400">Theory-heavy workshops with no tangible output</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-12 sm:py-20 bg-slate-50 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Results</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">What Leaders Are Saying</h2>
+            </div>
+        </div>
+
+        <style>
+            @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            .testimonial-track {
+                animation: scroll 40s linear infinite;
+            }
+            .testimonial-track:hover {
+                animation-play-state: paused;
+            }
+        </style>
+
+        <div class="relative">
+            <!-- Gradient overlays for fade effect -->
+            <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+
+            <div class="testimonial-track flex gap-6" style="width: max-content;">
+                <!-- Testimonial 1 -->
+                <div class="flex-shrink-0 w-80 sm:w-96">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 h-full shadow-sm">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Testimonial" class="w-12 h-12 rounded-full object-cover"/>
+                            <div>
+                                <p class="font-semibold text-slate-900">David Chen</p>
+                                <p class="text-sm text-slate-500">COO, TechScale Inc.</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">"Our operations team went from AI-curious to building their own workflow automations in weeks. The hands-on approach made all the difference."</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="flex-shrink-0 w-80 sm:w-96">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 h-full shadow-sm">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Testimonial" class="w-12 h-12 rounded-full object-cover"/>
+                            <div>
+                                <p class="font-semibold text-slate-900">Sarah Mitchell</p>
+                                <p class="text-sm text-slate-500">VP Operations, Meridian Capital</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">"Finally, training that doesn't end with slides. Our team built actual tools we still use daily. The ROI was clear within the first month."</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="flex-shrink-0 w-80 sm:w-96">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 h-full shadow-sm">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Testimonial" class="w-12 h-12 rounded-full object-cover"/>
+                            <div>
+                                <p class="font-semibold text-slate-900">Marcus Johnson</p>
+                                <p class="text-sm text-slate-500">CEO, Apex Consulting</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">"The Lastmile team understood our workflows before teaching us anything. That context made their training immediately applicable to our business."</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="flex-shrink-0 w-80 sm:w-96">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 h-full shadow-sm">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Testimonial" class="w-12 h-12 rounded-full object-cover"/>
+                            <div>
+                                <p class="font-semibold text-slate-900">Emily Rodriguez</p>
+                                <p class="text-sm text-slate-500">Director of Innovation, GlobalTech</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">"We've tried other AI training programs. This is the first one where our non-technical staff actually built something on day one."</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="flex-shrink-0 w-80 sm:w-96">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 h-full shadow-sm">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face" alt="Testimonial" class="w-12 h-12 rounded-full object-cover"/>
+                            <div>
+                                <p class="font-semibold text-slate-900">James Park</p>
+                                <p class="text-sm text-slate-500">Managing Partner, Summit Ventures</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">"The cohort program transformed how our portfolio companies think about AI. Practical, outcome-focused, and immediately valuable."</p>
+                    </div>
+                </div>
+
+                <!-- Duplicated testimonials for seamless loop -->
+                <!-- Testimonial 1 (duplicate) -->
+                <div class="flex-shrink-0 w-80 sm:w-96">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 h-full shadow-sm">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Testimonial" class="w-12 h-12 rounded-full object-cover"/>
+                            <div>
+                                <p class="font-semibold text-slate-900">David Chen</p>
+                                <p class="text-sm text-slate-500">COO, TechScale Inc.</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">"Our operations team went from AI-curious to building their own workflow automations in weeks. The hands-on approach made all the difference."</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 (duplicate) -->
+                <div class="flex-shrink-0 w-80 sm:w-96">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 h-full shadow-sm">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Testimonial" class="w-12 h-12 rounded-full object-cover"/>
+                            <div>
+                                <p class="font-semibold text-slate-900">Sarah Mitchell</p>
+                                <p class="text-sm text-slate-500">VP Operations, Meridian Capital</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">"Finally, training that doesn't end with slides. Our team built actual tools we still use daily. The ROI was clear within the first month."</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 (duplicate) -->
+                <div class="flex-shrink-0 w-80 sm:w-96">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 h-full shadow-sm">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Testimonial" class="w-12 h-12 rounded-full object-cover"/>
+                            <div>
+                                <p class="font-semibold text-slate-900">Marcus Johnson</p>
+                                <p class="text-sm text-slate-500">CEO, Apex Consulting</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">"The Lastmile team understood our workflows before teaching us anything. That context made their training immediately applicable to our business."</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 (duplicate) -->
+                <div class="flex-shrink-0 w-80 sm:w-96">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 h-full shadow-sm">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Testimonial" class="w-12 h-12 rounded-full object-cover"/>
+                            <div>
+                                <p class="font-semibold text-slate-900">Emily Rodriguez</p>
+                                <p class="text-sm text-slate-500">Director of Innovation, GlobalTech</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">"We've tried other AI training programs. This is the first one where our non-technical staff actually built something on day one."</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 (duplicate) -->
+                <div class="flex-shrink-0 w-80 sm:w-96">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 h-full shadow-sm">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face" alt="Testimonial" class="w-12 h-12 rounded-full object-cover"/>
+                            <div>
+                                <p class="font-semibold text-slate-900">James Park</p>
+                                <p class="text-sm text-slate-500">Managing Partner, Summit Ventures</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">"The cohort program transformed how our portfolio companies think about AI. Practical, outcome-focused, and immediately valuable."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-12 sm:py-20 px-4 sm:px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Next Steps</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Build?</h2>
+            <p class="text-lg text-slate-600 mb-10">
+                Let's discuss how we can help your organization move from AI curiosity to operational transformation.
+                Book a 30-minute call to explore the right engagement for your team.
+            </p>
+
+            <div class="bg-slate-50 rounded-2xl p-8 md:p-12">
+                <div class="flex justify-center">
+                    <a href="https://cal.com/nadimnasser/lastmile-intro-call" class="px-10 py-4 bg-slate-900 text-white font-medium rounded-full hover:bg-slate-800 transition-colors text-center">
+                        Book an Intro Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-slate-100">
+        <div class="max-w-6xl mx-auto text-center text-slate-500 text-sm">
+            <p>&copy; 2025 Lastmile</p>
+        </div>
+    </footer>
+
+</body>
+</html>
