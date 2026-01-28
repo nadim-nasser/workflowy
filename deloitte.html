@@ -16,6 +16,8 @@
             align-items: center;
             justify-content: center;
             scroll-snap-align: start;
+            position: relative;
+            overflow: hidden;
         }
         html {
             scroll-snap-type: y mandatory;
@@ -27,6 +29,31 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.7; }
+        }
+        .float-animation { animation: float 6s ease-in-out infinite; }
+        .pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+        .bg-grid {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .bg-dots {
+            background-image: radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        @keyframes scrollLogos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .logo-track { animation: scrollLogos 30s linear infinite; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
@@ -49,13 +76,20 @@
     </nav>
 
     <!-- Slide 1: Cover -->
-    <section id="cover" class="slide bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-        <div class="max-w-4xl mx-auto px-8 text-center">
+    <section id="cover" class="slide bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white bg-grid">
+        <!-- Decorative elements -->
+        <div class="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pulse-glow"></div>
+        <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pulse-glow" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/4 right-1/4 w-2 h-2 bg-blue-400 rounded-full float-animation"></div>
+        <div class="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 bg-purple-400 rounded-full float-animation" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 right-1/3 w-1 h-1 bg-emerald-400 rounded-full float-animation" style="animation-delay: 3s;"></div>
+
+        <div class="max-w-4xl mx-auto px-8 text-center relative z-10">
             <div class="mb-8">
                 <div class="flex items-center justify-center gap-8 mb-12">
                     <!-- Workflowy Logo -->
                     <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25">
                             <span class="text-white font-bold text-xl">W</span>
                         </div>
                         <span class="text-2xl font-semibold">Workflowy</span>
@@ -63,15 +97,28 @@
                     <span class="text-slate-500 text-2xl">×</span>
                     <!-- Deloitte Logo -->
                     <div class="flex items-center gap-2">
-                        <div class="w-4 h-4 bg-[#86BC25] rounded-full"></div>
+                        <div class="w-4 h-4 bg-[#86BC25] rounded-full shadow-lg shadow-[#86BC25]/30"></div>
                         <span class="text-2xl font-semibold tracking-tight">Deloitte</span>
                     </div>
                 </div>
             </div>
-            <h1 class="text-5xl md:text-6xl font-bold mb-6">Executive AI Training</h1>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Executive AI Training</h1>
             <p class="text-xl md:text-2xl text-slate-300 mb-4">Half-Day Intensive for Deloitte Leaders</p>
-            <p class="text-slate-400">January 2026</p>
-            <div class="mt-16">
+            <p class="text-slate-400 mb-8">January 2026</p>
+
+            <!-- Trusted by logos -->
+            <div class="mt-12 pt-8 border-t border-slate-700/50">
+                <p class="text-xs text-slate-500 uppercase tracking-widest mb-6">Trusted by leaders at</p>
+                <div class="flex items-center justify-center gap-8 flex-wrap opacity-60">
+                    <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png" alt="Microsoft" class="h-6 object-contain">
+                    <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png" alt="Google" class="h-6 object-contain">
+                    <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png" alt="KPMG" class="h-5 object-contain">
+                    <img src="td-logo.png" alt="TD Bank" class="h-6 object-contain">
+                    <img src="rbc-logo.png" alt="RBC" class="h-6 object-contain">
+                </div>
+            </div>
+
+            <div class="mt-12">
                 <svg class="w-6 h-6 mx-auto text-slate-500 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                 </svg>
@@ -493,8 +540,13 @@
             <h2 class="text-4xl md:text-5xl font-bold mb-12">What your leaders leave with</h2>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8">
-                    <h3 class="font-semibold text-lg mb-4 text-slate-900">Mindset Shift</h3>
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        </div>
+                        <h3 class="font-semibold text-lg text-slate-900">Mindset Shift</h3>
+                    </div>
                     <ul class="space-y-3 text-slate-700">
                         <li class="flex items-start gap-3">
                             <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
@@ -511,8 +563,13 @@
                     </ul>
                 </div>
 
-                <div class="bg-gradient-to-br from-purple-50 to-emerald-50 rounded-2xl p-8">
-                    <h3 class="font-semibold text-lg mb-4 text-slate-900">Practical Skills</h3>
+                <div class="bg-gradient-to-br from-purple-50 to-emerald-50 rounded-2xl p-8 border border-purple-100">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <h3 class="font-semibold text-lg text-slate-900">Practical Skills</h3>
+                    </div>
                     <ul class="space-y-3 text-slate-700">
                         <li class="flex items-start gap-3">
                             <svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
@@ -529,8 +586,13 @@
                     </ul>
                 </div>
 
-                <div class="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-2xl p-8">
-                    <h3 class="font-semibold text-lg mb-4 text-slate-900">Tangible Deliverables</h3>
+                <div class="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-2xl p-8 border border-emerald-100">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <h3 class="font-semibold text-lg text-slate-900">Tangible Deliverables</h3>
+                    </div>
                     <ul class="space-y-3 text-slate-700">
                         <li class="flex items-start gap-3">
                             <svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
@@ -547,8 +609,13 @@
                     </ul>
                 </div>
 
-                <div class="bg-gradient-to-br from-amber-50 to-rose-50 rounded-2xl p-8">
-                    <h3 class="font-semibold text-lg mb-4 text-slate-900">Post-Session Resources</h3>
+                <div class="bg-gradient-to-br from-amber-50 to-rose-50 rounded-2xl p-8 border border-amber-100">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-amber-600 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <h3 class="font-semibold text-lg text-slate-900">Post-Session Resources</h3>
+                    </div>
                     <ul class="space-y-3 text-slate-700">
                         <li class="flex items-start gap-3">
                             <svg class="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
@@ -569,42 +636,51 @@
     </section>
 
     <!-- Slide 7: Why Workflowy -->
-    <section id="why" class="slide bg-slate-50">
-        <div class="max-w-5xl mx-auto px-8">
+    <section id="why" class="slide bg-slate-50 bg-dots">
+        <div class="max-w-5xl mx-auto px-8 relative z-10">
             <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Why Workflowy</p>
             <h2 class="text-4xl md:text-5xl font-bold mb-12">What makes us different</h2>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-lg hover:border-blue-200 transition-all">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-blue-500/25">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                     </div>
-                    <h3 class="font-semibold text-lg mb-2">Hands-On, Not Theory</h3>
-                    <p class="text-slate-600">Participants build real tools during the session. No death by PowerPoint.</p>
+                    <h3 class="font-bold text-lg mb-3">Hands-On, Not Theory</h3>
+                    <p class="text-slate-600 text-sm">Participants build real tools during the session. No death by PowerPoint.</p>
                 </div>
 
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-lg hover:border-purple-200 transition-all">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-purple-500/25">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     </div>
-                    <h3 class="font-semibold text-lg mb-2">Your Tools, Your Constraints</h3>
-                    <p class="text-slate-600">We work within your approved tech stack and compliance requirements.</p>
+                    <h3 class="font-bold text-lg mb-3">Your Tools, Your Constraints</h3>
+                    <p class="text-slate-600 text-sm">We work within your approved tech stack and compliance requirements.</p>
                 </div>
 
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-lg hover:border-emerald-200 transition-all">
+                    <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-emerald-500/25">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
-                    <h3 class="font-semibold text-lg mb-2">Results, Not Inspiration</h3>
-                    <p class="text-slate-600">Measurable skill progression. Clear ROI. Monday morning behavior change.</p>
+                    <h3 class="font-bold text-lg mb-3">Results, Not Inspiration</h3>
+                    <p class="text-slate-600 text-sm">Measurable skill progression. Clear ROI. Monday morning behavior change.</p>
                 </div>
             </div>
 
-            <div class="mt-16 bg-white rounded-2xl p-8 border border-slate-200">
-                <p class="text-slate-600 text-center max-w-3xl mx-auto">
-                    <span class="font-semibold text-slate-900">"Most AI training stops at awareness. We stop at execution."</span><br>
-                    <span class="text-sm mt-2 block">We don't just teach people about AI. We ensure they use it.</span>
-                </p>
+            <div class="mt-12 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-8 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl"></div>
+                <div class="relative z-10 flex items-center gap-6">
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-lg font-medium mb-1">"Most AI training stops at awareness. We stop at execution."</p>
+                        <p class="text-slate-400 text-sm">We don't just teach people about AI. We ensure they use it.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -677,43 +753,65 @@
     </section>
 
     <!-- Slide 9: Investment -->
-    <section id="investment" class="slide bg-slate-900 text-white">
-        <div class="max-w-4xl mx-auto px-8 text-center">
+    <section id="investment" class="slide bg-slate-900 text-white bg-grid">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-4xl mx-auto px-8 text-center relative z-10">
             <p class="text-sm font-medium text-blue-400 uppercase tracking-wider mb-4">Investment</p>
             <h2 class="text-4xl md:text-5xl font-bold mb-8">Half-Day Executive Intensive</h2>
 
-            <div class="bg-slate-800 rounded-3xl p-12 mb-8">
-                <div class="text-6xl font-bold mb-2">$25,000</div>
-                <p class="text-slate-400 text-lg">For 20 participants</p>
-                <p class="text-slate-500">$1,250 per executive</p>
+            <div class="bg-gradient-to-br from-slate-800 to-slate-800/50 rounded-3xl p-12 mb-8 border border-slate-700 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl"></div>
+                <div class="relative z-10">
+                    <div class="text-6xl font-bold mb-2 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">$25,000</div>
+                    <p class="text-slate-400 text-lg">For 20 participants</p>
+                    <p class="text-slate-500">$1,250 per executive</p>
+                </div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6 text-left">
-                <div class="bg-slate-800/50 rounded-xl p-6">
-                    <h4 class="font-semibold mb-3">Included</h4>
+                <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50 hover:border-blue-500/30 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <h4 class="font-semibold">Included</h4>
+                    </div>
                     <ul class="space-y-2 text-slate-300 text-sm">
-                        <li>Pre-session discovery call</li>
-                        <li>Customized curriculum</li>
-                        <li>4-hour live intensive</li>
-                        <li>All materials & resources</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-blue-400 rounded-full"></span>Pre-session discovery call</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-blue-400 rounded-full"></span>Customized curriculum</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-blue-400 rounded-full"></span>4-hour live intensive</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-blue-400 rounded-full"></span>All materials & resources</li>
                     </ul>
                 </div>
-                <div class="bg-slate-800/50 rounded-xl p-6">
-                    <h4 class="font-semibold mb-3">Deliverables</h4>
+                <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/30 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <h4 class="font-semibold">Deliverables</h4>
+                    </div>
                     <ul class="space-y-2 text-slate-300 text-sm">
-                        <li>Individual scorecards</li>
-                        <li>Role-specific prompt library</li>
-                        <li>Workflow roadmaps</li>
-                        <li>Resource kit</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-purple-400 rounded-full"></span>Individual scorecards</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-purple-400 rounded-full"></span>Role-specific prompt library</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-purple-400 rounded-full"></span>Workflow roadmaps</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-purple-400 rounded-full"></span>Resource kit</li>
                     </ul>
                 </div>
-                <div class="bg-slate-800/50 rounded-xl p-6">
-                    <h4 class="font-semibold mb-3">Follow-up</h4>
+                <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50 hover:border-emerald-500/30 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        </div>
+                        <h4 class="font-semibold">Follow-up</h4>
+                    </div>
                     <ul class="space-y-2 text-slate-300 text-sm">
-                        <li>30-day email series</li>
-                        <li>Partner network access</li>
-                        <li>Expansion options</li>
-                        <li>Volume discounts available</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-emerald-400 rounded-full"></span>30-day email series</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-emerald-400 rounded-full"></span>Partner network access</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-emerald-400 rounded-full"></span>Expansion options</li>
+                        <li class="flex items-center gap-2"><span class="w-1 h-1 bg-emerald-400 rounded-full"></span>Volume discounts available</li>
                     </ul>
                 </div>
             </div>
@@ -721,17 +819,22 @@
     </section>
 
     <!-- Slide 10: Closing -->
-    <section id="next" class="slide bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-        <div class="max-w-4xl mx-auto px-8 text-center">
+    <section id="next" class="slide bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white bg-grid">
+        <div class="absolute top-20 right-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pulse-glow"></div>
+        <div class="absolute bottom-20 left-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pulse-glow" style="animation-delay: 2s;"></div>
+
+        <div class="max-w-4xl mx-auto px-8 text-center relative z-10">
             <div class="mb-12">
-                <svg class="w-16 h-16 mx-auto text-blue-400 mb-8 opacity-50" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                </svg>
+                <div class="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center border border-slate-700">
+                    <svg class="w-10 h-10 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+                </div>
                 <blockquote class="text-2xl md:text-3xl font-medium leading-relaxed mb-8 text-slate-200">
                     "The gap isn't in AI capabilities—it's in human adoption. Companies are spending millions on AI tools that sit unused because people don't know how to integrate them into their daily workflows. We bridge that gap."
                 </blockquote>
                 <div class="flex items-center justify-center gap-4">
-                    <img src="nad.jpeg" alt="Nadim Nasser" class="w-14 h-14 rounded-full object-cover border-2 border-blue-400">
+                    <img src="nad.jpeg" alt="Nadim Nasser" class="w-14 h-14 rounded-full object-cover border-2 border-blue-400 shadow-lg shadow-blue-500/25">
                     <div class="text-left">
                         <p class="font-semibold text-lg">Nadim Nasser</p>
                         <p class="text-slate-400">CEO, Workflowy</p>
