@@ -35,6 +35,7 @@
     <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-3">
         <a href="#cover" class="w-3 h-3 rounded-full bg-slate-300 hover:bg-blue-600 transition-colors"></a>
         <a href="#challenge" class="w-3 h-3 rounded-full bg-slate-300 hover:bg-blue-600 transition-colors"></a>
+        <a href="#solution" class="w-3 h-3 rounded-full bg-slate-300 hover:bg-blue-600 transition-colors"></a>
         <a href="#evolution" class="w-3 h-3 rounded-full bg-slate-300 hover:bg-blue-600 transition-colors"></a>
         <a href="#skills" class="w-3 h-3 rounded-full bg-slate-300 hover:bg-blue-600 transition-colors"></a>
         <a href="#approach" class="w-3 h-3 rounded-full bg-slate-300 hover:bg-blue-600 transition-colors"></a>
@@ -137,7 +138,57 @@
         </div>
     </section>
 
-    <!-- Slide 3: The Evolution -->
+    <!-- Slide 3: Our Solution -->
+    <section id="solution" class="slide bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+        <div class="max-w-5xl mx-auto px-8">
+            <p class="text-sm font-medium text-blue-400 uppercase tracking-wider mb-4">Our Solution</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">We don't teach AI.<br><span class="text-blue-400">We extract and operationalize your workflows.</span></h2>
+            <p class="text-xl text-slate-300 mb-12 max-w-3xl">Your competitive advantage lives in the tacit knowledge of your people: the approvals, the edge cases, the "how we actually do things here." We help you extract it, systematize it, and connect it to AI platforms you already own.</p>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
+                    <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Workflow Extraction</h3>
+                    <p class="text-slate-400 text-sm">Surface the processes, decisions, and institutional knowledge locked in your team's heads and systematize them for AI.</p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
+                    <div class="w-12 h-12 bg-purple-600/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Live Builds</h3>
+                    <p class="text-slate-400 text-sm">Build functional AI-powered solutions together—deployed in hours, not months. Working prototypes from idea to reality.</p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
+                    <div class="w-12 h-12 bg-emerald-600/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Your Platforms</h3>
+                    <p class="text-slate-400 text-sm">Master the tools you already have: Microsoft Copilot, Google Gemini, AWS with Claude—no new vendors required.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/30 rounded-2xl p-8 border border-slate-700">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <img src="nad.jpeg" alt="Nadim Nasser" class="w-16 h-16 rounded-full object-cover border-2 border-blue-400 flex-shrink-0">
+                    <blockquote class="text-lg text-slate-200 leading-relaxed italic text-center md:text-left">
+                        "The gap isn't in AI capabilities—it's in human adoption. Companies are spending millions on AI tools that sit unused because people don't know how to integrate them into their daily workflows. We bridge that gap."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: The Evolution -->
     <section id="evolution" class="slide bg-slate-900 text-white">
         <div class="max-w-5xl mx-auto px-8">
             <p class="text-sm font-medium text-blue-400 uppercase tracking-wider mb-4">The Evolution</p>
@@ -564,47 +615,61 @@
             <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Our Team</p>
             <h2 class="text-4xl md:text-5xl font-bold mb-12">Enterprise experience meets AI expertise</h2>
 
-            <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
                 <div class="bg-slate-50 rounded-2xl p-6">
-                    <div class="flex items-start gap-4">
-                        <img src="nad.jpeg" alt="Nadim Nasser" class="w-20 h-20 rounded-xl object-cover flex-shrink-0">
-                        <div>
-                            <h3 class="font-bold text-xl">Nadim Nasser</h3>
-                            <p class="text-blue-600 font-medium">CEO & Head of Training</p>
-                            <p class="text-slate-600 mt-2 text-sm">15+ years in education and technology. Former Head of Education at Prequel (acquired). Founded and sold Apollo School. Trained 500+ professionals on AI integration.</p>
-                        </div>
+                    <div class="flex flex-col items-center text-center">
+                        <img src="nad.jpeg" alt="Nadim Nasser" class="w-24 h-24 rounded-xl object-cover mb-4">
+                        <h3 class="font-bold text-lg">Nadim Nasser</h3>
+                        <p class="text-blue-600 font-medium text-sm">CEO & Head of Training</p>
+                        <ul class="text-slate-600 mt-3 text-xs text-left space-y-1">
+                            <li>• 15+ years in education & technology</li>
+                            <li>• Former Head of Education at Prequel</li>
+                            <li>• Trained 500+ professionals on AI</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="bg-slate-50 rounded-2xl p-6">
-                    <div class="flex items-start gap-4">
-                        <img src="drew.jpeg" alt="Drew Bailey" class="w-20 h-20 rounded-xl object-cover flex-shrink-0">
-                        <div>
-                            <h3 class="font-bold text-xl">Drew Bailey</h3>
-                            <p class="text-purple-600 font-medium">Operations</p>
-                            <p class="text-slate-600 mt-2 text-sm">25+ years leading AI transformation. Former KPMG go-to-market lead for AI and emerging technologies. Board Director with cross-functional leadership.</p>
-                        </div>
+                    <div class="flex flex-col items-center text-center">
+                        <img src="drew.jpeg" alt="Drew Bailey" class="w-24 h-24 rounded-xl object-cover mb-4">
+                        <h3 class="font-bold text-lg">Drew Bailey</h3>
+                        <p class="text-purple-600 font-medium text-sm">Operations</p>
+                        <ul class="text-slate-600 mt-3 text-xs text-left space-y-1">
+                            <li>• 25+ years leading AI transformation</li>
+                            <li>• Former KPMG AI go-to-market lead</li>
+                            <li>• Board Director, cross-functional leader</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="bg-slate-50 rounded-2xl p-6">
-                    <div class="flex items-start gap-4">
-                        <img src="azim.jpeg" alt="Azim Ahmed" class="w-20 h-20 rounded-xl object-cover flex-shrink-0">
-                        <div>
-                            <h3 class="font-bold text-xl">Azim Ahmed</h3>
-                            <p class="text-emerald-600 font-medium">VP Engineering</p>
-                            <p class="text-slate-600 mt-2 text-sm">Head of Engineering at Lazer Technologies. 5+ years leading engineering teams with expertise in mobile development, CI/CD optimization, and AI implementation.</p>
-                        </div>
+                    <div class="flex flex-col items-center text-center">
+                        <img src="azim.jpeg" alt="Azim Ahmed" class="w-24 h-24 rounded-xl object-cover mb-4">
+                        <h3 class="font-bold text-lg">Azim Ahmed</h3>
+                        <p class="text-emerald-600 font-medium text-sm">VP Engineering</p>
+                        <ul class="text-slate-600 mt-3 text-xs text-left space-y-1">
+                            <li>• Head of Engineering at Lazer Technologies</li>
+                            <li>• 5+ years leading engineering teams</li>
+                            <li>• AI implementation specialist</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-6">
+            <div class="mt-8">
                 <h4 class="font-semibold text-slate-900 mb-4 text-center">Advisory Board</h4>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <div class="bg-slate-100 rounded-full px-4 py-2 text-sm">
-                        <span class="font-medium">Armughan Ahmad</span>
-                        <span class="text-slate-500 ml-1">Executive Chairman</span>
+                <div class="flex justify-center">
+                    <div class="bg-slate-50 rounded-2xl p-6 max-w-sm">
+                        <div class="flex flex-col items-center text-center">
+                            <img src="arm.jpeg" alt="Armughan Ahmad" class="w-24 h-24 rounded-xl object-cover mb-4">
+                            <h3 class="font-bold text-lg">Armughan Ahmad</h3>
+                            <p class="text-amber-600 font-medium text-sm">Executive Chairman</p>
+                            <ul class="text-slate-600 mt-3 text-xs text-left space-y-1">
+                                <li>• 30-year enterprise career</li>
+                                <li>• Advisory roles at OpenAI, Telus, ServiceNow</li>
+                                <li>• Board member at Flexential (Morgan Stanley)</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
