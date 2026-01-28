@@ -472,14 +472,18 @@
                 </div>
             </div>
 
-            <div class="mt-8 bg-slate-50 rounded-2xl p-6 border border-slate-200">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            <div class="mt-8 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-6 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+                <div class="flex items-center gap-4 relative z-10">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-slate-900">Post-Session Resource Kit</h4>
-                        <p class="text-slate-600 text-sm">Prompt library, workflow templates, and guides tailored to Deloitte's consulting context</p>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h4 class="font-semibold">WorkflowyOS Learning Platform</h4>
+                            <span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-full">Included</span>
+                        </div>
+                        <p class="text-slate-400 text-sm">Interactive courses, progress tracking, AI coaching assistant, and post-session resources—all in one place.</p>
                     </div>
                 </div>
             </div>
@@ -487,57 +491,121 @@
     </section>
 
     <!-- Slide 5: Agenda -->
-    <section id="agenda" class="slide bg-slate-900 text-white">
+    <section id="agenda" class="slide bg-slate-900 text-white bg-grid">
         <div class="max-w-5xl mx-auto px-8">
-            <p class="text-sm font-medium text-blue-400 uppercase tracking-wider mb-4">Focus Areas</p>
-            <h2 class="text-4xl md:text-5xl font-bold mb-12">Four hours, four focus areas</h2>
+            <p class="text-sm font-medium text-blue-400 uppercase tracking-wider mb-4">Program Curriculum</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Four hours, four modules</h2>
+            <p class="text-slate-400 mb-10">50% interactive discussion, 50% hands-on application. Using your organization's approved tools.</p>
 
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700">
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-blue-500/50 transition-colors">
                     <div class="flex items-start gap-4">
                         <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
                             <span class="text-blue-400 font-bold text-xl">1</span>
                         </div>
-                        <div>
-                            <h3 class="font-semibold text-xl mb-2">AI Landscape & Reality Check</h3>
-                            <p class="text-slate-400">Cut through the hype. Understand what AI can actually do today, where it's headed, and what it means for professional services.</p>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-semibold text-lg">AI Landscape & Reality Check</h3>
+                                <span class="text-xs text-slate-500 bg-slate-700 px-2 py-1 rounded">45 min</span>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-3">Cut through the hype. Understand what AI can actually do today and what it means for professional services.</p>
+                            <ul class="text-xs text-slate-500 space-y-1">
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-blue-400 rounded-full"></span>LLM capabilities vs. limitations</li>
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-blue-400 rounded-full"></span>From chatbots to autonomous agents</li>
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-blue-400 rounded-full"></span>Impact on consulting & advisory work</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700">
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-purple-500/50 transition-colors">
                     <div class="flex items-start gap-4">
                         <div class="w-12 h-12 bg-purple-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
                             <span class="text-purple-400 font-bold text-xl">2</span>
                         </div>
-                        <div>
-                            <h3 class="font-semibold text-xl mb-2">AI Fluency Fundamentals</h3>
-                            <p class="text-slate-400">How LLMs actually work, the RACE prompting framework, and navigating security boundaries with confidence.</p>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-semibold text-lg">AI Fluency Fundamentals</h3>
+                                <span class="text-xs text-slate-500 bg-slate-700 px-2 py-1 rounded">60 min</span>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-3">Master prompt engineering with the RACE framework and navigate security boundaries with confidence.</p>
+                            <ul class="text-xs text-slate-500 space-y-1">
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-purple-400 rounded-full"></span>RACE prompting framework (Role, Action, Context, Example)</li>
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-purple-400 rounded-full"></span>Security, compliance & data governance</li>
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-purple-400 rounded-full"></span>What's safe to input—and what's not</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700">
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-emerald-500/50 transition-colors">
                     <div class="flex items-start gap-4">
                         <div class="w-12 h-12 bg-emerald-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
                             <span class="text-emerald-400 font-bold text-xl">3</span>
                         </div>
-                        <div>
-                            <h3 class="font-semibold text-xl mb-2">Hands-On Building</h3>
-                            <p class="text-slate-400">Live build exercises using your approved tools. Every participant creates something they can use Monday morning.</p>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-semibold text-lg">Hands-On Building</h3>
+                                <span class="text-xs text-slate-500 bg-slate-700 px-2 py-1 rounded">90 min</span>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-3">Live build exercises using your approved tools. Every participant creates something they can use Monday morning.</p>
+                            <ul class="text-xs text-slate-500 space-y-1">
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-emerald-400 rounded-full"></span>Build working AI workflows from scratch</li>
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-emerald-400 rounded-full"></span>Microsoft Copilot & approved tool deep-dives</li>
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-emerald-400 rounded-full"></span>Role-specific use cases for consulting</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700">
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-amber-500/50 transition-colors">
                     <div class="flex items-start gap-4">
                         <div class="w-12 h-12 bg-amber-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
                             <span class="text-amber-400 font-bold text-xl">4</span>
                         </div>
-                        <div>
-                            <h3 class="font-semibold text-xl mb-2">Workflow Integration</h3>
-                            <p class="text-slate-400">Identify automation opportunities in your current workflows. Leave with a personalized AI adoption roadmap.</p>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-semibold text-lg">Workflow Integration</h3>
+                                <span class="text-xs text-slate-500 bg-slate-700 px-2 py-1 rounded">45 min</span>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-3">Identify automation opportunities and leave with a personalized AI adoption roadmap.</p>
+                            <ul class="text-xs text-slate-500 space-y-1">
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-amber-400 rounded-full"></span>Map high-value automation opportunities</li>
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-amber-400 rounded-full"></span>Create personal 30-day AI adoption plan</li>
+                                <li class="flex items-center gap-2"><span class="w-1 h-1 bg-amber-400 rounded-full"></span>Measure ROI & communicate wins</li>
+                            </ul>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What makes it different -->
+            <div class="mt-10 grid md:grid-cols-3 gap-4">
+                <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-white">AI Learning Coach</p>
+                        <p class="text-xs text-slate-500">Role-specific guidance included</p>
+                    </div>
+                </div>
+                <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-white">Hybrid Delivery</p>
+                        <p class="text-xs text-slate-500">Live + async learning options</p>
+                    </div>
+                </div>
+                <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-white">Your Tools</p>
+                        <p class="text-xs text-slate-500">Copilot, internal platforms</p>
                     </div>
                 </div>
             </div>
