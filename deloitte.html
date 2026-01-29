@@ -63,13 +63,6 @@
             background-clip: text;
         }
 
-        .bg-grid {
-            background-image:
-                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
-
         .bg-dots {
             background-image: radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px);
             background-size: 24px 24px;
@@ -172,11 +165,8 @@
     <div class="slides-container">
 
         <!-- Slide 1: Cover -->
-        <section class="slide active bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 bg-grid">
-            <div class="absolute top-20 left-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-
-            <div class="max-w-4xl mx-auto text-center relative z-10">
+        <section class="slide active bg-slate-900">
+            <div class="max-w-4xl mx-auto text-center">
                 <div class="flex items-center justify-center gap-6 mb-6">
                     <div class="flex items-center gap-2">
                         <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25">
@@ -259,7 +249,7 @@
         </section>
 
         <!-- Slide 3: Our Solution -->
-        <section class="slide bg-gradient-to-br from-slate-900 to-slate-800 bg-grid">
+        <section class="slide bg-slate-900">
             <div class="max-w-5xl mx-auto">
                 <p class="text-sm font-medium text-blue-400 uppercase tracking-wider mb-2">Our Solution</p>
                 <h2 class="text-3xl md:text-4xl font-bold mb-3">We don't teach AI.<br><span class="text-blue-400">We extract and operationalize your workflows.</span></h2>
@@ -303,7 +293,7 @@
         </section>
 
         <!-- Slide 4: The Evolution -->
-        <section class="slide bg-slate-900 bg-grid">
+        <section class="slide bg-slate-900">
             <div class="max-w-5xl mx-auto">
                 <p class="text-sm font-medium text-blue-400 uppercase tracking-wider mb-2">The Evolution</p>
                 <h2 class="text-3xl md:text-4xl font-bold mb-3">From chatbots to autonomous agents</h2>
@@ -517,7 +507,7 @@
         </section>
 
         <!-- Slide 8: Agenda -->
-        <section class="slide bg-slate-900 bg-grid">
+        <section class="slide bg-slate-900">
             <div class="max-w-5xl mx-auto">
                 <p class="text-sm font-medium text-blue-400 uppercase tracking-wider mb-2">Program Curriculum</p>
                 <h2 class="text-3xl md:text-4xl font-bold mb-2">Four hours, four modules</h2>
@@ -664,7 +654,7 @@
         </section>
 
         <!-- Slide 10: Measurement & ROI -->
-        <section class="slide bg-gradient-to-br from-slate-900 to-slate-800 bg-grid">
+        <section class="slide bg-slate-900">
             <div class="max-w-5xl mx-auto">
                 <p class="text-sm font-medium text-emerald-400 uppercase tracking-wider mb-2">Measurable Impact</p>
                 <h2 class="text-3xl md:text-4xl font-bold mb-2">Skills-based assessment. <span class="text-emerald-400">Proven ROI.</span></h2>
@@ -830,7 +820,7 @@
         </section>
 
         <!-- Slide 13: Investment -->
-        <section class="slide bg-slate-900 bg-grid">
+        <section class="slide bg-slate-900">
             <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
             <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"></div>
 
@@ -890,39 +880,89 @@
             </div>
         </section>
 
-        <!-- Slide 14: Closing -->
-        <section class="slide bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-            <div class="absolute top-20 right-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pulse-glow"></div>
-            <div class="absolute bottom-20 left-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pulse-glow" style="animation-delay: 2s;"></div>
+        <!-- Slide 14: Next Steps -->
+        <section class="slide bg-slate-900">
+            <!-- Workflowy Logo - Top Right -->
+            <div class="absolute top-8 right-8 flex items-center gap-3 z-20">
+                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25">
+                    <span class="text-white font-bold text-lg">W</span>
+                </div>
+                <span class="text-xl font-semibold text-white">Workflowy</span>
+            </div>
 
-            <div class="max-w-4xl mx-auto text-center relative z-10">
-                <div class="mb-8">
-                    <div class="w-12 h-12 mx-auto mb-4 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl flex items-center justify-center border border-slate-700">
-                        <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+            <div class="max-w-5xl mx-auto">
+                <p class="text-sm font-medium text-blue-400 uppercase tracking-wider mb-2">Getting Started</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">Next Steps</h2>
+
+                <div class="grid md:grid-cols-2 gap-4 mb-8">
+                    <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <span class="text-blue-400 font-bold">1</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2">Discovery Call</h3>
+                                <ul class="text-slate-400 text-sm space-y-1">
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-blue-400 rounded-full"></span>Understand your team's current AI adoption level</li>
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-blue-400 rounded-full"></span>Identify priority use cases and pain points</li>
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-blue-400 rounded-full"></span>Review approved tools and compliance requirements</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <blockquote class="text-xl md:text-2xl font-medium leading-relaxed mb-6 text-slate-200 max-w-2xl mx-auto">
-                        "The gap isn't in AI capabilities. It's in human adoption. We bridge that gap."
-                    </blockquote>
-                    <div class="flex items-center justify-center gap-3">
-                        <img src="nad.jpeg" alt="Nadim Nasser" class="w-12 h-12 rounded-full object-cover border-2 border-blue-400">
-                        <div class="text-left">
-                            <p class="font-semibold">Nadim Nasser</p>
-                            <p class="text-slate-400 text-sm">CEO, Workflowy</p>
+
+                    <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <span class="text-purple-400 font-bold">2</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2">Customized Proposal</h3>
+                                <ul class="text-slate-400 text-sm space-y-1">
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-purple-400 rounded-full"></span>Tailored curriculum based on team needs</li>
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-purple-400 rounded-full"></span>Role-specific content recommendations</li>
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-purple-400 rounded-full"></span>Success metrics and assessment criteria</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 bg-emerald-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <span class="text-emerald-400 font-bold">3</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2">Logistics & Scheduling</h3>
+                                <ul class="text-slate-400 text-sm space-y-1">
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-emerald-400 rounded-full"></span>Confirm participant list</li>
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-emerald-400 rounded-full"></span>Select date and format</li>
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-emerald-400 rounded-full"></span>Contract agreement</li>
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-emerald-400 rounded-full"></span>Pre-session assessment distribution</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 bg-amber-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <span class="text-amber-400 font-bold">4</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2">Program Delivery</h3>
+                                <ul class="text-slate-400 text-sm space-y-1">
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-amber-400 rounded-full"></span>Pre-session discovery and baseline</li>
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-amber-400 rounded-full"></span>Half-day intensive workshop</li>
+                                    <li class="flex items-center gap-2"><span class="w-1 h-1 bg-amber-400 rounded-full"></span>Post-session reporting and follow-up</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="pt-6 border-t border-slate-700">
-                    <div class="inline-flex items-center gap-2 mb-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold">W</span>
-                        </div>
-                        <span class="text-xl font-semibold">Workflowy</span>
-                    </div>
-                    <p class="text-slate-400 mb-1">workflowy.ai</p>
-                    <p class="text-slate-500">
-                        <a href="mailto:nadim@workflowy.ai" class="hover:text-blue-400 transition-colors">nadim@workflowy.ai</a>
-                    </p>
+                <div class="text-center pt-6 border-t border-slate-700">
+                    <p class="text-2xl font-semibold text-slate-300">Questions?</p>
                 </div>
             </div>
         </section>
