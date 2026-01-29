@@ -56,7 +56,7 @@
         nav, button, a.inline-block, footer, .text-sm.font-medium, .uppercase { font-family: 'Poppins', sans-serif; }
         p, li, blockquote { font-family: 'Lora', serif; }
         .gradient-text {
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -71,7 +71,7 @@
             }
         }
         .hero-bg {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #eff6ff 100%);
             position: relative;
             overflow: hidden;
         }
@@ -83,9 +83,8 @@
             right: 0;
             bottom: 0;
             background-image:
-                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.05) 0%, transparent 30%);
+                radial-gradient(circle at 20% 80%, rgba(30, 64, 175, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.06) 0%, transparent 50%);
         }
         .hero-bg::after {
             content: '';
@@ -94,8 +93,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.5;
+            background-image:
+                linear-gradient(rgba(30, 64, 175, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(30, 64, 175, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
         }
         .grid-lines {
             background-image:
@@ -126,11 +127,10 @@
                     <svg viewBox="0 0 40 40" class="w-8 h-8 sm:w-9 sm:h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <lineargradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#3b82f6"></stop>
-                                <stop offset="100%" style="stop-color:#8b5cf6"></stop>
+                                <stop offset="0%" style="stop-color:#1e40af"></stop>
+                                <stop offset="100%" style="stop-color:#2563eb"></stop>
                             </lineargradient>
                         </defs>
-                        <!-- Abstract "W" with flowing workflow path -->
                         <circle cx="20" cy="20" r="18" fill="url(#logoGrad)"></circle>
                         <path d="M10 14l5 12 5-8 5 8 5-12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
                     </svg>
@@ -143,7 +143,7 @@
                     <a href="https://workflowy.ai/#team" class="text-sm text-slate-600 hover:text-slate-900 transition-colors font-medium">Team</a>
                 </div>
             </div>
-            <a href="https://workflowy.ai/#contact" class="text-xs sm:text-sm font-medium text-white bg-blue-600 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-blue-700 transition-colors">
+            <a href="https://workflowy.ai/#contact" class="text-xs sm:text-sm font-medium text-white bg-blue-700 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg hover:bg-blue-800 transition-colors">
                 Book a Call
             </a>
         </div>
@@ -162,102 +162,87 @@
                         We help enterprise teams move from AI experimentation to AI execution. Structured programs that build the skills to apply, direct, and manage AI across your organization.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                        <a href="https://workflowy.ai/#training" class="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-colors text-sm sm:text-base">
+                        <a href="https://workflowy.ai/#training" class="px-6 sm:px-8 py-3 sm:py-4 bg-blue-700 text-white font-medium rounded-lg hover:bg-blue-800 transition-colors text-sm sm:text-base">
                             Explore Training
                         </a>
-                        <a href="https://workflowy.ai/#contact" class="px-6 sm:px-8 py-3 sm:py-4 border border-slate-300 text-slate-700 font-medium rounded-full hover:border-slate-400 hover:bg-slate-100 transition-colors text-sm sm:text-base">
+                        <a href="https://workflowy.ai/#contact" class="px-6 sm:px-8 py-3 sm:py-4 border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-blue-300 hover:bg-slate-50 transition-colors text-sm sm:text-base">
                             Schedule a Call
                         </a>
                     </div>
                 </div>
                 <div class="hidden lg:block relative">
-                    <!-- Minimal AI Workflow Graphic -->
+                    <!-- AI Agents & Workflow Graphic -->
                     <svg viewBox="0 0 400 400" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <lineargradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1"></stop>
-                                <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1"></stop>
-                            </lineargradient>
-                            <lineargradient id="gradCyan" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1"></stop>
-                                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1"></stop>
-                            </lineargradient>
-                            <radialgradient id="centerGlow" cx="50%" cy="50%" r="50%">
-                                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3"></stop>
-                                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0"></stop>
-                            </radialgradient>
-                            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                                <fegaussianblur stdDeviation="3" result="coloredBlur"></fegaussianblur>
-                                <femerge>
-                                    <femergenode in="coloredBlur"></femergenode>
-                                    <femergenode in="SourceGraphic"></femergenode>
-                                </femerge>
-                            </filter>
+                            <linearGradient id="corpBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1e40af"/>
+                                <stop offset="100%" style="stop-color:#2563eb"/>
+                            </linearGradient>
+                            <linearGradient id="corpBlueLight" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#60a5fa"/>
+                                <stop offset="100%" style="stop-color:#93c5fd"/>
+                            </linearGradient>
                         </defs>
 
-                        <!-- Background glow -->
-                        <circle cx="200" cy="200" r="120" fill="url(#centerGlow)"></circle>
+                        <!-- Workflow connection lines -->
+                        <path d="M80 120 L160 120 L160 200 L240 200" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
+                        <path d="M240 200 L320 200 L320 280" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
+                        <path d="M160 200 L160 280 L240 280" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
 
-                        <!-- Outer ring -->
-                        <circle cx="200" cy="200" r="90" fill="none" stroke="url(#gradBlue)" stroke-width="1.5" opacity="0.2"></circle>
+                        <!-- Agent 1: Human/User (top left) -->
+                        <rect x="40" y="90" width="80" height="60" rx="8" fill="white" stroke="#1e40af" stroke-width="2"/>
+                        <circle cx="80" cy="110" r="10" fill="#dbeafe"/>
+                        <circle cx="80" cy="107" r="5" fill="#1e40af"/>
+                        <path d="M70 125 Q80 132 90 125" stroke="#1e40af" stroke-width="2" fill="none"/>
+                        <text x="80" y="142" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">User</text>
 
-                        <!-- Middle ring -->
-                        <circle cx="200" cy="200" r="60" fill="none" stroke="url(#gradCyan)" stroke-width="1.5" opacity="0.3"></circle>
-
-                        <!-- Center circle -->
-                        <circle cx="200" cy="200" r="35" fill="white" stroke="url(#gradBlue)" stroke-width="2.5"></circle>
-                        <circle cx="200" cy="200" r="20" fill="url(#gradBlue)" opacity="0.15"></circle>
-                        <circle cx="200" cy="200" r="10" fill="url(#gradBlue)">
-                            <animate attributeName="r" values="10;12;10" dur="3s" repeatCount="indefinite"></animate>
+                        <!-- Agent 2: AI Agent (center) -->
+                        <rect x="200" y="160" width="80" height="80" rx="12" fill="white" stroke="url(#corpBlue)" stroke-width="2.5"/>
+                        <rect x="215" y="175" width="50" height="10" rx="2" fill="#dbeafe"/>
+                        <rect x="215" y="190" width="35" height="10" rx="2" fill="#bfdbfe"/>
+                        <rect x="215" y="205" width="45" height="10" rx="2" fill="#dbeafe"/>
+                        <circle cx="240" cy="225" r="6" fill="url(#corpBlue)">
+                            <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
                         </circle>
+                        <text x="240" y="252" text-anchor="middle" fill="#1e40af" font-size="10" font-weight="600" font-family="system-ui">AI Agent</text>
 
-                        <!-- Dots flowing in from different directions -->
-                        <!-- Top -->
-                        <circle r="5" fill="#3b82f6" filter="url(#glow)">
-                            <animatemotion dur="4s" repeatCount="indefinite" path="M200,40 L200,165" calcMode="linear"></animatemotion>
-                            <animate attributeName="opacity" values="0.8;0.8;0" dur="4s" repeatCount="indefinite" keyTimes="0;0.85;1"></animate>
+                        <!-- Agent 3: Data/Knowledge (top right) -->
+                        <rect x="280" y="90" width="80" height="60" rx="8" fill="white" stroke="#1e40af" stroke-width="2"/>
+                        <rect x="295" y="105" width="50" height="6" rx="1" fill="#e2e8f0"/>
+                        <rect x="295" y="115" width="40" height="6" rx="1" fill="#e2e8f0"/>
+                        <rect x="295" y="125" width="45" height="6" rx="1" fill="#e2e8f0"/>
+                        <text x="320" y="142" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">Knowledge</text>
+
+                        <!-- Agent 4: Tools/Actions (bottom right) -->
+                        <rect x="280" y="280" width="80" height="60" rx="8" fill="white" stroke="#1e40af" stroke-width="2"/>
+                        <rect x="295" y="295" width="20" height="20" rx="4" fill="#dbeafe"/>
+                        <rect x="320" y="295" width="20" height="20" rx="4" fill="#bfdbfe"/>
+                        <rect x="307" y="320" width="20" height="10" rx="2" fill="#93c5fd"/>
+                        <text x="320" y="352" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">Tools</text>
+
+                        <!-- Agent 5: Output/Results (bottom left) -->
+                        <rect x="120" y="280" width="80" height="60" rx="8" fill="white" stroke="#1e40af" stroke-width="2"/>
+                        <path d="M140 300 L180 300 M140 310 L170 310 M140 320 L175 320" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="175" cy="325" r="8" fill="#22c55e" opacity="0.2"/>
+                        <path d="M171 325 L174 328 L180 322" stroke="#22c55e" stroke-width="2" fill="none"/>
+                        <text x="160" y="352" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">Output</text>
+
+                        <!-- Animated data flow indicators -->
+                        <circle r="4" fill="#2563eb">
+                            <animateMotion dur="2.5s" repeatCount="indefinite" path="M120 120 L160 120 L160 200 L200 200"/>
+                            <animate attributeName="opacity" values="1;1;0" dur="2.5s" repeatCount="indefinite" keyTimes="0;0.8;1"/>
                         </circle>
-
-                        <!-- Top right -->
-                        <circle r="4" fill="#8b5cf6" filter="url(#glow)">
-                            <animatemotion dur="4.5s" repeatCount="indefinite" path="M320,80 L215,185" calcMode="linear" begin="0.5s"></animatemotion>
-                            <animate attributeName="opacity" values="0.7;0.7;0" dur="4.5s" repeatCount="indefinite" keyTimes="0;0.85;1" begin="0.5s"></animate>
+                        <circle r="4" fill="#1e40af">
+                            <animateMotion dur="2.5s" repeatCount="indefinite" path="M280 120 L280 160 L280 200" begin="0.5s"/>
+                            <animate attributeName="opacity" values="1;1;0" dur="2.5s" repeatCount="indefinite" keyTimes="0;0.8;1" begin="0.5s"/>
                         </circle>
-
-                        <!-- Right -->
-                        <circle r="5" fill="#06b6d4" filter="url(#glow)">
-                            <animatemotion dur="4s" repeatCount="indefinite" path="M360,200 L235,200" calcMode="linear" begin="1s"></animatemotion>
-                            <animate attributeName="opacity" values="0.8;0.8;0" dur="4s" repeatCount="indefinite" keyTimes="0;0.85;1" begin="1s"></animate>
+                        <circle r="4" fill="#2563eb">
+                            <animateMotion dur="2s" repeatCount="indefinite" path="M280 200 L320 200 L320 280" begin="1s"/>
+                            <animate attributeName="opacity" values="1;1;0" dur="2s" repeatCount="indefinite" keyTimes="0;0.8;1" begin="1s"/>
                         </circle>
-
-                        <!-- Bottom right -->
-                        <circle r="4" fill="#3b82f6" filter="url(#glow)">
-                            <animatemotion dur="4.5s" repeatCount="indefinite" path="M320,320 L215,215" calcMode="linear" begin="1.5s"></animatemotion>
-                            <animate attributeName="opacity" values="0.7;0.7;0" dur="4.5s" repeatCount="indefinite" keyTimes="0;0.85;1" begin="1.5s"></animate>
-                        </circle>
-
-                        <!-- Bottom -->
-                        <circle r="5" fill="#8b5cf6" filter="url(#glow)">
-                            <animatemotion dur="4s" repeatCount="indefinite" path="M200,360 L200,235" calcMode="linear" begin="2s"></animatemotion>
-                            <animate attributeName="opacity" values="0.8;0.8;0" dur="4s" repeatCount="indefinite" keyTimes="0;0.85;1" begin="2s"></animate>
-                        </circle>
-
-                        <!-- Bottom left -->
-                        <circle r="4" fill="#06b6d4" filter="url(#glow)">
-                            <animatemotion dur="4.5s" repeatCount="indefinite" path="M80,320 L185,215" calcMode="linear" begin="2.5s"></animatemotion>
-                            <animate attributeName="opacity" values="0.7;0.7;0" dur="4.5s" repeatCount="indefinite" keyTimes="0;0.85;1" begin="2.5s"></animate>
-                        </circle>
-
-                        <!-- Left -->
-                        <circle r="5" fill="#3b82f6" filter="url(#glow)">
-                            <animatemotion dur="4s" repeatCount="indefinite" path="M40,200 L165,200" calcMode="linear" begin="3s"></animatemotion>
-                            <animate attributeName="opacity" values="0.8;0.8;0" dur="4s" repeatCount="indefinite" keyTimes="0;0.85;1" begin="3s"></animate>
-                        </circle>
-
-                        <!-- Top left -->
-                        <circle r="4" fill="#8b5cf6" filter="url(#glow)">
-                            <animatemotion dur="4.5s" repeatCount="indefinite" path="M80,80 L185,185" calcMode="linear" begin="3.5s"></animatemotion>
-                            <animate attributeName="opacity" values="0.7;0.7;0" dur="4.5s" repeatCount="indefinite" keyTimes="0;0.85;1" begin="3.5s"></animate>
+                        <circle r="4" fill="#1e40af">
+                            <animateMotion dur="2s" repeatCount="indefinite" path="M200 200 L160 200 L160 280" begin="1.5s"/>
+                            <animate attributeName="opacity" values="1;1;0" dur="2s" repeatCount="indefinite" keyTimes="0;0.8;1" begin="1.5s"/>
                         </circle>
                     </svg>
                 </div>
