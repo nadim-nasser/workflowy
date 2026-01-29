@@ -12,7 +12,6 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
 
-        /* Slide container */
         .slides-container {
             height: 100vh;
             overflow: hidden;
@@ -54,7 +53,6 @@
             background-size: 60px 60px;
         }
 
-        /* Navigation */
         .nav-dots {
             position: fixed;
             right: 2rem;
@@ -124,19 +122,28 @@
             opacity: 0.3;
             cursor: not-allowed;
         }
+
+        .workflow-node {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .workflow-node:nth-child(2) { animation-delay: 0.3s; }
+        .workflow-node:nth-child(3) { animation-delay: 0.6s; }
+        .workflow-node:nth-child(4) { animation-delay: 0.9s; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-white">
 
-    <!-- Navigation Dots -->
     <nav class="nav-dots" id="navDots"></nav>
 
-    <!-- Slide Counter -->
     <div class="slide-counter">
-        <span id="currentSlide">1</span> / <span id="totalSlides">9</span>
+        <span id="currentSlide">1</span> / <span id="totalSlides">6</span>
     </div>
 
-    <!-- Navigation Arrows -->
     <div class="nav-arrows">
         <button class="nav-arrow" id="prevBtn" onclick="prevSlide()">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -183,7 +190,7 @@
         <section class="slide bg-white text-slate-900">
             <div class="max-w-5xl mx-auto">
                 <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">The Problem</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Pilots Everywhere.<br><span class="text-blue-600">Impact Nowhere.</span></h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Your teams have the AI tools.<br><span class="text-blue-600">They don't have the skills to use them.</span></h2>
                 <p class="text-xl text-slate-600 mb-10 max-w-3xl">AI capability is compounding. Enterprise readiness is not.</p>
 
                 <div class="grid md:grid-cols-3 gap-6">
@@ -200,7 +207,7 @@
                             <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Intelligence Without Infrastructure</h3>
-                        <p class="text-slate-600">Powerful AI tools, but no systems to deploy them at scale.</p>
+                        <p class="text-slate-600">Powerful AI tools, but no systems to deploy, govern, and scale.</p>
                     </div>
 
                     <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
@@ -220,111 +227,22 @@
             </div>
         </section>
 
-        <!-- Slide 3: Your Perspective -->
-        <section class="slide bg-gradient-to-br from-slate-900 to-slate-800 bg-grid">
-            <div class="max-w-5xl mx-auto">
-                <p class="text-sm font-medium text-purple-400 uppercase tracking-wider mb-4">Your Perspective</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-8">Rola, you've seen this before.</h2>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700 mb-6">
-                            <p class="text-slate-300 text-lg leading-relaxed">
-                                From Dell to Cisco, you've watched digital transformation initiatives struggle to move from pilot to production.
-                            </p>
-                        </div>
-
-                        <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
-                            <p class="text-slate-300 text-lg leading-relaxed">
-                                You've built partner ecosystems that scale. You know that technology alone doesn't drive adoption — <span class="text-blue-400">people do</span>.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-xl p-8 border border-blue-500/30">
-                        <h3 class="text-xl font-bold mb-4">Your Journey</h3>
-                        <ul class="space-y-4 text-slate-300">
-                            <li class="flex items-start gap-3">
-                                <span class="w-6 h-6 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
-                                </span>
-                                <span>From telemarketer at Bell Canada to Global Channel Chief at Dell</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-6 h-6 bg-purple-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <span class="w-2 h-2 bg-purple-400 rounded-full"></span>
-                                </span>
-                                <span>Led Cisco Canada through digital transformation era</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-6 h-6 bg-emerald-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <span class="w-2 h-2 bg-emerald-400 rounded-full"></span>
-                                </span>
-                                <span>Built global partner ecosystems that actually scale</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <span class="w-2 h-2 bg-amber-400 rounded-full"></span>
-                                </span>
-                                <span>Refugee story that proves transformation is possible</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 4: Who I Am -->
-        <section class="slide bg-white text-slate-900">
-            <div class="max-w-5xl mx-auto">
-                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Who I Am</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-8">Nadim Nasser</h2>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <img src="nad.jpeg" alt="Nadim Nasser" class="w-48 h-48 rounded-2xl object-cover shadow-xl mb-6">
-                        <h3 class="text-2xl font-bold mb-2">CEO & Founder, Workflowy</h3>
-                        <p class="text-blue-600 font-medium mb-4">Head of Training</p>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                            <h4 class="font-bold text-lg mb-2">Background</h4>
-                            <ul class="space-y-2 text-slate-600">
-                                <li class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                    15+ years in education & technology
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                    Former Head of Education at Prequel
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                    Trained 500+ professionals on AI
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-200">
-                            <h4 class="font-bold text-lg mb-2">What I Care About</h4>
-                            <p class="text-slate-700">
-                                I believe the biggest unlock for AI isn't better models — it's helping people actually <span class="font-semibold text-blue-600">use</span> them. Training that stops at awareness fails. I want to build training that drives execution.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 5: What is Workflowy -->
+        <!-- Slide 3: The Solution -->
         <section class="slide bg-gradient-to-br from-slate-900 to-slate-800 bg-grid">
             <div class="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+
+            <!-- Workflowy Logo - Top Right -->
+            <div class="absolute top-8 right-8 flex items-center gap-3 z-20">
+                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25">
+                    <span class="text-white font-bold text-lg">W</span>
+                </div>
+                <span class="text-xl font-semibold text-white">Workflowy</span>
+            </div>
 
             <div class="max-w-5xl mx-auto relative z-10">
                 <p class="text-sm font-medium text-blue-400 uppercase tracking-wider mb-4">The Solution</p>
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">We don't teach AI.</h2>
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 text-blue-400">We operationalize your workflows.</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 text-blue-400">We extract and operationalize your workflows.</h2>
 
                 <p class="text-xl text-slate-300 mb-10 max-w-3xl">
                     The real value lives in the tacit knowledge of your people: the approvals, the edge cases, the "how we actually do things here." We extract it, systematize it, and connect it to AI platforms you already own.
@@ -336,7 +254,7 @@
                             <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Workflow Extraction</h3>
-                        <p class="text-slate-400">Surface processes and institutional knowledge. Systematize them for AI.</p>
+                        <p class="text-slate-400">Extract tacit knowledge from experts. Document decision trees for automation.</p>
                     </div>
 
                     <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
@@ -344,7 +262,7 @@
                             <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Live Builds</h3>
-                        <p class="text-slate-400">Build functional AI solutions together. Deployed in hours, not months.</p>
+                        <p class="text-slate-400">Build working AI workflows using Lindy, Relay, or n8n. Deployed in hours.</p>
                     </div>
 
                     <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
@@ -358,81 +276,154 @@
             </div>
         </section>
 
-        <!-- Slide 6: The Product -->
+        <!-- Slide 4: The Product -->
         <section class="slide bg-white text-slate-900">
-            <div class="max-w-5xl mx-auto">
+            <!-- Workflowy Logo - Top Right -->
+            <div class="absolute top-8 right-8 flex items-center gap-3 z-20">
+                <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-lg">W</span>
+                </div>
+                <span class="text-xl font-semibold text-slate-900">Workflowy</span>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
                 <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">The Product</p>
                 <h2 class="text-4xl md:text-5xl font-bold mb-8">WorkflowyOS Platform</h2>
 
                 <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Left Column: Training Modules -->
                     <div>
                         <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl p-6 text-white mb-6">
-                            <h3 class="font-bold text-xl mb-4">Training Curriculum</h3>
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-3">
-                                    <span class="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 font-bold text-sm">1</span>
-                                    <span>AI Landscape & Reality Check</span>
+                            <h3 class="font-bold text-lg mb-4">Training Modules</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <span class="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">1</span>
+                                    <div>
+                                        <p class="font-semibold">AI Fluency Fundamentals</p>
+                                        <p class="text-slate-400 text-sm">LLM capabilities, RACE framework, security & compliance</p>
+                                    </div>
                                 </div>
-                                <div class="flex items-center gap-3">
-                                    <span class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-400 font-bold text-sm">2</span>
-                                    <span>AI Fluency Fundamentals (RACE)</span>
+                                <div class="flex items-start gap-3">
+                                    <span class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-400 font-bold text-sm flex-shrink-0">2</span>
+                                    <div>
+                                        <p class="font-semibold">AI-Ready Workflow Design</p>
+                                        <p class="text-slate-400 text-sm">Extract tacit knowledge, document decision trees</p>
+                                    </div>
                                 </div>
-                                <div class="flex items-center gap-3">
-                                    <span class="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400 font-bold text-sm">3</span>
-                                    <span>Hands-On Building</span>
+                                <div class="flex items-start gap-3">
+                                    <span class="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400 font-bold text-sm flex-shrink-0">3</span>
+                                    <div>
+                                        <p class="font-semibold">Data Integration & RAG</p>
+                                        <p class="text-slate-400 text-sm">Connect enterprise data to AI systems</p>
+                                    </div>
                                 </div>
-                                <div class="flex items-center gap-3">
-                                    <span class="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center text-amber-400 font-bold text-sm">4</span>
-                                    <span>Workflow Integration</span>
+                                <div class="flex items-start gap-3">
+                                    <span class="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center text-amber-400 font-bold text-sm flex-shrink-0">4</span>
+                                    <div>
+                                        <p class="font-semibold">AI Strategy & Governance</p>
+                                        <p class="text-slate-400 text-sm">Scale AI adoption across the organization</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                            <h3 class="font-bold text-lg mb-3">Delivery Formats</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Half-day Intensives</span>
-                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Self-paced Modules</span>
-                                <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm">Hybrid Programs</span>
+                            <h3 class="font-bold text-lg mb-3">Platform Features</h3>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span class="text-sm">Real-time prompt analysis</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span class="text-sm">Tool recommendations</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span class="text-sm">Progress tracking</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span class="text-sm">Skills assessment</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Right Column: Workflow Mapping Tool Mockup -->
                     <div>
-                        <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 mb-6">
-                            <h3 class="font-bold text-lg mb-4">Assessment & Measurement</h3>
-                            <ul class="space-y-3 text-slate-600">
-                                <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                    <span>Pre/Post AI Readiness Assessment</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                    <span>Skills-based Talent Reporting</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                    <span>Champion Identification</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                    <span>ROI Reporting & Scale Planning</span>
-                                </li>
-                            </ul>
-                        </div>
+                        <div class="bg-slate-900 rounded-xl p-6 text-white h-full">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-bold text-lg">WorkflowyOS Workflow Mapper</h3>
+                                <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded-full">Enterprise Tool</span>
+                            </div>
 
-                        <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-200">
-                            <h3 class="font-bold text-lg mb-2">The Difference</h3>
-                            <p class="text-slate-700">
-                                Other programs measure <span class="text-slate-400">awareness</span>. We measure <span class="font-bold text-blue-600">capability</span> — because participants build working solutions.
-                            </p>
+                            <!-- Workflow Diagram Mockup -->
+                            <div class="bg-slate-800 rounded-lg p-4 mb-4">
+                                <p class="text-xs text-slate-500 uppercase tracking-wider mb-4">Client Onboarding Workflow</p>
+
+                                <div class="flex items-center justify-between">
+                                    <!-- Node 1 -->
+                                    <div class="workflow-node flex flex-col items-center">
+                                        <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center border-2 border-blue-500 mb-2">
+                                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                        </div>
+                                        <span class="text-xs text-slate-400">Input</span>
+                                    </div>
+
+                                    <svg class="w-8 h-8 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+
+                                    <!-- Node 2 -->
+                                    <div class="workflow-node flex flex-col items-center">
+                                        <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center border-2 border-purple-500 mb-2">
+                                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                        </div>
+                                        <span class="text-xs text-slate-400">AI Process</span>
+                                    </div>
+
+                                    <svg class="w-8 h-8 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+
+                                    <!-- Node 3 -->
+                                    <div class="workflow-node flex flex-col items-center">
+                                        <div class="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center border-2 border-amber-500 mb-2">
+                                            <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        </div>
+                                        <span class="text-xs text-slate-400">Review</span>
+                                    </div>
+
+                                    <svg class="w-8 h-8 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+
+                                    <!-- Node 4 -->
+                                    <div class="workflow-node flex flex-col items-center">
+                                        <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center border-2 border-emerald-500 mb-2">
+                                            <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <span class="text-xs text-slate-400">Output</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between bg-slate-800/50 rounded-lg p-3">
+                                    <span class="text-sm text-slate-300">Map enterprise workflows visually</span>
+                                    <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                </div>
+                                <div class="flex items-center justify-between bg-slate-800/50 rounded-lg p-3">
+                                    <span class="text-sm text-slate-300">Identify AI automation opportunities</span>
+                                    <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                </div>
+                                <div class="flex items-center justify-between bg-slate-800/50 rounded-lg p-3">
+                                    <span class="text-sm text-slate-300">Export to automation platforms</span>
+                                    <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 7: Deloitte Opportunity -->
+        <!-- Slide 5: Deloitte Opportunity -->
         <section class="slide bg-gradient-to-br from-slate-900 to-slate-800 bg-grid">
             <div class="max-w-5xl mx-auto">
                 <p class="text-sm font-medium text-emerald-400 uppercase tracking-wider mb-4">Live Opportunity</p>
@@ -495,7 +486,7 @@
             </div>
         </section>
 
-        <!-- Slide 8: The Team -->
+        <!-- Slide 6: The Team -->
         <section class="slide bg-white text-slate-900">
             <div class="max-w-5xl mx-auto">
                 <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">The Team</p>
@@ -546,68 +537,6 @@
             </div>
         </section>
 
-        <!-- Slide 9: Why You, Why Now -->
-        <section class="slide bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900 bg-grid">
-            <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
-
-            <div class="max-w-4xl mx-auto text-center relative z-10">
-                <p class="text-sm font-medium text-purple-400 uppercase tracking-wider mb-4">The Ask</p>
-                <h2 class="text-4xl md:text-6xl font-bold mb-8">Why you. Why now.</h2>
-
-                <div class="grid md:grid-cols-2 gap-6 text-left mb-10">
-                    <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
-                        <h3 class="font-bold text-xl mb-4 text-blue-400">What we need</h3>
-                        <ul class="space-y-3 text-slate-300">
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-blue-400 rounded-full mt-2"></span>
-                                <span>Enterprise credibility and connections</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-blue-400 rounded-full mt-2"></span>
-                                <span>Channel/partner strategy expertise</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-blue-400 rounded-full mt-2"></span>
-                                <span>Board-level guidance on scaling</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-blue-400 rounded-full mt-2"></span>
-                                <span>Someone who's seen the transformation journey</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
-                        <h3 class="font-bold text-xl mb-4 text-purple-400">What you'd get</h3>
-                        <ul class="space-y-3 text-slate-300">
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-purple-400 rounded-full mt-2"></span>
-                                <span>Equity stake in a growing AI company</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-purple-400 rounded-full mt-2"></span>
-                                <span>Shape the future of enterprise AI training</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-purple-400 rounded-full mt-2"></span>
-                                <span>Flexible board involvement</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-purple-400 rounded-full mt-2"></span>
-                                <span>Work with a team that executes</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8">
-                    <p class="text-2xl font-bold mb-2">Let's discuss.</p>
-                    <p class="text-blue-100">What questions do you have? What would make this compelling for you?</p>
-                </div>
-            </div>
-        </section>
-
     </div>
 
     <script>
@@ -620,10 +549,8 @@
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
 
-        // Set total slides
         totalSlidesEl.textContent = totalSlides;
 
-        // Create navigation dots
         for (let i = 0; i < totalSlides; i++) {
             const dot = document.createElement('div');
             dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
@@ -664,7 +591,6 @@
             updateSlide();
         }
 
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
                 e.preventDefault();
@@ -675,7 +601,6 @@
             }
         });
 
-        // Mouse wheel navigation
         let wheelTimeout;
         document.addEventListener('wheel', (e) => {
             clearTimeout(wheelTimeout);
@@ -688,7 +613,6 @@
             }, 50);
         }, { passive: true });
 
-        // Touch navigation
         let touchStartY = 0;
         document.addEventListener('touchstart', (e) => {
             touchStartY = e.touches[0].clientY;
