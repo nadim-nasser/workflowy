@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OG Image Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .og-image {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 60px 80px;
+        }
+
+        /* Background decorations */
+        .og-image::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .og-image::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            max-width: 750px;
+        }
+
+        .eyebrow {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3b82f6;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .headline {
+            font-size: 64px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .headline span {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subheadline {
+            font-size: 22px;
+            font-weight: 400;
+            color: #94a3b8;
+            line-height: 1.5;
+            max-width: 600px;
+        }
+
+        .logo-area {
+            position: absolute;
+            bottom: 60px;
+            left: 80px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 10;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .url {
+            position: absolute;
+            bottom: 60px;
+            right: 80px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #64748b;
+            z-index: 10;
+        }
+
+        /* Grid pattern overlay */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="og-image">
+        <div class="grid-overlay"></div>
+
+        <div class="content">
+            <p class="eyebrow">Enterprise AI Enablement</p>
+            <h1 class="headline">Build Enterprise<br><span>AI Capability</span></h1>
+            <p class="subheadline">We help teams move from AI experimentation to AI execution with structured programs that build real skills.</p>
+        </div>
+
+        <div class="logo-area">
+            <div class="logo">
+                <svg viewBox="0 0 40 40" fill="none">
+                    <path d="M8 12L14 28L20 18L26 28L32 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <span class="logo-text">Workflowy</span>
+        </div>
+
+        <span class="url">workflowy.ai</span>
+    </div>
+</body>
+</html>
