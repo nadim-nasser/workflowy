@@ -171,90 +171,94 @@
                     </div>
                 </div>
                 <div class="hidden lg:block relative">
-                    <!-- Clean AI Workflow Graphic -->
-                    <svg viewBox="0 0 400 320" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- AI Agent Workflow Acceleration Graphic -->
+                    <svg viewBox="0 0 400 300" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="agentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" style="stop-color:#1e40af"/>
                                 <stop offset="100%" style="stop-color:#2563eb"/>
                             </linearGradient>
-                            <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#f8fafc"/>
-                                <stop offset="100%" style="stop-color:#f1f5f9"/>
-                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
                         </defs>
 
-                        <!-- Main container card -->
-                        <rect x="40" y="30" width="320" height="260" rx="16" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+                        <!-- Input workflow nodes (left side) -->
+                        <circle cx="60" cy="100" r="12" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+                        <circle cx="60" cy="150" r="12" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+                        <circle cx="60" cy="200" r="12" fill="white" stroke="#cbd5e1" stroke-width="2"/>
 
-                        <!-- Header bar -->
-                        <rect x="40" y="30" width="320" height="44" rx="16" fill="url(#cardGrad)"/>
-                        <rect x="40" y="58" width="320" height="16" fill="url(#cardGrad)"/>
+                        <!-- Connection lines from input to agent -->
+                        <path d="M72 100 Q120 100 160 150" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+                        <path d="M72 150 L160 150" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+                        <path d="M72 200 Q120 200 160 150" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
 
-                        <!-- Window dots -->
-                        <circle cx="60" cy="52" r="5" fill="#fca5a5"/>
-                        <circle cx="78" cy="52" r="5" fill="#fcd34d"/>
-                        <circle cx="96" cy="52" r="5" fill="#86efac"/>
+                        <!-- Central AI Agent - the accelerator -->
+                        <circle cx="200" cy="150" r="45" fill="white" stroke="url(#agentGrad)" stroke-width="3" filter="url(#glow)"/>
+                        <circle cx="200" cy="150" r="35" fill="#eff6ff" stroke="none"/>
 
-                        <!-- Title text placeholder -->
-                        <rect x="200" y="47" width="80" height="10" rx="2" fill="#e2e8f0"/>
+                        <!-- AI brain/network symbol inside agent -->
+                        <circle cx="200" cy="140" r="8" fill="url(#agentGrad)"/>
+                        <circle cx="185" cy="155" r="5" fill="#60a5fa"/>
+                        <circle cx="215" cy="155" r="5" fill="#60a5fa"/>
+                        <circle cx="200" cy="165" r="5" fill="#60a5fa"/>
+                        <line x1="200" y1="148" x2="185" y2="155" stroke="#1e40af" stroke-width="1.5"/>
+                        <line x1="200" y1="148" x2="215" y2="155" stroke="#1e40af" stroke-width="1.5"/>
+                        <line x1="185" y1="155" x2="200" y2="165" stroke="#1e40af" stroke-width="1.5"/>
+                        <line x1="215" y1="155" x2="200" y2="165" stroke="#1e40af" stroke-width="1.5"/>
 
-                        <!-- Workflow rows -->
-                        <!-- Row 1 -->
-                        <rect x="60" y="95" width="140" height="36" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-                        <circle cx="80" cy="113" r="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
-                        <rect x="100" y="107" width="80" height="6" rx="2" fill="#cbd5e1"/>
-                        <rect x="100" y="117" width="50" height="4" rx="2" fill="#e2e8f0"/>
+                        <!-- Pulsing ring around agent -->
+                        <circle cx="200" cy="150" r="50" fill="none" stroke="#2563eb" stroke-width="1" opacity="0.3">
+                            <animate attributeName="r" values="50;60;50" dur="2s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.3;0.1;0.3" dur="2s" repeatCount="indefinite"/>
+                        </circle>
 
-                        <!-- Arrow 1 -->
-                        <path d="M210 113 L240 113" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M236 109 L242 113 L236 117" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <!-- Connection lines from agent to output -->
+                        <path d="M240 150 Q280 100 320 100" stroke="#2563eb" stroke-width="2" fill="none"/>
+                        <path d="M245 150 L328 150" stroke="#2563eb" stroke-width="2" fill="none"/>
+                        <path d="M240 150 Q280 200 320 200" stroke="#2563eb" stroke-width="2" fill="none"/>
 
-                        <!-- AI Agent indicator 1 -->
-                        <rect x="250" y="95" width="90" height="36" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-                        <circle cx="272" cy="113" r="10" fill="url(#agentGrad)"/>
-                        <path d="M268 113 L271 116 L276 110" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <rect x="290" y="107" width="40" height="6" rx="2" fill="#93c5fd"/>
-                        <rect x="290" y="117" width="25" height="4" rx="2" fill="#bfdbfe"/>
+                        <!-- Output workflow nodes (right side) - filled/completed -->
+                        <circle cx="340" cy="100" r="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+                        <circle cx="340" cy="150" r="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+                        <circle cx="340" cy="200" r="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
 
-                        <!-- Row 2 -->
-                        <rect x="60" y="145" width="140" height="36" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-                        <circle cx="80" cy="163" r="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
-                        <rect x="100" y="157" width="70" height="6" rx="2" fill="#cbd5e1"/>
-                        <rect x="100" y="167" width="45" height="4" rx="2" fill="#e2e8f0"/>
+                        <!-- Checkmarks in output nodes -->
+                        <path d="M334 100 L338 104 L346 96" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M334 150 L338 154 L346 146" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M334 200 L338 204 L346 196" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 
-                        <!-- Arrow 2 -->
-                        <path d="M210 163 L240 163" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M236 159 L242 163 L236 167" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <!-- Animated flow particles -->
+                        <circle r="4" fill="#2563eb">
+                            <animateMotion dur="2s" repeatCount="indefinite" path="M72 100 Q120 100 160 150 L200 150"/>
+                            <animate attributeName="opacity" values="0.8;0.8;0" dur="2s" repeatCount="indefinite" keyTimes="0;0.7;1"/>
+                        </circle>
+                        <circle r="4" fill="#1e40af">
+                            <animateMotion dur="2s" repeatCount="indefinite" path="M72 150 L200 150" begin="0.3s"/>
+                            <animate attributeName="opacity" values="0.8;0.8;0" dur="2s" repeatCount="indefinite" keyTimes="0;0.7;1" begin="0.3s"/>
+                        </circle>
+                        <circle r="4" fill="#2563eb">
+                            <animateMotion dur="2s" repeatCount="indefinite" path="M72 200 Q120 200 160 150 L200 150" begin="0.6s"/>
+                            <animate attributeName="opacity" values="0.8;0.8;0" dur="2s" repeatCount="indefinite" keyTimes="0;0.7;1" begin="0.6s"/>
+                        </circle>
 
-                        <!-- AI Agent indicator 2 -->
-                        <rect x="250" y="145" width="90" height="36" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-                        <circle cx="272" cy="163" r="10" fill="url(#agentGrad)"/>
-                        <path d="M268 163 L271 166 L276 160" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <rect x="290" y="157" width="35" height="6" rx="2" fill="#93c5fd"/>
-                        <rect x="290" y="167" width="30" height="4" rx="2" fill="#bfdbfe"/>
-
-                        <!-- Row 3 -->
-                        <rect x="60" y="195" width="140" height="36" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-                        <circle cx="80" cy="213" r="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
-                        <rect x="100" y="207" width="90" height="6" rx="2" fill="#cbd5e1"/>
-                        <rect x="100" y="217" width="55" height="4" rx="2" fill="#e2e8f0"/>
-
-                        <!-- Arrow 3 -->
-                        <path d="M210 213 L240 213" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M236 209 L242 213 L236 217" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-
-                        <!-- AI Agent indicator 3 -->
-                        <rect x="250" y="195" width="90" height="36" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-                        <circle cx="272" cy="213" r="10" fill="url(#agentGrad)"/>
-                        <path d="M268 213 L271 216 L276 210" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <rect x="290" y="207" width="42" height="6" rx="2" fill="#93c5fd"/>
-                        <rect x="290" y="217" width="28" height="4" rx="2" fill="#bfdbfe"/>
-
-                        <!-- Bottom status bar -->
-                        <rect x="60" y="250" width="280" height="24" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
-                        <circle cx="76" cy="262" r="6" fill="#22c55e"/>
-                        <rect x="90" y="258" width="100" height="8" rx="2" fill="#bbf7d0"/>
+                        <!-- Output flow particles -->
+                        <circle r="4" fill="#2563eb">
+                            <animateMotion dur="1.5s" repeatCount="indefinite" path="M200 150 Q280 100 340 100" begin="1s"/>
+                            <animate attributeName="opacity" values="0.8;0.8;0" dur="1.5s" repeatCount="indefinite" keyTimes="0;0.7;1" begin="1s"/>
+                        </circle>
+                        <circle r="4" fill="#1e40af">
+                            <animateMotion dur="1.5s" repeatCount="indefinite" path="M200 150 L340 150" begin="1.2s"/>
+                            <animate attributeName="opacity" values="0.8;0.8;0" dur="1.5s" repeatCount="indefinite" keyTimes="0;0.7;1" begin="1.2s"/>
+                        </circle>
+                        <circle r="4" fill="#2563eb">
+                            <animateMotion dur="1.5s" repeatCount="indefinite" path="M200 150 Q280 200 340 200" begin="1.4s"/>
+                            <animate attributeName="opacity" values="0.8;0.8;0" dur="1.5s" repeatCount="indefinite" keyTimes="0;0.7;1" begin="1.4s"/>
+                        </circle>
                     </svg>
                 </div>
             </div>
