@@ -421,6 +421,146 @@
                 display: none;
             }
         }
+
+        /* Print Styles - Clean PDF Export */
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: visible !important;
+                background: #0f172a !important;
+            }
+
+            /* Hide navigation and mobile header */
+            .nav-dots,
+            .nav-arrows,
+            .slide-counter,
+            .mobile-header {
+                display: none !important;
+            }
+
+            /* Reset slides container */
+            .slides-container {
+                height: auto !important;
+                overflow: visible !important;
+                position: static !important;
+            }
+
+            /* Make all slides visible and properly sized */
+            .slide {
+                position: relative !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                min-height: 100vh !important;
+                max-height: 100vh !important;
+                page-break-after: always !important;
+                break-after: page !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 40px 60px !important;
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+            }
+
+            .slide:last-child {
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+            }
+
+            /* Ensure backgrounds print */
+            .slide.bg-slate-900 {
+                background: #0f172a !important;
+            }
+
+            .slide.bg-white {
+                background: #ffffff !important;
+                color: #0f172a !important;
+            }
+
+            /* Show logo headers on print */
+            .slide > .absolute.top-6 {
+                display: flex !important;
+            }
+
+            /* Ensure gradients and colors print */
+            .bg-gradient-to-br,
+            .bg-gradient-to-b,
+            .bg-gradient-to-r {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* Hide decorative blurs */
+            .blur-3xl {
+                display: none !important;
+            }
+
+            /* Ensure text is readable */
+            .text-white {
+                color: #ffffff !important;
+            }
+
+            .text-slate-400 {
+                color: #94a3b8 !important;
+            }
+
+            .text-slate-300 {
+                color: #cbd5e1 !important;
+            }
+
+            .text-blue-400 {
+                color: #60a5fa !important;
+            }
+
+            .text-blue-600 {
+                color: #2563eb !important;
+            }
+
+            /* Ensure proper grid layouts */
+            .grid {
+                display: grid !important;
+            }
+
+            .md\\:grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            .md\\:grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+
+            .md\\:grid-cols-4 {
+                grid-template-columns: repeat(4, 1fr) !important;
+            }
+
+            .md\\:grid-cols-5 {
+                grid-template-columns: repeat(5, 1fr) !important;
+            }
+
+            /* Ensure images print */
+            img {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-white">
