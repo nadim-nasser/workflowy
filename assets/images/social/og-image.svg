@@ -1,0 +1,43 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0f172a"/>
+
+  <!-- Gradient overlay -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="1100" cy="100" r="200" fill="#3b82f6" opacity="0.1"/>
+  <circle cx="100" cy="530" r="150" fill="#8b5cf6" opacity="0.1"/>
+
+  <!-- Left side content -->
+  <text x="80" y="180" fill="#3b82f6" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="600" letter-spacing="0.1em">ENTERPRISE AI SKILLING</text>
+
+  <text x="80" y="260" fill="white" font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="700">The Last Mile of</text>
+  <text x="80" y="340" fill="url(#accentGrad)" font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="700">Enterprise AI Adoption</text>
+
+  <text x="80" y="420" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="400">Your teams have access. What they don't have is the skill</text>
+  <text x="80" y="460" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="400">to move from prompts to production workflows.</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="560" width="1200" height="70" fill="#1e293b"/>
+
+  <!-- Logo/Brand -->
+  <text x="80" y="605" fill="url(#accentGrad)" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="700">Lastmile</text>
+
+  <!-- URL -->
+  <text x="1120" y="605" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="400" text-anchor="end">lastmile-proposal.vercel.app</text>
+
+  <!-- Decorative line -->
+  <rect x="80" y="500" width="120" height="4" rx="2" fill="url(#accentGrad)"/>
+</svg>

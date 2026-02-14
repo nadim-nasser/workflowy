@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1584" height="396" viewBox="0 0 1584 396">
+  <defs>
+    <!-- Dark gradient background -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="50%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+
+    <!-- Accent gradient -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1584" height="396" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1584" height="396" fill="url(#grid)"/>
+
+  <!-- Decorative glowing circles -->
+  <circle cx="100" cy="50" r="150" fill="#3b82f6" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="1500" cy="350" r="200" fill="#8b5cf6" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="800" cy="400" r="180" fill="#3b82f6" opacity="0.05"/>
+
+  <!-- Accent line -->
+  <rect x="480" y="310" width="200" height="4" rx="2" fill="url(#accentGrad)"/>
+
+  <!-- Main headline - positioned to avoid logo area (left side) -->
+  <text x="480" y="160" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="52" font-weight="700" fill="white">Bridge the Enterprise</text>
+  <text x="480" y="225" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="52" font-weight="700" fill="url(#accentGrad)">AI Skills Gap</text>
+
+  <!-- Subheadline -->
+  <text x="480" y="280" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" fill="#94a3b8">From pilots to production. Training that delivers ROI.</text>
+
+  <!-- Feature pills on right side -->
+  <g transform="translate(1100, 120)">
+    <rect x="0" y="0" width="140" height="36" rx="18" fill="rgba(59,130,246,0.2)"/>
+    <text x="70" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#60a5fa" text-anchor="middle">Live Builds</text>
+  </g>
+
+  <g transform="translate(1100, 170)">
+    <rect x="0" y="0" width="140" height="36" rx="18" fill="rgba(139,92,246,0.2)"/>
+    <text x="70" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#a78bfa" text-anchor="middle">Your Tools</text>
+  </g>
+
+  <g transform="translate(1100, 220)">
+    <rect x="0" y="0" width="140" height="36" rx="18" fill="rgba(16,185,129,0.2)"/>
+    <text x="70" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#34d399" text-anchor="middle">Measurable ROI</text>
+  </g>
+
+  <!-- Decorative dots pattern -->
+  <g fill="#3b82f6" opacity="0.15">
+    <circle cx="1300" cy="80" r="3"/>
+    <circle cx="1320" cy="80" r="3"/>
+    <circle cx="1340" cy="80" r="3"/>
+    <circle cx="1300" cy="100" r="3"/>
+    <circle cx="1320" cy="100" r="3"/>
+    <circle cx="1340" cy="100" r="3"/>
+    <circle cx="1300" cy="120" r="3"/>
+    <circle cx="1320" cy="120" r="3"/>
+    <circle cx="1340" cy="120" r="3"/>
+  </g>
+
+  <!-- Website URL -->
+  <text x="1480" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#64748b" text-anchor="end">workflowy.ai</text>
+</svg>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflowy Logo Options</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .logo-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .logo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen py-12">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-slate-900 mb-4">Workflowy Logo Options</h1>
+            <p class="text-slate-600 text-lg">Professional logo designs following the blue-purple gradient palette</p>
+            <p class="text-slate-500 mt-2">Focus: Enterprise AI Training & Workflow Optimization</p>
+        </div>
+
+        <!-- Logo Options Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Option 1: Original Circle with W -->
+            <div class="logo-card bg-white rounded-2xl p-8 shadow-lg">
+                <div class="text-sm font-semibold text-blue-600 mb-3">Option 1 - Original</div>
+                <div class="flex justify-center mb-6">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="60" cy="60" r="60" fill="url(#grad1)"/>
+                        <path d="M30 38 L42 38 L52 72 L60 52 L68 72 L78 38 L90 38 L72 90 L62 90 L60 84 L58 90 L48 90 Z" fill="white"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-center mb-2">Classic Circle</h3>
+                <p class="text-slate-500 text-sm text-center">Clean, recognizable. Bold W centered in gradient circle.</p>
+                <div class="mt-4 flex justify-center gap-2">
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Modern</span>
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Tech</span>
+                </div>
+            </div>
+
+            <!-- Option 2: Rounded Square with W -->
+            <div class="logo-card bg-white rounded-2xl p-8 shadow-lg">
+                <div class="text-sm font-semibold text-purple-600 mb-3">Option 2 - App Style</div>
+                <div class="flex justify-center mb-6">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="0" y="0" width="120" height="120" rx="28" fill="url(#grad2)"/>
+                        <path d="M30 38 L42 38 L52 72 L60 52 L68 72 L78 38 L90 38 L72 90 L62 90 L60 84 L58 90 L48 90 Z" fill="white"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-center mb-2">Rounded Square</h3>
+                <p class="text-slate-500 text-sm text-center">App icon style. Works great on mobile and as favicon.</p>
+                <div class="mt-4 flex justify-center gap-2">
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">App</span>
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Versatile</span>
+                </div>
+            </div>
+
+            <!-- Option 3: Workflow/Connection Symbol -->
+            <div class="logo-card bg-white rounded-2xl p-8 shadow-lg">
+                <div class="text-sm font-semibold text-emerald-600 mb-3">Option 3 - Workflow</div>
+                <div class="flex justify-center mb-6">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="60" cy="60" r="60" fill="url(#grad3)"/>
+                        <!-- Workflow nodes connected -->
+                        <circle cx="35" cy="45" r="8" fill="white"/>
+                        <circle cx="60" cy="75" r="8" fill="white"/>
+                        <circle cx="85" cy="45" r="8" fill="white"/>
+                        <!-- Connection lines -->
+                        <path d="M42 50 L53 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M67 70 L78 50" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M43 45 L77 45" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-center mb-2">Connected Nodes</h3>
+                <p class="text-slate-500 text-sm text-center">Represents workflow connections and AI integration.</p>
+                <div class="mt-4 flex justify-center gap-2">
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Workflow</span>
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Connected</span>
+                </div>
+            </div>
+
+            <!-- Option 4: Abstract W with flow lines -->
+            <div class="logo-card bg-white rounded-2xl p-8 shadow-lg">
+                <div class="text-sm font-semibold text-blue-600 mb-3">Option 4 - Flow W</div>
+                <div class="flex justify-center mb-6">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="60" cy="60" r="60" fill="url(#grad4)"/>
+                        <!-- Flowing W made of curves -->
+                        <path d="M25 35 Q35 80 45 60 Q55 40 60 60 Q65 80 75 60 Q85 40 95 35"
+                              stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Small dots at connection points -->
+                        <circle cx="45" cy="60" r="4" fill="white"/>
+                        <circle cx="60" cy="60" r="4" fill="white"/>
+                        <circle cx="75" cy="60" r="4" fill="white"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-center mb-2">Flowing W</h3>
+                <p class="text-slate-500 text-sm text-center">Dynamic curves represent smooth workflow transitions.</p>
+                <div class="mt-4 flex justify-center gap-2">
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Dynamic</span>
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Smooth</span>
+                </div>
+            </div>
+
+            <!-- Option 5: Hexagon with W -->
+            <div class="logo-card bg-white rounded-2xl p-8 shadow-lg">
+                <div class="text-sm font-semibold text-purple-600 mb-3">Option 5 - Enterprise</div>
+                <div class="flex justify-center mb-6">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Hexagon -->
+                        <polygon points="60,5 110,32.5 110,87.5 60,115 10,87.5 10,32.5" fill="url(#grad5)"/>
+                        <path d="M35 40 L45 40 L52 68 L60 50 L68 68 L75 40 L85 40 L70 85 L63 85 L60 77 L57 85 L50 85 Z" fill="white"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-center mb-2">Hexagon</h3>
+                <p class="text-slate-500 text-sm text-center">Enterprise feel. Suggests structure and scalability.</p>
+                <div class="mt-4 flex justify-center gap-2">
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Enterprise</span>
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Structured</span>
+                </div>
+            </div>
+
+            <!-- Option 6: AI Brain + W -->
+            <div class="logo-card bg-white rounded-2xl p-8 shadow-lg">
+                <div class="text-sm font-semibold text-emerald-600 mb-3">Option 6 - AI Focus</div>
+                <div class="flex justify-center mb-6">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="60" cy="60" r="60" fill="url(#grad6)"/>
+                        <!-- Stylized brain/circuit pattern -->
+                        <circle cx="40" cy="40" r="6" fill="none" stroke="white" stroke-width="2"/>
+                        <circle cx="80" cy="40" r="6" fill="none" stroke="white" stroke-width="2"/>
+                        <circle cx="40" cy="80" r="6" fill="none" stroke="white" stroke-width="2"/>
+                        <circle cx="80" cy="80" r="6" fill="none" stroke="white" stroke-width="2"/>
+                        <!-- Central W -->
+                        <path d="M45 50 L52 50 L57 65 L60 55 L63 65 L68 50 L75 50 L65 80 L60 80 L60 75 L60 80 L55 80 Z" fill="white"/>
+                        <!-- Connection lines -->
+                        <line x1="46" y1="40" x2="74" y2="40" stroke="white" stroke-width="2" opacity="0.5"/>
+                        <line x1="40" y1="46" x2="40" y2="74" stroke="white" stroke-width="2" opacity="0.5"/>
+                        <line x1="80" y1="46" x2="80" y2="74" stroke="white" stroke-width="2" opacity="0.5"/>
+                        <line x1="46" y1="80" x2="74" y2="80" stroke="white" stroke-width="2" opacity="0.5"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-center mb-2">AI Network</h3>
+                <p class="text-slate-500 text-sm text-center">Neural network aesthetic. Emphasizes AI and connectivity.</p>
+                <div class="mt-4 flex justify-center gap-2">
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">AI</span>
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Neural</span>
+                </div>
+            </div>
+
+            <!-- Option 7: Minimalist W -->
+            <div class="logo-card bg-white rounded-2xl p-8 shadow-lg">
+                <div class="text-sm font-semibold text-blue-600 mb-3">Option 7 - Minimal</div>
+                <div class="flex justify-center mb-6">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="60" cy="60" r="60" fill="url(#grad7)"/>
+                        <!-- Clean minimalist W using lines -->
+                        <path d="M28 35 L44 85 L60 50 L76 85 L92 35"
+                              stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-center mb-2">Minimal Lines</h3>
+                <p class="text-slate-500 text-sm text-center">Clean, modern, instantly recognizable W mark.</p>
+                <div class="mt-4 flex justify-center gap-2">
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Minimal</span>
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Clean</span>
+                </div>
+            </div>
+
+            <!-- Option 8: Upward Arrow W -->
+            <div class="logo-card bg-white rounded-2xl p-8 shadow-lg">
+                <div class="text-sm font-semibold text-purple-600 mb-3">Option 8 - Growth</div>
+                <div class="flex justify-center mb-6">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="grad8" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#3b82f6"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="60" cy="60" r="60" fill="url(#grad8)"/>
+                        <!-- W that looks like upward growth/mountains -->
+                        <path d="M20 80 L40 40 L60 65 L80 40 L100 80"
+                              stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Small upward arrow above center peak -->
+                        <path d="M60 30 L55 40 L60 37 L65 40 Z" fill="white"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-center mb-2">Growth W</h3>
+                <p class="text-slate-500 text-sm text-center">Upward momentum. Represents capability growth and ROI.</p>
+                <div class="mt-4 flex justify-center gap-2">
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Growth</span>
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Upward</span>
+                </div>
+            </div>
+
+            <!-- Option 9: Stacked Layers -->
+            <div class="logo-card bg-white rounded-2xl p-8 shadow-lg">
+                <div class="text-sm font-semibold text-emerald-600 mb-3">Option 9 - Layers</div>
+                <div class="flex justify-center mb-6">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="grad9" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="60" cy="60" r="60" fill="url(#grad9)"/>
+                        <!-- Stacked W layers suggesting depth/process -->
+                        <path d="M30 50 L45 75 L60 55 L75 75 L90 50" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.4"/>
+                        <path d="M30 60 L45 85 L60 65 L75 85 L90 60" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.7"/>
+                        <path d="M30 40 L45 65 L60 45 L75 65 L90 40" stroke="white" stroke-width="6" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-center mb-2">Layered Flow</h3>
+                <p class="text-slate-500 text-sm text-center">Multiple layers suggest process depth and thoroughness.</p>
+                <div class="mt-4 flex justify-center gap-2">
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Process</span>
+                    <span class="px-2 py-1 bg-slate-100 rounded text-xs text-slate-600">Depth</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Color Palette Reference -->
+        <div class="mt-16 bg-white rounded-2xl p-8 shadow-lg">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 text-center">Brand Color Palette</h2>
+            <div class="flex justify-center gap-6 flex-wrap">
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-xl bg-[#3b82f6] mb-2 shadow-lg"></div>
+                    <p class="font-mono text-sm text-slate-600">#3b82f6</p>
+                    <p class="text-xs text-slate-500">Blue</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-xl bg-[#8b5cf6] mb-2 shadow-lg"></div>
+                    <p class="font-mono text-sm text-slate-600">#8b5cf6</p>
+                    <p class="text-xs text-slate-500">Purple</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-xl bg-[#0f172a] mb-2 shadow-lg"></div>
+                    <p class="font-mono text-sm text-slate-600">#0f172a</p>
+                    <p class="text-xs text-slate-500">Slate 900</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-[#3b82f6] to-[#8b5cf6] mb-2 shadow-lg"></div>
+                    <p class="font-mono text-sm text-slate-600">Gradient</p>
+                    <p class="text-xs text-slate-500">Primary</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preview on Dark/Light Backgrounds -->
+        <div class="mt-12 grid md:grid-cols-2 gap-8">
+            <div class="bg-slate-900 rounded-2xl p-8">
+                <h3 class="text-white font-bold mb-6 text-center">On Dark Background</h3>
+                <div class="flex justify-center gap-8 flex-wrap">
+                    <svg width="80" height="80" viewBox="0 0 120 120">
+                        <defs><linearGradient id="gradD1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3b82f6"/><stop offset="100%" style="stop-color:#8b5cf6"/></linearGradient></defs>
+                        <circle cx="60" cy="60" r="60" fill="url(#gradD1)"/>
+                        <path d="M30 38 L42 38 L52 72 L60 52 L68 72 L78 38 L90 38 L72 90 L62 90 L60 84 L58 90 L48 90 Z" fill="white"/>
+                    </svg>
+                    <svg width="80" height="80" viewBox="0 0 120 120">
+                        <defs><linearGradient id="gradD2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3b82f6"/><stop offset="100%" style="stop-color:#8b5cf6"/></linearGradient></defs>
+                        <circle cx="60" cy="60" r="60" fill="url(#gradD2)"/>
+                        <path d="M28 35 L44 85 L60 50 L76 85 L92 35" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-8 border border-slate-200">
+                <h3 class="text-slate-900 font-bold mb-6 text-center">On Light Background</h3>
+                <div class="flex justify-center gap-8 flex-wrap">
+                    <svg width="80" height="80" viewBox="0 0 120 120">
+                        <defs><linearGradient id="gradL1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3b82f6"/><stop offset="100%" style="stop-color:#8b5cf6"/></linearGradient></defs>
+                        <circle cx="60" cy="60" r="60" fill="url(#gradL1)"/>
+                        <path d="M30 38 L42 38 L52 72 L60 52 L68 72 L78 38 L90 38 L72 90 L62 90 L60 84 L58 90 L48 90 Z" fill="white"/>
+                    </svg>
+                    <svg width="80" height="80" viewBox="0 0 120 120">
+                        <defs><linearGradient id="gradL2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3b82f6"/><stop offset="100%" style="stop-color:#8b5cf6"/></linearGradient></defs>
+                        <circle cx="60" cy="60" r="60" fill="url(#gradL2)"/>
+                        <path d="M28 35 L44 85 L60 50 L76 85 L92 35" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center text-slate-500">
+            <p>Open this file in browser: <code class="bg-slate-200 px-2 py-1 rounded">logo-options.html</code></p>
+        </div>
+    </div>
+</body>
+</html>
