@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
-      "source": "/og-image.png",
+      "source": "/assets/images/social/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -10,5 +10,16 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/og-image.png", "destination": "/assets/images/social/og-image.png" },
+    { "source": "/og-image-v2.png", "destination": "/assets/images/social/og-image-v2.png" },
+    { "source": "/og-image-v3.png", "destination": "/assets/images/social/og-image-v3.png" },
+    { "source": "/og-deloitte.png", "destination": "/assets/images/social/og-deloitte.png" },
+    { "source": "/og-rola.png", "destination": "/assets/images/social/og-rola.png" },
+    { "source": "/un-logo.png", "destination": "/assets/images/logos/un-logo.png" },
+    { "source": "/td-logo.png", "destination": "/assets/images/logos/td-logo.png" },
+    { "source": "/rbc-logo.png", "destination": "/assets/images/logos/rbc-logo.png" },
+    { "source": "/bmo-logo.png", "destination": "/assets/images/logos/bmo-logo.png" }
   ]
 }

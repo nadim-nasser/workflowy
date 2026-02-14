@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weight Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1.0/dist/chartjs-plugin-annotation.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #7C9A8E;
+      --sage-light: #A8C5B8;
+      --sage-pale: #D4E4DC;
+      --sage-wash: #EDF3F0;
+      --terracotta: #C4856A;
+      --terracotta-light: #E0AE98;
+      --parchment: #F7F5F2;
+      --parchment-dark: #EDE9E4;
+      --ink: #2D3436;
+      --ink-light: #636E72;
+      --ink-faint: #B2BEC3;
+      --white: #FFFFFF;
+      --red-soft: #D4726A;
+      --green-soft: #6A9E7E;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow-sm: 0 1px 3px rgba(45,52,54,0.04), 0 1px 2px rgba(45,52,54,0.06);
+      --shadow-md: 0 4px 16px rgba(45,52,54,0.06), 0 1px 4px rgba(45,52,54,0.04);
+      --shadow-lg: 0 12px 40px rgba(45,52,54,0.08), 0 2px 8px rgba(45,52,54,0.04);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle grain texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* Header */
+    header {
+      padding: 48px 0 40px;
+      text-align: center;
+      animation: fadeDown 0.6s ease-out;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      color: var(--ink-light);
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    .header-line {
+      width: 48px;
+      height: 2px;
+      background: var(--sage);
+      margin: 20px auto 0;
+      border-radius: 1px;
+    }
+
+    /* Stats Row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s ease-out 0.1s both;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(124,154,142,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-faint);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .stat-value .unit {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+      font-weight: 400;
+      margin-left: 2px;
+    }
+
+    .stat-sub {
+      font-size: 0.78rem;
+      color: var(--ink-light);
+      margin-top: 6px;
+      font-weight: 300;
+    }
+
+    .stat-sub.positive { color: var(--green-soft); }
+    .stat-sub.negative { color: var(--red-soft); }
+
+    /* Cards */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(124,154,142,0.08);
+      margin-bottom: 24px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    /* Input Form */
+    .input-section {
+      animation: fadeUp 0.6s ease-out 0.2s both;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .form-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-faint);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .form-group input {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      padding: 14px 16px;
+      border: 1.5px solid var(--parchment-dark);
+      border-radius: var(--radius-sm);
+      background: var(--parchment);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-group input:focus {
+      border-color: var(--sage);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(124,154,142,0.12);
+    }
+
+    .btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 14px 28px;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--sage);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #6B8A7E;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink-faint);
+      padding: 8px 12px;
+      font-size: 0.8rem;
+    }
+
+    .btn-ghost:hover {
+      color: var(--red-soft);
+      background: rgba(212,114,106,0.06);
+    }
+
+    /* Goal Section */
+    .goal-section {
+      animation: fadeUp 0.6s ease-out 0.25s both;
+    }
+
+    .goal-inline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .goal-inline input {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 10px 14px;
+      border: 1.5px solid var(--parchment-dark);
+      border-radius: var(--radius-sm);
+      background: var(--parchment);
+      color: var(--ink);
+      outline: none;
+      width: 120px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .goal-inline input:focus {
+      border-color: var(--sage);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(124,154,142,0.12);
+    }
+
+    .goal-display {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .goal-value {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--sage);
+    }
+
+    .goal-value .unit {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+      font-weight: 400;
+    }
+
+    .goal-progress-bar {
+      flex: 1;
+      height: 6px;
+      background: var(--sage-wash);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .goal-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--sage), var(--sage-light));
+      border-radius: 3px;
+      transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .goal-actions {
+      display: flex;
+      gap: 4px;
+    }
+
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--ink-faint);
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.15s ease;
+    }
+
+    .btn-icon:hover {
+      background: var(--sage-wash);
+      color: var(--sage);
+    }
+
+    .btn-icon.danger:hover {
+      background: rgba(212,114,106,0.08);
+      color: var(--red-soft);
+    }
+
+    /* Chart */
+    .chart-section {
+      animation: fadeUp 0.6s ease-out 0.3s both;
+    }
+
+    .chart-wrapper {
+      position: relative;
+      height: 300px;
+    }
+
+    .chart-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 220px;
+      color: var(--ink-faint);
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    .chart-empty svg {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 12px;
+      opacity: 0.3;
+    }
+
+    /* History Table */
+    .history-section {
+      animation: fadeUp 0.6s ease-out 0.35s both;
+    }
+
+    .history-list {
+      list-style: none;
+    }
+
+    .history-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--parchment);
+      animation: fadeUp 0.3s ease-out;
+    }
+
+    .history-item:last-child {
+      border-bottom: none;
+    }
+
+    .history-date {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      font-weight: 400;
+      min-width: 120px;
+    }
+
+    .history-weight {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--ink);
+    }
+
+    .history-weight .unit {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      color: var(--ink-faint);
+      font-weight: 400;
+    }
+
+    .history-change {
+      font-size: 0.78rem;
+      font-weight: 500;
+      min-width: 64px;
+      text-align: right;
+    }
+
+    .history-change.up { color: var(--red-soft); }
+    .history-change.down { color: var(--green-soft); }
+    .history-change.flat { color: var(--ink-faint); }
+
+    .history-actions {
+      margin-left: 8px;
+    }
+
+    .history-empty {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--ink-faint);
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--ink);
+      color: var(--white);
+      padding: 14px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 400;
+      box-shadow: var(--shadow-lg);
+      z-index: 1000;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+
+    .toast.visible {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .container { padding: 0 16px 60px; }
+      header { padding: 32px 0 28px; }
+      header h1 { font-size: 1.8rem; }
+      .stats-row { grid-template-columns: 1fr; gap: 10px; }
+      .stat-card { padding: 18px 16px; display: flex; align-items: center; justify-content: space-between; text-align: left; }
+      .stat-label { margin-bottom: 0; margin-right: 12px; }
+      .stat-value { font-size: 1.4rem; }
+      .stat-sub { margin-top: 0; margin-left: 8px; }
+      .card { padding: 24px 20px; }
+      .form-row { flex-direction: column; }
+      .btn { width: 100%; text-align: center; }
+      .goal-inline { flex-wrap: wrap; }
+      .goal-inline input { flex: 1; }
+      .goal-display { flex-wrap: wrap; gap: 12px; }
+      .goal-progress-bar { width: 100%; order: 3; }
+      .chart-wrapper { height: 240px; }
+      .history-date { min-width: 90px; font-size: 0.8rem; }
+      .history-change { min-width: 50px; }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--ink-faint); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--ink-light); }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Weight Journal</h1>
+      <p>Track your progress, one day at a time</p>
+      <div class="header-line"></div>
+    </header>
+
+    <!-- Stats -->
+    <div class="stats-row" id="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">Current</div>
+        <div class="stat-value" id="stat-current">&mdash;</div>
+        <div class="stat-sub" id="stat-current-sub">&nbsp;</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Change</div>
+        <div class="stat-value" id="stat-change">&mdash;</div>
+        <div class="stat-sub" id="stat-change-sub">&nbsp;</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">To Goal</div>
+        <div class="stat-value" id="stat-goal">&mdash;</div>
+        <div class="stat-sub" id="stat-goal-sub">&nbsp;</div>
+      </div>
+    </div>
+
+    <!-- Weight Input -->
+    <div class="card input-section">
+      <div class="card-header">
+        <h2 class="card-title">Log Weight</h2>
+      </div>
+      <form id="weight-form" class="form-row">
+        <div class="form-group">
+          <label for="date-input">Date</label>
+          <input type="date" id="date-input" required>
+        </div>
+        <div class="form-group">
+          <label for="weight-input">Weight (lbs)</label>
+          <input type="number" id="weight-input" step="0.1" min="1" max="999" placeholder="e.g. 175.5" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+
+    <!-- Goal -->
+    <div class="card goal-section">
+      <div class="card-header">
+        <h2 class="card-title">Goal</h2>
+      </div>
+      <div id="goal-empty">
+        <form id="goal-form" class="goal-inline">
+          <input type="number" id="goal-input" step="0.1" min="1" max="999" placeholder="Target lbs">
+          <button type="submit" class="btn btn-primary">Set Goal</button>
+        </form>
+      </div>
+      <div id="goal-active" style="display:none;">
+        <div class="goal-display">
+          <div class="goal-value" id="goal-value-display">0 <span class="unit">lbs</span></div>
+          <div class="goal-progress-bar">
+            <div class="goal-progress-fill" id="goal-progress-fill" style="width:0%"></div>
+          </div>
+          <div class="goal-actions">
+            <button class="btn-icon" id="goal-edit-btn" title="Edit goal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+            </button>
+            <button class="btn-icon danger" id="goal-delete-btn" title="Remove goal">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart -->
+    <div class="card chart-section">
+      <div class="card-header">
+        <h2 class="card-title">Trend</h2>
+      </div>
+      <div class="chart-wrapper">
+        <div class="chart-empty" id="chart-empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          <span>Add entries to see your trend</span>
+        </div>
+        <canvas id="weight-chart" style="display:none;"></canvas>
+      </div>
+    </div>
+
+    <!-- History -->
+    <div class="card history-section">
+      <div class="card-header">
+        <h2 class="card-title">History</h2>
+      </div>
+      <div id="history-empty" class="history-empty">
+        No entries yet. Log your first weight above.
+      </div>
+      <ul class="history-list" id="history-list"></ul>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // State
+    let weights = [];
+    let goalWeight = null;
+    let chart = null;
+
+    // DOM
+    const weightForm = document.getElementById('weight-form');
+    const dateInput = document.getElementById('date-input');
+    const weightInput = document.getElementById('weight-input');
+    const goalForm = document.getElementById('goal-form');
+    const goalInput = document.getElementById('goal-input');
+    const goalEmpty = document.getElementById('goal-empty');
+    const goalActive = document.getElementById('goal-active');
+    const goalValueDisplay = document.getElementById('goal-value-display');
+    const goalProgressFill = document.getElementById('goal-progress-fill');
+    const goalEditBtn = document.getElementById('goal-edit-btn');
+    const goalDeleteBtn = document.getElementById('goal-delete-btn');
+    const historyList = document.getElementById('history-list');
+    const historyEmpty = document.getElementById('history-empty');
+    const chartCanvas = document.getElementById('weight-chart');
+    const chartEmpty = document.getElementById('chart-empty');
+    const toastEl = document.getElementById('toast');
+
+    // Set default date
+    dateInput.value = new Date().toISOString().split('T')[0];
+
+    // API helpers
+    async function api(url, options = {}) {
+      const res = await fetch(url, {
+        headers: { 'Content-Type': 'application/json' },
+        ...options,
+        body: options.body ? JSON.stringify(options.body) : undefined,
+      });
+      return res.json();
+    }
+
+    // Toast
+    let toastTimeout;
+    function showToast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add('visible');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => toastEl.classList.remove('visible'), 2400);
+    }
+
+    // Format date for display
+    function formatDate(dateStr) {
+      const d = new Date(dateStr + 'T12:00:00');
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    // Update stats
+    function updateStats() {
+      const currentEl = document.getElementById('stat-current');
+      const currentSub = document.getElementById('stat-current-sub');
+      const changeEl = document.getElementById('stat-change');
+      const changeSub = document.getElementById('stat-change-sub');
+      const goalEl = document.getElementById('stat-goal');
+      const goalSub = document.getElementById('stat-goal-sub');
+
+      if (weights.length === 0) {
+        currentEl.innerHTML = '&mdash;';
+        currentSub.innerHTML = '&nbsp;';
+        changeEl.innerHTML = '&mdash;';
+        changeSub.innerHTML = '&nbsp;';
+        goalEl.innerHTML = '&mdash;';
+        goalSub.innerHTML = '&nbsp;';
+        return;
+      }
+
+      const latest = weights[weights.length - 1];
+      currentEl.innerHTML = `${latest.weight}<span class="unit">lbs</span>`;
+      currentSub.textContent = formatDate(latest.date);
+      currentSub.className = 'stat-sub';
+
+      if (weights.length >= 2) {
+        const prev = weights[weights.length - 2];
+        const diff = latest.weight - prev.weight;
+        const sign = diff > 0 ? '+' : '';
+        changeEl.innerHTML = `${sign}${diff.toFixed(1)}<span class="unit">lbs</span>`;
+        changeSub.textContent = `from ${formatDate(prev.date)}`;
+        changeSub.className = 'stat-sub';
+      } else {
+        changeEl.innerHTML = '&mdash;';
+        changeSub.textContent = 'Need 2+ entries';
+        changeSub.className = 'stat-sub';
+      }
+
+      if (goalWeight) {
+        const diff = latest.weight - goalWeight;
+        if (Math.abs(diff) < 0.1) {
+          goalEl.innerHTML = `<span style="color:var(--green-soft)">Done!</span>`;
+          goalSub.textContent = 'Goal reached';
+          goalSub.className = 'stat-sub positive';
+        } else {
+          const sign = diff > 0 ? '' : '+';
+          goalEl.innerHTML = `${Math.abs(diff).toFixed(1)}<span class="unit">lbs</span>`;
+          goalSub.textContent = diff > 0 ? 'to lose' : 'to gain';
+          goalSub.className = 'stat-sub';
+        }
+      } else {
+        goalEl.innerHTML = '&mdash;';
+        goalSub.textContent = 'Set a goal';
+        goalSub.className = 'stat-sub';
+      }
+    }
+
+    // Update goal UI
+    function updateGoalUI() {
+      if (goalWeight) {
+        goalEmpty.style.display = 'none';
+        goalActive.style.display = 'block';
+        goalValueDisplay.innerHTML = `${goalWeight} <span class="unit">lbs</span>`;
+
+        // Calculate progress
+        if (weights.length >= 1) {
+          const first = weights[0].weight;
+          const current = weights[weights.length - 1].weight;
+          const totalToLose = first - goalWeight;
+          const lost = first - current;
+          let pct = totalToLose !== 0 ? Math.max(0, Math.min(100, (lost / totalToLose) * 100)) : 0;
+          if (Math.abs(totalToLose) < 0.1) pct = 100;
+          goalProgressFill.style.width = pct + '%';
+        } else {
+          goalProgressFill.style.width = '0%';
+        }
+      } else {
+        goalEmpty.style.display = 'block';
+        goalActive.style.display = 'none';
+      }
+    }
+
+    // Render chart
+    function renderChart() {
+      if (weights.length < 2) {
+        chartCanvas.style.display = 'none';
+        chartEmpty.style.display = 'flex';
+        if (chart) { chart.destroy(); chart = null; }
+        return;
+      }
+
+      chartEmpty.style.display = 'none';
+      chartCanvas.style.display = 'block';
+
+      const labels = weights.map(w => formatDate(w.date));
+      const data = weights.map(w => w.weight);
+
+      const annotations = {};
+      if (goalWeight) {
+        annotations.goalLine = {
+          type: 'line',
+          yMin: goalWeight,
+          yMax: goalWeight,
+          borderColor: 'rgba(196, 133, 106, 0.5)',
+          borderWidth: 2,
+          borderDash: [8, 4],
+          label: {
+            display: true,
+            content: `Goal: ${goalWeight} lbs`,
+            position: 'start',
+            backgroundColor: 'rgba(196, 133, 106, 0.1)',
+            color: '#C4856A',
+            font: { family: 'DM Sans', size: 11, weight: '500' },
+            padding: { top: 4, bottom: 4, left: 8, right: 8 },
+            borderRadius: 4,
+          }
+        };
+      }
+
+      if (chart) {
+        chart.data.labels = labels;
+        chart.data.datasets[0].data = data;
+        chart.options.plugins.annotation.annotations = annotations;
+        chart.update('active');
+        return;
+      }
+
+      const ctx = chartCanvas.getContext('2d');
+      const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+      gradient.addColorStop(0, 'rgba(124, 154, 142, 0.15)');
+      gradient.addColorStop(1, 'rgba(124, 154, 142, 0.0)');
+
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Weight',
+            data,
+            borderColor: '#7C9A8E',
+            backgroundColor: gradient,
+            borderWidth: 2.5,
+            pointBackgroundColor: '#7C9A8E',
+            pointBorderColor: '#FFFFFF',
+            pointBorderWidth: 2,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            fill: true,
+            tension: 0.3,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { intersect: false, mode: 'index' },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#2D3436',
+              titleFont: { family: 'DM Sans', size: 12, weight: '400' },
+              bodyFont: { family: 'DM Sans', size: 13, weight: '500' },
+              padding: 12,
+              cornerRadius: 8,
+              displayColors: false,
+              callbacks: {
+                label: ctx => `${ctx.parsed.y} lbs`
+              }
+            },
+            annotation: { annotations }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: {
+                font: { family: 'DM Sans', size: 11 },
+                color: '#B2BEC3',
+                maxTicksLimit: 8,
+              },
+              border: { display: false },
+            },
+            y: {
+              grid: { color: 'rgba(178, 190, 195, 0.15)' },
+              ticks: {
+                font: { family: 'DM Sans', size: 11 },
+                color: '#B2BEC3',
+                callback: v => v + ' lbs',
+              },
+              border: { display: false },
+            }
+          }
+        }
+      });
+    }
+
+    // Render history
+    function renderHistory() {
+      if (weights.length === 0) {
+        historyEmpty.style.display = 'block';
+        historyList.innerHTML = '';
+        return;
+      }
+
+      historyEmpty.style.display = 'none';
+      const reversed = [...weights].reverse();
+
+      historyList.innerHTML = reversed.map((w, i) => {
+        const revIdx = weights.length - 1 - i;
+        let changeHTML = '';
+        if (revIdx > 0) {
+          const diff = w.weight - weights[revIdx - 1].weight;
+          const sign = diff > 0 ? '+' : '';
+          const cls = diff > 0 ? 'up' : diff < 0 ? 'down' : 'flat';
+          changeHTML = `<span class="history-change ${cls}">${sign}${diff.toFixed(1)}</span>`;
+        } else {
+          changeHTML = `<span class="history-change flat">&mdash;</span>`;
+        }
+        return `
+          <li class="history-item">
+            <span class="history-date">${formatDate(w.date)}</span>
+            <span class="history-weight">${w.weight}<span class="unit"> lbs</span></span>
+            ${changeHTML}
+            <span class="history-actions">
+              <button class="btn-icon danger" onclick="deleteWeight(${w.id})" title="Delete entry">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+              </button>
+            </span>
+          </li>
+        `;
+      }).join('');
+    }
+
+    // Full render
+    function render() {
+      updateStats();
+      updateGoalUI();
+      renderChart();
+      renderHistory();
+    }
+
+    // Load data
+    async function loadData() {
+      const [weightsData, goalData] = await Promise.all([
+        api('/api/weights'),
+        api('/api/goal'),
+      ]);
+      weights = weightsData;
+      goalWeight = goalData.goal;
+      render();
+    }
+
+    // Submit weight
+    weightForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const date = dateInput.value;
+      const weight = weightInput.value;
+      if (!date || !weight) return;
+
+      await api('/api/weights', { method: 'POST', body: { date, weight: parseFloat(weight) } });
+      weightInput.value = '';
+      showToast('Weight logged');
+      await loadData();
+    });
+
+    // Delete weight
+    window.deleteWeight = async function(id) {
+      await api(`/api/weights/${id}`, { method: 'DELETE' });
+      showToast('Entry removed');
+      await loadData();
+    };
+
+    // Submit goal
+    goalForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const goal = goalInput.value;
+      if (!goal) return;
+
+      await api('/api/goal', { method: 'PUT', body: { goal: parseFloat(goal) } });
+      goalInput.value = '';
+      showToast('Goal set');
+      await loadData();
+    });
+
+    // Edit goal
+    goalEditBtn.addEventListener('click', () => {
+      goalActive.style.display = 'none';
+      goalEmpty.style.display = 'block';
+      goalInput.value = goalWeight || '';
+      goalInput.focus();
+    });
+
+    // Delete goal
+    goalDeleteBtn.addEventListener('click', async () => {
+      await api('/api/goal', { method: 'PUT', body: { goal: null } });
+      showToast('Goal removed');
+      await loadData();
+    });
+
+    // Init
+    loadData();
+  </script>
+</body>
+</html>
