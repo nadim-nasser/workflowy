@@ -189,17 +189,19 @@ p { color: var(--text-secondary); }
 .agenda-item.agenda-break .agenda-step { background: rgba(251,191,36,0.15); border-color: var(--accent-amber); color: var(--accent-amber); }
 .agenda-item.agenda-break .agenda-time { color: var(--accent-amber); }
 
-/* ===== TEAM (Deloitte-style) ===== */
-.team-section-title { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; margin-top: 36px; }
+/* ===== TEAM ===== */
+.team-section-title { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; margin-top: 28px; }
 .team-section-title:first-of-type { margin-top: 0; }
 
-.team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
-.team-member { display: flex; align-items: flex-start; gap: 14px; }
-.team-photo { width: 48px; height: 48px; min-width: 48px; border-radius: 50%; object-fit: cover; }
-.team-member-info h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 1px; }
-.team-member-info .team-role { font-size: 0.75rem; font-weight: 600; color: var(--accent-teal); margin-bottom: 8px; }
+.team-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.team-member { display: flex; flex-direction: column; align-items: center; text-align: center; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 16px; transition: border-color 0.3s; }
+.team-member:hover { border-color: var(--border-accent); }
+.team-photo { width: 56px; height: 56px; min-width: 56px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
+.team-member-info { display: flex; flex-direction: column; align-items: center; }
+.team-member-info h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
+.team-member-info .team-role { font-size: 0.72rem; font-weight: 600; color: var(--accent-teal); margin-bottom: 10px; }
 .team-member-info ul { list-style: none; }
-.team-member-info ul li { font-size: 0.78rem; color: var(--text-muted); line-height: 1.45; padding-left: 10px; position: relative; margin-bottom: 2px; }
+.team-member-info ul li { font-size: 0.74rem; color: var(--text-muted); line-height: 1.45; padding-left: 10px; position: relative; margin-bottom: 2px; text-align: left; }
 .team-member-info ul li::before { content: '\2022'; position: absolute; left: 0; color: var(--text-muted); }
 
 .advisory-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin-top: 28px; }
@@ -569,8 +571,7 @@ p { color: var(--text-secondary); }
       <span class="section-label">Our Team</span>
       <h2>Enterprise experience meets AI expertise.</h2>
 
-      <div class="team-section-title">LEADERSHIP</div>
-      <div class="team-grid" style="grid-template-columns: repeat(2,1fr);">
+      <div class="team-grid">
         <div class="team-member">
           <img src="assets/images/team/nad.jpeg" alt="Nadim Nasser" class="team-photo">
           <div class="team-member-info">
@@ -594,10 +595,6 @@ p { color: var(--text-secondary); }
             </ul>
           </div>
         </div>
-      </div>
-
-      <div class="team-section-title">TRAINING TEAM</div>
-      <div class="team-grid">
         <div class="team-member">
           <img src="assets/images/team/danish.jpeg" alt="Danish Dhamani" class="team-photo">
           <div class="team-member-info">
