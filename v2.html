@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflowy | Your Company's AI Workspace</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="White-label AI workspace for enterprises. Every leading model, your company's knowledge, your brand. Take control of your team's AI.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://workflowy.ai/v2">
+    <meta property="og:title" content="Workflowy | Your Company's AI Workspace">
+    <meta property="og:description" content="White-label AI workspace for enterprises. Every leading model, your company's knowledge, your brand.">
+    <meta property="og:image" content="https://workflowy.ai/assets/images/social/og-image-v3.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Workflowy | Your Company's AI Workspace">
+    <meta name="twitter:description" content="White-label AI workspace for enterprises. Every leading model, your company's knowledge, your brand.">
+    <meta name="twitter:image" content="https://workflowy.ai/assets/images/social/og-image-v3.png">
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Lora', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Lora', serif; }
+        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Poppins', sans-serif; }
+        nav, button, a, .font-ui { font-family: 'Poppins', sans-serif; }
+        p, li, blockquote, td { font-family: 'Lora', serif; }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+            background-size: 48px 48px;
+        }
+
+        .card-lift {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        @media (hover: hover) {
+            .card-lift:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 24px 48px -12px rgba(0,0,0,0.12);
+            }
+        }
+
+        .comparison-highlight {
+            background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+        }
+
+        /* Staggered reveal on load */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up {
+            opacity: 0;
+            animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .fade-up-1 { animation-delay: 0.1s; }
+        .fade-up-2 { animation-delay: 0.2s; }
+        .fade-up-3 { animation-delay: 0.35s; }
+        .fade-up-4 { animation-delay: 0.5s; }
+        .fade-up-5 { animation-delay: 0.65s; }
+
+        /* Scroll-triggered fade */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Marquee for trusted-by */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Dashboard mock pulse */
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        .pulse-soft {
+            animation: pulse-soft 3s ease-in-out infinite;
+        }
+
+        /* Comparison check/cross */
+        .check { color: #059669; }
+        .cross { color: #dc2626; }
+        .partial { color: #d97706; }
+
+        /* Phase timeline connector */
+        .phase-line {
+            position: relative;
+        }
+        .phase-line::after {
+            content: '';
+            position: absolute;
+            top: 2.5rem;
+            left: 1.25rem;
+            width: 2px;
+            height: calc(100% - 2.5rem);
+            background: linear-gradient(to bottom, #2563eb, #7c3aed);
+            opacity: 0.2;
+        }
+        .phase-line:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased overflow-x-hidden">
+
+    <!-- Noise texture overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-xl z-50 border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 py-3.5 flex items-center justify-between">
+            <div class="flex items-center gap-10">
+                <a href="#" class="flex items-center gap-2.5">
+                    <svg viewBox="0 0 1000 1000" class="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="navLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="500" cy="500" r="500" fill="url(#navLogo)"/>
+                        <path d="M250 320 L320 320 L400 580 L500 380 L600 580 L680 320 L750 320 L620 700 L550 700 L500 560 L450 700 L380 700 Z" fill="white"/>
+                    </svg>
+                    <span class="text-lg font-bold font-heading text-slate-900 tracking-tight">Workflowy</span>
+                </a>
+                <div class="hidden md:flex items-center gap-7">
+                    <a href="#product" class="text-[13px] font-medium text-slate-500 hover:text-slate-900 transition-colors">Product</a>
+                    <a href="#insights" class="text-[13px] font-medium text-slate-500 hover:text-slate-900 transition-colors">Insights</a>
+                    <a href="#training" class="text-[13px] font-medium text-slate-500 hover:text-slate-900 transition-colors">Training</a>
+                    <a href="#pricing" class="text-[13px] font-medium text-slate-500 hover:text-slate-900 transition-colors">Pricing</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="#waitlist" class="hidden sm:inline-flex text-[13px] font-medium text-slate-600 hover:text-slate-900 transition-colors px-3 py-2">
+                    Join Waitlist
+                </a>
+                <a href="#contact" class="text-[13px] font-semibold text-white bg-slate-900 px-4 py-2 rounded-lg hover:bg-slate-800 transition-colors">
+                    Book a Demo
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-28 sm:pt-36 pb-20 sm:pb-28 px-5 sm:px-8 grid-bg overflow-hidden">
+        <!-- Glow effects -->
+        <div class="hero-glow bg-blue-500" style="top: -200px; left: -100px;"></div>
+        <div class="hero-glow bg-violet-500" style="top: -100px; right: -200px;"></div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <p class="fade-up fade-up-1 text-[13px] font-semibold text-brand-600 uppercase tracking-[0.15em] mb-5">
+                    Enterprise AI Workspace
+                </p>
+                <h1 class="fade-up fade-up-2 text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold font-heading leading-[1.08] tracking-tight mb-6">
+                    Your company's AI.<br>
+                    <span class="gradient-text">Your brand. Your data.</span>
+                </h1>
+                <p class="fade-up fade-up-3 text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Every company is building internal AI tools. We already built the best one &mdash; a white-label AI workspace with every leading model, your company's knowledge, and insights that actually drive action.
+                </p>
+                <div class="fade-up fade-up-4 flex flex-col sm:flex-row gap-3 justify-center">
+                    <a href="#waitlist" class="inline-flex items-center justify-center px-7 py-3.5 bg-brand-700 text-white font-semibold text-[15px] rounded-xl hover:bg-brand-800 transition-all shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/25">
+                        Join the Waitlist
+                        <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center justify-center px-7 py-3.5 border border-slate-200 text-slate-700 font-semibold text-[15px] rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-all">
+                        Book a Demo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero visual: Mock workspace window -->
+            <div class="fade-up fade-up-5 mt-16 sm:mt-20 max-w-4xl mx-auto">
+                <div class="rounded-2xl border border-slate-200 shadow-2xl shadow-slate-200/50 overflow-hidden bg-white">
+                    <!-- Window chrome -->
+                    <div class="flex items-center gap-2 px-4 py-3 bg-slate-50 border-b border-slate-100">
+                        <div class="flex gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-400/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-400/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-emerald-400/80"></div>
+                        </div>
+                        <div class="flex-1 flex justify-center">
+                            <div class="flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-3 py-1 text-xs text-slate-400 font-heading">
+                                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                ai.yourcompany.com
+                            </div>
+                        </div>
+                    </div>
+                    <!-- App mock -->
+                    <div class="flex" style="min-height: 340px;">
+                        <!-- Sidebar -->
+                        <div class="hidden sm:flex flex-col w-56 bg-slate-900 text-white p-4 shrink-0">
+                            <div class="flex items-center gap-2 mb-6">
+                                <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center text-[10px] font-bold">A</div>
+                                <span class="text-sm font-semibold font-heading">Acme Corp AI</span>
+                            </div>
+                            <div class="space-y-1 text-[13px]">
+                                <div class="flex items-center gap-2.5 px-3 py-2 bg-white/10 rounded-lg text-white">
+                                    <svg class="w-4 h-4 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                                    Chat
+                                </div>
+                                <div class="flex items-center gap-2.5 px-3 py-2 text-slate-400 hover:text-white transition-colors rounded-lg">
+                                    <svg class="w-4 h-4 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+                                    Projects
+                                </div>
+                                <div class="flex items-center gap-2.5 px-3 py-2 text-slate-400 hover:text-white transition-colors rounded-lg">
+                                    <svg class="w-4 h-4 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                                    Insights
+                                </div>
+                            </div>
+                            <div class="mt-auto pt-4 border-t border-white/10">
+                                <div class="text-[11px] text-slate-500 font-heading">Model</div>
+                                <div class="text-[12px] text-slate-300 mt-1 flex items-center gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-emerald-400 pulse-soft"></div>
+                                    Claude Opus 4.6
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Main chat area -->
+                        <div class="flex-1 flex flex-col p-5 sm:p-6 bg-white">
+                            <div class="flex-1 space-y-4">
+                                <div class="flex gap-3">
+                                    <div class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-600 shrink-0 mt-0.5">S</div>
+                                    <div class="bg-slate-50 rounded-2xl rounded-tl-md px-4 py-3 max-w-md">
+                                        <p class="text-sm text-slate-700">Create a Q3 operations report for the leadership team. Include the metrics from our shared drive.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3 justify-end">
+                                    <div class="space-y-2 max-w-sm">
+                                        <div class="bg-brand-700 text-white rounded-2xl rounded-tr-md px-4 py-3">
+                                            <p class="text-sm">I'll pull the Q3 data from your connected sources and draft the report. Let me ask a few things first:</p>
+                                        </div>
+                                        <div class="bg-brand-600 text-white rounded-2xl px-4 py-3 text-sm space-y-2">
+                                            <p class="font-medium font-heading text-blue-100 text-xs uppercase tracking-wider">Clarifying questions</p>
+                                            <p>1. Should I include YoY comparisons?</p>
+                                            <p>2. Executive summary or detailed breakdown?</p>
+                                            <p>3. Any specific KPIs to highlight?</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center shrink-0 mt-0.5">
+                                        <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Input area -->
+                            <div class="mt-4 flex items-center gap-2 border border-slate-200 rounded-xl px-4 py-2.5 bg-slate-50/50">
+                                <input type="text" placeholder="Ask anything..." class="flex-1 bg-transparent text-sm text-slate-500 outline-none font-body" disabled>
+                                <div class="flex items-center gap-1.5 text-[11px] text-slate-400 font-heading">
+                                    <span class="px-2 py-0.5 bg-white border border-slate-200 rounded text-[10px]">Opus 4.6</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By -->
+    <section class="py-10 sm:py-12 border-y border-slate-100 bg-slate-50/50 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8">
+            <p class="text-center text-xs font-medium font-heading text-slate-400 uppercase tracking-[0.15em] mb-6">
+                Our team has delivered AI solutions across
+            </p>
+        </div>
+        <div class="relative">
+            <div class="flex marquee-track" style="width: max-content;">
+                <div class="flex items-center gap-10 sm:gap-14 px-7">
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">Microsoft</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">Google</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">United Nations</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">TD Bank</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">RBC</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">BMO</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">KPMG</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">TELUS</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">EY</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">Cisco</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">PwC</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">Bell</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">Deloitte</span>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="flex items-center gap-10 sm:gap-14 px-7">
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">Microsoft</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">Google</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">United Nations</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">TD Bank</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">RBC</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">BMO</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">KPMG</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">TELUS</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">EY</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">Cisco</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">PwC</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">Bell</span>
+                    <span class="text-sm font-medium font-heading text-slate-300 whitespace-nowrap">Deloitte</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section id="product" class="py-20 sm:py-28 px-5 sm:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-18 reveal">
+                <p class="text-[13px] font-semibold text-brand-600 uppercase tracking-[0.15em] mb-4 font-heading">The Product</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-heading leading-tight tracking-tight mb-5">
+                    One workspace. Every model.<br>Your brand.
+                </h2>
+                <p class="text-lg text-slate-500 leading-relaxed">
+                    A thin, powerful layer between AI model providers and your company's data. We abstract away the complexity so you don't have to build it yourself.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5 sm:gap-6">
+                <!-- Card 1: White-label -->
+                <div class="reveal card-lift rounded-2xl border border-slate-150 p-7 sm:p-8 bg-white hover:border-blue-200 transition-colors group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold font-heading mb-3 text-slate-900">White-Label Workspace</h3>
+                    <p class="text-slate-500 leading-relaxed">
+                        Looks like you built it. Your branding, your domain, your team's home for AI. Not another vendor's logo &mdash; yours.
+                    </p>
+                </div>
+
+                <!-- Card 2: Every model -->
+                <div class="reveal card-lift rounded-2xl border border-slate-150 p-7 sm:p-8 bg-white hover:border-violet-200 transition-colors group" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 rounded-xl bg-violet-50 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold font-heading mb-3 text-slate-900">Every Leading Model</h3>
+                    <p class="text-slate-500 leading-relaxed">
+                        Claude, GPT-4, Gemini, and more. One unified interface, no vendor lock-in. Smart routing picks the best model for each task.
+                    </p>
+                </div>
+
+                <!-- Card 3: Artifacts -->
+                <div class="reveal card-lift rounded-2xl border border-slate-150 p-7 sm:p-8 bg-white hover:border-emerald-200 transition-colors group" style="transition-delay: 0.2s;">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold font-heading mb-3 text-slate-900">Artifacts That Deliver</h3>
+                    <p class="text-slate-500 leading-relaxed">
+                        Not just chat responses. Presentations, reports, diagrams, code &mdash; generated and ready to use. Like Claude's artifacts, but inside your company.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-20 sm:py-28 px-5 sm:px-8 bg-slate-50 border-y border-slate-100">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 reveal">
+                <p class="text-[13px] font-semibold text-brand-600 uppercase tracking-[0.15em] mb-4 font-heading">The Difference</p>
+                <h2 class="text-3xl sm:text-4xl font-bold font-heading leading-tight tracking-tight mb-5">
+                    Why not just use ChatGPT Enterprise?
+                </h2>
+                <p class="text-lg text-slate-500 leading-relaxed">
+                    Enterprise plans from OpenAI and Anthropic are great &mdash; if you want to be locked into one model, one vendor, and their brand. Here's how we compare.
+                </p>
+            </div>
+
+            <!-- Comparison table -->
+            <div class="reveal overflow-x-auto">
+                <table class="w-full min-w-[640px]">
+                    <thead>
+                        <tr>
+                            <th class="text-left py-4 px-5 font-heading text-sm font-medium text-slate-400"></th>
+                            <th class="py-4 px-5 font-heading text-sm font-semibold text-slate-900">
+                                <div class="flex flex-col items-center gap-1.5">
+                                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center">
+                                        <span class="text-white text-xs font-bold">W</span>
+                                    </div>
+                                    Workflowy
+                                </div>
+                            </th>
+                            <th class="py-4 px-5 font-heading text-sm font-medium text-slate-400">
+                                <div class="flex flex-col items-center gap-1.5">
+                                    <div class="w-8 h-8 rounded-lg bg-slate-200 flex items-center justify-center">
+                                        <span class="text-slate-500 text-xs font-bold">G</span>
+                                    </div>
+                                    ChatGPT Enterprise
+                                </div>
+                            </th>
+                            <th class="py-4 px-5 font-heading text-sm font-medium text-slate-400">
+                                <div class="flex flex-col items-center gap-1.5">
+                                    <div class="w-8 h-8 rounded-lg bg-slate-200 flex items-center justify-center">
+                                        <span class="text-slate-500 text-xs font-bold">C</span>
+                                    </div>
+                                    Claude Enterprise
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="comparison-highlight">
+                            <td class="py-4 px-5 text-sm text-slate-700">White-label branding</td>
+                            <td class="py-4 px-5 text-center"><span class="check text-lg font-bold">&#10003;</span></td>
+                            <td class="py-4 px-5 text-center"><span class="cross text-lg">&#10005;</span></td>
+                            <td class="py-4 px-5 text-center"><span class="cross text-lg">&#10005;</span></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-5 text-sm text-slate-700">Multi-model access</td>
+                            <td class="py-4 px-5 text-center"><span class="text-xs font-medium font-heading text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full">All models</span></td>
+                            <td class="py-4 px-5 text-center"><span class="text-xs font-medium font-heading text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">GPT only</span></td>
+                            <td class="py-4 px-5 text-center"><span class="text-xs font-medium font-heading text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">Claude only</span></td>
+                        </tr>
+                        <tr class="comparison-highlight">
+                            <td class="py-4 px-5 text-sm text-slate-700">On-premise deployment</td>
+                            <td class="py-4 px-5 text-center"><span class="check text-lg font-bold">&#10003;</span></td>
+                            <td class="py-4 px-5 text-center"><span class="cross text-lg">&#10005;</span></td>
+                            <td class="py-4 px-5 text-center"><span class="cross text-lg">&#10005;</span></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-5 text-sm text-slate-700">Organizational insights</td>
+                            <td class="py-4 px-5 text-center"><span class="check text-lg font-bold">&#10003;</span></td>
+                            <td class="py-4 px-5 text-center"><span class="text-xs font-medium font-heading text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full">Basic</span></td>
+                            <td class="py-4 px-5 text-center"><span class="cross text-lg">&#10005;</span></td>
+                        </tr>
+                        <tr class="comparison-highlight">
+                            <td class="py-4 px-5 text-sm text-slate-700">Granular dept. billing</td>
+                            <td class="py-4 px-5 text-center"><span class="check text-lg font-bold">&#10003;</span></td>
+                            <td class="py-4 px-5 text-center"><span class="text-xs font-medium font-heading text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full">Limited</span></td>
+                            <td class="py-4 px-5 text-center"><span class="text-xs font-medium font-heading text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full">Limited</span></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-5 text-sm text-slate-700">Full data ownership</td>
+                            <td class="py-4 px-5 text-center"><span class="text-xs font-medium font-heading text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full">Dedicated infra</span></td>
+                            <td class="py-4 px-5 text-center"><span class="text-xs font-medium font-heading text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full">Partial</span></td>
+                            <td class="py-4 px-5 text-center"><span class="text-xs font-medium font-heading text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full">Partial</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section (Dark) -->
+    <section id="insights" class="py-20 sm:py-28 px-5 sm:px-8 bg-slate-900 text-white overflow-hidden relative">
+        <!-- Subtle glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[200px] opacity-[0.06] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="reveal">
+                    <p class="text-[13px] font-semibold text-blue-400 uppercase tracking-[0.15em] mb-4 font-heading">Insights</p>
+                    <h2 class="text-3xl sm:text-4xl font-bold font-heading leading-tight tracking-tight mb-5">
+                        See what your team is actually doing with AI.
+                    </h2>
+                    <p class="text-lg text-slate-400 leading-relaxed mb-8">
+                        An LLM listens behind the scenes &mdash; collecting domain knowledge, surfacing repeated processes, and telling managers exactly where to automate.
+                    </p>
+                    <div class="space-y-5">
+                        <div class="flex gap-4">
+                            <div class="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <svg class="w-4.5 h-4.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold font-heading mb-1">Usage analytics by department</h4>
+                                <p class="text-sm text-slate-400">See who's using AI, how much, and which models they prefer. Set per-department budgets.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-9 h-9 rounded-lg bg-violet-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <svg class="w-4.5 h-4.5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold font-heading mb-1">Domain knowledge extraction</h4>
+                                <p class="text-sm text-slate-400">As your team chats, we capture institutional knowledge &mdash; processes, terminology, decisions.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <svg class="w-4.5 h-4.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold font-heading mb-1">AI action plans</h4>
+                                <p class="text-sm text-slate-400">Repeated tasks surface automatically. We suggest agents and automations to eliminate them.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mock dashboard -->
+                <div class="reveal">
+                    <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 sm:p-6">
+                        <!-- Dashboard header -->
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h4 class="text-sm font-semibold font-heading">Organization Overview</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Last 30 days</p>
+                            </div>
+                            <div class="flex gap-2 text-[11px] font-heading">
+                                <span class="px-2.5 py-1 bg-white/10 rounded-md text-slate-300">Weekly</span>
+                                <span class="px-2.5 py-1 bg-blue-500/20 rounded-md text-blue-300">Monthly</span>
+                            </div>
+                        </div>
+
+                        <!-- Stats row -->
+                        <div class="grid grid-cols-3 gap-3 mb-6">
+                            <div class="bg-white/5 rounded-xl p-3">
+                                <p class="text-[11px] text-slate-500 font-heading mb-1">Active Users</p>
+                                <p class="text-xl font-bold font-heading">247</p>
+                                <p class="text-[10px] text-emerald-400 font-heading mt-1">+18% vs last month</p>
+                            </div>
+                            <div class="bg-white/5 rounded-xl p-3">
+                                <p class="text-[11px] text-slate-500 font-heading mb-1">Conversations</p>
+                                <p class="text-xl font-bold font-heading">3.2k</p>
+                                <p class="text-[10px] text-emerald-400 font-heading mt-1">+24% vs last month</p>
+                            </div>
+                            <div class="bg-white/5 rounded-xl p-3">
+                                <p class="text-[11px] text-slate-500 font-heading mb-1">Artifacts</p>
+                                <p class="text-xl font-bold font-heading">891</p>
+                                <p class="text-[10px] text-emerald-400 font-heading mt-1">+31% vs last month</p>
+                            </div>
+                        </div>
+
+                        <!-- Department usage -->
+                        <div class="mb-6">
+                            <p class="text-[11px] text-slate-500 font-heading mb-3">Usage by Department</p>
+                            <div class="space-y-2.5">
+                                <div>
+                                    <div class="flex justify-between text-[11px] font-heading mb-1">
+                                        <span class="text-slate-300">Operations</span>
+                                        <span class="text-slate-400">38%</span>
+                                    </div>
+                                    <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                        <div class="h-full bg-blue-500 rounded-full" style="width: 38%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[11px] font-heading mb-1">
+                                        <span class="text-slate-300">Marketing</span>
+                                        <span class="text-slate-400">27%</span>
+                                    </div>
+                                    <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                        <div class="h-full bg-violet-500 rounded-full" style="width: 27%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[11px] font-heading mb-1">
+                                        <span class="text-slate-300">Finance</span>
+                                        <span class="text-slate-400">21%</span>
+                                    </div>
+                                    <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                        <div class="h-full bg-emerald-500 rounded-full" style="width: 21%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[11px] font-heading mb-1">
+                                        <span class="text-slate-300">HR</span>
+                                        <span class="text-slate-400">14%</span>
+                                    </div>
+                                    <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                        <div class="h-full bg-amber-500 rounded-full" style="width: 14%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Insight signal -->
+                        <div class="bg-blue-500/10 border border-blue-500/20 rounded-xl p-3.5">
+                            <div class="flex items-start gap-3">
+                                <div class="w-7 h-7 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0">
+                                    <svg class="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-[11px] font-semibold font-heading text-blue-300">Automation Opportunity</p>
+                                    <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">"Weekly status report" requested 23 times this month across 4 departments. Recommend creating an automated agent.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Section -->
+    <section id="training" class="py-20 sm:py-28 px-5 sm:px-8">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-18 reveal">
+                <p class="text-[13px] font-semibold text-brand-600 uppercase tracking-[0.15em] mb-4 font-heading">Enablement</p>
+                <h2 class="text-3xl sm:text-4xl font-bold font-heading leading-tight tracking-tight mb-5">
+                    Training that sticks.<br>90 days, not 90 minutes.
+                </h2>
+                <p class="text-lg text-slate-500 leading-relaxed">
+                    We don't do half-day workshops. We embed with your team for 90 days &mdash; extracting workflows, building live prototypes, and coaching until AI becomes muscle memory.
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <!-- Phase 1 -->
+                <div class="reveal phase-line flex gap-5 sm:gap-7 pb-10">
+                    <div class="flex flex-col items-center shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-brand-700 text-white flex items-center justify-center text-sm font-bold font-heading">1</div>
+                    </div>
+                    <div class="pt-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-lg font-bold font-heading text-slate-900">Workflow Optimization</h3>
+                            <span class="text-[11px] font-medium font-heading text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded-full">Month 1</span>
+                        </div>
+                        <p class="text-slate-500 leading-relaxed">
+                            We audit your team's existing processes and optimize them with your current AI tooling. No new tools yet &mdash; just better use of what you have. This is where we extract the domain knowledge that makes everything else work.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="reveal phase-line flex gap-5 sm:gap-7 pb-10">
+                    <div class="flex flex-col items-center shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-violet-600 text-white flex items-center justify-center text-sm font-bold font-heading">2</div>
+                    </div>
+                    <div class="pt-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-lg font-bold font-heading text-slate-900">Advanced Integration</h3>
+                            <span class="text-[11px] font-medium font-heading text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded-full">Month 2</span>
+                        </div>
+                        <p class="text-slate-500 leading-relaxed">
+                            Deploy the Workflowy workspace, connect your company's knowledge bases, and train your team on multi-model AI workflows. Build custom agents for your most common tasks.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="reveal phase-line flex gap-5 sm:gap-7">
+                    <div class="flex flex-col items-center shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center text-sm font-bold font-heading">3</div>
+                    </div>
+                    <div class="pt-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-lg font-bold font-heading text-slate-900">Automation &amp; Handoff</h3>
+                            <span class="text-[11px] font-medium font-heading text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded-full">Month 3</span>
+                        </div>
+                        <p class="text-slate-500 leading-relaxed">
+                            Measure adoption, review insights, and deploy automations for the repetitive processes we've identified. We hand off a team that doesn't just use AI &mdash; they run on it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Deploy Section -->
+    <section id="pricing" class="py-20 sm:py-28 px-5 sm:px-8 bg-slate-50 border-y border-slate-100">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-18 reveal">
+                <p class="text-[13px] font-semibold text-brand-600 uppercase tracking-[0.15em] mb-4 font-heading">Deployment</p>
+                <h2 class="text-3xl sm:text-4xl font-bold font-heading leading-tight tracking-tight mb-5">
+                    Deploy your way.
+                </h2>
+                <p class="text-lg text-slate-500 leading-relaxed">
+                    Start in the cloud for speed. Move to dedicated infrastructure when you're ready. Your data, your rules.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- Cloud -->
+                <div class="reveal card-lift rounded-2xl border border-slate-200 bg-white p-8 sm:p-10">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading mb-2">Cloud</h3>
+                    <p class="text-slate-500 leading-relaxed mb-6">
+                        Sign up and go. We host everything. Best for teams under 500 who want to move fast without infrastructure overhead.
+                    </p>
+                    <div class="border-t border-slate-100 pt-5">
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-3xl font-bold font-heading">$5</span>
+                            <span class="text-sm text-slate-400 font-heading">/ user / month</span>
+                        </div>
+                        <ul class="space-y-2.5 text-sm text-slate-600">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                All models included
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Full white-label branding
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Insights dashboard
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Department-level billing
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Dedicated -->
+                <div class="reveal card-lift rounded-2xl border-2 border-slate-900 bg-slate-900 text-white p-8 sm:p-10 relative overflow-hidden" style="transition-delay: 0.1s;">
+                    <div class="absolute top-0 right-0 bg-gradient-to-l from-blue-500 to-violet-500 text-white text-[10px] font-bold font-heading uppercase tracking-wider px-4 py-1.5 rounded-bl-xl">Full Control</div>
+                    <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading mb-2">Dedicated Infrastructure</h3>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        You own everything. Code, data, infrastructure. We deliver the app plus a 5-year support plan. For enterprises that need full control.
+                    </p>
+                    <div class="border-t border-white/10 pt-5">
+                        <div class="flex items-baseline gap-1 mb-4">
+                            <span class="text-3xl font-bold font-heading">Custom</span>
+                        </div>
+                        <ul class="space-y-2.5 text-sm text-slate-300">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Everything in Cloud
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Your infrastructure, your data
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                5-year support &amp; updates
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                No SOC2 burden on us
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 sm:py-28 px-5 sm:px-8">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+                <p class="text-[13px] font-semibold text-brand-600 uppercase tracking-[0.15em] mb-4 font-heading">Team</p>
+                <h2 class="text-3xl sm:text-4xl font-bold font-heading leading-tight tracking-tight">
+                    Built by people who've done this before.
+                </h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <!-- Nadim -->
+                <div class="reveal card-lift rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 text-center">
+                    <img src="assets/images/team/nad.jpeg" alt="Nadim Nasser" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-slate-100">
+                    <h3 class="text-lg font-bold font-heading text-slate-900">Nadim Nasser</h3>
+                    <p class="text-sm font-medium font-heading text-brand-600 mb-3">CEO</p>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        15+ years in learning design and AI enablement across 50+ countries. Former consultant to Microsoft, Google, KPMG, and the United Nations.
+                    </p>
+                </div>
+
+                <!-- Azim -->
+                <div class="reveal card-lift rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 text-center" style="transition-delay: 0.1s;">
+                    <img src="assets/images/team/azim.jpeg" alt="Azim Ahmed" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-slate-100">
+                    <h3 class="text-lg font-bold font-heading text-slate-900">Azim Ahmed</h3>
+                    <p class="text-sm font-medium font-heading text-brand-600 mb-3">Head of Product &amp; Engineering</p>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        Former engineering lead with 8,000+ students trained. Builds the infrastructure that makes enterprise AI actually work.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Waitlist Section -->
+    <section id="waitlist" class="py-20 sm:py-28 px-5 sm:px-8 bg-slate-900 text-white relative overflow-hidden">
+        <!-- Gradient orbs -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full blur-[160px] opacity-10 pointer-events-none"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-600 rounded-full blur-[160px] opacity-10 pointer-events-none"></div>
+
+        <div class="max-w-2xl mx-auto text-center relative z-10 reveal">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-heading leading-tight tracking-tight mb-5">
+                Ready to take control of your company's AI?
+            </h2>
+            <p class="text-lg text-slate-400 leading-relaxed mb-10">
+                Join the waitlist for early access. We're onboarding a small group of companies who want to be first.
+            </p>
+
+            <!-- Waitlist form -->
+            <form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto mb-6" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Added to waitlist'; this.querySelector('button').disabled=true; this.querySelector('button').classList.add('bg-emerald-600'); this.querySelector('button').classList.remove('bg-brand-700', 'hover:bg-brand-800');">
+                <input type="email" placeholder="you@company.com" required class="flex-1 px-5 py-3.5 rounded-xl bg-white/10 border border-white/10 text-white placeholder-slate-500 text-sm font-heading focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all">
+                <button type="submit" class="px-7 py-3.5 bg-brand-700 text-white font-semibold text-sm font-heading rounded-xl hover:bg-brand-800 transition-all shadow-lg shadow-blue-500/20 whitespace-nowrap">
+                    Join the Waitlist
+                </button>
+            </form>
+
+            <div id="contact" class="pt-4">
+                <a href="https://calendly.com/nadimnasser" target="_blank" class="text-sm text-slate-400 hover:text-white transition-colors font-heading">
+                    Or book a 30-minute demo with Nadim &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 px-5 sm:px-8 border-t border-slate-100 bg-white">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2.5">
+                <svg viewBox="0 0 1000 1000" class="w-6 h-6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="footerLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3b82f6"/>
+                            <stop offset="100%" style="stop-color:#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="500" cy="500" r="500" fill="url(#footerLogo)"/>
+                    <path d="M250 320 L320 320 L400 580 L500 380 L600 580 L680 320 L750 320 L620 700 L550 700 L500 560 L450 700 L380 700 Z" fill="white"/>
+                </svg>
+                <span class="text-sm font-semibold font-heading text-slate-900">Workflowy</span>
+            </div>
+            <p class="text-xs text-slate-400 font-heading">&copy; 2025 Workflowy AI Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll reveal script -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
