@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Training Proposal for PurposeMed</title>
+<title>AI Strategy Session for PurposeMed | Workflowy</title>
+<meta property="og:title" content="Becoming an AI-First Organization">
+<meta property="og:description" content="AI Strategy Session for the PurposeMed Executive Team. 15 participants, 2 trainers, Calgary.">
+<meta property="og:image" content="https://workflowy.ai/assets/images/social/og-purposemed.png">
+<meta property="og:url" content="https://workflowy.ai/purposemed">
+<meta property="og:type" content="website">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0f1a'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='20' fill='%232dd4bf'%3EW%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
@@ -115,16 +123,16 @@ p { color: var(--text-secondary); }
 .challenge-text h2 { margin-bottom: 20px; }
 .challenge-text p { font-size: 1.02rem; line-height: 1.8; margin-bottom: 12px; max-width: 800px; }
 
-.challenge-bullets { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; max-width: 800px; }
-.challenge-bullet { display: flex; align-items: flex-start; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; transition: border-color 0.3s, transform 0.3s; }
-.challenge-bullet:hover { border-color: var(--border-accent); transform: translateX(4px); }
-.cb-icon { font-size: 1.4rem; flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--accent-teal-dim); border-radius: 10px; }
-.challenge-bullet div strong { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--text-primary); display: block; margin-bottom: 4px; }
-.challenge-bullet div span { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; }
+.challenge-bullets { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 16px; }
+.challenge-bullet { display: flex; align-items: flex-start; gap: 12px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; transition: border-color 0.3s; }
+.challenge-bullet:hover { border-color: var(--border-accent); }
+.cb-icon { font-size: 1.1rem; flex-shrink: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--accent-teal-dim); border-radius: 8px; }
+.challenge-bullet div strong { font-family: var(--font-display); font-size: 0.88rem; font-weight: 500; color: var(--text-primary); display: block; margin-bottom: 3px; }
+.challenge-bullet div span { font-size: 0.76rem; color: var(--text-secondary); line-height: 1.45; }
 .challenge-bullet.challenge-question { border-color: var(--border-accent); background: rgba(45, 212, 191, 0.06); }
 .challenge-bullet.challenge-question .cb-icon { background: var(--accent-teal); }
 
-.tool-logos { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.tool-logos { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
 .tool-logo { display: flex; align-items: center; gap: 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; padding: 8px 16px 8px 10px; font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); transition: border-color 0.3s; }
 .tool-logo:hover { border-color: var(--border-accent); }
 .tool-logo img, .tool-logo svg { width: 22px; height: 22px; border-radius: 5px; }
@@ -170,14 +178,16 @@ p { color: var(--text-secondary); }
 .workshop-list li::before { content: '\2713'; color: var(--accent-teal); font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 1px; }
 
 /* ===== AGENDA ===== */
-.agenda-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 36px; }
-.agenda-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; transition: border-color 0.3s; }
+.agenda-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 28px; }
+.agenda-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; transition: border-color 0.3s; }
 .agenda-item:hover { border-color: var(--border-accent); }
-.agenda-step { width: 28px; height: 28px; border-radius: 50%; background: var(--accent-teal-dim); border: 1.5px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: var(--accent-teal); margin-bottom: 12px; }
-.agenda-time { font-size: 0.68rem; font-weight: 600; color: var(--accent-teal); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; }
-.agenda-item h4 { font-family: var(--font-display); font-size: 0.98rem; font-weight: 500; margin-bottom: 6px; line-height: 1.3; }
-.agenda-item p { font-size: 0.78rem; line-height: 1.5; color: var(--text-muted); }
-.agenda-grid-2 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 12px; }
+.agenda-step { width: 26px; height: 26px; border-radius: 50%; background: var(--accent-teal-dim); border: 1.5px solid var(--accent-teal); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; color: var(--accent-teal); margin-bottom: 10px; }
+.agenda-time { font-size: 0.66rem; font-weight: 600; color: var(--accent-teal); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+.agenda-item h4 { font-family: var(--font-display); font-size: 0.92rem; font-weight: 500; margin-bottom: 5px; line-height: 1.3; }
+.agenda-item p { font-size: 0.74rem; line-height: 1.45; color: var(--text-muted); }
+.agenda-item.agenda-break { background: transparent; border: 1px dashed var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.agenda-item.agenda-break .agenda-step { background: rgba(251,191,36,0.15); border-color: var(--accent-amber); color: var(--accent-amber); }
+.agenda-item.agenda-break .agenda-time { color: var(--accent-amber); }
 
 /* ===== TEAM (Deloitte-style) ===== */
 .team-section-title { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; margin-top: 36px; }
@@ -200,51 +210,113 @@ p { color: var(--text-secondary); }
 .advisory-member p { font-size: 0.74rem; color: var(--text-muted); line-height: 1.45; }
 
 /* ===== INVESTMENT ===== */
-.invest-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 40px; }
-.invest-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 36px; transition: border-color 0.3s; }
+.invest-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 24px; }
+.invest-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 28px; transition: border-color 0.3s; }
 .invest-card.primary { border-color: var(--accent-teal); }
 .invest-card:hover { border-color: var(--border-accent); }
-.invest-tier { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-teal); margin-bottom: 10px; }
-.invest-price { font-family: var(--font-display); font-size: 2.6rem; font-weight: 600; margin-bottom: 2px; }
-.invest-unit { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 22px; }
+.invest-tier { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-teal); margin-bottom: 6px; }
+.invest-price { font-family: var(--font-display); font-size: 2.2rem; font-weight: 600; margin-bottom: 1px; }
+.invest-unit { font-size: 0.76rem; color: var(--text-muted); margin-bottom: 14px; }
 .invest-list { list-style: none; }
-.invest-list li { font-size: 0.85rem; color: var(--text-secondary); padding: 6px 0; display: flex; align-items: flex-start; gap: 8px; }
+.invest-list li { font-size: 0.78rem; color: var(--text-secondary); padding: 3px 0; display: flex; align-items: flex-start; gap: 7px; }
 .invest-list li::before { content: '\2713'; color: var(--accent-teal); font-weight: 700; flex-shrink: 0; }
-.invest-note { margin-top: 24px; padding: 20px 24px; background: var(--accent-teal-dim); border: 1px solid var(--border-accent); border-radius: 12px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+.invest-note { margin-top: 16px; padding: 14px 18px; background: var(--accent-teal-dim); border: 1px solid var(--border-accent); border-radius: 10px; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }
 .invest-note strong { color: var(--accent-teal); }
-.invest-cta { text-align: center; margin-top: 36px; }
-.cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px; background: linear-gradient(135deg, var(--accent-teal), #14b8a6); color: var(--bg-primary); font-weight: 700; font-size: 1rem; text-decoration: none; border-radius: 100px; transition: transform 0.2s, box-shadow 0.2s; font-family: var(--font-body); }
+.invest-cta { text-align: center; margin-top: 18px; }
+.cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: linear-gradient(135deg, var(--accent-teal), #14b8a6); color: var(--bg-primary); font-weight: 700; font-size: 0.95rem; text-decoration: none; border-radius: 100px; transition: transform 0.2s, box-shadow 0.2s; font-family: var(--font-body); }
 .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-teal-glow); }
-.cta-email { display: block; margin-top: 14px; font-size: 0.85rem; color: var(--text-muted); }
+.cta-email { display: block; margin-top: 10px; font-size: 0.8rem; color: var(--text-muted); }
 .cta-email a { color: var(--accent-teal); text-decoration: none; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .slide { padding: 60px 24px; }
-  .topics-grid, .invest-grid { grid-template-columns: 1fr; }
-  .workshop-card { grid-template-columns: 1fr; }
-  .agenda-grid { grid-template-columns: repeat(2,1fr); }
-  .agenda-grid-2 { grid-template-columns: repeat(2,1fr); }
-  .framework-grid { grid-template-columns: repeat(2,1fr); }
-  .team-grid { grid-template-columns: 1fr; }
-  .advisory-grid { grid-template-columns: 1fr; }
-  .nav-dots { display: none; }
-  .nav-arrows { right: 16px; bottom: 16px; }
-  .slide-counter { left: 16px; bottom: 16px; }
-}
-@media (max-width: 480px) {
-  .slide { padding: 60px 16px; }
-  .agenda-grid, .agenda-grid-2, .framework-grid { grid-template-columns: 1fr; }
-  .cover-logos { flex-direction: column; gap: 12px; }
-  .logo-sep { width: 28px; height: 1px; }
-}
-@media (max-width: 900px) {
+  /* Layout: convert from slide deck to scrollable page */
   html { overflow: auto; height: auto; }
   body { overflow: auto; height: auto; }
   .deck { height: auto; overflow: visible; }
-  .slide { position: relative; opacity: 1; pointer-events: all; min-height: 100vh; height: auto; }
-  .slide .slide-inner > * { opacity: 1; transform: translateY(0); }
-  .progress-bar { display: none; }
+  .deck::after { position: absolute; }
+  .slide {
+    position: relative; opacity: 1; pointer-events: all;
+    min-height: auto; height: auto;
+    padding: 48px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .slide .slide-inner > * { opacity: 1; transform: translateY(0); transition: none; }
+
+  /* Hide deck navigation */
+  .progress-bar, .nav-dots, .nav-arrows, .slide-counter { display: none; }
+
+  /* Typography */
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.05rem; }
+  .section-label { margin-bottom: 12px; }
+  .cover-sub { font-size: 1rem; }
+
+  /* Cover */
+  .slide-cover::before { width: 400px; height: 400px; top: -150px; }
+  .cover-logos { gap: 16px; margin-bottom: 32px; }
+  .cover-logos svg { height: 16px; }
+
+  /* Grids: 2 columns on tablet */
+  .challenge-bullets { grid-template-columns: 1fr; gap: 8px; }
+  .framework-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .topics-grid { grid-template-columns: 1fr !important; gap: 12px; }
+  .agenda-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .invest-grid { grid-template-columns: 1fr; gap: 16px; }
+  .team-grid { grid-template-columns: 1fr !important; }
+  .workshop-card { grid-template-columns: 1fr; }
+
+  /* Tool logos */
+  .tool-logos { gap: 8px; }
+  .tool-logo { padding: 6px 12px 6px 8px; font-size: 0.78rem; }
+  .tool-logo svg { width: 18px; height: 18px; }
+
+  /* Challenge bullets */
+  .challenge-bullet { padding: 12px 14px; }
+  .challenge-bullet div strong { font-size: 0.84rem; }
+  .challenge-bullet div span { font-size: 0.74rem; }
+
+  /* Framework */
+  .framework-pillar { padding: 16px; }
+
+  /* Agenda */
+  .agenda-item { padding: 16px; }
+  .agenda-item h4 { font-size: 0.88rem; }
+  .agenda-item p { font-size: 0.72rem; }
+
+  /* Workshop */
+  .workshop-desc { font-size: 0.88rem; }
+  .workshop-list li { font-size: 0.82rem; }
+
+  /* Investment */
+  .invest-card { padding: 20px; }
+  .invest-price { font-size: 2rem; }
+  .invest-note { font-size: 0.75rem; padding: 12px 14px; }
+
+  /* Team */
+  .team-member { gap: 10px; }
+  .team-photo { width: 42px; height: 42px; min-width: 42px; }
+  .team-member-info h4 { font-size: 0.9rem; }
+  .team-member-info li { font-size: 0.72rem; }
+}
+
+@media (max-width: 480px) {
+  .slide { padding: 32px 16px; }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.25rem; }
+  .cover-logos { flex-direction: column; gap: 10px; }
+  .logo-sep { width: 28px; height: 1px; }
+  .cover-sub { font-size: 0.9rem; margin-top: 16px; }
+  .cover-date { font-size: 0.78rem; }
+
+  /* Single column everything */
+  .framework-grid { grid-template-columns: 1fr; }
+  .agenda-grid { grid-template-columns: 1fr; }
+  .challenge-text p { font-size: 0.88rem; }
+  .invest-price { font-size: 1.7rem; }
+  .tool-logos { justify-content: center; }
+  .tool-logo { padding: 5px 10px 5px 7px; font-size: 0.72rem; }
 }
 </style>
 </head>
@@ -275,7 +347,7 @@ p { color: var(--text-secondary); }
       </div>
       <h1>Becoming an <span class="highlight">AI-First</span> Organization</h1>
       <p class="cover-sub">AI strategy session for the PurposeMed executive team<br>15 participants &middot; 2 trainers</p>
-      <div class="cover-date">February 2026</div>
+      <div class="cover-date">Tuesday, March 3, 2026 &middot; Calgary</div>
     </div>
   </div>
 
@@ -284,15 +356,15 @@ p { color: var(--text-secondary); }
     <div class="slide-inner">
       <span class="section-label">Session Objectives</span>
       <div class="challenge-text">
-        <h2>Six objectives for PurposeMed's AI strategy session.</h2>
-        <p>This isn't an intro to AI. It's the foundation for becoming an AI-first organization — with the strategic clarity, hands-on fluency, and governance structure to make it real.</p>
+        <h2>Six objectives for 15 executives, from "deep in Claude" to "what's vibe coding?"</h2>
+        <p style="font-size:0.85rem;margin-bottom:0;">Not an intro to AI. The foundation for becoming an AI-first organization, with strategic clarity, hands-on fluency, and governance so this isn't just a random project.</p>
         <div class="challenge-bullets">
-          <div class="challenge-bullet"><span class="cb-icon">&#127919;</span><div><strong>Establish a shared definition of "AI-Forward" at PurposeMed</strong><span>Create executive alignment on what AI means strategically and operationally over the next 12–18 months — and get hands-on with tools like Claude Code to understand their real impact</span></div></div>
-          <div class="challenge-bullet"><span class="cb-icon">&#127973;</span><div><strong>Understand the healthcare AI market landscape</strong><span>What's working in telehealth — and what hasn't. Proven AI implementations, real ROI, and lessons learned from successful and unsuccessful deployments</span></div></div>
-          <div class="challenge-bullet"><span class="cb-icon">&#128736;</span><div><strong>Build executive fluency through hands-on prototyping</strong><span>Increase executive competence and comfort with applied AI through direct experimentation — build real things, not just watch demos</span></div></div>
-          <div class="challenge-bullet"><span class="cb-icon">&#128737;</span><div><strong>Understand AI risks, data governance & patient safety</strong><span>Surface what you can and can't do with patient data. Address the dangers of AI in healthcare contexts and establish clear guardrails for PHIPA compliance</span></div></div>
-          <div class="challenge-bullet"><span class="cb-icon">&#128161;</span><div><strong>Identify high-impact use cases & surface current AI adoption</strong><span>Audit what's already happening internally, identify 1–3 highest-ROI opportunities, and prioritize what to scale across Freddie, Frida, and Foria</span></div></div>
-          <div class="challenge-bullet"><span class="cb-icon">&#128640;</span><div><strong>Define the AI governance & ownership model</strong><span>Centralized vs. decentralized? Who owns AI adoption? Clear accountability, next steps, and the organizational structure needed for sustainable adoption</span></div></div>
+          <div class="challenge-bullet"><span class="cb-icon">&#127919;</span><div><strong>Establish a shared definition of what AI means to PurposeMed</strong><span>Align the executive team on what AI means strategically and operationally over the next 12-18 months. A common language and vision the entire leadership team can rally behind</span></div></div>
+          <div class="challenge-bullet"><span class="cb-icon">&#128736;</span><div><strong>Get hands-on building experience with AI, particularly Claude</strong><span>Create buy-in through direct experience. Every exec builds something real, from first prompts to prototyping workflows, across a wide skill range</span></div></div>
+          <div class="challenge-bullet"><span class="cb-icon">&#127973;</span><div><strong>Where has AI worked (and failed) in healthcare & telehealth?</strong><span>Real case studies of AI implementations in telehealth. What succeeded, what didn't, and what's directly applicable to PurposeMed's model</span></div></div>
+          <div class="challenge-bullet"><span class="cb-icon">&#128737;</span><div><strong>Surface current AI adoption & understand patient data risks</strong><span>Audit what's already happening internally. Understand the dangers of AI given the types of patient data you work with, and what you can and can't do</span></div></div>
+          <div class="challenge-bullet"><span class="cb-icon">&#128640;</span><div><strong>Define the AI governance & ownership model</strong><span>Centralized vs. decentralized? Who owns AI adoption? Clear accountability, next steps, and structure so this becomes an initiative, not a random project</span></div></div>
+          <div class="challenge-bullet"><span class="cb-icon">&#128161;</span><div><strong>Map AI across the patient journey and identify 1-3 pilot areas</strong><span>How might AI touch marketing, intake funnel, clinical operations, and finance? Get pragmatic on the highest-impact areas to take away from the session</span></div></div>
         </div>
         <div class="tool-logos">
           <div class="tool-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#D97757"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg> Claude</div>
@@ -318,7 +390,7 @@ p { color: var(--text-secondary); }
           <div class="pillar-icon"><span>&#127919;</span></div>
           <div class="pillar-label">Use</div>
           <h4>Apply to Real Work</h4>
-          <p>Map AI to actual PurposeMed workflows — clinical ops, product, marketing — not theoretical use cases.</p>
+          <p>Map AI to actual PurposeMed workflows: clinical ops, product, marketing. Not theoretical use cases.</p>
         </div>
         <div class="framework-pillar">
           <div class="pillar-icon"><span>&#129517;</span></div>
@@ -358,19 +430,19 @@ p { color: var(--text-secondary); }
           <div class="topic-icon">&#128221;</div>
           <div class="topic-num">Outcome 01</div>
           <h3>"AI-Forward" Definition</h3>
-          <p>Written definition specific to PurposeMed — where AI augments humans vs. where it won't be used. Executive alignment on expectations.</p>
+          <p>Written definition specific to PurposeMed: where AI augments humans vs. where it won't be used. Executive alignment on expectations.</p>
         </div>
         <div class="topic-card">
           <div class="topic-icon">&#127973;</div>
           <div class="topic-num">Outcome 02</div>
           <h3>Healthcare AI Market Map</h3>
-          <p>Clear categories of AI solutions in-market, with 3–5 examples applicable to PurposeMed — including what's worked and what hasn't.</p>
+          <p>Clear categories of AI solutions in-market, with 3-5 examples applicable to PurposeMed, including what's worked and what hasn't.</p>
         </div>
         <div class="topic-card">
           <div class="topic-icon">&#128736;</div>
           <div class="topic-num">Outcome 03</div>
           <h3>Hands-On AI Competence</h3>
-          <p>Every exec leaves having built something real with AI — a prototype, analysis, or workflow — with the confidence to keep going.</p>
+          <p>Every exec leaves having built something real with AI: a prototype, analysis, or workflow. With the confidence to keep going.</p>
         </div>
         <div class="topic-card">
           <div class="topic-icon">&#128737;</div>
@@ -388,7 +460,7 @@ p { color: var(--text-secondary); }
           <div class="topic-icon">&#128640;</div>
           <div class="topic-num">Outcome 06</div>
           <h3>Governance & Ownership Model</h3>
-          <p>Clear accountability structure — centralized vs. decentralized, who owns AI adoption, and concrete next steps to move forward.</p>
+          <p>Clear accountability structure: centralized vs. decentralized, who owns AI adoption, and concrete next steps to move forward.</p>
         </div>
       </div>
     </div>
@@ -402,11 +474,11 @@ p { color: var(--text-secondary); }
       <div class="workshop-card">
         <div class="workshop-left">
           <h3>Designed for <span class="highlight">Mixed Levels</span></h3>
-          <div class="workshop-desc">Your team ranges from building apps with Claude to not knowing what vibe coding means. Our curriculum is designed for exactly this — parallel tracks that challenge the advanced and build confidence for the beginners, without leaving anyone behind.</div>
+          <div class="workshop-desc">Your team ranges from building apps with Claude to not knowing what vibe coding means. Our curriculum is designed for exactly this: parallel tracks that challenge the advanced and build confidence for the beginners, without leaving anyone behind.</div>
           <div class="workshop-format">
-            <div class="format-item"><div class="format-dot"></div> 15 participants, 2 trainers — no one gets lost</div>
+            <div class="format-item"><div class="format-dot"></div> 15 participants, 2 trainers, no one gets lost</div>
             <div class="format-item"><div class="format-dot"></div> Patient journey mapping: marketing → intake → clinical ops → finance</div>
-            <div class="format-item"><div class="format-dot"></div> Telehealth AI case studies — what's worked and what hasn't</div>
+            <div class="format-item"><div class="format-dot"></div> Telehealth AI case studies: what's worked and what hasn't</div>
             <div class="format-item"><div class="format-dot"></div> PIPEDA/PHIPA guardrails and patient data governance</div>
             <div class="format-item"><div class="format-dot"></div> Pre-session needs assessment for every participant</div>
           </div>
@@ -417,7 +489,7 @@ p { color: var(--text-secondary); }
             <li>A shared definition of what "AI-first" means for PurposeMed</li>
             <li>12–18 month AI vision and directional framework</li>
             <li>AI touchpoints mapped across the patient journey</li>
-            <li>Hands-on experience — every exec builds something real</li>
+            <li>Hands-on experience: every exec builds something real</li>
             <li>Healthcare AI case studies and market landscape</li>
             <li>Data guardrails: what you can and can't do with patient data</li>
             <li>AI governance model: ownership, accountability, next steps</li>
@@ -432,51 +504,55 @@ p { color: var(--text-secondary); }
   <div class="slide" data-label="Agenda">
     <div class="slide-inner">
       <span class="section-label">Full-Day Agenda</span>
-      <h2>Seven hours. Strategic + hands-on.</h2>
+      <h2>Six hours. Strategic + hands-on.</h2>
       <div class="agenda-grid">
         <div class="agenda-item">
           <div class="agenda-step">0</div>
           <div class="agenda-time">Pre-Work</div>
           <h4>Intake & Assessment</h4>
-          <p>Individual survey: current AI usage, skill level, biggest time sinks, and what they wish AI could do. Surfaces internal AI adoption.</p>
+          <p>Individual survey: current AI usage, skill level, biggest time sinks, and what they wish AI could do.</p>
         </div>
         <div class="agenda-item">
           <div class="agenda-step">1</div>
           <div class="agenda-time">45 Min</div>
           <h4>AI Landscape & Vision</h4>
-          <p>What AI is today, tool landscape, and the strategic framing: what does "AI-first" mean for PurposeMed over the next 12–18 months?</p>
+          <p>What AI is today, the tool landscape, and what "AI-first" means for PurposeMed over the next 12–18 months.</p>
         </div>
         <div class="agenda-item">
           <div class="agenda-step">2</div>
           <div class="agenda-time">45 Min</div>
           <h4>Healthcare AI Case Studies</h4>
-          <p>3–4 real telehealth AI deployments — what worked, what didn't, and what's directly applicable to PurposeMed's model.</p>
+          <p>3-4 real telehealth AI deployments: what worked, what didn't, and what applies to PurposeMed.</p>
         </div>
         <div class="agenda-item">
           <div class="agenda-step">3</div>
           <div class="agenda-time">60 Min</div>
           <h4>Hands-On: Build with AI</h4>
-          <p>Every exec builds something real. Parallel tracks for different skill levels — from first prompts to prototyping patient workflows.</p>
+          <p>Every exec builds something real. Parallel tracks for different skill levels, from first prompts to prototyping.</p>
         </div>
-      </div>
-      <div class="agenda-grid-2">
+        <div class="agenda-item agenda-break">
+          <div class="agenda-step">&#9749;</div>
+          <div class="agenda-time">Lunch</div>
+          <h4>Break</h4>
+          <p>45 minutes</p>
+        </div>
         <div class="agenda-item">
           <div class="agenda-step">4</div>
           <div class="agenda-time">60 Min</div>
           <h4>Patient Journey Mapping</h4>
-          <p>Map AI touchpoints across the full patient lifecycle: marketing → intake funnel → clinical ops → finance. Identify 1–3 high-impact use cases.</p>
+          <p>Map AI touchpoints across the patient lifecycle: marketing → intake → clinical ops → finance.</p>
         </div>
         <div class="agenda-item">
           <div class="agenda-step">5</div>
           <div class="agenda-time">45 Min</div>
           <h4>Guardrails & Governance</h4>
-          <p>What you can and can't do with patient data. PIPEDA/PHIPA compliance, AI risk framework, and the ownership model: centralized vs. decentralized.</p>
+          <p>What you can and can't do with patient data. PIPEDA/PHIPA compliance and ownership model.</p>
         </div>
         <div class="agenda-item">
           <div class="agenda-step">6</div>
           <div class="agenda-time">30 Min</div>
           <h4>Roadmap & Next Steps</h4>
-          <p>Consolidate the "AI-first" definition, assign ownership, set 30/60/90 day milestones. Leave with a clear action plan.</p>
+          <p>Consolidate the "AI-first" definition, assign ownership, set 30/60/90 day milestones.</p>
         </div>
       </div>
     </div>
@@ -541,46 +617,8 @@ p { color: var(--text-secondary); }
             </ul>
           </div>
         </div>
-        <div class="team-member">
-          <img src="assets/images/team/mishaal.jpeg" alt="Mishaal Lakhani" class="team-photo">
-          <div class="team-member-info">
-            <h4>Mishaal Lakhani</h4>
-            <div class="team-role">AI Learning & Enablement</div>
-            <ul>
-              <li>1,000+ professionals trained in AI fluency</li>
-              <li>Workflow extraction and process optimization</li>
-              <li>Enterprise change management for AI adoption</li>
-            </ul>
-          </div>
-        </div>
       </div>
 
-      <div class="advisory-section">
-        <div class="team-section-title">ADVISORY BOARD</div>
-        <div class="advisory-grid">
-          <div class="advisory-member">
-            <img src="assets/images/team/rola.jpeg" alt="Rola Dagher" class="team-photo">
-            <div>
-              <h5>Rola Dagher</h5>
-              <p>CEO advisor, Board Director. Former CEO Cisco Canada, Chief Channel Officer Dell Technologies. Order of Canada recipient.</p>
-            </div>
-          </div>
-          <div class="advisory-member">
-            <img src="assets/images/team/arm.jpeg" alt="Armughan Ahmad" class="team-photo">
-            <div>
-              <h5>Armughan Ahmad</h5>
-              <p>CEO advisor, Board Director. Former CEO / Executive at ServiceNow, KPMG, Dell, HP.</p>
-            </div>
-          </div>
-          <div class="advisory-member">
-            <img src="assets/images/team/arif.jpeg" alt="Arif Bhanji" class="team-photo">
-            <div>
-              <h5>Arif Bhanji</h5>
-              <p>Co-Founder & Co-CEO of Lazer Technologies, a Y Combinator-backed product studio. Former Deloitte consultant.</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -592,7 +630,7 @@ p { color: var(--text-secondary); }
       <div class="invest-grid">
         <div class="invest-card">
           <div class="invest-tier">Half-Day Intensive</div>
-          <div class="invest-price">$8,500 <span style="font-size:1rem; font-weight:400; color:var(--text-muted);">USD</span></div>
+          <div class="invest-price">$5,000 <span style="font-size:1rem; font-weight:400; color:var(--text-muted);">USD</span></div>
           <div class="invest-unit">4 hours &middot; 15 participants &middot; 2 trainers</div>
           <ul class="invest-list">
             <li>Pre-session needs assessment for all 15 participants</li>
@@ -606,8 +644,8 @@ p { color: var(--text-secondary); }
         </div>
         <div class="invest-card primary">
           <div class="invest-tier">Full-Day Strategy Session</div>
-          <div class="invest-price">$14,500 <span style="font-size:1rem; font-weight:400; color:var(--text-muted);">USD</span></div>
-          <div class="invest-unit">7 hours &middot; 15 participants &middot; 2 trainers</div>
+          <div class="invest-price">$8,500 <span style="font-size:1rem; font-weight:400; color:var(--text-muted);">USD</span></div>
+          <div class="invest-unit">6 hours &middot; 15 participants &middot; 2 trainers</div>
           <ul class="invest-list">
             <li>Everything in the Half-Day, plus:</li>
             <li>Patient journey mapping across all functions</li>
@@ -620,16 +658,6 @@ p { color: var(--text-secondary); }
             <li>60-day follow-up + ongoing coaching access</li>
           </ul>
         </div>
-      </div>
-      <div class="invest-note">
-        <strong>Recommended:</strong> Given the scope of what Kathy outlined — AI vision, governance, patient journey mapping, and guardrails — the full-day format gives your team the space to go deep on each area. Travel (flights and accommodation to Calgary) billed separately at cost.
-      </div>
-      <div class="invest-cta">
-        <a href="mailto:nadim@workflowy.ai" class="cta-btn">
-          Schedule a Call
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <div class="cta-email">or email directly at <a href="mailto:nadim@workflowy.ai">nadim@workflowy.ai</a></div>
       </div>
     </div>
   </div>
