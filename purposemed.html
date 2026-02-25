@@ -95,6 +95,7 @@ p { color: var(--text-secondary); }
 .slide.active .slide-inner > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.45s; }
 .slide.active .slide-inner > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.55s; }
 .slide.active .slide-inner > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.65s; }
+.slide.active .slide-inner > *:nth-child(7) { opacity: 1; transform: translateY(0); transition-delay: 0.75s; }
 
 /* ===== COVER ===== */
 .slide-cover { text-align: center; position: relative; }
@@ -106,7 +107,6 @@ p { color: var(--text-secondary); }
 .logo-sep { width: 1px; height: 28px; background: var(--border); opacity: 0.5; }
 .cover-logo-pm svg { height: 22px; }
 .cover-logo-pm svg path { fill: var(--text-primary); }
-.cover-logo-pm svg .st1, .cover-logo-pm svg .st2 { /* keep original colors */ }
 
 .cover-sub { font-size: 1.2rem; color: var(--text-secondary); max-width: 500px; margin: 28px auto 0; line-height: 1.7; }
 .cover-date { font-size: 0.85rem; color: var(--text-muted); margin-top: 24px; letter-spacing: 0.04em; }
@@ -114,11 +114,7 @@ p { color: var(--text-secondary); }
 /* ===== CHALLENGE ===== */
 .challenge-text h2 { margin-bottom: 20px; }
 .challenge-text p { font-size: 1.02rem; line-height: 1.8; margin-bottom: 12px; max-width: 800px; }
-.quote-block { background: var(--bg-card); border-left: 3px solid var(--accent-teal); border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 24px 0; max-width: 800px; }
-.quote-block p { font-size: 0.95rem; font-style: italic; color: var(--text-secondary); margin-bottom: 6px; line-height: 1.7; }
-.quote-block .quote-attr { font-size: 0.78rem; font-style: normal; color: var(--text-muted); }
 
-/* Challenge Bullets */
 .challenge-bullets { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; max-width: 800px; }
 .challenge-bullet { display: flex; align-items: flex-start; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; transition: border-color 0.3s, transform 0.3s; }
 .challenge-bullet:hover { border-color: var(--border-accent); transform: translateX(4px); }
@@ -132,16 +128,19 @@ p { color: var(--text-secondary); }
 .tool-logo { display: flex; align-items: center; gap: 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; padding: 8px 16px 8px 10px; font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); transition: border-color 0.3s; }
 .tool-logo:hover { border-color: var(--border-accent); }
 .tool-logo img, .tool-logo svg { width: 22px; height: 22px; border-radius: 5px; }
-.tool-logo .tl-icon { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; color: white; flex-shrink: 0; }
 
-/* ===== STATS ===== */
-.stats-slide { text-align: center; }
-.stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
-.stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 40px 28px; transition: border-color 0.3s; }
-.stat-card:hover { border-color: var(--border-accent); }
-.stat-num { font-family: var(--font-display); font-size: 3.5rem; font-weight: 600; color: var(--accent-teal); line-height: 1; }
-.stat-label { font-size: 0.95rem; color: var(--text-secondary); margin-top: 12px; line-height: 1.5; }
-.stat-source { font-size: 0.72rem; color: var(--text-muted); margin-top: 10px; font-style: italic; }
+/* ===== FRAMEWORK ===== */
+.framework-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; margin-top: 40px; }
+.framework-pillar { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 20px; text-align: center; transition: all 0.3s; position: relative; overflow: hidden; }
+.framework-pillar::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background: var(--accent-teal); border-radius: 0 0 4px 4px; transition: width 0.3s; }
+.framework-pillar:hover::before { width: 100%; }
+.framework-pillar:hover { border-color: var(--border-accent); transform: translateY(-4px); }
+.pillar-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--accent-teal-dim); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin: 0 auto 14px; transition: all 0.3s; }
+.framework-pillar:hover .pillar-icon { background: var(--accent-teal); transform: scale(1.08); }
+.framework-pillar:hover .pillar-icon span { filter: brightness(10); }
+.pillar-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-teal); margin-bottom: 6px; }
+.framework-pillar h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 500; margin-bottom: 8px; }
+.framework-pillar p { font-size: 0.78rem; line-height: 1.5; color: var(--text-muted); }
 
 /* ===== TOPICS ===== */
 .topics-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 40px; }
@@ -168,7 +167,7 @@ p { color: var(--text-secondary); }
 .workshop-list { list-style: none; }
 .workshop-list li { font-size: 0.9rem; color: var(--text-secondary); padding: 8px 0; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; border-bottom: 1px solid rgba(148,163,184,0.06); }
 .workshop-list li:last-child { border-bottom: none; }
-.workshop-list li::before { content: '✓'; color: var(--accent-teal); font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 1px; }
+.workshop-list li::before { content: '\2713'; color: var(--accent-teal); font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 1px; }
 
 /* ===== AGENDA ===== */
 .agenda-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 36px; }
@@ -180,49 +179,25 @@ p { color: var(--text-secondary); }
 .agenda-item p { font-size: 0.78rem; line-height: 1.5; color: var(--text-muted); }
 .agenda-grid-2 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 12px; }
 
-/* ===== FRAMEWORK ===== */
-.framework-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; margin-top: 40px; }
-.framework-pillar { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 20px; text-align: center; transition: all 0.3s; position: relative; overflow: hidden; }
-.framework-pillar::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background: var(--accent-teal); border-radius: 0 0 4px 4px; transition: width 0.3s; }
-.framework-pillar:hover::before { width: 100%; }
-.framework-pillar:hover { border-color: var(--border-accent); transform: translateY(-4px); }
-.pillar-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--accent-teal-dim); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin: 0 auto 14px; transition: all 0.3s; }
-.framework-pillar:hover .pillar-icon { background: var(--accent-teal); transform: scale(1.08); }
-.framework-pillar:hover .pillar-icon span { filter: brightness(10); }
-.pillar-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-teal); margin-bottom: 6px; }
-.framework-pillar h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 500; margin-bottom: 8px; }
-.framework-pillar p { font-size: 0.78rem; line-height: 1.5; color: var(--text-muted); }
+/* ===== TEAM (Deloitte-style) ===== */
+.team-section-title { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; margin-top: 36px; }
+.team-section-title:first-of-type { margin-top: 0; }
 
-/* ===== WHY US ===== */
-.why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 40px; }
-.why-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; text-align: center; transition: border-color 0.3s, transform 0.3s; }
-.why-card:hover { border-color: var(--border-accent); transform: translateY(-2px); }
-.why-icon { font-size: 1.8rem; margin-bottom: 14px; }
-.why-card h4 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 500; margin-bottom: 8px; }
-.why-card p { font-size: 0.85rem; line-height: 1.55; }
+.team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.team-member { display: flex; align-items: flex-start; gap: 14px; }
+.team-photo { width: 48px; height: 48px; min-width: 48px; border-radius: 50%; object-fit: cover; }
+.team-member-info h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 1px; }
+.team-member-info .team-role { font-size: 0.75rem; font-weight: 600; color: var(--accent-teal); margin-bottom: 8px; }
+.team-member-info ul { list-style: none; }
+.team-member-info ul li { font-size: 0.78rem; color: var(--text-muted); line-height: 1.45; padding-left: 10px; position: relative; margin-bottom: 2px; }
+.team-member-info ul li::before { content: '\2022'; position: absolute; left: 0; color: var(--text-muted); }
 
-/* ===== TEAM ===== */
-.team-section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; margin-top: 36px; }
-.team-section-label:first-of-type { margin-top: 0; }
-
-.leadership-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
-.team-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; display: flex; gap: 18px; align-items: flex-start; transition: border-color 0.3s; }
-.team-card:hover { border-color: var(--border-accent); }
-.team-avatar { width: 56px; height: 56px; min-width: 56px; border-radius: 14px; background: linear-gradient(135deg, var(--accent-teal-dim), rgba(96,165,250,0.12)); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--accent-teal); }
-.team-info h4 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 500; margin-bottom: 2px; }
-.team-info .team-role { font-size: 0.78rem; font-weight: 600; color: var(--accent-teal); margin-bottom: 8px; }
-.team-info p { font-size: 0.8rem; line-height: 1.5; color: var(--text-muted); }
-.team-info ul { list-style: none; }
-.team-info ul li { font-size: 0.8rem; color: var(--text-muted); padding: 2px 0; padding-left: 12px; position: relative; }
-.team-info ul li::before { content: '•'; position: absolute; left: 0; color: var(--accent-teal); }
-
-.training-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-
-.advisory-row { display: flex; gap: 16px; flex-wrap: wrap; }
-.advisory-card { flex: 1; min-width: 220px; background: rgba(45,212,191,0.05); border: 1px solid var(--border); border-radius: 14px; padding: 20px; display: flex; gap: 14px; align-items: flex-start; }
-.advisory-avatar { width: 44px; height: 44px; min-width: 44px; border-radius: 12px; background: var(--bg-card); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1rem; color: var(--text-muted); }
-.advisory-card h5 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
-.advisory-card p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; }
+.advisory-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin-top: 28px; }
+.advisory-section .team-section-title { margin-top: 0; margin-bottom: 20px; text-align: center; }
+.advisory-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.advisory-member { display: flex; align-items: flex-start; gap: 12px; }
+.advisory-member h5 { font-size: 0.88rem; font-weight: 600; margin-bottom: 3px; }
+.advisory-member p { font-size: 0.74rem; color: var(--text-muted); line-height: 1.45; }
 
 /* ===== INVESTMENT ===== */
 .invest-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 40px; }
@@ -234,48 +209,34 @@ p { color: var(--text-secondary); }
 .invest-unit { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 22px; }
 .invest-list { list-style: none; }
 .invest-list li { font-size: 0.85rem; color: var(--text-secondary); padding: 6px 0; display: flex; align-items: flex-start; gap: 8px; }
-.invest-list li::before { content: '✓'; color: var(--accent-teal); font-weight: 700; flex-shrink: 0; }
+.invest-list li::before { content: '\2713'; color: var(--accent-teal); font-weight: 700; flex-shrink: 0; }
 .invest-note { margin-top: 24px; padding: 20px 24px; background: var(--accent-teal-dim); border: 1px solid var(--border-accent); border-radius: 12px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
 .invest-note strong { color: var(--accent-teal); }
-
-/* ===== NEXT STEPS ===== */
-.steps-slide { text-align: center; }
-.steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 48px; }
-.step-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 20px; text-align: center; transition: border-color 0.3s; }
-.step-card:hover { border-color: var(--border-accent); }
-.step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--accent-teal-dim); color: var(--accent-teal); display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; margin-bottom: 16px; }
-.step-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 500; margin-bottom: 8px; }
-.step-card p { font-size: 0.82rem; line-height: 1.5; }
-.cta-row { margin-top: 48px; }
+.invest-cta { text-align: center; margin-top: 36px; }
 .cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px; background: linear-gradient(135deg, var(--accent-teal), #14b8a6); color: var(--bg-primary); font-weight: 700; font-size: 1rem; text-decoration: none; border-radius: 100px; transition: transform 0.2s, box-shadow 0.2s; font-family: var(--font-body); }
 .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-teal-glow); }
-.cta-email { display: block; margin-top: 16px; font-size: 0.88rem; color: var(--text-muted); }
+.cta-email { display: block; margin-top: 14px; font-size: 0.85rem; color: var(--text-muted); }
 .cta-email a { color: var(--accent-teal); text-decoration: none; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .slide { padding: 60px 24px; }
-  .stats-grid, .topics-grid, .invest-grid { grid-template-columns: 1fr; }
+  .topics-grid, .invest-grid { grid-template-columns: 1fr; }
   .workshop-card { grid-template-columns: 1fr; }
   .agenda-grid { grid-template-columns: repeat(2,1fr); }
   .agenda-grid-2 { grid-template-columns: repeat(2,1fr); }
   .framework-grid { grid-template-columns: repeat(2,1fr); }
-  .why-grid { grid-template-columns: 1fr; }
-  .leadership-grid { grid-template-columns: 1fr; }
-  .training-grid { grid-template-columns: 1fr; }
-  .steps-grid { grid-template-columns: repeat(2,1fr); }
+  .team-grid { grid-template-columns: 1fr; }
+  .advisory-grid { grid-template-columns: 1fr; }
   .nav-dots { display: none; }
   .nav-arrows { right: 16px; bottom: 16px; }
   .slide-counter { left: 16px; bottom: 16px; }
-  .trainer-layout { grid-template-columns: 1fr; }
-  .trainer-photo { margin: 0 auto; }
 }
 @media (max-width: 480px) {
   .slide { padding: 60px 16px; }
-  .agenda-grid, .agenda-grid-2, .steps-grid, .framework-grid { grid-template-columns: 1fr; }
+  .agenda-grid, .agenda-grid-2, .framework-grid { grid-template-columns: 1fr; }
   .cover-logos { flex-direction: column; gap: 12px; }
   .logo-sep { width: 28px; height: 1px; }
-  .advisory-row { flex-direction: column; }
 }
 @media (max-width: 900px) {
   html { overflow: auto; height: auto; }
@@ -326,51 +287,67 @@ p { color: var(--text-secondary); }
         <h2>Your exec team needs to understand AI tools — and know how to put them to work.</h2>
         <p>There's no shortage of AI tools. The challenge is knowing which ones matter for PurposeMed, what they can actually do, and how to drive adoption across your teams.</p>
         <div class="challenge-bullets">
-          <div class="challenge-bullet"><span class="cb-icon">&#9889;</span><div><strong>Hands-on fluency with AI tools</strong><br><span>Get your exec team building with tools like Claude Code, ChatGPT, and Figma AI — not just watching demos</span></div></div>
-          <div class="challenge-bullet"><span class="cb-icon">&#128202;</span><div><strong>Real use cases: data analysis, product design, prototyping</strong><br><span>Practical exercises your team can apply to PurposeMed workflows on day one</span></div></div>
-          <div class="challenge-bullet"><span class="cb-icon">&#129520;</span><div><strong>Strategic context on AI implementation</strong><br><span>How leading companies are deploying AI, and how PurposeMed should think about it</span></div></div>
-          <div class="challenge-bullet"><span class="cb-icon">&#128640;</span><div><strong>A plan for driving adoption across your teams</strong><br><span>Move from executive understanding to organization-wide momentum</span></div></div>
-          <div class="challenge-bullet challenge-question"><span class="cb-icon">&#10067;</span><div><strong>What else is a priority for your team?</strong><br><span>We'll tailor the session based on your input during our discovery call</span></div></div>
+          <div class="challenge-bullet"><span class="cb-icon">&#9889;</span><div><strong>Hands-on fluency with AI tools</strong><span>Get your exec team building with tools like Claude Code, ChatGPT, and Figma AI — not just watching demos</span></div></div>
+          <div class="challenge-bullet"><span class="cb-icon">&#128202;</span><div><strong>Real use cases: data analysis, product design, prototyping</strong><span>Practical exercises your team can apply to PurposeMed workflows on day one</span></div></div>
+          <div class="challenge-bullet"><span class="cb-icon">&#129520;</span><div><strong>Strategic context on AI implementation</strong><span>How leading companies are deploying AI, and how PurposeMed should think about it</span></div></div>
+          <div class="challenge-bullet"><span class="cb-icon">&#128640;</span><div><strong>A plan for driving adoption across your teams</strong><span>Move from executive understanding to organization-wide momentum</span></div></div>
+          <div class="challenge-bullet challenge-question"><span class="cb-icon">&#10067;</span><div><strong>What else is a priority for your team?</strong><span>We'll tailor the session based on your input during our discovery call</span></div></div>
         </div>
         <div class="tool-logos">
-          <div class="tool-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#D97757"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>
-            Claude
-          </div>
-          <div class="tool-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 260" width="20" height="20" fill="#10A37F"><path d="M239.184 106.203a64.716 64.716 0 0 0-5.576-53.103C219.452 28.459 191 15.784 163.213 21.74A65.586 65.586 0 0 0 52.096 45.22a64.716 64.716 0 0 0-43.23 31.36c-14.31 24.602-11.061 55.634 8.033 76.74a64.665 64.665 0 0 0 5.525 53.102c14.174 24.65 42.644 37.324 70.446 31.36a64.72 64.72 0 0 0 48.754 21.744c28.481.025 53.714-18.361 62.414-45.481a64.767 64.767 0 0 0 43.229-31.36c14.137-24.558 10.875-55.423-8.083-76.483Zm-97.56 136.338a48.397 48.397 0 0 1-31.105-11.255l1.535-.87 51.67-29.825a8.595 8.595 0 0 0 4.247-7.367v-72.85l21.845 12.636c.218.111.37.32.409.563v60.367c-.056 26.818-21.783 48.545-48.601 48.601Zm-104.466-44.61a48.345 48.345 0 0 1-5.781-32.589l1.534.921 51.722 29.826a8.339 8.339 0 0 0 8.441 0l63.181-36.425v25.221a.87.87 0 0 1-.358.665l-52.335 30.184c-23.257 13.398-52.97 5.431-66.404-17.803ZM23.549 85.38a48.499 48.499 0 0 1 25.58-21.333v61.39a8.288 8.288 0 0 0 4.195 7.316l62.874 36.272-21.845 12.636a.819.819 0 0 1-.767 0L41.353 151.53c-23.211-13.454-31.171-43.144-17.804-66.405v.256Zm179.466 41.695-63.08-36.63L161.73 77.86a.819.819 0 0 1 .768 0l52.233 30.184a48.6 48.6 0 0 1-7.316 87.635v-61.391a8.544 8.544 0 0 0-4.4-7.213Zm21.742-32.69-1.535-.922-51.619-30.081a8.39 8.39 0 0 0-8.492 0L99.98 99.808V74.587a.716.716 0 0 1 .307-.665l52.233-30.133a48.652 48.652 0 0 1 72.236 50.391v.205ZM88.061 139.097l-21.845-12.585a.87.87 0 0 1-.41-.614V65.685a48.652 48.652 0 0 1 79.757-37.346l-1.535.87-51.67 29.825a8.595 8.595 0 0 0-4.246 7.367l-.051 72.697Zm11.868-25.58 28.138-16.217 28.188 16.218v32.434l-28.086 16.218-28.188-16.218-.052-32.434Z"/></svg>
-            ChatGPT
-          </div>
-          <div class="tool-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#8E75B2"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg>
-            Gemini
-          </div>
-          <div class="tool-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#F24E1E"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>
-            Figma
-          </div>
-          <div class="tool-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#f0f4f8"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg>
-            Cursor
-          </div>
-          <div class="tool-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 121 122" width="20" height="20" fill="none"><mask id="lb" width="121" height="122" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="url(#la)" fill-rule="evenodd" d="M36.069 0c19.92 0 36.068 16.155 36.068 36.084v13.713h12.004c19.92 0 36.069 16.156 36.069 36.084 0 19.928-16.149 36.083-36.069 36.083H0v-85.88C0 16.155 16.148 0 36.069 0Z" clip-rule="evenodd"/></mask><g mask="url(#lb)"><g filter="url(#lc)"><ellipse cx="52.738" cy="65.101" fill="#4B73FF" rx="81.373" ry="81.192"/></g><g filter="url(#ld)"><ellipse cx="61.673" cy="20.547" fill="#FF66F4" rx="104.216" ry="81.192"/></g><g filter="url(#le)"><ellipse cx="78.666" cy="5.268" fill="#FF0105" rx="81.373" ry="71.304"/></g><g filter="url(#lf)"><ellipse cx="63.121" cy="20.527" fill="#FE7B02" rx="48.937" ry="48.829"/></g></g><defs><filter id="lc" width="235.52" height="235.159" x="-65.022" y="-52.478" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="a"/><feBlend in="SourceGraphic" in2="a" result="b"/><feGaussianBlur result="c" stdDeviation="18.194"/></filter><filter id="ld" width="281.208" height="235.159" x="-78.93" y="-97.032" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="a"/><feBlend in="SourceGraphic" in2="a" result="b"/><feGaussianBlur result="c" stdDeviation="18.194"/></filter><filter id="le" width="235.52" height="215.383" x="-39.094" y="-102.423" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="a"/><feBlend in="SourceGraphic" in2="a" result="b"/><feGaussianBlur result="c" stdDeviation="18.194"/></filter><filter id="lf" width="170.649" height="170.432" x="-22.204" y="-64.688" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="a"/><feBlend in="SourceGraphic" in2="a" result="b"/><feGaussianBlur result="c" stdDeviation="18.194"/></filter><linearGradient id="la" x1="40.453" x2="76.933" y1="21.433" y2="121.971" gradientUnits="userSpaceOnUse"><stop offset=".025" stop-color="#FF8E63"/><stop offset=".56" stop-color="#FF7EB0"/><stop offset=".95" stop-color="#4B73FF"/></linearGradient></defs></svg>
-            Lovable
-          </div>
-          <div class="tool-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#f0f4f8"><path d="M14.066 6.028v2.22h5.729q.075-.001.148.005l-5.853 5.752a2 2 0 0 1-.024-.309V8.247h-2.353v5.45c0 2.322 1.935 4.222 4.258 4.222h5.675v-2.22h-5.675q-.03 0-.059-.003l5.729-5.629q.006.082.006.166v5.465H24v-5.465a4.204 4.204 0 0 0-4.205-4.205zM0 8.245l8.28 9.266c.839.94 2.396.346 2.396-.914V8.245H8.19v5.44l-4.86-5.44Z"/></svg>
-            v0
-          </div>
-          <div class="tool-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#F26207"><path d="M2 1.5A1.5 1.5 0 0 1 3.5 0h7A1.5 1.5 0 0 1 12 1.5V8H3.5A1.5 1.5 0 0 1 2 6.5ZM12 8h8.5A1.5 1.5 0 0 1 22 9.5v5a1.5 1.5 0 0 1-1.5 1.5H12ZM2 17.5A1.5 1.5 0 0 1 3.5 16H12v6.5a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 2 22.5Z"/></svg>
-            Replit
-          </div>
+          <div class="tool-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#D97757"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg> Claude</div>
+          <div class="tool-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 260" width="20" height="20" fill="#10A37F"><path d="M239.184 106.203a64.716 64.716 0 0 0-5.576-53.103C219.452 28.459 191 15.784 163.213 21.74A65.586 65.586 0 0 0 52.096 45.22a64.716 64.716 0 0 0-43.23 31.36c-14.31 24.602-11.061 55.634 8.033 76.74a64.665 64.665 0 0 0 5.525 53.102c14.174 24.65 42.644 37.324 70.446 31.36a64.72 64.72 0 0 0 48.754 21.744c28.481.025 53.714-18.361 62.414-45.481a64.767 64.767 0 0 0 43.229-31.36c14.137-24.558 10.875-55.423-8.083-76.483Zm-97.56 136.338a48.397 48.397 0 0 1-31.105-11.255l1.535-.87 51.67-29.825a8.595 8.595 0 0 0 4.247-7.367v-72.85l21.845 12.636c.218.111.37.32.409.563v60.367c-.056 26.818-21.783 48.545-48.601 48.601Zm-104.466-44.61a48.345 48.345 0 0 1-5.781-32.589l1.534.921 51.722 29.826a8.339 8.339 0 0 0 8.441 0l63.181-36.425v25.221a.87.87 0 0 1-.358.665l-52.335 30.184c-23.257 13.398-52.97 5.431-66.404-17.803ZM23.549 85.38a48.499 48.499 0 0 1 25.58-21.333v61.39a8.288 8.288 0 0 0 4.195 7.316l62.874 36.272-21.845 12.636a.819.819 0 0 1-.767 0L41.353 151.53c-23.211-13.454-31.171-43.144-17.804-66.405v.256Zm179.466 41.695-63.08-36.63L161.73 77.86a.819.819 0 0 1 .768 0l52.233 30.184a48.6 48.6 0 0 1-7.316 87.635v-61.391a8.544 8.544 0 0 0-4.4-7.213Zm21.742-32.69-1.535-.922-51.619-30.081a8.39 8.39 0 0 0-8.492 0L99.98 99.808V74.587a.716.716 0 0 1 .307-.665l52.233-30.133a48.652 48.652 0 0 1 72.236 50.391v.205ZM88.061 139.097l-21.845-12.585a.87.87 0 0 1-.41-.614V65.685a48.652 48.652 0 0 1 79.757-37.346l-1.535.87-51.67 29.825a8.595 8.595 0 0 0-4.246 7.367l-.051 72.697Zm11.868-25.58 28.138-16.217 28.188 16.218v32.434l-28.086 16.218-28.188-16.218-.052-32.434Z"/></svg> ChatGPT</div>
+          <div class="tool-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#8E75B2"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg> Gemini</div>
+          <div class="tool-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#F24E1E"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg> Figma</div>
+          <div class="tool-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#f0f4f8"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg> Cursor</div>
+          <div class="tool-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 121 122" width="20" height="20" fill="none"><mask id="lb" width="121" height="122" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="url(#la)" fill-rule="evenodd" d="M36.069 0c19.92 0 36.068 16.155 36.068 36.084v13.713h12.004c19.92 0 36.069 16.156 36.069 36.084 0 19.928-16.149 36.083-36.069 36.083H0v-85.88C0 16.155 16.148 0 36.069 0Z" clip-rule="evenodd"/></mask><g mask="url(#lb)"><g filter="url(#lc)"><ellipse cx="52.738" cy="65.101" fill="#4B73FF" rx="81.373" ry="81.192"/></g><g filter="url(#ld)"><ellipse cx="61.673" cy="20.547" fill="#FF66F4" rx="104.216" ry="81.192"/></g><g filter="url(#le)"><ellipse cx="78.666" cy="5.268" fill="#FF0105" rx="81.373" ry="71.304"/></g><g filter="url(#lf)"><ellipse cx="63.121" cy="20.527" fill="#FE7B02" rx="48.937" ry="48.829"/></g></g><defs><filter id="lc" width="235.52" height="235.159" x="-65.022" y="-52.478" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="a"/><feBlend in="SourceGraphic" in2="a" result="b"/><feGaussianBlur result="c" stdDeviation="18.194"/></filter><filter id="ld" width="281.208" height="235.159" x="-78.93" y="-97.032" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="a"/><feBlend in="SourceGraphic" in2="a" result="b"/><feGaussianBlur result="c" stdDeviation="18.194"/></filter><filter id="le" width="235.52" height="215.383" x="-39.094" y="-102.423" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="a"/><feBlend in="SourceGraphic" in2="a" result="b"/><feGaussianBlur result="c" stdDeviation="18.194"/></filter><filter id="lf" width="170.649" height="170.432" x="-22.204" y="-64.688" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="a"/><feBlend in="SourceGraphic" in2="a" result="b"/><feGaussianBlur result="c" stdDeviation="18.194"/></filter><linearGradient id="la" x1="40.453" x2="76.933" y1="21.433" y2="121.971" gradientUnits="userSpaceOnUse"><stop offset=".025" stop-color="#FF8E63"/><stop offset=".56" stop-color="#FF7EB0"/><stop offset=".95" stop-color="#4B73FF"/></linearGradient></defs></svg> Lovable</div>
+          <div class="tool-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#f0f4f8"><path d="M14.066 6.028v2.22h5.729q.075-.001.148.005l-5.853 5.752a2 2 0 0 1-.024-.309V8.247h-2.353v5.45c0 2.322 1.935 4.222 4.258 4.222h5.675v-2.22h-5.675q-.03 0-.059-.003l5.729-5.629q.006.082.006.166v5.465H24v-5.465a4.204 4.204 0 0 0-4.205-4.205zM0 8.245l8.28 9.266c.839.94 2.396.346 2.396-.914V8.245H8.19v5.44l-4.86-5.44Z"/></svg> v0</div>
+          <div class="tool-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#F26207"><path d="M2 1.5A1.5 1.5 0 0 1 3.5 0h7A1.5 1.5 0 0 1 12 1.5V8H3.5A1.5 1.5 0 0 1 2 6.5ZM12 8h8.5A1.5 1.5 0 0 1 22 9.5v5a1.5 1.5 0 0 1-1.5 1.5H12ZM2 17.5A1.5 1.5 0 0 1 3.5 16H12v6.5a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 2 22.5Z"/></svg> Replit</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 3: WHAT WE COVER ==================== -->
+  <!-- ==================== SLIDE 3: FRAMEWORK ==================== -->
+  <div class="slide" data-label="Framework">
+    <div class="slide-inner">
+      <span class="section-label">Our Framework</span>
+      <h2>Five pillars for AI adoption at PurposeMed.</h2>
+      <div class="framework-grid">
+        <div class="framework-pillar">
+          <div class="pillar-icon"><span>&#127919;</span></div>
+          <div class="pillar-label">Use</div>
+          <h4>Apply to Real Work</h4>
+          <p>Map AI to actual PurposeMed workflows — clinical ops, product, marketing — not theoretical use cases.</p>
+        </div>
+        <div class="framework-pillar">
+          <div class="pillar-icon"><span>&#129517;</span></div>
+          <div class="pillar-label">Direct</div>
+          <h4>Prompt with Precision</h4>
+          <p>Effective prompting techniques for data analysis, prototyping, and strategic thinking.</p>
+        </div>
+        <div class="framework-pillar">
+          <div class="pillar-icon"><span>&#128203;</span></div>
+          <div class="pillar-label">Manage</div>
+          <h4>Oversee AI Output</h4>
+          <p>Review loops and quality checks so AI augments your team's judgment, not replaces it.</p>
+        </div>
+        <div class="framework-pillar">
+          <div class="pillar-icon"><span>&#128737;</span></div>
+          <div class="pillar-label">Guardrail</div>
+          <h4>Compliance & Safety</h4>
+          <p>Patient data protection, PHIPA compliance, and responsible AI use across all three brands.</p>
+        </div>
+        <div class="framework-pillar">
+          <div class="pillar-icon"><span>&#128200;</span></div>
+          <div class="pillar-label">Evaluate</div>
+          <h4>Measure Impact</h4>
+          <p>Track adoption, time savings, and ROI to build the case for scaling AI across PurposeMed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 4: FOCUS AREAS ==================== -->
   <div class="slide" data-label="Focus Areas">
     <div class="slide-inner">
       <span class="section-label">Tailored to Your Team</span>
@@ -489,97 +466,17 @@ p { color: var(--text-secondary); }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 7: FRAMEWORK ==================== -->
-  <div class="slide" data-label="Framework">
-    <div class="slide-inner">
-      <span class="section-label">Our Framework</span>
-      <h2>Five pillars for AI adoption at PurposeMed.</h2>
-      <div class="framework-grid">
-        <div class="framework-pillar">
-          <div class="pillar-icon"><span>&#127919;</span></div>
-          <div class="pillar-label">Use</div>
-          <h4>Apply to Real Work</h4>
-          <p>Map AI to actual PurposeMed workflows — clinical ops, product, marketing — not theoretical use cases.</p>
-        </div>
-        <div class="framework-pillar">
-          <div class="pillar-icon"><span>&#129517;</span></div>
-          <div class="pillar-label">Direct</div>
-          <h4>Prompt with Precision</h4>
-          <p>Effective prompting techniques for data analysis, prototyping, and strategic thinking.</p>
-        </div>
-        <div class="framework-pillar">
-          <div class="pillar-icon"><span>&#128203;</span></div>
-          <div class="pillar-label">Manage</div>
-          <h4>Oversee AI Output</h4>
-          <p>Review loops and quality checks so AI augments your team's judgment, not replaces it.</p>
-        </div>
-        <div class="framework-pillar">
-          <div class="pillar-icon"><span>&#128737;</span></div>
-          <div class="pillar-label">Guardrail</div>
-          <h4>Compliance & Safety</h4>
-          <p>Patient data protection, PHIPA compliance, and responsible AI use across all three brands.</p>
-        </div>
-        <div class="framework-pillar">
-          <div class="pillar-icon"><span>&#128200;</span></div>
-          <div class="pillar-label">Evaluate</div>
-          <h4>Measure Impact</h4>
-          <p>Track adoption, time savings, and ROI to build the case for scaling AI across PurposeMed.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 8: WHY US ==================== -->
-  <div class="slide" data-label="Why Us">
-    <div class="slide-inner">
-      <span class="section-label">Why This Training</span>
-      <h2>Designed specifically for PurposeMed.</h2>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon">&#128202;</div>
-          <h4>Healthtech Context</h4>
-          <p>Examples drawn from healthcare, telehealth, and patient data workflows — not generic corporate demos.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">&#128736;</div>
-          <h4>Hands-On, Not Slideware</h4>
-          <p>70%+ of the session is building. Your team leaves with things they made, not notes they'll forget.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">&#127919;</div>
-          <h4>Executive-Level</h4>
-          <p>This isn't basic prompting. It's how to think about AI strategy and adoption as leaders scaling a company.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">&#128640;</div>
-          <h4>Tool-Agnostic</h4>
-          <p>We cover the full landscape — from general-purpose AI to design and development tools. You learn which fits which job.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">&#128221;</div>
-          <h4>Pre-Session Customization</h4>
-          <p>A needs assessment ensures the curriculum maps to your actual priorities, not a generic agenda.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">&#128218;</div>
-          <h4>Leave-Behind Resources</h4>
-          <p>Prompt libraries, tool comparison guides, workflow templates, and a curated resource list.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 9: OUR TEAM ==================== -->
+  <!-- ==================== SLIDE 7: OUR TEAM ==================== -->
   <div class="slide" data-label="Our Team">
     <div class="slide-inner">
       <span class="section-label">Our Team</span>
       <h2>Enterprise experience meets AI expertise.</h2>
 
-      <div class="team-section-label">LEADERSHIP</div>
-      <div class="leadership-grid">
-        <div class="team-card">
-          <div class="team-avatar">NN</div>
-          <div class="team-info">
+      <div class="team-section-title">LEADERSHIP</div>
+      <div class="team-grid" style="grid-template-columns: repeat(2,1fr);">
+        <div class="team-member">
+          <img src="assets/images/team/nad.jpeg" alt="Nadim Nasser" class="team-photo">
+          <div class="team-member-info">
             <h4>Nadim Nasser</h4>
             <div class="team-role">CEO</div>
             <ul>
@@ -588,9 +485,9 @@ p { color: var(--text-secondary); }
             </ul>
           </div>
         </div>
-        <div class="team-card">
-          <div class="team-avatar">AA</div>
-          <div class="team-info">
+        <div class="team-member">
+          <img src="assets/images/team/azim.jpeg" alt="Azim Ahmed" class="team-photo">
+          <div class="team-member-info">
             <h4>Azim Ahmed</h4>
             <div class="team-role">Head of Engineering</div>
             <ul>
@@ -602,11 +499,11 @@ p { color: var(--text-secondary); }
         </div>
       </div>
 
-      <div class="team-section-label">TRAINING TEAM</div>
-      <div class="training-grid">
-        <div class="team-card">
-          <div class="team-avatar">DD</div>
-          <div class="team-info">
+      <div class="team-section-title">TRAINING TEAM</div>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="assets/images/team/danish.jpeg" alt="Danish Dhamani" class="team-photo">
+          <div class="team-member-info">
             <h4>Danish Dhamani</h4>
             <div class="team-role">AI Agents & Workflow Automation</div>
             <ul>
@@ -616,9 +513,9 @@ p { color: var(--text-secondary); }
             </ul>
           </div>
         </div>
-        <div class="team-card">
-          <div class="team-avatar">WL</div>
-          <div class="team-info">
+        <div class="team-member">
+          <img src="assets/images/team/will.jpeg" alt="William Lancaster" class="team-photo">
+          <div class="team-member-info">
             <h4>William Lancaster</h4>
             <div class="team-role">AI Solutions Architect</div>
             <ul>
@@ -628,9 +525,9 @@ p { color: var(--text-secondary); }
             </ul>
           </div>
         </div>
-        <div class="team-card">
-          <div class="team-avatar">ML</div>
-          <div class="team-info">
+        <div class="team-member">
+          <img src="assets/images/team/mishaal.jpeg" alt="Mishaal Lakhani" class="team-photo">
+          <div class="team-member-info">
             <h4>Mishaal Lakhani</h4>
             <div class="team-role">AI Learning & Enablement</div>
             <ul>
@@ -642,34 +539,36 @@ p { color: var(--text-secondary); }
         </div>
       </div>
 
-      <div class="team-section-label">ADVISORY BOARD</div>
-      <div class="advisory-row">
-        <div class="advisory-card">
-          <div class="advisory-avatar">RD</div>
-          <div>
-            <h5>Rola Dagher</h5>
-            <p>CEO advisor, Board Director. Former CEO Cisco Canada, Chief Channel Officer Dell Technologies. Order of Canada recipient.</p>
+      <div class="advisory-section">
+        <div class="team-section-title">ADVISORY BOARD</div>
+        <div class="advisory-grid">
+          <div class="advisory-member">
+            <img src="assets/images/team/rola.jpeg" alt="Rola Dagher" class="team-photo">
+            <div>
+              <h5>Rola Dagher</h5>
+              <p>CEO advisor, Board Director. Former CEO Cisco Canada, Chief Channel Officer Dell Technologies. Order of Canada recipient.</p>
+            </div>
           </div>
-        </div>
-        <div class="advisory-card">
-          <div class="advisory-avatar">AA</div>
-          <div>
-            <h5>Armughan Ahmad</h5>
-            <p>CEO advisor, Board Director. Former CEO / Executive at ServiceNow, KPMG, Dell, HP.</p>
+          <div class="advisory-member">
+            <img src="assets/images/team/arm.jpeg" alt="Armughan Ahmad" class="team-photo">
+            <div>
+              <h5>Armughan Ahmad</h5>
+              <p>CEO advisor, Board Director. Former CEO / Executive at ServiceNow, KPMG, Dell, HP.</p>
+            </div>
           </div>
-        </div>
-        <div class="advisory-card">
-          <div class="advisory-avatar">AB</div>
-          <div>
-            <h5>Arif Bhanji</h5>
-            <p>Co-Founder & Co-CEO of Lazer Technologies, a Y Combinator-backed product studio. Former Deloitte consultant.</p>
+          <div class="advisory-member">
+            <img src="assets/images/team/arif.jpeg" alt="Arif Bhanji" class="team-photo">
+            <div>
+              <h5>Arif Bhanji</h5>
+              <p>Co-Founder & Co-CEO of Lazer Technologies, a Y Combinator-backed product studio. Former Deloitte consultant.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 10: INVESTMENT ==================== -->
+  <!-- ==================== SLIDE 8: INVESTMENT ==================== -->
   <div class="slide" data-label="Investment">
     <div class="slide-inner">
       <span class="section-label">Investment</span>
@@ -705,37 +604,7 @@ p { color: var(--text-secondary); }
       <div class="invest-note">
         <strong>Note:</strong> Travel (flights and accommodation to Calgary) is billed separately at cost. Pricing can be adjusted based on team size and scope — happy to discuss what works best.
       </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 11: NEXT STEPS ==================== -->
-  <div class="slide" data-label="Next Steps">
-    <div class="slide-inner steps-slide">
-      <span class="section-label">Getting Started</span>
-      <h2>Let's put this in motion.</h2>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">1</div>
-          <h4>Align on Scope</h4>
-          <p>Quick call to confirm priorities, team size, date, and format.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">2</div>
-          <h4>Customize</h4>
-          <p>Pre-session survey goes to participants. Curriculum tailored to your needs.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">3</div>
-          <h4>Deliver</h4>
-          <p>On-site training in Calgary. Hands-on, high-energy, zero fluff.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">4</div>
-          <h4>Follow Up</h4>
-          <p>Resource delivery, follow-up call, and adoption check-in.</p>
-        </div>
-      </div>
-      <div class="cta-row">
+      <div class="invest-cta">
         <a href="mailto:nadim@workflowy.ai" class="cta-btn">
           Schedule a Call
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -748,7 +617,7 @@ p { color: var(--text-secondary); }
 
 <!-- NAV UI -->
 <div class="nav-dots" id="navDots"></div>
-<div class="slide-counter" id="slideCounter"><span class="current">1</span> / <span class="total">10</span></div>
+<div class="slide-counter" id="slideCounter"><span class="current">1</span> / <span class="total">8</span></div>
 <div class="nav-arrows">
   <button class="nav-arrow" id="prevBtn" disabled><svg viewBox="0 0 16 16"><path d="M10 12L6 8l4-4"/></svg></button>
   <button class="nav-arrow" id="nextBtn"><svg viewBox="0 0 16 16"><path d="M6 4l4 4-4 4"/></svg></button>
