@@ -4,550 +4,549 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workflowy | Executive AI Hackathons</title>
-
-    <!-- SEO Meta -->
-    <meta name="description" content="Workflowy runs executive AI hackathons. One day. Your real data. Real tools. Real output. We help leadership teams move from AI curiosity to AI execution.">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://workflowy.ai/">
+    <meta name="description" content="We run executive AI hackathons. One day. Your real data. Real tools. Real output.">
     <meta property="og:title" content="Workflowy | Executive AI Hackathons">
     <meta property="og:description" content="We run executive AI hackathons. One day. Your real data. Real tools. Real output.">
     <meta property="og:image" content="https://workflowy.ai/og-image-v4.png">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Workflowy | Executive AI Hackathons">
-    <meta name="twitter:description" content="We run executive AI hackathons. One day. Your real data. Real tools. Real output.">
-
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Lora', 'serif'],
                     },
-                    colors: {
-                        brand: {
-                            dark: '#0a0f1a',
-                            surface: '#111827',
-                            border: '#1f2937',
-                            accent: '#10b981',
-                            accentLight: '#34d399',
-                            blue: '#3b82f6',
-                        }
-                    }
                 }
             }
         }
     </script>
     <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0f1a; color: #e5e7eb; }
+        body { font-family: 'Lora', serif; }
+        h1, h2, h3, h4, h5, h6, nav, button, a.btn { font-family: 'Poppins', sans-serif; }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #f8fafc 100%);
+            background-image:
+                linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #f8fafc 100%),
+                linear-gradient(rgba(30, 64, 175, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(30, 64, 175, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+        }
 
         .gradient-text {
-            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #1e40af, #2563eb, #3b82f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .glow-card {
-            transition: all 0.3s ease;
-            border: 1px solid #1f2937;
+        .card-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .glow-card:hover {
-            border-color: rgba(16, 185, 129, 0.3);
-            box-shadow: 0 0 30px rgba(16, 185, 129, 0.05);
-        }
-
-        .step-line {
-            position: relative;
-        }
-        .step-line::after {
-            content: '';
-            position: absolute;
-            left: 1.25rem;
-            top: 3.5rem;
-            bottom: -1.5rem;
-            width: 2px;
-            background: linear-gradient(to bottom, #10b981, transparent);
-        }
-        .step-line:last-child::after {
-            display: none;
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
         }
 
         @keyframes scrollLogos {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
-        .logo-track {
-            animation: scrollLogos 40s linear infinite;
-            will-change: transform;
-        }
-        .logo-track:hover {
-            animation-play-state: paused;
+        .scroll-logos {
+            animation: scrollLogos 30s linear infinite;
         }
 
-        @keyframes pulse-subtle {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.8; }
-        }
-        .pulse-dot {
-            animation: pulse-subtle 2s ease-in-out infinite;
-        }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-white text-slate-800">
 
-    <!-- Nav -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/80 backdrop-blur-xl border-b border-brand-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
             <a href="#" class="flex items-center gap-2">
-                <svg width="28" height="28" viewBox="0 0 120 40">
+                <svg viewBox="0 0 40 40" class="w-8 h-8 sm:w-9 sm:h-9" fill="none">
                     <defs>
                         <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#10b981"/>
-                            <stop offset="100%" style="stop-color:#3b82f6"/>
+                            <stop offset="0%" style="stop-color:#1e40af"/>
+                            <stop offset="100%" style="stop-color:#2563eb"/>
                         </linearGradient>
                     </defs>
                     <circle cx="20" cy="20" r="18" fill="url(#logoGrad)"/>
-                    <path d="M9 12 L13 28 L20 18 L27 28 L31 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <path d="M10 14l5 12 5-8 5 8 5-12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                 </svg>
-                <span class="font-semibold text-white text-lg">Workflowy</span>
+                <span class="font-heading font-bold text-xl text-slate-900">Workflowy</span>
             </a>
-            <div class="flex items-center gap-6">
-                <a href="#how-it-works" class="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">How It Works</a>
-                <a href="#deliverables" class="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">Deliverables</a>
-                <a href="#team" class="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">Team</a>
-                <a href="#contact" class="px-4 py-2 bg-emerald-500 text-brand-dark font-semibold text-sm rounded-full hover:bg-emerald-400 transition-colors">
-                    Book a Session
-                </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#how-it-works" class="font-heading text-sm text-slate-600 hover:text-slate-900 transition-colors">How It Works</a>
+                <a href="#deliverables" class="font-heading text-sm text-slate-600 hover:text-slate-900 transition-colors">Deliverables</a>
+                <a href="#team" class="font-heading text-sm text-slate-600 hover:text-slate-900 transition-colors">Team</a>
             </div>
+            <a href="https://cal.com/nadimnasser" class="font-heading text-sm font-semibold bg-blue-700 hover:bg-blue-800 text-white px-5 py-2.5 rounded-lg transition-colors">Book a Session</a>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="pt-32 sm:pt-40 pb-20 sm:pb-28 px-4 sm:px-6 relative overflow-hidden">
-        <!-- Background grid -->
-        <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
-        <!-- Gradient orbs -->
-        <div class="absolute top-20 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-surface border border-brand-border rounded-full mb-8">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
-                <span class="text-sm text-gray-400 font-mono">Executive AI Hackathons</span>
-            </div>
-
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 text-white">
-                Your team has AI tools.<br>
-                <span class="gradient-text">We help them build with them.</span>
-            </h1>
-
-            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                One day. Your real data. Real tools. Real output. We work with executive teams to define their AI approach through hands-on building, not slide decks.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#contact" class="px-8 py-4 bg-emerald-500 text-brand-dark font-semibold rounded-full hover:bg-emerald-400 transition-all hover:shadow-lg hover:shadow-emerald-500/20">
-                    Book a Session
-                </a>
-                <a href="#how-it-works" class="px-8 py-4 border border-brand-border text-gray-300 font-medium rounded-full hover:border-gray-500 hover:text-white transition-all">
-                    See How It Works
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem -->
-    <section class="py-16 sm:py-24 px-4 sm:px-6 border-t border-brand-border">
-        <div class="max-w-4xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
-                <div class="glow-card bg-brand-surface rounded-2xl p-8">
-                    <div class="text-red-400 text-sm font-mono uppercase tracking-wider mb-4">The problem</div>
-                    <h3 class="text-xl font-bold text-white mb-4">Most AI training ends with a slide deck.</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-400 mt-1">&#x2717;</span>
-                            <span>Generic prompting workshops that don't stick</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-400 mt-1">&#x2717;</span>
-                            <span>No connection to your actual workflows or data</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-400 mt-1">&#x2717;</span>
-                            <span>No clear path from training day to daily adoption</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-400 mt-1">&#x2717;</span>
-                            <span>Teams go back to doing things the old way</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="glow-card bg-brand-surface rounded-2xl p-8">
-                    <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">Our approach</div>
-                    <h3 class="text-xl font-bold text-white mb-4">Yours ends with working prototypes and a 90-day playbook.</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-start gap-3">
-                            <span class="text-emerald-400 mt-1">&#x2713;</span>
-                            <span>Hands-on labs with your real data and tools</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-emerald-400 mt-1">&#x2713;</span>
-                            <span>Strategic discussion on what AI adoption actually takes</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-emerald-400 mt-1">&#x2713;</span>
-                            <span>Custom AI toolkit your team keeps forever</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-emerald-400 mt-1">&#x2713;</span>
-                            <span>Department-level 30/60/90 day action plan</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-16 sm:py-24 px-4 sm:px-6 bg-brand-surface border-t border-brand-border">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">The Day</div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">From strategy to building to next steps.</h2>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-                    A full-day executive session designed around your organization. Not a lecture. A working session where your team builds real things.
+    <!-- HERO -->
+    <section class="hero-bg pt-28 pb-16 sm:pt-36 sm:pb-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <div class="flex-1 text-center lg:text-left">
+                <span class="inline-block font-heading text-sm font-semibold text-blue-700 bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full mb-6">Executive AI Hackathons</span>
+                <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
+                    Your team has AI tools.<br>
+                    <span class="gradient-text">We help them build with them.</span>
+                </h1>
+                <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+                    One day. Your real data. Real tools. Real output. We work with executive teams to define their AI approach through hands-on building, not slide decks.
                 </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="https://cal.com/nadimnasser" class="font-heading text-sm font-semibold bg-blue-700 hover:bg-blue-800 text-white px-8 py-3.5 rounded-lg transition-colors text-center">Book a Session</a>
+                    <a href="#how-it-works" class="font-heading text-sm font-semibold border-2 border-slate-300 hover:border-slate-400 text-slate-700 px-8 py-3.5 rounded-lg transition-colors text-center">See How It Works</a>
+                </div>
+            </div>
+            <div class="flex-1 w-full max-w-lg lg:max-w-none">
+                <div class="bg-slate-900 rounded-xl shadow-2xl overflow-hidden">
+                    <div class="flex items-center gap-2 px-4 py-3 bg-slate-800">
+                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                        <span class="ml-2 text-xs text-slate-400 font-heading">session-agenda.ai</span>
+                    </div>
+                    <div class="p-6 space-y-4 text-sm font-mono">
+                        <div class="flex items-center gap-3">
+                            <span class="text-blue-400 text-xs w-16 shrink-0">9:00 AM</span>
+                            <div class="h-px bg-slate-700 flex-1"></div>
+                            <span class="text-slate-300 text-xs">Opening & Assessment</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-blue-400 text-xs w-16 shrink-0">10:00 AM</span>
+                            <div class="h-px bg-slate-700 flex-1"></div>
+                            <span class="text-slate-300 text-xs">AI Landscape & Vision</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-emerald-400 text-xs w-16 shrink-0">11:00 AM</span>
+                            <div class="h-px bg-slate-700 flex-1"></div>
+                            <span class="text-white text-xs font-semibold">Hands-On Labs</span>
+                            <span class="text-[10px] bg-blue-600 text-white px-2 py-0.5 rounded-full">CORE</span>
+                        </div>
+                        <div class="pl-20 space-y-2 text-xs text-slate-400">
+                            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>Lab 1: Build</div>
+                            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>Lab 2: Code</div>
+                            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Lab 3: Automate</div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-blue-400 text-xs w-16 shrink-0">3:00 PM</span>
+                            <div class="h-px bg-slate-700 flex-1"></div>
+                            <span class="text-slate-300 text-xs">Guardrails & Governance</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-blue-400 text-xs w-16 shrink-0">3:30 PM</span>
+                            <div class="h-px bg-slate-700 flex-1"></div>
+                            <span class="text-slate-300 text-xs">Strategy & Next Steps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM / APPROACH -->
+    <section class="bg-slate-50 py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-hover bg-white rounded-xl border border-slate-200 p-8 sm:p-10">
+                    <h3 class="font-heading text-xl font-bold text-slate-900 mb-2">The problem</h3>
+                    <p class="text-slate-600 mb-6">Most AI training ends with a slide deck.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-red-500 font-bold text-lg leading-none">&times;</span>
+                            <span class="text-slate-600 text-sm leading-relaxed">Generic prompting workshops that don't stick</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-red-500 font-bold text-lg leading-none">&times;</span>
+                            <span class="text-slate-600 text-sm leading-relaxed">No connection to your actual workflows or data</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-red-500 font-bold text-lg leading-none">&times;</span>
+                            <span class="text-slate-600 text-sm leading-relaxed">No clear path from training day to daily adoption</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-0.5 text-red-500 font-bold text-lg leading-none">&times;</span>
+                            <span class="text-slate-600 text-sm leading-relaxed">Teams go back to doing things the old way</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-hover bg-white rounded-xl border border-slate-200 p-8 sm:p-10">
+                    <h3 class="font-heading text-xl font-bold text-slate-900 mb-2">Our approach</h3>
+                    <p class="text-slate-600 mb-6">Yours ends with working prototypes and a 90-day playbook.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 mt-0.5 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            <span class="text-slate-600 text-sm leading-relaxed">Hands-on labs with your real data and tools</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 mt-0.5 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            <span class="text-slate-600 text-sm leading-relaxed">Strategic discussion on what AI adoption actually takes</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 mt-0.5 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            <span class="text-slate-600 text-sm leading-relaxed">Custom AI toolkit your team keeps forever</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 mt-0.5 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            <span class="text-slate-600 text-sm leading-relaxed">Department-level 30/60/90 day action plan</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="font-heading text-sm font-semibold text-blue-700 uppercase tracking-wider">The Day</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-4">From strategy to building to next steps.</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto leading-relaxed">A full-day executive session designed around your organization. Not a lecture. A working session where your team builds real things.</p>
             </div>
 
             <div class="space-y-6">
-                <!-- Step 1 -->
-                <div class="step-line flex gap-6">
-                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
-                        <span class="text-emerald-400 font-mono text-sm font-bold">01</span>
-                    </div>
-                    <div class="glow-card bg-brand-dark rounded-xl p-6 flex-1">
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2">
-                            <h3 class="text-lg font-semibold text-white">Opening & Assessment</h3>
-                            <span class="text-xs font-mono text-gray-500 bg-brand-surface px-2 py-0.5 rounded w-fit">9:00 AM</span>
+                <!-- Step 01 -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                        <div class="shrink-0">
+                            <span class="font-heading text-xs font-semibold text-blue-600 uppercase tracking-wider">Step 01</span>
+                            <p class="font-heading text-sm text-slate-400 mt-0.5">9:00 AM</p>
                         </div>
-                        <p class="text-gray-400">Context setting, survey shareback, and an honest strategic discussion: "What's been holding your team back from being AI-first?"</p>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="step-line flex gap-6">
-                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
-                        <span class="text-emerald-400 font-mono text-sm font-bold">02</span>
-                    </div>
-                    <div class="glow-card bg-brand-dark rounded-xl p-6 flex-1">
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2">
-                            <h3 class="text-lg font-semibold text-white">AI Landscape & Vision</h3>
-                            <span class="text-xs font-mono text-gray-500 bg-brand-surface px-2 py-0.5 rounded w-fit">10:00 AM</span>
-                        </div>
-                        <p class="text-gray-400">Where AI is today, the tool ecosystem, prompting best practices, and what it means for your organization over the next 12-18 months.</p>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="step-line flex gap-6">
-                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
-                        <span class="text-blue-400 font-mono text-sm font-bold">03</span>
-                    </div>
-                    <div class="glow-card bg-brand-dark rounded-xl p-6 flex-1 border-blue-500/10">
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2">
-                            <h3 class="text-lg font-semibold text-white">Hands-On Labs</h3>
-                            <div class="flex items-center gap-2">
-                                <span class="text-xs font-mono text-gray-500 bg-brand-surface px-2 py-0.5 rounded">11:00 AM - 3:00 PM</span>
-                                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">HANDS-ON</span>
-                            </div>
-                        </div>
-                        <p class="text-gray-400 mb-3">The core of the day. Three rotations of building with real tools and real data:</p>
-                        <div class="grid sm:grid-cols-3 gap-3">
-                            <div class="bg-brand-surface rounded-lg p-3">
-                                <div class="text-sm font-semibold text-white mb-1">Lab 1: Build</div>
-                                <p class="text-xs text-gray-500">Presentations, dashboards, and data visualizations using Claude Desktop and your datasets.</p>
-                            </div>
-                            <div class="bg-brand-surface rounded-lg p-3">
-                                <div class="text-sm font-semibold text-white mb-1">Lab 2: Code</div>
-                                <p class="text-xs text-gray-500">Live-code a tool relevant to your org using Claude Code. Ticket agents, dashboards, support apps.</p>
-                            </div>
-                            <div class="bg-brand-surface rounded-lg p-3">
-                                <div class="text-sm font-semibold text-white mb-1">Lab 3: Automate</div>
-                                <p class="text-xs text-gray-500">Map and build one workflow to automate. n8n, Zapier, Claude, Gemini. Trigger to output.</p>
-                            </div>
+                        <div class="sm:ml-4">
+                            <h3 class="font-heading text-lg font-bold text-slate-900 mb-2">Opening & Assessment</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Context setting, survey shareback, and an honest strategic discussion: What's been holding your team back from being AI-first?</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step 4 -->
-                <div class="step-line flex gap-6">
-                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
-                        <span class="text-emerald-400 font-mono text-sm font-bold">04</span>
-                    </div>
-                    <div class="glow-card bg-brand-dark rounded-xl p-6 flex-1">
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2">
-                            <h3 class="text-lg font-semibold text-white">Guardrails & Governance</h3>
-                            <span class="text-xs font-mono text-gray-500 bg-brand-surface px-2 py-0.5 rounded w-fit">3:00 PM</span>
+                <!-- Step 02 -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                        <div class="shrink-0">
+                            <span class="font-heading text-xs font-semibold text-blue-600 uppercase tracking-wider">Step 02</span>
+                            <p class="font-heading text-sm text-slate-400 mt-0.5">10:00 AM</p>
                         </div>
-                        <p class="text-gray-400">What you can and can't do with your data. Compliance considerations, responsible AI use, and the practical tradeoffs between tools.</p>
+                        <div class="sm:ml-4">
+                            <h3 class="font-heading text-lg font-bold text-slate-900 mb-2">AI Landscape & Vision</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Where AI is today, the tool ecosystem, prompting best practices, and what it means for your organization over the next 12-18 months.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Step 5 -->
-                <div class="step-line flex gap-6">
-                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
-                        <span class="text-emerald-400 font-mono text-sm font-bold">05</span>
-                    </div>
-                    <div class="glow-card bg-brand-dark rounded-xl p-6 flex-1">
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2">
-                            <h3 class="text-lg font-semibold text-white">Strategy & Next Steps</h3>
-                            <span class="text-xs font-mono text-gray-500 bg-brand-surface px-2 py-0.5 rounded w-fit">3:30 PM</span>
+                <!-- Step 03 -->
+                <div class="card-hover bg-white rounded-xl border border-blue-200 p-6 sm:p-8 ring-1 ring-blue-100">
+                    <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                        <div class="shrink-0">
+                            <span class="font-heading text-xs font-semibold text-blue-600 uppercase tracking-wider">Step 03</span>
+                            <p class="font-heading text-sm text-slate-400 mt-0.5">11:00 AM - 3:00 PM</p>
                         </div>
-                        <p class="text-gray-400">Tactical planning by department. Quick wins, ownership assignments, and 30/60/90 day milestones to become AI-first.</p>
+                        <div class="sm:ml-4 flex-1">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="font-heading text-lg font-bold text-slate-900">Hands-On Labs</h3>
+                                <span class="font-heading text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white px-3 py-1 rounded-full">Hands-On</span>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">The core of the day. Three rotations of building with real tools and real data:</p>
+                            <div class="grid sm:grid-cols-3 gap-4">
+                                <div class="bg-slate-50 rounded-lg p-5 border border-slate-100">
+                                    <div class="font-heading text-xs font-semibold text-blue-600 uppercase tracking-wider mb-2">Lab 1: Build</div>
+                                    <p class="text-slate-600 text-xs leading-relaxed">Presentations, dashboards, and data visualizations using Claude Desktop.</p>
+                                </div>
+                                <div class="bg-slate-50 rounded-lg p-5 border border-slate-100">
+                                    <div class="font-heading text-xs font-semibold text-purple-600 uppercase tracking-wider mb-2">Lab 2: Code</div>
+                                    <p class="text-slate-600 text-xs leading-relaxed">Live-code a tool using Claude Code.</p>
+                                </div>
+                                <div class="bg-slate-50 rounded-lg p-5 border border-slate-100">
+                                    <div class="font-heading text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-2">Lab 3: Automate</div>
+                                    <p class="text-slate-600 text-xs leading-relaxed">Map and build one workflow using n8n, Zapier, Claude, and Gemini.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                        <div class="shrink-0">
+                            <span class="font-heading text-xs font-semibold text-blue-600 uppercase tracking-wider">Step 04</span>
+                            <p class="font-heading text-sm text-slate-400 mt-0.5">3:00 PM</p>
+                        </div>
+                        <div class="sm:ml-4">
+                            <h3 class="font-heading text-lg font-bold text-slate-900 mb-2">Guardrails & Governance</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">What you can and can't do with your data. Compliance considerations, responsible AI use, and the practical tradeoffs between tools.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 05 -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                        <div class="shrink-0">
+                            <span class="font-heading text-xs font-semibold text-blue-600 uppercase tracking-wider">Step 05</span>
+                            <p class="font-heading text-sm text-slate-400 mt-0.5">3:30 PM</p>
+                        </div>
+                        <div class="sm:ml-4">
+                            <h3 class="font-heading text-lg font-bold text-slate-900 mb-2">Strategy & Next Steps</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Tactical planning by department. Quick wins, ownership assignments, and 30/60/90 day milestones to become AI-first.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Deliverables -->
-    <section id="deliverables" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-brand-border">
-        <div class="max-w-5xl mx-auto">
+    <!-- DELIVERABLES -->
+    <section id="deliverables" class="bg-slate-50 py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">What You Walk Away With</div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Not a slide deck. A system.</h2>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-                    Every engagement produces tangible assets your team uses long after the session ends.
-                </p>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mb-4">What You Walk Away With</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto leading-relaxed">Every engagement produces tangible assets your team uses long after the session ends.</p>
             </div>
-
             <div class="grid sm:grid-cols-2 gap-6">
-                <!-- Deliverable 1 -->
-                <div class="glow-card bg-brand-surface rounded-2xl p-8">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
-                        </svg>
+                <!-- Toolkit -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 p-8">
+                    <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Executive AI Toolkit</h3>
-                    <p class="text-gray-400 leading-relaxed">A custom-built, password-protected training hub your team keeps forever. Not a slide deck. An interactive resource with prompting guides, labs, templates, and best practices tailored to your org.</p>
+                    <h3 class="font-heading text-lg font-bold text-slate-900 mb-2">Executive AI Toolkit</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">A custom-built, password-protected training hub your team keeps forever. Not a slide deck. An interactive resource with prompting guides, labs, templates, and best practices tailored to your org.</p>
                 </div>
-
-                <!-- Deliverable 2 -->
-                <div class="glow-card bg-brand-surface rounded-2xl p-8">
-                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/>
-                        </svg>
+                <!-- Jamboard -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 p-8">
+                    <div class="w-12 h-12 rounded-lg bg-purple-50 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">AI Strategy Jamboard</h3>
-                    <p class="text-gray-400 leading-relaxed">A collaborative strategy board capturing team challenges, department-specific bets, success metrics, and the strategic decisions made during the session.</p>
+                    <h3 class="font-heading text-lg font-bold text-slate-900 mb-2">AI Strategy Jamboard</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">A collaborative strategy board capturing team challenges, department-specific bets, success metrics, and the strategic decisions made during the session.</p>
                 </div>
-
-                <!-- Deliverable 3 -->
-                <div class="glow-card bg-brand-surface rounded-2xl p-8">
-                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
-                        </svg>
+                <!-- Playbook -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 p-8">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"/></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">90-Day AI Adoption Playbook</h3>
-                    <p class="text-gray-400 leading-relaxed">A sprint-based adoption plan with ownership assignments, department priorities, and week-by-week milestones. Not theory. Executable next steps.</p>
+                    <h3 class="font-heading text-lg font-bold text-slate-900 mb-2">90-Day AI Adoption Playbook</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">A sprint-based adoption plan with ownership assignments, department priorities, and week-by-week milestones. Not theory. Executable next steps.</p>
                 </div>
-
-                <!-- Deliverable 4 -->
-                <div class="glow-card bg-brand-surface rounded-2xl p-8">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/>
-                        </svg>
+                <!-- Support -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 p-8">
+                    <div class="w-12 h-12 rounded-lg bg-amber-50 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Ongoing Support</h3>
-                    <p class="text-gray-400 leading-relaxed">Recorded sessions, async support, and follow-up check-ins to make sure the momentum from the session translates into real organizational change.</p>
+                    <h3 class="font-heading text-lg font-bold text-slate-900 mb-2">Ongoing Support</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Recorded sessions, async support, and follow-up check-ins to make sure the momentum from the session translates into real organizational change.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="py-16 sm:py-24 px-4 sm:px-6 bg-brand-surface border-t border-brand-border">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">Leadership</div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Built by Operators</h2>
-                <p class="text-lg text-gray-400">
-                    Careers spent building, scaling, and transforming organizations.
-                </p>
+    <!-- TEAM -->
+    <section id="team" class="py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="font-heading text-sm font-semibold text-blue-700 uppercase tracking-wider">Leadership Team</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-4">Built by Operators</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto leading-relaxed">Careers spent building, scaling, and transforming organizations.</p>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="glow-card bg-brand-dark rounded-2xl p-6 text-center">
-                    <img src="assets/images/team/nad.jpeg" alt="Nadim Nasser" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold text-white">Nadim Nasser</h3>
-                    <p class="text-sm text-emerald-400 mb-3">CEO</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">15+ years designing learning experiences across 50+ countries. Trained 1,000+ professionals through workshops and programs.</p>
+            <div class="grid sm:grid-cols-3 gap-6">
+                <!-- Nadim -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="assets/images/team/nad.jpeg" alt="Nadim Nasser" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg font-bold text-slate-900">Nadim Nasser</h3>
+                        <p class="font-heading text-sm text-blue-600 font-medium mb-3">CEO</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">15+ years designing learning experiences across 50+ countries. Trained 1,000+ professionals through workshops and programs.</p>
+                    </div>
                 </div>
-                <div class="glow-card bg-brand-dark rounded-2xl p-6 text-center">
-                    <img src="assets/images/team/azim.jpeg" alt="Azim Ahmed" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold text-white">Azim Ahmed</h3>
-                    <p class="text-sm text-emerald-400 mb-3">Head of Engineering</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">Engineering leader bridging technical execution with learning design. Head of Engineering at Lazer Technologies. Built fintech products at Mydoh and Float. 8,000+ students trained.</p>
+                <!-- Azim -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="assets/images/team/azim.jpeg" alt="Azim Ahmed" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg font-bold text-slate-900">Azim Ahmed</h3>
+                        <p class="font-heading text-sm text-blue-600 font-medium mb-3">Head of Engineering</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">Engineering leader bridging technical execution with learning design. Head of Engineering at Lazer Technologies. Built fintech products at Mydoh and Float. 8,000+ students trained.</p>
+                    </div>
                 </div>
-                <div class="glow-card bg-brand-dark rounded-2xl p-6 text-center">
-                    <img src="assets/images/team/drew.png" alt="Drew Baillie" class="w-16 h-16 rounded-xl object-cover object-top mx-auto mb-3">
-                    <h3 class="text-lg font-semibold text-white">Drew Baillie</h3>
-                    <p class="text-sm text-emerald-400 mb-3">Head of Operations</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">25+ years leading AI transformation across enterprise organizations. Former AI lead at KPMG. Board Director with deep experience in digital transformation and operational excellence.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Training Team -->
-    <section class="py-12 sm:py-16 px-4 sm:px-6 border-t border-brand-border">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">Training Team</div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Expert Practitioners</h2>
-                <p class="text-lg text-gray-400">
-                    Hands-on expertise in AI implementation, engineering, and enterprise transformation.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="glow-card bg-brand-surface rounded-2xl p-6 text-center">
-                    <img src="assets/images/team/danish.jpeg" alt="Danish Dhamani" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold text-white">Danish Dhamani</h3>
-                    <p class="text-sm text-emerald-400 mb-3">AI Agents & Workflow Automation</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">Co-founder of AI Build Academy and CEO of Orai (400K+ users). Specializes in no-code workflow automation. Enterprise deployments at HP Enterprise, Comcast, and IBM. Forbes 30 Under 30.</p>
-                </div>
-                <div class="glow-card bg-brand-surface rounded-2xl p-6 text-center">
-                    <img src="assets/images/team/will.jpeg" alt="William Lancaster" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold text-white">William Lancaster</h3>
-                    <p class="text-sm text-emerald-400 mb-3">AI Solutions Architect</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">15+ years in software development and AI engineering. Former Head of Engineering at TKS. Enterprise integrations with Copilot, Gemini, and Claude APIs. RAG pipelines and knowledge management specialist.</p>
-                </div>
-                <div class="glow-card bg-brand-surface rounded-2xl p-6 text-center">
-                    <img src="assets/images/team/mishaal.jpeg" alt="Mishaal Lakhani" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold text-white">Mishaal Lakhani</h3>
-                    <p class="text-sm text-emerald-400 mb-3">AI Learning & Enablement</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">1,000+ professionals trained in AI fluency across 22 jurisdictions. Expertise in workflow extraction, process optimization, and enterprise change management for AI adoption.</p>
+                <!-- Drew -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="assets/images/team/drew.png" alt="Drew Baillie" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg font-bold text-slate-900">Drew Baillie</h3>
+                        <p class="font-heading text-sm text-blue-600 font-medium mb-3">Head of Operations</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">25+ years leading AI transformation across enterprise organizations. Former AI lead at KPMG. Board Director with deep experience in digital transformation and operational excellence.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Board of Advisors -->
-    <section class="py-12 sm:py-16 px-4 sm:px-6 bg-brand-surface border-t border-brand-border">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">Board of Advisors</div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Strategic Guidance</h2>
-                <p class="text-lg text-gray-400">
-                    Industry leaders providing strategic oversight and enterprise connections.
-                </p>
+    <!-- TRAINING TEAM -->
+    <section class="bg-slate-50 py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Expert Practitioners</h2>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <div class="glow-card bg-brand-dark rounded-2xl p-6 text-center">
-                    <img src="assets/images/team/arm.jpeg" alt="Armughan Ahmad" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold text-white">Armughan Ahmad</h3>
-                    <p class="text-sm text-emerald-400 mb-3">Board Advisor</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">Former CEO & President of Appen, President & Managing Partner at KPMG, SVP & GM at Dell Technologies. Board Director at Flexential and Trillium Health Partners. AI Advisor to ServiceNow and TELUS.</p>
+            <div class="grid sm:grid-cols-3 gap-6">
+                <!-- Danish -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="assets/images/team/danish.jpeg" alt="Danish Dhamani" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg font-bold text-slate-900">Danish Dhamani</h3>
+                        <p class="font-heading text-sm text-blue-600 font-medium mb-3">AI Agents & Workflow Automation</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">Co-founder of AI Build Academy and CEO of Orai (400K+ users). Specializes in no-code workflow automation. Enterprise deployments at HP Enterprise, Comcast, and IBM. Forbes 30 Under 30.</p>
+                    </div>
                 </div>
-                <div class="glow-card bg-brand-dark rounded-2xl p-6 text-center">
-                    <img src="assets/images/team/rola.jpeg" alt="Rola Dagher" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold text-white">Rola Dagher</h3>
-                    <p class="text-sm text-emerald-400 mb-3">Chief Growth Officer</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">CEO advisor, Board Director, Investor. Former CEO Cisco Canada, Chief Channel Officer Dell Technologies, Order of Canada recipient.</p>
+                <!-- William -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="assets/images/team/will.jpeg" alt="William Lancaster" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg font-bold text-slate-900">William Lancaster</h3>
+                        <p class="font-heading text-sm text-blue-600 font-medium mb-3">AI Solutions Architect</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">15+ years in software development and AI engineering. Former Head of Engineering at TKS. Enterprise integrations with Copilot, Gemini, and Claude APIs. RAG pipelines and knowledge management specialist.</p>
+                    </div>
                 </div>
-                <div class="glow-card bg-brand-dark rounded-2xl p-6 text-center">
-                    <img src="assets/images/team/arif.jpeg" alt="Arif Bhanji" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold text-white">Arif Bhanji</h3>
-                    <p class="text-sm text-emerald-400 mb-3">Board Advisor</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">Co-Founder & Co-CEO of Lazer Technologies, a Y Combinator-backed product studio with 90+ engineers from Instagram, Shopify, and Uber.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Scrolling Logos -->
-    <section class="py-8 sm:py-12 border-t border-brand-border overflow-hidden">
-        <p class="text-center text-sm font-medium text-gray-500 uppercase tracking-wider mb-8">Built by a team with 100+ years of combined experience across</p>
-
-        <div class="relative overflow-hidden">
-            <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-brand-dark to-transparent z-10 pointer-events-none"></div>
-            <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-brand-dark to-transparent z-10 pointer-events-none"></div>
-
-            <div class="logo-track flex items-center gap-14" style="width: max-content;">
-                <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="assets/images/logos/un-logo.png" alt="United Nations" class="h-12 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
-                <img src="assets/images/logos/td-logo.png" alt="TD Bank" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
-                <img src="assets/images/logos/rbc-logo.png" alt="RBC" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
-                <img src="assets/images/logos/bmo-logo.png" alt="BMO" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
-                <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-12 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-14 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idpw9SCyJ0/w/800/h/309/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Ritz-Carlton" class="h-12 object-contain opacity-40 hover:opacity-70 transition-opacity">
-
-                <!-- Duplicate for seamless loop -->
-                <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="assets/images/logos/un-logo.png" alt="United Nations" class="h-12 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
-                <img src="assets/images/logos/td-logo.png" alt="TD Bank" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
-                <img src="assets/images/logos/rbc-logo.png" alt="RBC" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
-                <img src="assets/images/logos/bmo-logo.png" alt="BMO" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
-                <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-12 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-14 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idpw9SCyJ0/w/800/h/309/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Ritz-Carlton" class="h-12 object-contain opacity-40 hover:opacity-70 transition-opacity">
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="contact" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-brand-border">
-        <div class="max-w-3xl mx-auto text-center">
-            <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">Next Steps</div>
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to build?</h2>
-            <p class="text-lg text-gray-400 mb-10">
-                Book a 30-minute call to discuss how we can run a session for your team. We'll scope the day, understand your tools and data, and design a session around your organization.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <img src="assets/images/team/nad.jpeg" alt="Nadim Nasser" class="w-14 h-14 rounded-full object-cover border-2 border-emerald-500/30 shadow-lg shadow-emerald-500/10">
-                <div class="text-center sm:text-left">
-                    <p class="text-gray-400 text-sm mb-3">Schedule a call with Nadim</p>
-                    <a href="https://cal.com/nadimnasser" class="inline-block px-8 py-3 bg-emerald-500 text-brand-dark font-semibold rounded-full hover:bg-emerald-400 transition-all hover:shadow-lg hover:shadow-emerald-500/20">
-                        Book a Session
-                    </a>
+                <!-- Mishaal -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="assets/images/team/mishaal.jpeg" alt="Mishaal Lakhani" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg font-bold text-slate-900">Mishaal Lakhani</h3>
+                        <p class="font-heading text-sm text-blue-600 font-medium mb-3">AI Learning & Enablement</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">1,000+ professionals trained in AI fluency across 22 jurisdictions. Expertise in workflow extraction, process optimization, and enterprise change management for AI adoption.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 px-6 border-t border-brand-border">
-        <div class="max-w-6xl mx-auto text-center text-gray-500 text-sm">
-            <p>&copy; 2026 Workflowy</p>
+    <!-- BOARD OF ADVISORS -->
+    <section class="py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Strategic Guidance</h2>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-6">
+                <!-- Armughan -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="assets/images/team/arm.jpeg" alt="Armughan Ahmad" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg font-bold text-slate-900">Armughan Ahmad</h3>
+                        <p class="font-heading text-sm text-blue-600 font-medium mb-3">Board Advisor</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">Former CEO & President of Appen, President & Managing Partner at KPMG, SVP & GM at Dell Technologies. Board Director at Flexential and Trillium Health Partners. AI Advisor to ServiceNow and TELUS.</p>
+                    </div>
+                </div>
+                <!-- Rola -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="assets/images/team/rola.jpeg" alt="Rola Dagher" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg font-bold text-slate-900">Rola Dagher</h3>
+                        <p class="font-heading text-sm text-blue-600 font-medium mb-3">Chief Growth Officer</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">CEO advisor, Board Director, Investor. Former CEO Cisco Canada, Chief Channel Officer Dell Technologies, Order of Canada recipient.</p>
+                    </div>
+                </div>
+                <!-- Arif -->
+                <div class="card-hover bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="assets/images/team/arif.jpeg" alt="Arif Bhanji" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-lg font-bold text-slate-900">Arif Bhanji</h3>
+                        <p class="font-heading text-sm text-blue-600 font-medium mb-3">Board Advisor</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">Co-Founder & Co-CEO of Lazer Technologies, a Y Combinator-backed product studio with 90+ engineers from Instagram, Shopify, and Uber.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCROLLING LOGOS -->
+    <section class="bg-slate-50 py-16 sm:py-20 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
+            <p class="text-slate-500 text-sm font-heading">Built by a team with 100+ years of combined experience across</p>
+        </div>
+        <div class="relative">
+            <div class="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-slate-50 to-transparent z-10"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-slate-50 to-transparent z-10"></div>
+            <div class="flex scroll-logos items-center" style="width: max-content;">
+                <!-- First set -->
+                <div class="flex items-center gap-12 sm:gap-16 px-6 sm:px-8">
+                    <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/un-logo.png" alt="United Nations" class="h-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/td-logo.png" alt="TD" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/rbc-logo.png" alt="RBC" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/bmo-logo.png" alt="BMO" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-14 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idpw9SCyJ0/w/800/h/309/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Ritz-Carlton" class="h-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                </div>
+                <!-- Duplicate set for seamless loop -->
+                <div class="flex items-center gap-12 sm:gap-16 px-6 sm:px-8">
+                    <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/un-logo.png" alt="United Nations" class="h-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/td-logo.png" alt="TD" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/rbc-logo.png" alt="RBC" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/bmo-logo.png" alt="BMO" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-14 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idpw9SCyJ0/w/800/h/309/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Ritz-Carlton" class="h-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 sm:py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Ready to build?</h2>
+            <p class="text-slate-600 leading-relaxed mb-10 max-w-xl mx-auto">Book a 30-minute call to discuss how we can run a session for your team. We'll scope the day, understand your tools and data, and design a session around your organization.</p>
+            <div class="flex flex-col items-center gap-5">
+                <img src="assets/images/team/nad.jpeg" alt="Nadim Nasser" class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg">
+                <p class="font-heading text-sm text-slate-500">Schedule a call with Nadim</p>
+                <a href="https://cal.com/nadimnasser" class="font-heading text-sm font-semibold bg-blue-700 hover:bg-blue-800 text-white px-8 py-3.5 rounded-lg transition-colors">Book a Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-100 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="font-heading text-sm text-slate-400">&copy; 2026 Workflowy</p>
         </div>
     </footer>
 
