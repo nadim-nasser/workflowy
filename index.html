@@ -63,6 +63,58 @@
         }
 
         html { scroll-behavior: smooth; }
+
+        /* Interactive logo animations */
+        @keyframes heroPulse {
+            0%, 100% { r: 100; opacity: 0.05; }
+            50% { r: 110; opacity: 0.08; }
+        }
+        .hero-pulse { animation: heroPulse 4s ease-in-out infinite; }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        .hero-logo-main { animation: logoFloat 5s ease-in-out infinite; }
+
+        @keyframes orbit1 {
+            0% { cx: 320; cy: 200; }
+            25% { cx: 200; cy: 80; }
+            50% { cx: 80; cy: 200; }
+            75% { cx: 200; cy: 320; }
+            100% { cx: 320; cy: 200; }
+        }
+        .orbit-dot-1 { animation: orbit1 10s linear infinite; }
+
+        @keyframes orbit2 {
+            0% { cx: 200; cy: 50; }
+            25% { cx: 50; cy: 200; }
+            50% { cx: 200; cy: 350; }
+            75% { cx: 350; cy: 200; }
+            100% { cx: 200; cy: 50; }
+        }
+        .orbit-dot-2 { animation: orbit2 14s linear infinite; }
+
+        @keyframes orbit3 {
+            0% { cx: 375; cy: 200; }
+            25% { cx: 200; cy: 25; }
+            50% { cx: 25; cy: 200; }
+            75% { cx: 200; cy: 375; }
+            100% { cx: 375; cy: 200; }
+        }
+        .orbit-dot-3 { animation: orbit3 18s linear infinite; }
+
+        @keyframes spinSlow { 0% { transform-origin: 200px 200px; transform: rotate(0deg); } 100% { transform-origin: 200px 200px; transform: rotate(360deg); } }
+        .orbit-ring-1 { animation: spinSlow 20s linear infinite; }
+        .orbit-ring-2 { animation: spinSlow 30s linear infinite reverse; }
+        .orbit-ring-3 { animation: spinSlow 40s linear infinite; }
+
+        @keyframes floatIcon1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(4px, -8px); } }
+        @keyframes floatIcon2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-6px, 6px); } }
+        @keyframes floatIcon3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(5px, -5px); } }
+        .float-icon-1 { animation: floatIcon1 6s ease-in-out infinite; }
+        .float-icon-2 { animation: floatIcon2 7s ease-in-out infinite 1s; }
+        .float-icon-3 { animation: floatIcon3 8s ease-in-out infinite 2s; }
     </style>
 </head>
 <body class="bg-white text-slate-800">
@@ -99,7 +151,7 @@
                 <span class="inline-block font-heading text-sm font-semibold text-blue-700 bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full mb-6">Executive AI Hackathons</span>
                 <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
                     Your team has AI tools.<br>
-                    <span class="gradient-text">We help them build with them.</span>
+                    <span class="gradient-text">We help build with them.</span>
                 </h1>
                 <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
                     One day. Your real data. Real tools. Real output. We work with executive teams to define their AI approach through hands-on building, not slide decks.
@@ -109,47 +161,60 @@
                     <a href="#how-it-works" class="font-heading text-sm font-semibold border-2 border-slate-300 hover:border-slate-400 text-slate-700 px-8 py-3.5 rounded-lg transition-colors text-center">See How It Works</a>
                 </div>
             </div>
-            <div class="flex-1 w-full max-w-lg lg:max-w-none">
-                <div class="bg-slate-900 rounded-xl shadow-2xl overflow-hidden">
-                    <div class="flex items-center gap-2 px-4 py-3 bg-slate-800">
-                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                        <span class="ml-2 text-xs text-slate-400 font-heading">session-agenda.ai</span>
-                    </div>
-                    <div class="p-6 space-y-4 text-sm font-mono">
-                        <div class="flex items-center gap-3">
-                            <span class="text-blue-400 text-xs w-16 shrink-0">9:00 AM</span>
-                            <div class="h-px bg-slate-700 flex-1"></div>
-                            <span class="text-slate-300 text-xs">Opening & Assessment</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <span class="text-blue-400 text-xs w-16 shrink-0">10:00 AM</span>
-                            <div class="h-px bg-slate-700 flex-1"></div>
-                            <span class="text-slate-300 text-xs">AI Landscape & Vision</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <span class="text-emerald-400 text-xs w-16 shrink-0">11:00 AM</span>
-                            <div class="h-px bg-slate-700 flex-1"></div>
-                            <span class="text-white text-xs font-semibold">Hands-On Labs</span>
-                            <span class="text-[10px] bg-blue-600 text-white px-2 py-0.5 rounded-full">CORE</span>
-                        </div>
-                        <div class="pl-20 space-y-2 text-xs text-slate-400">
-                            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>Lab 1: Build</div>
-                            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>Lab 2: Code</div>
-                            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Lab 3: Automate</div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <span class="text-blue-400 text-xs w-16 shrink-0">3:00 PM</span>
-                            <div class="h-px bg-slate-700 flex-1"></div>
-                            <span class="text-slate-300 text-xs">Guardrails & Governance</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <span class="text-blue-400 text-xs w-16 shrink-0">3:30 PM</span>
-                            <div class="h-px bg-slate-700 flex-1"></div>
-                            <span class="text-slate-300 text-xs">Strategy & Next Steps</span>
-                        </div>
-                    </div>
+            <div class="flex-1 w-full max-w-md lg:max-w-none flex items-center justify-center">
+                <div class="interactive-logo-container relative w-72 h-72 sm:w-96 sm:h-96">
+                    <svg viewBox="0 0 400 400" class="w-full h-full" fill="none">
+                        <defs>
+                            <linearGradient id="heroLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1e40af"/>
+                                <stop offset="100%" style="stop-color:#2563eb"/>
+                            </linearGradient>
+                            <linearGradient id="orbitGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#3b82f6; stop-opacity:0"/>
+                                <stop offset="50%" style="stop-color:#3b82f6; stop-opacity:1"/>
+                                <stop offset="100%" style="stop-color:#3b82f6; stop-opacity:0"/>
+                            </linearGradient>
+                            <linearGradient id="orbitGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#8b5cf6; stop-opacity:0"/>
+                                <stop offset="50%" style="stop-color:#8b5cf6; stop-opacity:1"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6; stop-opacity:0"/>
+                            </linearGradient>
+                            <linearGradient id="orbitGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#10b981; stop-opacity:0"/>
+                                <stop offset="50%" style="stop-color:#10b981; stop-opacity:1"/>
+                                <stop offset="100%" style="stop-color:#10b981; stop-opacity:0"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Outer glow -->
+                        <circle cx="200" cy="200" r="100" fill="url(#heroLogoGrad)" opacity="0.05" class="hero-pulse"/>
+                        <circle cx="200" cy="200" r="140" fill="none" stroke="#1e40af" stroke-width="0.5" opacity="0.1"/>
+                        <circle cx="200" cy="200" r="175" fill="none" stroke="#1e40af" stroke-width="0.5" opacity="0.07"/>
+                        <!-- Main logo circle -->
+                        <circle cx="200" cy="200" r="70" fill="url(#heroLogoGrad)" class="hero-logo-main"/>
+                        <!-- W mark -->
+                        <path d="M162 178l18 44 20-32 20 32 18-44" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <!-- Orbiting dots -->
+                        <circle r="6" fill="#3b82f6" class="orbit-dot orbit-dot-1"/>
+                        <circle r="5" fill="#8b5cf6" class="orbit-dot orbit-dot-2"/>
+                        <circle r="4" fill="#10b981" class="orbit-dot orbit-dot-3"/>
+                        <!-- Orbit trails -->
+                        <circle cx="200" cy="200" r="120" fill="none" stroke="url(#orbitGrad1)" stroke-width="1.5" stroke-dasharray="4 8" class="orbit-ring orbit-ring-1" opacity="0.4"/>
+                        <circle cx="200" cy="200" r="150" fill="none" stroke="url(#orbitGrad2)" stroke-width="1" stroke-dasharray="3 10" class="orbit-ring orbit-ring-2" opacity="0.3"/>
+                        <circle cx="200" cy="200" r="175" fill="none" stroke="url(#orbitGrad3)" stroke-width="1" stroke-dasharray="2 12" class="orbit-ring orbit-ring-3" opacity="0.2"/>
+                        <!-- Small floating icons -->
+                        <g class="float-icon float-icon-1" opacity="0.6">
+                            <rect x="60" y="140" width="28" height="28" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1"/>
+                            <path d="M68 154h12M68 150h8" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/>
+                        </g>
+                        <g class="float-icon float-icon-2" opacity="0.6">
+                            <rect x="310" y="120" width="28" height="28" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+                            <path d="M318 134l4 4 8-8" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <g class="float-icon float-icon-3" opacity="0.6">
+                            <rect x="290" y="260" width="28" height="28" rx="6" fill="#faf5ff" stroke="#c4b5fd" stroke-width="1"/>
+                            <path d="M298 274h12M304 268v12" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round"/>
+                        </g>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -210,96 +275,343 @@
     <!-- HOW IT WORKS -->
     <section id="how-it-works" class="py-16 sm:py-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="font-heading text-sm font-semibold text-blue-700 uppercase tracking-wider">The Day</span>
-                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-4">From strategy to building to next steps.</h2>
-                <p class="text-slate-600 max-w-2xl mx-auto leading-relaxed">A full-day executive session designed around your organization. Not a lecture. A working session where your team builds real things.</p>
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="font-heading text-sm font-semibold text-blue-700 uppercase tracking-wider">Our Approach</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mt-3 mb-4">Your Team's AI Hackathon Journey</h2>
+                <p class="text-slate-600 leading-relaxed">A custom-designed executive session built around your organization. Not a lecture. A working session where your team builds real things.</p>
             </div>
 
-            <div class="space-y-6">
-                <!-- Step 01 -->
-                <div class="card-hover bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
-                    <div class="flex flex-col sm:flex-row sm:items-start gap-4">
-                        <div class="shrink-0">
-                            <span class="font-heading text-xs font-semibold text-blue-600 uppercase tracking-wider">Step 01</span>
-                            <p class="font-heading text-sm text-slate-400 mt-0.5">9:00 AM</p>
-                        </div>
-                        <div class="sm:ml-4">
-                            <h3 class="font-heading text-lg font-bold text-slate-900 mb-2">Opening & Assessment</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">Context setting, survey shareback, and an honest strategic discussion: What's been holding your team back from being AI-first?</p>
+            <!-- 3-Step Journey -->
+            <div class="grid md:grid-cols-3 gap-6 mb-16">
+                <div class="relative bg-white rounded-2xl border-2 border-blue-200 p-6 hover:border-blue-400 hover:shadow-lg transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center text-lg font-bold shadow-md font-heading">1</span>
+                        <h3 class="font-heading text-lg font-bold text-slate-900">Pre-Session Discovery</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>AI readiness survey for all participants</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>Understand your tools, data, and blockers</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>Custom agenda design for your team</span>
+                        </li>
+                    </ul>
+                    <div class="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
+                        <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center shadow-md">
+                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step 02 -->
-                <div class="card-hover bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
-                    <div class="flex flex-col sm:flex-row sm:items-start gap-4">
-                        <div class="shrink-0">
-                            <span class="font-heading text-xs font-semibold text-blue-600 uppercase tracking-wider">Step 02</span>
-                            <p class="font-heading text-sm text-slate-400 mt-0.5">10:00 AM</p>
-                        </div>
-                        <div class="sm:ml-4">
-                            <h3 class="font-heading text-lg font-bold text-slate-900 mb-2">AI Landscape & Vision</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">Where AI is today, the tool ecosystem, prompting best practices, and what it means for your organization over the next 12-18 months.</p>
+                <div class="relative bg-white rounded-2xl border-2 border-purple-200 p-6 hover:border-purple-400 hover:shadow-lg transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 bg-purple-600 text-white rounded-xl flex items-center justify-center text-lg font-bold shadow-md font-heading">2</span>
+                        <h3 class="font-heading text-lg font-bold text-slate-900">Hackathon Day</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>Hands-on building with real tools and data</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>Strategic discussion + live labs</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>Walk away with working prototypes</span>
+                        </li>
+                    </ul>
+                    <div class="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
+                        <div class="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center shadow-md">
+                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step 03 -->
-                <div class="card-hover bg-white rounded-xl border border-blue-200 p-6 sm:p-8 ring-1 ring-blue-100">
-                    <div class="flex flex-col sm:flex-row sm:items-start gap-4">
-                        <div class="shrink-0">
-                            <span class="font-heading text-xs font-semibold text-blue-600 uppercase tracking-wider">Step 03</span>
-                            <p class="font-heading text-sm text-slate-400 mt-0.5">11:00 AM - 3:00 PM</p>
-                        </div>
-                        <div class="sm:ml-4 flex-1">
-                            <div class="flex items-center gap-3 mb-2">
-                                <h3 class="font-heading text-lg font-bold text-slate-900">Hands-On Labs</h3>
-                                <span class="font-heading text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white px-3 py-1 rounded-full">Hands-On</span>
+                <div class="relative bg-white rounded-2xl border-2 border-emerald-200 p-6 hover:border-emerald-400 hover:shadow-lg transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-10 h-10 bg-emerald-600 text-white rounded-xl flex items-center justify-center text-lg font-bold shadow-md font-heading">3</span>
+                        <h3 class="font-heading text-lg font-bold text-slate-900">Follow-Through</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>90-day adoption playbook</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>Executive AI toolkit access</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>Async support and check-ins</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Session Modules - Expandable -->
+            <div class="mb-16">
+                <h3 class="font-heading text-xl font-bold text-slate-900 mb-2 text-center">Session Modules</h3>
+                <p class="text-slate-600 mb-8 text-center">Each session is custom-designed. Here are the core modules we draw from.</p>
+
+                <p class="font-heading text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 max-w-4xl mx-auto">Core Modules</p>
+
+                <div class="space-y-3 max-w-4xl mx-auto mb-6">
+                    <!-- Module: Opening & Assessment -->
+                    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-blue-300 transition-colors">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-semibold text-slate-900">Opening & Assessment</h4>
+                                    <p class="text-sm text-slate-500">Context setting and strategic alignment</p>
+                                </div>
                             </div>
-                            <p class="text-slate-600 text-sm leading-relaxed mb-6">The core of the day. Three rotations of building with real tools and real data:</p>
+                            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-5 pb-5 border-t border-slate-100">
+                            <div class="grid md:grid-cols-2 gap-6 pt-4">
+                                <div>
+                                    <p class="font-heading text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">What Happens</p>
+                                    <ul class="space-y-2 text-sm text-slate-600">
+                                        <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&bull;</span>Pre-session survey results shareback</li>
+                                        <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&bull;</span>Honest strategic discussion on AI blockers</li>
+                                        <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&bull;</span>Team alignment on goals for the day</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-heading text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Outcomes</p>
+                                    <ul class="space-y-2 text-sm text-slate-600">
+                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Clear picture of team's current AI maturity</li>
+                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Shared language and expectations set</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Module: AI Landscape & Vision -->
+                    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-purple-300 transition-colors">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-semibold text-slate-900">AI Landscape & Vision</h4>
+                                    <p class="text-sm text-slate-500">Where AI is today and what it means for your org</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-5 pb-5 border-t border-slate-100">
+                            <div class="grid md:grid-cols-2 gap-6 pt-4">
+                                <div>
+                                    <p class="font-heading text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">What You'll Learn</p>
+                                    <ul class="space-y-2 text-sm text-slate-600">
+                                        <li class="flex items-start gap-2"><span class="text-purple-500 mt-1">&bull;</span>How LLMs work and their real capabilities vs. risks</li>
+                                        <li class="flex items-start gap-2"><span class="text-purple-500 mt-1">&bull;</span>The tool ecosystem: Claude, Copilot, Gemini, and more</li>
+                                        <li class="flex items-start gap-2"><span class="text-purple-500 mt-1">&bull;</span>Prompting best practices and frameworks</li>
+                                        <li class="flex items-start gap-2"><span class="text-purple-500 mt-1">&bull;</span>What AI adoption looks like over the next 12-18 months</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-heading text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Outcomes</p>
+                                    <ul class="space-y-2 text-sm text-slate-600">
+                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Shift from "AI as search engine" to "AI as collaborative assistant"</li>
+                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Identify 3+ automation opportunities in weekly workflow</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Module: Hands-On Labs -->
+                    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-blue-300 transition-colors" open>
+                        <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-semibold text-slate-900">Hands-On Labs</h4>
+                                    <span class="font-heading text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white px-2 py-0.5 rounded-full">Core</span>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-5 pb-5 border-t border-slate-100">
+                            <p class="text-sm text-slate-600 pt-4 mb-4">The core of the day. Three rotations of building with real tools and real data:</p>
                             <div class="grid sm:grid-cols-3 gap-4">
                                 <div class="bg-slate-50 rounded-lg p-5 border border-slate-100">
                                     <div class="font-heading text-xs font-semibold text-blue-600 uppercase tracking-wider mb-2">Lab 1: Build</div>
-                                    <p class="text-slate-600 text-xs leading-relaxed">Presentations, dashboards, and data visualizations using Claude Desktop.</p>
+                                    <p class="text-slate-600 text-xs leading-relaxed">Presentations, dashboards, and data visualizations using Claude Desktop and your datasets.</p>
                                 </div>
                                 <div class="bg-slate-50 rounded-lg p-5 border border-slate-100">
                                     <div class="font-heading text-xs font-semibold text-purple-600 uppercase tracking-wider mb-2">Lab 2: Code</div>
-                                    <p class="text-slate-600 text-xs leading-relaxed">Live-code a tool using Claude Code.</p>
+                                    <p class="text-slate-600 text-xs leading-relaxed">Live-code a tool relevant to your org using Claude Code. Ticket agents, dashboards, support apps.</p>
                                 </div>
                                 <div class="bg-slate-50 rounded-lg p-5 border border-slate-100">
                                     <div class="font-heading text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-2">Lab 3: Automate</div>
-                                    <p class="text-slate-600 text-xs leading-relaxed">Map and build one workflow using n8n, Zapier, Claude, and Gemini.</p>
+                                    <p class="text-slate-600 text-xs leading-relaxed">Map and build one workflow to automate using n8n, Zapier, Claude, and Gemini.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </details>
+
+                    <!-- Module: Strategy & Next Steps -->
+                    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-emerald-300 transition-colors">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-semibold text-slate-900">Strategy & Next Steps</h4>
+                                    <p class="text-sm text-slate-500">Tactical planning by department</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-5 pb-5 border-t border-slate-100">
+                            <div class="grid md:grid-cols-2 gap-6 pt-4">
+                                <div>
+                                    <p class="font-heading text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">What Happens</p>
+                                    <ul class="space-y-2 text-sm text-slate-600">
+                                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-1">&bull;</span>Department-level tactical planning</li>
+                                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-1">&bull;</span>Quick wins and ownership assignments</li>
+                                        <li class="flex items-start gap-2"><span class="text-emerald-500 mt-1">&bull;</span>30/60/90 day milestones to become AI-first</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-heading text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Outcomes</p>
+                                    <ul class="space-y-2 text-sm text-slate-600">
+                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Executable action plan, not theory</li>
+                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Clear ownership across departments</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
                 </div>
 
-                <!-- Step 04 -->
-                <div class="card-hover bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
-                    <div class="flex flex-col sm:flex-row sm:items-start gap-4">
-                        <div class="shrink-0">
-                            <span class="font-heading text-xs font-semibold text-blue-600 uppercase tracking-wider">Step 04</span>
-                            <p class="font-heading text-sm text-slate-400 mt-0.5">3:00 PM</p>
+                <!-- Additional Modules -->
+                <p class="font-heading text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 max-w-4xl mx-auto">Additional Modules (Customizable)</p>
+
+                <div class="space-y-3 max-w-4xl mx-auto">
+                    <!-- Data Integration & RAG -->
+                    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-amber-300 transition-colors">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-semibold text-slate-900">Data Integration & RAG</h4>
+                                    <p class="text-sm text-slate-500">Connecting AI to your company's knowledge base</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-5 pb-5 border-t border-slate-100">
+                            <div class="grid md:grid-cols-2 gap-6 pt-4">
+                                <div>
+                                    <p class="font-heading text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">What You'll Learn</p>
+                                    <ul class="space-y-2 text-sm text-slate-600">
+                                        <li class="flex items-start gap-2"><span class="text-amber-500 mt-1">&bull;</span>Connect AI to your company's knowledge base</li>
+                                        <li class="flex items-start gap-2"><span class="text-amber-500 mt-1">&bull;</span>Build RAG systems that actually work</li>
+                                        <li class="flex items-start gap-2"><span class="text-amber-500 mt-1">&bull;</span>Ensure accuracy and reduce hallucinations</li>
+                                        <li class="flex items-start gap-2"><span class="text-amber-500 mt-1">&bull;</span>Handle sensitive data securely</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-heading text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Outcomes</p>
+                                    <ul class="space-y-2 text-sm text-slate-600">
+                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>AI that knows your business context</li>
+                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Internal search/Q&A assistant prototype</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="sm:ml-4">
-                            <h3 class="font-heading text-lg font-bold text-slate-900 mb-2">Guardrails & Governance</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">What you can and can't do with your data. Compliance considerations, responsible AI use, and the practical tradeoffs between tools.</p>
+                    </details>
+
+                    <!-- Workflow Automation -->
+                    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-rose-300 transition-colors">
+                        <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-rose-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-heading font-semibold text-slate-900">AI-Ready Workflow Design</h4>
+                                    <p class="text-sm text-slate-500">Map and automate your team's real workflows</p>
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-5 pb-5 border-t border-slate-100">
+                            <div class="grid md:grid-cols-2 gap-6 pt-4">
+                                <div>
+                                    <p class="font-heading text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">What You'll Learn</p>
+                                    <ul class="space-y-2 text-sm text-slate-600">
+                                        <li class="flex items-start gap-2"><span class="text-rose-500 mt-1">&bull;</span>The ROI of human-led, agent-operated workflows</li>
+                                        <li class="flex items-start gap-2"><span class="text-rose-500 mt-1">&bull;</span>Extract tacit knowledge from subject matter experts</li>
+                                        <li class="flex items-start gap-2"><span class="text-rose-500 mt-1">&bull;</span>Document decision trees: automation-ready vs. human-required</li>
+                                        <li class="flex items-start gap-2"><span class="text-rose-500 mt-1">&bull;</span>Build workflows using n8n, Zapier, Claude, and Gemini</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-heading text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Outcomes</p>
+                                    <ul class="space-y-2 text-sm text-slate-600">
+                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>3+ AI workflows built and ready to deploy</li>
+                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Role-specific automation map for each department</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- What Makes This Different -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8">
+                <h3 class="font-heading text-lg font-bold text-slate-900 mb-6 text-center">What Makes Our Approach Different?</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-semibold text-slate-900 mb-1">Your Real Data</h4>
+                            <p class="text-sm text-slate-600">Labs use your actual tools, workflows, and datasets. Not generic demos.</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Step 05 -->
-                <div class="card-hover bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
-                    <div class="flex flex-col sm:flex-row sm:items-start gap-4">
-                        <div class="shrink-0">
-                            <span class="font-heading text-xs font-semibold text-blue-600 uppercase tracking-wider">Step 05</span>
-                            <p class="font-heading text-sm text-slate-400 mt-0.5">3:30 PM</p>
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         </div>
-                        <div class="sm:ml-4">
-                            <h3 class="font-heading text-lg font-bold text-slate-900 mb-2">Strategy & Next Steps</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed">Tactical planning by department. Quick wins, ownership assignments, and 30/60/90 day milestones to become AI-first.</p>
+                        <div>
+                            <h4 class="font-heading font-semibold text-slate-900 mb-1">Operators, Not Consultants</h4>
+                            <p class="text-sm text-slate-600">Led by people who build and ship, not people who make slide decks.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-semibold text-slate-900 mb-1">You Keep Everything</h4>
+                            <p class="text-sm text-slate-600">Custom AI toolkit, strategy boards, and playbooks your team uses long after.</p>
                         </div>
                     </div>
                 </div>
@@ -496,35 +808,35 @@
             <div class="flex scroll-logos items-center" style="width: max-content;">
                 <!-- First set -->
                 <div class="flex items-center gap-12 sm:gap-16 px-6 sm:px-8">
-                    <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="assets/images/logos/un-logo.png" alt="United Nations" class="h-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="assets/images/logos/td-logo.png" alt="TD" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="assets/images/logos/rbc-logo.png" alt="RBC" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="assets/images/logos/bmo-logo.png" alt="BMO" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-14 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/idpw9SCyJ0/w/800/h/309/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Ritz-Carlton" class="h-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-7 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-7 opacity-70 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/un-logo.png" alt="United Nations" class="h-12 opacity-70 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/td-logo.png" alt="TD" class="h-8 opacity-70 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/rbc-logo.png" alt="RBC" class="h-8 opacity-70 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/bmo-logo.png" alt="BMO" class="h-8 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-7 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-7 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-12 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-7 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-14 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-8 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idpw9SCyJ0/w/800/h/309/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Ritz-Carlton" class="h-12 opacity-70 hover:opacity-100 transition-all">
                 </div>
                 <!-- Duplicate set for seamless loop -->
                 <div class="flex items-center gap-12 sm:gap-16 px-6 sm:px-8">
-                    <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="assets/images/logos/un-logo.png" alt="United Nations" class="h-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="assets/images/logos/td-logo.png" alt="TD" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="assets/images/logos/rbc-logo.png" alt="RBC" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="assets/images/logos/bmo-logo.png" alt="BMO" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-7 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-14 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
-                    <img src="https://cdn.brandfetch.io/idpw9SCyJ0/w/800/h/309/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Ritz-Carlton" class="h-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-7 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-7 opacity-70 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/un-logo.png" alt="United Nations" class="h-12 opacity-70 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/td-logo.png" alt="TD" class="h-8 opacity-70 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/rbc-logo.png" alt="RBC" class="h-8 opacity-70 hover:opacity-100 transition-all">
+                    <img src="assets/images/logos/bmo-logo.png" alt="BMO" class="h-8 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-7 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-7 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-12 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-7 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-14 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-8 opacity-70 hover:opacity-100 transition-all">
+                    <img src="https://cdn.brandfetch.io/idpw9SCyJ0/w/800/h/309/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Ritz-Carlton" class="h-12 opacity-70 hover:opacity-100 transition-all">
                 </div>
             </div>
         </div>
