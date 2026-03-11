@@ -1,46 +1,46 @@
 <!DOCTYPE html>
-<!-- saved from url=(0021)https://workflowy.ai/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workflowy | Enterprise AI Enablement &amp; Transformation</title>
+    <title>Workflowy | Executive AI Hackathons</title>
 
     <!-- SEO Meta -->
-    <meta name="description" content="Build enterprise AI capability. We help teams move from AI experimentation to AI execution with structured programs that build real skills.">
+    <meta name="description" content="Workflowy runs executive AI hackathons. One day. Your real data. Real tools. Real output. We help leadership teams move from AI curiosity to AI execution.">
 
-    <!-- Open Graph / Facebook / WhatsApp -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://workflowy.ai/">
-    <meta property="og:title" content="Workflowy | Enterprise AI Enablement &amp; Transformation">
-    <meta property="og:description" content="Build enterprise AI capability. We help teams move from AI experimentation to AI execution with structured programs that build real skills.">
-    <meta property="og:image" content="https://workflowy.ai/assets/images/social/og-image-v3.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:title" content="Workflowy | Executive AI Hackathons">
+    <meta property="og:description" content="We run executive AI hackathons. One day. Your real data. Real tools. Real output.">
+    <meta property="og:image" content="https://workflowy.ai/og-image-v4.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://workflowy.ai/">
-    <meta name="twitter:title" content="Workflowy | Enterprise AI Enablement &amp; Transformation">
-    <meta name="twitter:description" content="Build enterprise AI capability. We help teams move from AI experimentation to AI execution with structured programs that build real skills.">
-    <meta name="twitter:image" content="https://workflowy.ai/assets/images/social/og-image-v3.png">
+    <meta name="twitter:title" content="Workflowy | Executive AI Hackathons">
+    <meta name="twitter:description" content="We run executive AI hackathons. One day. Your real data. Real tools. Real output.">
 
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        heading: ['Poppins', 'sans-serif'],
-                        body: ['Lora', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
                         brand: {
-                            dark: '#0f172a',
-                            accent: '#3b82f6',
-                            accentLight: '#60a5fa',
+                            dark: '#0a0f1a',
+                            surface: '#111827',
+                            border: '#1f2937',
+                            accent: '#10b981',
+                            accentLight: '#34d399',
+                            blue: '#3b82f6',
                         }
                     }
                 }
@@ -49,1237 +49,495 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Lora', serif; }
-        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Poppins', sans-serif; }
-        .font-body { font-family: 'Lora', serif; }
-        .font-bold, .font-semibold, .font-medium { font-family: 'Poppins', sans-serif; }
-        nav, button, a.inline-block, footer, .text-sm.font-medium, .uppercase { font-family: 'Poppins', sans-serif; }
-        p, li, blockquote { font-family: 'Lora', serif; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0f1a; color: #e5e7eb; }
+
         .gradient-text {
-            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .card-hover {
+
+        .glow-card {
             transition: all 0.3s ease;
+            border: 1px solid #1f2937;
         }
-        @media (hover: hover) {
-            .card-hover:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            }
+        .glow-card:hover {
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.05);
         }
-        .hero-bg {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #eff6ff 100%);
+
+        .step-line {
             position: relative;
-            overflow: hidden;
         }
-        .hero-bg::before {
+        .step-line::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image:
-                radial-gradient(circle at 20% 80%, rgba(30, 64, 175, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.06) 0%, transparent 50%);
+            left: 1.25rem;
+            top: 3.5rem;
+            bottom: -1.5rem;
+            width: 2px;
+            background: linear-gradient(to bottom, #10b981, transparent);
         }
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image:
-                linear-gradient(rgba(30, 64, 175, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(30, 64, 175, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
+        .step-line:last-child::after {
+            display: none;
         }
-        .grid-lines {
-            background-image:
-                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
+
+        @keyframes scrollLogos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
-        .mockup-window {
-            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid rgba(59, 130, 246, 0.2);
+        .logo-track {
+            animation: scrollLogos 40s linear infinite;
+            will-change: transform;
         }
-        /* Mobile optimizations */
-        @media (max-width: 640px) {
-            .mobile-text-sm { font-size: 0.875rem; }
-            .mobile-px-4 { padding-left: 1rem; padding-right: 1rem; }
-            .mobile-py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .logo-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+        .pulse-dot {
+            animation: pulse-subtle 2s ease-in-out infinite;
         }
     </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-right-3{right:-0.75rem}.bottom-0{bottom:0px}.left-0{left:0px}.left-4{left:1rem}.right-0{right:0px}.top-0{top:0px}.top-1\/2{top:50%}.top-4{top:1rem}.z-10{z-index:10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-2{margin-left:0.5rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-\[4\/3\]{aspect-ratio:4/3}.h-10{height:2.5rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-16{height:4rem}.h-2\.5{height:0.625rem}.h-20{height:5rem}.h-24{height:6rem}.h-3{height:0.75rem}.h-4{height:1rem}.h-48{height:12rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-64{height:16rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-auto{height:auto}.h-full{height:100%}.w-10{width:2.5rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-16{width:4rem}.w-2\.5{width:0.625rem}.w-20{width:5rem}.w-24{width:6rem}.w-3{width:0.75rem}.w-4{width:1rem}.w-48{width:12rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-64{width:16rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-full{width:100%}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-md{max-width:28rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.list-none{list-style-type:none}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-12{gap:3rem}.gap-14{gap:3.5rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-blue-500\/30{border-color:rgb(59 130 246 / 0.3)}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208 / var(--tw-border-opacity, 1))}.border-purple-200{--tw-border-opacity:1;border-color:rgb(233 213 255 / var(--tw-border-opacity, 1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225 / var(--tw-border-opacity, 1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.border-slate-700\/50{border-color:rgb(51 65 85 / 0.5)}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.bg-\[\#D97757\]{--tw-bg-opacity:1;background-color:rgb(217 119 87 / var(--tw-bg-opacity, 1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-blue-500\/10{background-color:rgb(59 130 246 / 0.1)}.bg-blue-500\/20{background-color:rgb(59 130 246 / 0.2)}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-green-500\/80{background-color:rgb(34 197 94 / 0.8)}.bg-purple-100{--tw-bg-opacity:1;background-color:rgb(243 232 255 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-purple-500\/10{background-color:rgb(168 85 247 / 0.1)}.bg-purple-600{--tw-bg-opacity:1;background-color:rgb(147 51 234 / var(--tw-bg-opacity, 1))}.bg-red-100{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.bg-red-500\/80{background-color:rgb(239 68 68 / 0.8)}.bg-rose-100{--tw-bg-opacity:1;background-color:rgb(255 228 230 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-slate-600{--tw-bg-opacity:1;background-color:rgb(71 85 105 / var(--tw-bg-opacity, 1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-800\/50{background-color:rgb(30 41 59 / 0.5)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-900\/60{background-color:rgb(15 23 42 / 0.6)}.bg-slate-900\/90{background-color:rgb(15 23 42 / 0.9)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-white\/95{background-color:rgb(255 255 255 / 0.95)}.bg-yellow-500\/80{background-color:rgb(234 179 8 / 0.8)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-l{background-image:linear-gradient(to left, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-500\/20{--tw-gradient-from:rgb(59 130 246 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(59 130 246 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-blue-900\/20{--tw-gradient-from:rgb(30 58 138 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(30 58 138 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-500\/20{--tw-gradient-from:rgb(168 85 247 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(168 85 247 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-slate-50{--tw-gradient-from:#f8fafc var(--tw-gradient-from-position);--tw-gradient-to:rgb(248 250 252 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-slate-900{--tw-gradient-from:#0f172a var(--tw-gradient-from-position);--tw-gradient-to:rgb(15 23 42 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-white{--tw-gradient-from:#fff var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 255 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-emerald-500\/20{--tw-gradient-to:rgb(16 185 129 / 0.2) var(--tw-gradient-to-position)}.to-purple-500\/20{--tw-gradient-to:rgb(168 85 247 / 0.2) var(--tw-gradient-to-position)}.to-purple-900\/20{--tw-gradient-to:rgb(88 28 135 / 0.2) var(--tw-gradient-to-position)}.to-slate-100{--tw-gradient-to:#f1f5f9 var(--tw-gradient-to-position)}.to-slate-800{--tw-gradient-to:#1e293b var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.object-contain{object-fit:contain}.object-cover{object-fit:cover}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-16{padding-bottom:4rem}.pb-5{padding-bottom:1.25rem}.pt-24{padding-top:6rem}.pt-4{padding-top:1rem}.text-center{text-align:center}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[8px\]{font-size:8px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-wider{letter-spacing:0.05em}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity, 1))}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-blue-300{--tw-text-opacity:1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-emerald-500{--tw-text-opacity:1;color:rgb(16 185 129 / var(--tw-text-opacity, 1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-indigo-500{--tw-text-opacity:1;color:rgb(99 102 241 / var(--tw-text-opacity, 1))}.text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-purple-500{--tw-text-opacity:1;color:rgb(168 85 247 / var(--tw-text-opacity, 1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-rose-500{--tw-text-opacity:1;color:rgb(244 63 94 / var(--tw-text-opacity, 1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-50{opacity:0.5}.opacity-70{opacity:0.7}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.blur-3xl{--tw-blur:blur(64px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.blur-xl{--tw-blur:blur(24px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:border-amber-300:hover{--tw-border-opacity:1;border-color:rgb(252 211 77 / var(--tw-border-opacity, 1))}.hover\:border-blue-300:hover{--tw-border-opacity:1;border-color:rgb(147 197 253 / var(--tw-border-opacity, 1))}.hover\:border-blue-400:hover{--tw-border-opacity:1;border-color:rgb(96 165 250 / var(--tw-border-opacity, 1))}.hover\:border-emerald-300:hover{--tw-border-opacity:1;border-color:rgb(110 231 183 / var(--tw-border-opacity, 1))}.hover\:border-emerald-400:hover{--tw-border-opacity:1;border-color:rgb(52 211 153 / var(--tw-border-opacity, 1))}.hover\:border-purple-300:hover{--tw-border-opacity:1;border-color:rgb(216 180 254 / var(--tw-border-opacity, 1))}.hover\:border-purple-400:hover{--tw-border-opacity:1;border-color:rgb(192 132 252 / var(--tw-border-opacity, 1))}.hover\:border-red-300:hover{--tw-border-opacity:1;border-color:rgb(252 165 165 / var(--tw-border-opacity, 1))}.hover\:border-rose-300:hover{--tw-border-opacity:1;border-color:rgb(253 164 175 / var(--tw-border-opacity, 1))}.hover\:border-slate-400:hover{--tw-border-opacity:1;border-color:rgb(148 163 184 / var(--tw-border-opacity, 1))}.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.hover\:text-amber-800:hover{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.hover\:text-emerald-800:hover{--tw-text-opacity:1;color:rgb(6 95 70 / var(--tw-text-opacity, 1))}.hover\:text-indigo-800:hover{--tw-text-opacity:1;color:rgb(55 48 163 / var(--tw-text-opacity, 1))}.hover\:text-rose-800:hover{--tw-text-opacity:1;color:rgb(159 18 57 / var(--tw-text-opacity, 1))}.hover\:text-slate-900:hover{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.hover\:opacity-100:hover{opacity:1}.hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.group[open] .group-open\:rotate-180{--tw-rotate:180deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:opacity-75{opacity:0.75}@media (min-width: 640px){.sm\:mb-10{margin-bottom:2.5rem}.sm\:mb-4{margin-bottom:1rem}.sm\:mb-6{margin-bottom:1.5rem}.sm\:h-9{height:2.25rem}.sm\:w-9{width:2.25rem}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:gap-4{gap:1rem}.sm\:p-8{padding:2rem}.sm\:px-5{padding-left:1.25rem;padding-right:1.25rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:px-8{padding-left:2rem;padding-right:2rem}.sm\:py-12{padding-top:3rem;padding-bottom:3rem}.sm\:py-16{padding-top:4rem;padding-bottom:4rem}.sm\:py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.sm\:py-20{padding-top:5rem;padding-bottom:5rem}.sm\:py-24{padding-top:6rem;padding-bottom:6rem}.sm\:py-4{padding-top:1rem;padding-bottom:1rem}.sm\:pb-24{padding-bottom:6rem}.sm\:pt-32{padding-top:8rem}.sm\:text-left{text-align:left}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 768px){.md\:block{display:block}.md\:flex{display:flex}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:justify-between{justify-content:space-between}.md\:p-10{padding:2.5rem}.md\:p-12{padding:3rem}.md\:p-8{padding:2rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 1024px){.lg\:mx-0{margin-left:0px;margin-right:0px}.lg\:block{display:block}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:justify-start{justify-content:flex-start}.lg\:gap-12{gap:3rem}.lg\:text-left{text-align:left}.lg\:text-6xl{font-size:3.75rem;line-height:1}}</style></head>
-<body class="font-sans bg-white text-slate-900 antialiased" data-new-gr-c-s-check-loaded="14.1269.0" data-gr-ext-installed="">
+</head>
+<body class="antialiased">
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md z-50 border-b border-slate-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
-            <div class="flex items-center gap-8">
-                <a href="https://workflowy.ai/#" class="flex items-center gap-2">
-                    <!-- Workflowy Logo -->
-                    <svg viewBox="0 0 40 40" class="w-8 h-8 sm:w-9 sm:h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <lineargradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#1e40af"></stop>
-                                <stop offset="100%" style="stop-color:#2563eb"></stop>
-                            </lineargradient>
-                        </defs>
-                        <circle cx="20" cy="20" r="18" fill="url(#logoGrad)"></circle>
-                        <path d="M10 14l5 12 5-8 5 8 5-12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
-                    </svg>
-                    <span class="text-lg sm:text-xl font-bold text-slate-900">Workflowy</span>
-                </a>
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="https://workflowy.ai/#training" class="text-sm text-slate-600 hover:text-slate-900 transition-colors font-medium">Training</a>
-                    <a href="https://workflowy.ai/#models" class="text-sm text-slate-600 hover:text-slate-900 transition-colors font-medium">Models</a>
-                    <a href="https://workflowy.ai/#platform" class="text-sm text-slate-600 hover:text-slate-900 transition-colors font-medium">Platform</a>
-                    <a href="https://workflowy.ai/#team" class="text-sm text-slate-600 hover:text-slate-900 transition-colors font-medium">Team</a>
-                </div>
-            </div>
-            <a href="https://workflowy.ai/#contact" class="text-xs sm:text-sm font-medium text-white bg-blue-700 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg hover:bg-blue-800 transition-colors">
-                Book a Call
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/80 backdrop-blur-xl border-b border-brand-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <svg width="28" height="28" viewBox="0 0 120 40">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#10b981"/>
+                            <stop offset="100%" style="stop-color:#3b82f6"/>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="20" cy="20" r="18" fill="url(#logoGrad)"/>
+                    <path d="M9 12 L13 28 L20 18 L27 28 L31 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span class="font-semibold text-white text-lg">Workflowy</span>
             </a>
+            <div class="flex items-center gap-6">
+                <a href="#how-it-works" class="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">How It Works</a>
+                <a href="#deliverables" class="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">Deliverables</a>
+                <a href="#team" class="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">Team</a>
+                <a href="#contact" class="px-4 py-2 bg-emerald-500 text-brand-dark font-semibold text-sm rounded-full hover:bg-emerald-400 transition-colors">
+                    Book a Session
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-bg pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6">
-        <div class="max-w-6xl mx-auto relative z-10">
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                <div class="text-center lg:text-left">
-                    <p class="text-xs sm:text-sm font-medium text-blue-600 uppercase tracking-wider mb-3 sm:mb-4">Enterprise AI Enablement</p>
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6 text-slate-900">
-                        Your teams have the AI tools.<br><span class="gradient-text">They don't know how to use them.</span>
-                    </h1>
-                    <p class="text-base sm:text-lg md:text-xl text-slate-600 max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed">
-                        Workflowy helps enterprise teams go from AI-curious to AI-capable through hands-on training, live workflow builds, and a platform that makes it stick.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                        <a href="https://workflowy.ai/#training" class="px-6 sm:px-8 py-3 sm:py-4 bg-blue-700 text-white font-medium rounded-lg hover:bg-blue-800 transition-colors text-sm sm:text-base">
-                            Explore Training
-                        </a>
-                        <a href="https://workflowy.ai/#contact" class="px-6 sm:px-8 py-3 sm:py-4 border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-blue-300 hover:bg-slate-50 transition-colors text-sm sm:text-base">
-                            Schedule a Call
-                        </a>
-                    </div>
+    <!-- Hero -->
+    <section class="pt-32 sm:pt-40 pb-20 sm:pb-28 px-4 sm:px-6 relative overflow-hidden">
+        <!-- Background grid -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+        <!-- Gradient orbs -->
+        <div class="absolute top-20 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-surface border border-brand-border rounded-full mb-8">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
+                <span class="text-sm text-gray-400 font-mono">Executive AI Hackathons</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 text-white">
+                Your team has AI tools.<br>
+                <span class="gradient-text">We help them build with them.</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                One day. Your real data. Real tools. Real output. We work with executive teams to define their AI approach through hands-on building, not slide decks.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="px-8 py-4 bg-emerald-500 text-brand-dark font-semibold rounded-full hover:bg-emerald-400 transition-all hover:shadow-lg hover:shadow-emerald-500/20">
+                    Book a Session
+                </a>
+                <a href="#how-it-works" class="px-8 py-4 border border-brand-border text-gray-300 font-medium rounded-full hover:border-gray-500 hover:text-white transition-all">
+                    See How It Works
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="py-16 sm:py-24 px-4 sm:px-6 border-t border-brand-border">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                <div class="glow-card bg-brand-surface rounded-2xl p-8">
+                    <div class="text-red-400 text-sm font-mono uppercase tracking-wider mb-4">The problem</div>
+                    <h3 class="text-xl font-bold text-white mb-4">Most AI training ends with a slide deck.</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-400 mt-1">&#x2717;</span>
+                            <span>Generic prompting workshops that don't stick</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-400 mt-1">&#x2717;</span>
+                            <span>No connection to your actual workflows or data</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-400 mt-1">&#x2717;</span>
+                            <span>No clear path from training day to daily adoption</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-400 mt-1">&#x2717;</span>
+                            <span>Teams go back to doing things the old way</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="hidden lg:block relative">
-                    <!-- AI Agent Workflow Acceleration Graphic -->
-                    <svg viewBox="0 0 400 300" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="agentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#1e40af"/>
-                                <stop offset="100%" style="stop-color:#2563eb"/>
-                            </linearGradient>
-                            <filter id="glow">
-                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur"/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-                        </defs>
-
-                        <!-- Input workflow nodes (left side) -->
-                        <circle cx="60" cy="100" r="12" fill="white" stroke="#cbd5e1" stroke-width="2"/>
-                        <circle cx="60" cy="150" r="12" fill="white" stroke="#cbd5e1" stroke-width="2"/>
-                        <circle cx="60" cy="200" r="12" fill="white" stroke="#cbd5e1" stroke-width="2"/>
-
-                        <!-- Connection lines from input to agent -->
-                        <path d="M72 100 Q120 100 160 150" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
-                        <path d="M72 150 L160 150" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
-                        <path d="M72 200 Q120 200 160 150" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
-
-                        <!-- Central AI Agent - the accelerator -->
-                        <circle cx="200" cy="150" r="45" fill="white" stroke="url(#agentGrad)" stroke-width="3" filter="url(#glow)"/>
-                        <circle cx="200" cy="150" r="35" fill="#eff6ff" stroke="none"/>
-
-                        <!-- AI brain/network symbol inside agent -->
-                        <circle cx="200" cy="140" r="8" fill="url(#agentGrad)"/>
-                        <circle cx="185" cy="155" r="5" fill="#60a5fa"/>
-                        <circle cx="215" cy="155" r="5" fill="#60a5fa"/>
-                        <circle cx="200" cy="165" r="5" fill="#60a5fa"/>
-                        <line x1="200" y1="148" x2="185" y2="155" stroke="#1e40af" stroke-width="1.5"/>
-                        <line x1="200" y1="148" x2="215" y2="155" stroke="#1e40af" stroke-width="1.5"/>
-                        <line x1="185" y1="155" x2="200" y2="165" stroke="#1e40af" stroke-width="1.5"/>
-                        <line x1="215" y1="155" x2="200" y2="165" stroke="#1e40af" stroke-width="1.5"/>
-
-                        <!-- Pulsing ring around agent -->
-                        <circle cx="200" cy="150" r="50" fill="none" stroke="#2563eb" stroke-width="1" opacity="0.3">
-                            <animate attributeName="r" values="50;60;50" dur="2s" repeatCount="indefinite"/>
-                            <animate attributeName="opacity" values="0.3;0.1;0.3" dur="2s" repeatCount="indefinite"/>
-                        </circle>
-
-                        <!-- Connection lines from agent to output -->
-                        <path d="M240 150 Q280 100 320 100" stroke="#2563eb" stroke-width="2" fill="none"/>
-                        <path d="M245 150 L328 150" stroke="#2563eb" stroke-width="2" fill="none"/>
-                        <path d="M240 150 Q280 200 320 200" stroke="#2563eb" stroke-width="2" fill="none"/>
-
-                        <!-- Output workflow nodes (right side) - filled/completed -->
-                        <circle cx="340" cy="100" r="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
-                        <circle cx="340" cy="150" r="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
-                        <circle cx="340" cy="200" r="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
-
-                        <!-- Checkmarks in output nodes -->
-                        <path d="M334 100 L338 104 L346 96" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M334 150 L338 154 L346 146" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M334 200 L338 204 L346 196" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-                        <!-- Animated flow particles -->
-                        <circle r="4" fill="#2563eb">
-                            <animateMotion dur="2s" repeatCount="indefinite" path="M72 100 Q120 100 160 150 L200 150"/>
-                            <animate attributeName="opacity" values="0.8;0.8;0" dur="2s" repeatCount="indefinite" keyTimes="0;0.7;1"/>
-                        </circle>
-                        <circle r="4" fill="#1e40af">
-                            <animateMotion dur="2s" repeatCount="indefinite" path="M72 150 L200 150" begin="0.3s"/>
-                            <animate attributeName="opacity" values="0.8;0.8;0" dur="2s" repeatCount="indefinite" keyTimes="0;0.7;1" begin="0.3s"/>
-                        </circle>
-                        <circle r="4" fill="#2563eb">
-                            <animateMotion dur="2s" repeatCount="indefinite" path="M72 200 Q120 200 160 150 L200 150" begin="0.6s"/>
-                            <animate attributeName="opacity" values="0.8;0.8;0" dur="2s" repeatCount="indefinite" keyTimes="0;0.7;1" begin="0.6s"/>
-                        </circle>
-
-                        <!-- Output flow particles -->
-                        <circle r="4" fill="#2563eb">
-                            <animateMotion dur="1.5s" repeatCount="indefinite" path="M200 150 Q280 100 340 100" begin="1s"/>
-                            <animate attributeName="opacity" values="0.8;0.8;0" dur="1.5s" repeatCount="indefinite" keyTimes="0;0.7;1" begin="1s"/>
-                        </circle>
-                        <circle r="4" fill="#1e40af">
-                            <animateMotion dur="1.5s" repeatCount="indefinite" path="M200 150 L340 150" begin="1.2s"/>
-                            <animate attributeName="opacity" values="0.8;0.8;0" dur="1.5s" repeatCount="indefinite" keyTimes="0;0.7;1" begin="1.2s"/>
-                        </circle>
-                        <circle r="4" fill="#2563eb">
-                            <animateMotion dur="1.5s" repeatCount="indefinite" path="M200 150 Q280 200 340 200" begin="1.4s"/>
-                            <animate attributeName="opacity" values="0.8;0.8;0" dur="1.5s" repeatCount="indefinite" keyTimes="0;0.7;1" begin="1.4s"/>
-                        </circle>
-                    </svg>
+                <div class="glow-card bg-brand-surface rounded-2xl p-8">
+                    <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">Our approach</div>
+                    <h3 class="text-xl font-bold text-white mb-4">Yours ends with working prototypes and a 90-day playbook.</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 mt-1">&#x2713;</span>
+                            <span>Hands-on labs with your real data and tools</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 mt-1">&#x2713;</span>
+                            <span>Strategic discussion on what AI adoption actually takes</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 mt-1">&#x2713;</span>
+                            <span>Custom AI toolkit your team keeps forever</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-400 mt-1">&#x2713;</span>
+                            <span>Department-level 30/60/90 day action plan</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50">
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 sm:py-24 px-4 sm:px-6 bg-brand-surface border-t border-brand-border">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">The Day</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">From strategy to building to next steps.</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    A full-day executive session designed around your organization. Not a lecture. A working session where your team builds real things.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="step-line flex gap-6">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
+                        <span class="text-emerald-400 font-mono text-sm font-bold">01</span>
+                    </div>
+                    <div class="glow-card bg-brand-dark rounded-xl p-6 flex-1">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2">
+                            <h3 class="text-lg font-semibold text-white">Opening & Assessment</h3>
+                            <span class="text-xs font-mono text-gray-500 bg-brand-surface px-2 py-0.5 rounded w-fit">9:00 AM</span>
+                        </div>
+                        <p class="text-gray-400">Context setting, survey shareback, and an honest strategic discussion: "What's been holding your team back from being AI-first?"</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-line flex gap-6">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
+                        <span class="text-emerald-400 font-mono text-sm font-bold">02</span>
+                    </div>
+                    <div class="glow-card bg-brand-dark rounded-xl p-6 flex-1">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2">
+                            <h3 class="text-lg font-semibold text-white">AI Landscape & Vision</h3>
+                            <span class="text-xs font-mono text-gray-500 bg-brand-surface px-2 py-0.5 rounded w-fit">10:00 AM</span>
+                        </div>
+                        <p class="text-gray-400">Where AI is today, the tool ecosystem, prompting best practices, and what it means for your organization over the next 12-18 months.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-line flex gap-6">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+                        <span class="text-blue-400 font-mono text-sm font-bold">03</span>
+                    </div>
+                    <div class="glow-card bg-brand-dark rounded-xl p-6 flex-1 border-blue-500/10">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2">
+                            <h3 class="text-lg font-semibold text-white">Hands-On Labs</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-mono text-gray-500 bg-brand-surface px-2 py-0.5 rounded">11:00 AM - 3:00 PM</span>
+                                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">HANDS-ON</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-3">The core of the day. Three rotations of building with real tools and real data:</p>
+                        <div class="grid sm:grid-cols-3 gap-3">
+                            <div class="bg-brand-surface rounded-lg p-3">
+                                <div class="text-sm font-semibold text-white mb-1">Lab 1: Build</div>
+                                <p class="text-xs text-gray-500">Presentations, dashboards, and data visualizations using Claude Desktop and your datasets.</p>
+                            </div>
+                            <div class="bg-brand-surface rounded-lg p-3">
+                                <div class="text-sm font-semibold text-white mb-1">Lab 2: Code</div>
+                                <p class="text-xs text-gray-500">Live-code a tool relevant to your org using Claude Code. Ticket agents, dashboards, support apps.</p>
+                            </div>
+                            <div class="bg-brand-surface rounded-lg p-3">
+                                <div class="text-sm font-semibold text-white mb-1">Lab 3: Automate</div>
+                                <p class="text-xs text-gray-500">Map and build one workflow to automate. n8n, Zapier, Claude, Gemini. Trigger to output.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-line flex gap-6">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
+                        <span class="text-emerald-400 font-mono text-sm font-bold">04</span>
+                    </div>
+                    <div class="glow-card bg-brand-dark rounded-xl p-6 flex-1">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2">
+                            <h3 class="text-lg font-semibold text-white">Guardrails & Governance</h3>
+                            <span class="text-xs font-mono text-gray-500 bg-brand-surface px-2 py-0.5 rounded w-fit">3:00 PM</span>
+                        </div>
+                        <p class="text-gray-400">What you can and can't do with your data. Compliance considerations, responsible AI use, and the practical tradeoffs between tools.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step-line flex gap-6">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
+                        <span class="text-emerald-400 font-mono text-sm font-bold">05</span>
+                    </div>
+                    <div class="glow-card bg-brand-dark rounded-xl p-6 flex-1">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2">
+                            <h3 class="text-lg font-semibold text-white">Strategy & Next Steps</h3>
+                            <span class="text-xs font-mono text-gray-500 bg-brand-surface px-2 py-0.5 rounded w-fit">3:30 PM</span>
+                        </div>
+                        <p class="text-gray-400">Tactical planning by department. Quick wins, ownership assignments, and 30/60/90 day milestones to become AI-first.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deliverables -->
+    <section id="deliverables" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-brand-border">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16">
-                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">The Challenge</p>
-                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">You have the tools.<br><span class="text-blue-600">Teams aren't using them to full potential.</span></h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white border border-slate-200 rounded-2xl p-8 text-center hover:border-red-300 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mx-auto mb-5">
-                        <!-- Warning/Alert icon -->
-                        <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-3">Tool Overwhelm</h3>
-                    <p class="text-slate-600 text-sm">ChatGPT, Claude, Copilot, Gemini. Each with 10+ features. Too much, too fast.</p>
-                </div>
-
-                <div class="bg-white border border-slate-200 rounded-2xl p-8 text-center hover:border-amber-300 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-5">
-                        <!-- Dollar/Money icon -->
-                        <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-3">Licenses Underutilized</h3>
-                    <p class="text-slate-600 text-sm">Organizations invest in AI licenses that go underutilized. Teams use them for basic chat at best.</p>
-                </div>
-
-                <div class="bg-white border border-slate-200 rounded-2xl p-8 text-center hover:border-purple-300 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-5">
-                        <!-- Question mark icon -->
-                        <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-slate-900 mb-3">Signal vs. Noise</h3>
-                    <p class="text-slate-600 text-sm">GPT-4, Claude 3.5, Cowork, Deep Research, Agents... What matters for MY job?</p>
-                </div>
-            </div>
-
-            <!-- Data Points -->
-            <div class="mt-12 bg-white rounded-2xl p-6 border border-slate-200">
-                <div class="grid md:grid-cols-3 gap-6 text-center">
-                    <div>
-                        <div class="text-4xl font-bold text-blue-600 mb-2">70%</div>
-                        <p class="text-slate-600 text-sm">of AI success is people, process & culture</p>
-                        <p class="text-slate-400 text-xs mt-1">BCG 10-20-70</p>
-                    </div>
-                    <div>
-                        <div class="text-4xl font-bold text-purple-600 mb-2">50%</div>
-                        <p class="text-slate-600 text-sm">of audit, tax & advisory roles automatable in 3-5 years</p>
-                        <p class="text-slate-400 text-xs mt-1">AInvest 2025</p>
-                    </div>
-                    <div>
-                        <div class="text-4xl font-bold text-emerald-600 mb-2">3x</div>
-                        <p class="text-slate-600 text-sm">higher adoption when training provided (25% → 76%)</p>
-                        <p class="text-slate-400 text-xs mt-1">BCG 2025</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- AI Tool Logos -->
-            <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-                <span class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm text-slate-700">
-                    <img src="https://cdn.brandfetch.io/idchmboHEZ/w/400/h/400/theme/dark/symbol.png" alt="Copilot" class="w-5 h-5">
-                    Copilot
-                </span>
-                <span class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm text-slate-700">
-                    <img src="https://cdn.brandfetch.io/idchmboHEZ/w/400/h/400/theme/dark/symbol.png" alt="Copilot 365" class="w-5 h-5">
-                    Copilot 365
-                </span>
-                <span class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm text-slate-700">
-                    <img src="https://cdn.brandfetch.io/idchmboHEZ/w/400/h/400/theme/dark/symbol.png" alt="Copilot Studio" class="w-5 h-5">
-                    Copilot Studio
-                </span>
-                <span class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm text-slate-700">
-                    <img src="https://cdn.brandfetch.io/idW5s392j1/w/400/h/400/theme/dark/icon.png" alt="Claude" class="w-5 h-5">
-                    Claude
-                </span>
-                <span class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm text-slate-700">
-                    <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/400/h/400/theme/dark/symbol.png" alt="Gemini" class="w-5 h-5">
-                    Gemini
-                </span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Solution Section -->
-    <section id="models" class="py-12 sm:py-20 px-4 sm:px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Our Solution</p>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">We don't teach AI.<br>We extract and operationalize your workflows.</h2>
-                <p class="text-lg text-slate-600">
-                    Your competitive advantage lives in the tacit knowledge of your people: the approvals, the edge cases, the "how we actually do things here." We help you extract it, systematize it, and connect it to AI platforms you already own.
+                <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">What You Walk Away With</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Not a slide deck. A system.</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Every engagement produces tangible assets your team uses long after the session ends.
                 </p>
             </div>
 
-            <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 text-white">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4">Workflow Extraction &amp; Live Builds</h3>
-                        <p class="text-slate-300 mb-6 leading-relaxed">
-                            We work with your teams to surface the workflows locked in their heads: the processes, decisions, and institutional knowledge that make your organization run. Then we build functional AI-powered solutions together, deployed in hours, not months.
-                        </p>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-slate-300">Build working prototypes from idea to deployment</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-slate-300">Extract and systematize tacit workflow knowledge</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-slate-300">Master the platforms you already have: Microsoft Copilot, Google Gemini, AWS with Claude</span>
-                            </li>
-                        </ul>
+            <div class="grid sm:grid-cols-2 gap-6">
+                <!-- Deliverable 1 -->
+                <div class="glow-card bg-brand-surface rounded-2xl p-8">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+                        </svg>
                     </div>
-                    <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
-                        <blockquote class="text-xl text-slate-200 leading-relaxed italic mb-6">
-                            "The gap isn't in AI capabilities - it's in human adoption. Companies are spending millions on AI tools that sit unused because people don't know how to integrate them into their daily workflows. We bridge that gap."
-                        </blockquote>
-                        <div class="flex items-center gap-4">
-                            <img src="assets/images/team/nad.jpeg" alt="Nadim Nasser" class="w-12 h-12 rounded-full object-cover">
-                            <div>
-                                <p class="text-white font-semibold">Nadim Nasser</p>
-                                <p class="text-slate-400 text-sm">Co-Founder &amp; CEO, Workflowy</p>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Executive AI Toolkit</h3>
+                    <p class="text-gray-400 leading-relaxed">A custom-built, password-protected training hub your team keeps forever. Not a slide deck. An interactive resource with prompting guides, labs, templates, and best practices tailored to your org.</p>
                 </div>
 
-                <!-- Five Pillars Framework -->
-                <div class="mt-12 pt-10 border-t border-slate-700">
-                    <h3 class="text-xl font-bold text-center mb-2">Five Pillars of AI Capability</h3>
-                    <p class="text-slate-400 text-center mb-8">AI isn't just a tool. It's a thinking partner. Your teams must master all five.</p>
-
-                    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-                        <!-- USE -->
-                        <div class="bg-slate-800/50 rounded-xl p-4 text-center border border-blue-500/30">
-                            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            </div>
-                            <h4 class="font-bold text-blue-400 text-sm mb-1">USE</h4>
-                            <p class="text-xs text-slate-400">Apply AI to real workflows</p>
-                        </div>
-                        <!-- DIRECT -->
-                        <div class="bg-slate-800/50 rounded-xl p-4 text-center border border-purple-500/30">
-                            <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                            </div>
-                            <h4 class="font-bold text-purple-400 text-sm mb-1">DIRECT</h4>
-                            <p class="text-xs text-slate-400">Prompt & guide AI effectively</p>
-                        </div>
-                        <!-- MANAGE -->
-                        <div class="bg-slate-800/50 rounded-xl p-4 text-center border border-emerald-500/30">
-                            <div class="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
-                            </div>
-                            <h4 class="font-bold text-emerald-400 text-sm mb-1">MANAGE</h4>
-                            <p class="text-xs text-slate-400">Oversee AI-driven processes</p>
-                        </div>
-                        <!-- GUARDRAIL -->
-                        <div class="bg-slate-800/50 rounded-xl p-4 text-center border border-amber-500/30">
-                            <div class="w-10 h-10 bg-amber-600 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                            </div>
-                            <h4 class="font-bold text-amber-400 text-sm mb-1">GUARDRAIL</h4>
-                            <p class="text-xs text-slate-400">Ensure compliance & safety</p>
-                        </div>
-                        <!-- EVALUATE -->
-                        <div class="bg-slate-800/50 rounded-xl p-4 text-center border border-rose-500/30 col-span-2 md:col-span-1">
-                            <div class="w-10 h-10 bg-rose-600 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                            </div>
-                            <h4 class="font-bold text-rose-400 text-sm mb-1">EVALUATE</h4>
-                            <p class="text-xs text-slate-400">Measure & optimize outcomes</p>
-                        </div>
+                <!-- Deliverable 2 -->
+                <div class="glow-card bg-brand-surface rounded-2xl p-8">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/>
+                        </svg>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Executive Curriculum Section -->
-    <section id="training" class="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50">
-        <div class="max-w-6xl mx-auto">
-
-            <!-- INTRO -->
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Our Approach</p>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-900">Your Team's AI Transformation Journey</h2>
-                <p class="text-lg text-slate-600">
-                    No two organizations approach AI the same way. We design learning pathways based on your baseline assessment, combining pre-recorded content, live builds, and AI-assisted coaching.
-                </p>
-            </div>
-
-            <!-- 3-Step Journey Diagram - Enhanced -->
-            <div class="grid md:grid-cols-3 gap-6 mb-16">
-                <!-- Step 1: AI Readiness Audit -->
-                <div class="relative bg-white rounded-2xl border-2 border-blue-200 p-6 hover:border-blue-400 hover:shadow-lg transition-all">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center text-lg font-bold shadow-md">1</span>
-                        <h3 class="text-lg font-bold text-slate-900">AI Readiness Audit</h3>
-                    </div>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li class="flex items-start gap-2">
-                            <svg class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Workforce AI skills assessment</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Readiness scorecard & report</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Blockers & recommendations</span>
-                        </li>
-                    </ul>
-                    <!-- Arrow connector (hidden on mobile) -->
-                    <div class="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
-                        <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center shadow-md">
-                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">AI Strategy Jamboard</h3>
+                    <p class="text-gray-400 leading-relaxed">A collaborative strategy board capturing team challenges, department-specific bets, success metrics, and the strategic decisions made during the session.</p>
                 </div>
 
-                <!-- Step 2: Training Roadmap -->
-                <div class="relative bg-white rounded-2xl border-2 border-purple-200 p-6 hover:border-purple-400 hover:shadow-lg transition-all">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="w-10 h-10 bg-purple-600 text-white rounded-xl flex items-center justify-center text-lg font-bold shadow-md">2</span>
-                        <h3 class="text-lg font-bold text-slate-900">Training Roadmap</h3>
+                <!-- Deliverable 3 -->
+                <div class="glow-card bg-brand-surface rounded-2xl p-8">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+                        </svg>
                     </div>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li class="flex items-start gap-2">
-                            <svg class="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Role-specific learning tracks</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Hands-on workflow building</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Industry-contextualized modules</span>
-                        </li>
-                    </ul>
-                    <!-- Arrow connector (hidden on mobile) -->
-                    <div class="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
-                        <div class="w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center shadow-md">
-                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">90-Day AI Adoption Playbook</h3>
+                    <p class="text-gray-400 leading-relaxed">A sprint-based adoption plan with ownership assignments, department priorities, and week-by-week milestones. Not theory. Executable next steps.</p>
                 </div>
 
-                <!-- Step 3: Platform & Delivery -->
-                <div class="relative bg-white rounded-2xl border-2 border-emerald-200 p-6 hover:border-emerald-400 hover:shadow-lg transition-all">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="w-10 h-10 bg-emerald-600 text-white rounded-xl flex items-center justify-center text-lg font-bold shadow-md">3</span>
-                        <h3 class="text-lg font-bold text-slate-900">Platform &amp; Delivery</h3>
+                <!-- Deliverable 4 -->
+                <div class="glow-card bg-brand-surface rounded-2xl p-8">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/>
+                        </svg>
                     </div>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li class="flex items-start gap-2">
-                            <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Live + async hybrid format</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>AI coaching &amp; progress tracking</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Implementation partner network</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- AI READINESS AUDIT - Expandable Detail -->
-            <div class="mb-16">
-                <h3 class="text-xl font-bold text-slate-900 mb-2 text-center">What's in the AI Readiness Audit?</h3>
-                <p class="text-slate-600 mb-8 text-center">A diagnostic that measures both your people and your organization so you invest in the right interventions.</p>
-
-                <div class="space-y-3 max-w-4xl mx-auto">
-                    <!-- Workforce AI Readiness -->
-                    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-blue-300 transition-colors">
-                        <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-900">Workforce AI Readiness</h4>
-                                    <p class="text-sm text-slate-500">How ready are your people to use AI effectively?</p>
-                                </div>
-                            </div>
-                            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </summary>
-                        <div class="px-5 pb-5 pt-2 border-t border-slate-100">
-                            <p class="text-sm text-slate-600 mb-4">We assess your team's ability to apply AI in real work, not just their familiarity with the tools.</p>
-
-                            <div class="space-y-4">
-                                <div class="border-l-2 border-blue-200 pl-4">
-                                    <p class="font-medium text-slate-900 text-sm">Ability to Apply AI</p>
-                                    <p class="text-xs text-slate-500 italic mt-1">"Can employees identify opportunities to use AI in their daily work?"</p>
-                                </div>
-                                <div class="border-l-2 border-blue-200 pl-4">
-                                    <p class="font-medium text-slate-900 text-sm">AI Knowledge & Skills</p>
-                                    <p class="text-xs text-slate-500 italic mt-1">"Do team members understand how to prompt, iterate, and validate AI outputs?"</p>
-                                </div>
-                                <div class="border-l-2 border-blue-200 pl-4">
-                                    <p class="font-medium text-slate-900 text-sm">AI Openness</p>
-                                    <p class="text-xs text-slate-500 italic mt-1">"Are employees willing to experiment with AI, or do they see it as a threat?"</p>
-                                </div>
-                                <div class="border-l-2 border-blue-200 pl-4">
-                                    <p class="font-medium text-slate-900 text-sm">AI Risks & Ethics</p>
-                                    <p class="text-xs text-slate-500 italic mt-1">"Do employees recognize AI limitations and use it responsibly?"</p>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 p-4 bg-blue-50 rounded-lg">
-                                <p class="text-sm text-slate-700"><span class="font-semibold">Scorecard Output:</span> Each employee receives a readiness score (Basic, Intermediate, Advanced, or Expert) with specific skill gaps identified and recommended learning paths.</p>
-                            </div>
-                        </div>
-                    </details>
-
-                    <!-- Organizational AI Readiness -->
-                    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-purple-300 transition-colors">
-                        <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-900">Organizational AI Readiness</h4>
-                                    <p class="text-sm text-slate-500">What enables or blocks AI adoption at scale?</p>
-                                </div>
-                            </div>
-                            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </summary>
-                        <div class="px-5 pb-5 pt-2 border-t border-slate-100">
-                            <p class="text-sm text-slate-600 mb-4">We evaluate the structural factors that determine whether AI can actually succeed in your environment.</p>
-
-                            <div class="space-y-4">
-                                <div class="border-l-2 border-purple-200 pl-4">
-                                    <p class="font-medium text-slate-900 text-sm">Strategy & Leadership</p>
-                                    <p class="text-xs text-slate-500 italic mt-1">"Do leaders share a clear, measurable AI vision and actively steer the organization in the same direction?"</p>
-                                </div>
-                                <div class="border-l-2 border-purple-200 pl-4">
-                                    <p class="font-medium text-slate-900 text-sm">Data Readiness</p>
-                                    <p class="text-xs text-slate-500 italic mt-1">"How reliable, accessible, and usable is your data? AI is only as good as the information it's built on."</p>
-                                </div>
-                                <div class="border-l-2 border-purple-200 pl-4">
-                                    <p class="font-medium text-slate-900 text-sm">Systems & Infrastructure</p>
-                                    <p class="text-xs text-slate-500 italic mt-1">"Does your technical foundation allow AI to run smoothly, integrate with workflows, and scale?"</p>
-                                </div>
-                                <div class="border-l-2 border-purple-200 pl-4">
-                                    <p class="font-medium text-slate-900 text-sm">Governance & Compliance</p>
-                                    <p class="text-xs text-slate-500 italic mt-1">"Are there clear policies for AI use, data privacy, and ethical oversight?"</p>
-                                </div>
-                                <div class="border-l-2 border-purple-200 pl-4">
-                                    <p class="font-medium text-slate-900 text-sm">Culture & Change Readiness</p>
-                                    <p class="text-xs text-slate-500 italic mt-1">"Is the organization open to new ways of working, or will AI face resistance?"</p>
-                                </div>
-                            </div>
-
-                            <div class="mt-5 p-4 bg-purple-50 rounded-lg">
-                                <p class="text-sm text-slate-700"><span class="font-semibold">Scorecard Output:</span> A comprehensive alignment report showing where your organization stands (At Risk, Fragmented, Developing, or Aligned) with prioritized recommendations for each dimension.</p>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-<!-- THREE-TIER APPROACH -->
-            <div class="mb-16">
-                <h3 class="text-xl font-bold text-slate-900 mb-2 text-center">Three-Tier Enablement</h3>
-                <p class="text-slate-600 mb-8 text-center">Different roles need different depths. We customize content for each level of your organization.</p>
-
-                <div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-                    <!-- Executive -->
-                    <div class="bg-white rounded-xl border border-slate-200 p-5 hover:border-blue-300 transition-colors">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                            </div>
-                            <h4 class="font-bold text-slate-900">Executive</h4>
-                        </div>
-                        <p class="text-sm text-slate-600 mb-2">C-suite & senior leadership</p>
-                        <p class="text-xs text-slate-500">Strategic vision, governance, ROI frameworks, and board-level AI fluency</p>
-                    </div>
-                    <!-- Mid-Level -->
-                    <div class="bg-white rounded-xl border border-slate-200 p-5 hover:border-purple-300 transition-colors">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
-                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            </div>
-                            <h4 class="font-bold text-slate-900">Mid-Level</h4>
-                        </div>
-                        <p class="text-sm text-slate-600 mb-2">Directors & managers</p>
-                        <p class="text-xs text-slate-500">Team enablement, workflow optimization, change management, and AI integration</p>
-                    </div>
-                    <!-- Teams -->
-                    <div class="bg-white rounded-xl border border-slate-200 p-5 hover:border-emerald-300 transition-colors">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center">
-                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                            </div>
-                            <h4 class="font-bold text-slate-900">Teams</h4>
-                        </div>
-                        <p class="text-sm text-slate-600 mb-2">Individual contributors</p>
-                        <p class="text-xs text-slate-500">Hands-on skills, daily workflow automation, and role-specific AI applications</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TRAINING MODULES - Expandable Dropdowns -->
-            <div class="mb-16">
-                <h3 class="text-xl font-bold text-slate-900 mb-2 text-center">Training Modules</h3>
-                <p class="text-slate-600 mb-8 text-center">50% interactive discussion, 50% hands-on application. Role-specific tracks using your organization's approved tools.</p>
-
-                <!-- Core Modules Label -->
-                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 max-w-4xl mx-auto">Core Modules (4-6 hours total)</p>
-
-                <div class="space-y-3 max-w-4xl mx-auto mb-6">
-                    <!-- Module 1: AI Fluency Fundamentals -->
-                    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-blue-300 transition-colors">
-                        <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-900">AI Fluency Fundamentals</h4>
-                                    <p class="text-sm text-slate-500">2 hours</p>
-                                </div>
-                            </div>
-                            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </summary>
-                        <div class="px-5 pb-5 border-t border-slate-100">
-                            <div class="grid md:grid-cols-2 gap-6 pt-4">
-                                <div>
-                                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">What You'll Learn</p>
-                                    <ul class="space-y-2 text-sm text-slate-600">
-                                        <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">•</span>How LLMs work and their real capabilities vs. risks</li>
-                                        <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">•</span>Clarity on how AI is and will impact your role</li>
-                                        <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">•</span>Prompt engineering best practices (RACE framework)</li>
-                                        <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">•</span>Beyond Chat: AI automation, workflows, and agents</li>
-                                        <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">•</span>Security, compliance, and data governance basics</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Outcomes</p>
-                                    <ul class="space-y-2 text-sm text-slate-600">
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Shift from "AI as search engine" to "AI as collaborative assistant"</li>
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Write effective prompts using the RACE framework</li>
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Identify 3+ automation opportunities in weekly workflow</li>
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Navigate security boundaries and know what's safe to input</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </details>
-
-                    <!-- Module 2: AI-ready Workflow Design -->
-                    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-purple-300 transition-colors">
-                        <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-900">AI-ready Workflow Design</h4>
-                                    <p class="text-sm text-slate-500">2 hours</p>
-                                </div>
-                            </div>
-                            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </summary>
-                        <div class="px-5 pb-5 border-t border-slate-100">
-                            <div class="grid md:grid-cols-2 gap-6 pt-4">
-                                <div>
-                                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">What You'll Learn</p>
-                                    <ul class="space-y-2 text-sm text-slate-600">
-                                        <li class="flex items-start gap-2"><span class="text-purple-500 mt-1">•</span>The power and ROI of human-led, agent-operated workflows</li>
-                                        <li class="flex items-start gap-2"><span class="text-purple-500 mt-1">•</span>Example AI workflows within your organization's context</li>
-                                        <li class="flex items-start gap-2"><span class="text-purple-500 mt-1">•</span>Extract tacit knowledge from subject matter experts</li>
-                                        <li class="flex items-start gap-2"><span class="text-purple-500 mt-1">•</span>Document decision trees: automation-ready vs. human-required</li>
-                                        <li class="flex items-start gap-2"><span class="text-purple-500 mt-1">•</span>Build workflows and AI agents using external and internal tools</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Outcomes</p>
-                                    <ul class="space-y-2 text-sm text-slate-600">
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Understand the ROI of workflow documentation and automation</li>
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>3+ AI workflows built with Lindy, Relay, or n8n</li>
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>3+ role-specific AI workflows outlined via Workflowy mapping tool</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-
-                <!-- How We Work With You -->
-                <div class="mb-16 mt-16">
-                    <h3 class="text-xl font-bold text-slate-900 mb-2 text-center">How We Work With You</h3>
-                    <p class="text-slate-600 mb-8 text-center">A phased approach that meets your organization where it is and scales with your ambition.</p>
-
-                    <div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-                        <!-- Phase 1 -->
-                        <div class="bg-white rounded-xl border border-slate-200 p-5 hover:border-blue-300 transition-colors">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                                    <span class="text-sm font-bold text-white">1</span>
-                                </div>
-                                <h4 class="font-bold text-slate-900">Unlock Personal Productivity</h4>
-                            </div>
-                            <p class="text-sm text-slate-600 mb-2">Your team builds working AI workflows — email triage, meeting prep, document summarization.</p>
-                            <p class="text-xs text-slate-500">The goal: 5+ hours saved per week, per person.</p>
-                        </div>
-                        <!-- Phase 2 -->
-                        <div class="bg-white rounded-xl border border-slate-200 p-5 hover:border-purple-300 transition-colors">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
-                                    <span class="text-sm font-bold text-white">2</span>
-                                </div>
-                                <h4 class="font-bold text-slate-900">Map Role-Specific Workflows</h4>
-                            </div>
-                            <p class="text-sm text-slate-600 mb-2">We go deeper into your team's actual work — proposals, reporting, client delivery.</p>
-                            <p class="text-xs text-slate-500">Domain experts surface the workflows locked in their heads.</p>
-                        </div>
-                        <!-- Phase 3 -->
-                        <div class="bg-white rounded-xl border border-slate-200 p-5 hover:border-emerald-300 transition-colors">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center">
-                                    <span class="text-sm font-bold text-white">3</span>
-                                </div>
-                                <h4 class="font-bold text-slate-900">Enterprise Transformation</h4>
-                            </div>
-                            <p class="text-sm text-slate-600 mb-2">Cross-functional automation, knowledge systems, and AI-native operating models.</p>
-                            <p class="text-xs text-slate-500">We bring in specialized engineering partners to build what your team has mapped.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Additional Modules Label -->
-                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 max-w-4xl mx-auto">Additional Modules (Customizable)</p>
-
-                <div class="space-y-3 max-w-4xl mx-auto">
-                    <!-- Data Integration & RAG -->
-                    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-amber-300 transition-colors">
-                        <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-900">Data Integration &amp; RAG</h4>
-                                    <p class="text-sm text-slate-500">Connecting AI to your company's knowledge base</p>
-                                </div>
-                            </div>
-                            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </summary>
-                        <div class="px-5 pb-5 border-t border-slate-100">
-                            <div class="grid md:grid-cols-2 gap-6 pt-4">
-                                <div>
-                                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">What You'll Learn</p>
-                                    <ul class="space-y-2 text-sm text-slate-600">
-                                        <li class="flex items-start gap-2"><span class="text-amber-500 mt-1">•</span>Connect AI to your company's knowledge base</li>
-                                        <li class="flex items-start gap-2"><span class="text-amber-500 mt-1">•</span>Build RAG systems that actually work</li>
-                                        <li class="flex items-start gap-2"><span class="text-amber-500 mt-1">•</span>Ensure accuracy and reduce hallucinations</li>
-                                        <li class="flex items-start gap-2"><span class="text-amber-500 mt-1">•</span>Handle sensitive data securely</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Outcomes</p>
-                                    <ul class="space-y-2 text-sm text-slate-600">
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>AI that knows your business context</li>
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Internal search/Q&amp;A assistant</li>
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Compliance-ready implementation</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </details>
-
-                    <!-- AI Strategy & Governance -->
-                    <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-rose-300 transition-colors">
-                        <summary class="flex items-center justify-between p-5 cursor-pointer list-none">
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 bg-rose-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-900">AI Strategy &amp; Governance</h4>
-                                    <p class="text-sm text-slate-500">Policies and adoption at the enterprise level</p>
-                                </div>
-                            </div>
-                            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </summary>
-                        <div class="px-5 pb-5 border-t border-slate-100">
-                            <div class="grid md:grid-cols-2 gap-6 pt-4">
-                                <div>
-                                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">What You'll Learn</p>
-                                    <ul class="space-y-2 text-sm text-slate-600">
-                                        <li class="flex items-start gap-2"><span class="text-rose-500 mt-1">•</span>Build an AI adoption roadmap for your org</li>
-                                        <li class="flex items-start gap-2"><span class="text-rose-500 mt-1">•</span>Create governance policies that enable (not block)</li>
-                                        <li class="flex items-start gap-2"><span class="text-rose-500 mt-1">•</span>Measure ROI and communicate wins to leadership</li>
-                                        <li class="flex items-start gap-2"><span class="text-rose-500 mt-1">•</span>Scale from pilots to enterprise-wide deployment</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Outcomes</p>
-                                    <ul class="space-y-2 text-sm text-slate-600">
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>90-day AI implementation plan</li>
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Executive-ready business case</li>
-                                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Governance framework template</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-            </div>
-
-            <!-- WHAT MAKES OUR CURRICULUM DIFFERENT -->
-            <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 mb-16">
-                <h3 class="text-lg font-bold text-slate-900 mb-6 text-center">What Makes Our Curriculum Different?</h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="flex gap-4">
-                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-slate-900 mb-1">AI Learning Coach</h4>
-                            <p class="text-sm text-slate-600">Personal AI assistant for role-specific guidance and industry context</p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 2 -->
-                    <div class="flex gap-4">
-                        <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-slate-900 mb-1">Hybrid Delivery</h4>
-                            <p class="text-sm text-slate-600">Pre-recorded concepts + live build sessions with your team</p>
-                        </div>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="flex gap-4">
-                        <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-slate-900 mb-1">Role-Based Paths</h4>
-                            <p class="text-sm text-slate-600">Content adapts for executives, managers, ICs, and technical teams</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-<!-- CTA -->
-            <div class="text-center mt-12">
-                <a href="https://workflowy.ai/#contact" class="inline-block px-8 py-3 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-colors">
-                    Schedule a Consultation
-                </a>
-                <p class="text-sm text-slate-500 mt-4">Curriculum continuously updated based on latest AI capabilities</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- WorkflowyOS Section -->
-    <section id="platform" class="py-12 sm:py-20 px-4 sm:px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-start">
-                <div>
-                    <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Platform</p>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                        <span class="gradient-text">WorkflowyOS:</span> Your Team's AI Training Ground
-                    </h2>
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-                        A unified platform where your teams practice, build, and improve — using any AI model through one secure interface.
-                    </p>
-                    <div class="flex flex-wrap gap-3 mb-8">
-                        <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Leave-behind software</span>
-                        <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Integrated training</span>
-                        <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">Ongoing engagement</span>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-slate-900 mb-1">Prompt Coach</h3>
-                                <p class="text-slate-600 text-sm">Learn to prompt better with guided AI coaching. Get real-time feedback as you improve.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-slate-900 mb-1">Workflow Coach</h3>
-                                <p class="text-slate-600 text-sm">Map and optimize your workflows with AI assistance. Understand where AI fits in your daily work.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-slate-900 mb-1">Async Courses</h3>
-                                <p class="text-slate-600 text-sm">Pre-recorded training modules for ongoing learning. Master prompting, Copilot, and workflow building at your own pace.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Workflow Consultant Agent Demo -->
-                <div class="flex items-center justify-center">
-                    <div class="w-full max-w-lg">
-                        <!-- App Window -->
-                        <div class="bg-white rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
-                            <!-- Window Header -->
-                            <div class="bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-4">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center">
-                                        <span class="text-white text-lg font-bold">W</span>
-                                    </div>
-                                    <div>
-                                        <span class="text-white font-semibold">Workflow Consultant Agent</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- App Content -->
-                            <div class="p-6">
-                                <!-- Tagline -->
-                                <div class="text-center mb-6">
-                                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Match the speed of your ambition.</h3>
-                                    <p class="text-slate-600 text-sm">Instantly generate your workflow enhancement plan. Then collaborate with your team to keep it forever in motion.</p>
-                                </div>
-
-                                <!-- Input Box -->
-                                <div class="bg-slate-50 rounded-xl p-4 mb-5 border border-slate-200">
-                                    <div class="flex items-start gap-3">
-                                        <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-                                        </div>
-                                        <div class="flex-1">
-                                            <p class="text-slate-400 text-sm">What do you want to accomplish today? Let's talk about it...</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Template Buttons -->
-                                <div class="mb-4">
-                                    <p class="text-xs text-slate-500 mb-3">Start with templates:</p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-full text-sm text-slate-700 cursor-pointer transition-colors">Emailing</span>
-                                        <span class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-full text-sm text-slate-700 cursor-pointer transition-colors">Coding</span>
-                                        <span class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-full text-sm text-slate-700 cursor-pointer transition-colors">Planning</span>
-                                        <span class="px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-full text-sm text-slate-700 cursor-pointer transition-colors">Project Planning</span>
-                                        <span class="px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-full text-sm text-blue-600 cursor-pointer">More...</span>
-                                    </div>
-                                </div>
-
-                                <!-- AI Tools Integration -->
-                                <div class="pt-4 border-t border-slate-100">
-                                    <p class="text-xs text-slate-400 text-center mb-3">Powered by your approved AI tools</p>
-                                    <div class="flex items-center justify-center gap-4">
-                                        <img src="https://cdn.brandfetch.io/idW5s392j1/w/400/h/400/theme/dark/icon.png" alt="Claude" class="w-6 h-6 rounded opacity-60 hover:opacity-100 transition-opacity">
-                                        <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/400/h/400/theme/dark/symbol.png" alt="Gemini" class="w-6 h-6 rounded opacity-60 hover:opacity-100 transition-opacity">
-                                        <img src="https://cdn.brandfetch.io/idchmboHEZ/w/400/h/400/theme/dark/symbol.png" alt="Copilot" class="w-6 h-6 rounded opacity-60 hover:opacity-100 transition-opacity">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Ongoing Support</h3>
+                    <p class="text-gray-400 leading-relaxed">Recorded sessions, async support, and follow-up check-ins to make sure the momentum from the session translates into real organizational change.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Team Section -->
-    <section id="team" class="py-12 sm:py-20 px-4 sm:px-6 bg-slate-50">
+    <section id="team" class="py-16 sm:py-24 px-4 sm:px-6 bg-brand-surface border-t border-brand-border">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Leadership Team</p>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Built by Operators</h2>
-                <p class="text-lg text-slate-600">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">Leadership</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Built by Operators</h2>
+                <p class="text-lg text-gray-400">
                     Careers spent building, scaling, and transforming organizations.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- Nadim -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <div class="glow-card bg-brand-dark rounded-2xl p-6 text-center">
                     <img src="assets/images/team/nad.jpeg" alt="Nadim Nasser" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold">Nadim Nasser</h3>
-                    <p class="text-sm text-blue-600 mb-3">CEO</p>
-                    <p class="text-slate-600 text-sm leading-relaxed">15+ years designing learning experiences across 50+ countries. Trained 1,000+ professionals through workshops and programs.</p>
+                    <h3 class="text-lg font-semibold text-white">Nadim Nasser</h3>
+                    <p class="text-sm text-emerald-400 mb-3">CEO</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">15+ years designing learning experiences across 50+ countries. Trained 1,000+ professionals through workshops and programs.</p>
                 </div>
-
-                <!-- Azim -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <div class="glow-card bg-brand-dark rounded-2xl p-6 text-center">
                     <img src="assets/images/team/azim.jpeg" alt="Azim Ahmed" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold">Azim Ahmed</h3>
-                    <p class="text-sm text-blue-600 mb-3">Head of Engineering</p>
-                    <p class="text-slate-600 text-sm leading-relaxed">Engineering leader bridging technical execution with learning design. Head of Engineering at Lazer Technologies. Built fintech products at Mydoh and Float. 8,000+ students trained.</p>
+                    <h3 class="text-lg font-semibold text-white">Azim Ahmed</h3>
+                    <p class="text-sm text-emerald-400 mb-3">Head of Engineering</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">Engineering leader bridging technical execution with learning design. Head of Engineering at Lazer Technologies. Built fintech products at Mydoh and Float. 8,000+ students trained.</p>
                 </div>
-
-                <!-- Drew -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <div class="glow-card bg-brand-dark rounded-2xl p-6 text-center">
                     <img src="assets/images/team/drew.png" alt="Drew Baillie" class="w-16 h-16 rounded-xl object-cover object-top mx-auto mb-3">
-                    <h3 class="text-lg font-semibold">Drew Baillie</h3>
-                    <p class="text-sm text-blue-600 mb-3">Head of Operations</p>
-                    <p class="text-slate-600 text-sm leading-relaxed">25+ years leading AI transformation across enterprise organizations. Former AI lead at KPMG. Board Director with deep experience in digital transformation and operational excellence.</p>
+                    <h3 class="text-lg font-semibold text-white">Drew Baillie</h3>
+                    <p class="text-sm text-emerald-400 mb-3">Head of Operations</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">25+ years leading AI transformation across enterprise organizations. Former AI lead at KPMG. Board Director with deep experience in digital transformation and operational excellence.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Training Team Section -->
-    <section class="py-12 sm:py-16 px-4 sm:px-6">
+    <!-- Training Team -->
+    <section class="py-12 sm:py-16 px-4 sm:px-6 border-t border-brand-border">
         <div class="max-w-6xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Training Team</p>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Expert Practitioners</h2>
-                <p class="text-lg text-slate-600">
+                <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">Training Team</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Expert Practitioners</h2>
+                <p class="text-lg text-gray-400">
                     Hands-on expertise in AI implementation, engineering, and enterprise transformation.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- Danish -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <div class="glow-card bg-brand-surface rounded-2xl p-6 text-center">
                     <img src="assets/images/team/danish.jpeg" alt="Danish Dhamani" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold">Danish Dhamani</h3>
-                    <p class="text-sm text-blue-600 mb-3">AI Agents &amp; Workflow Automation</p>
-                    <p class="text-slate-600 text-sm leading-relaxed">Co-founder of AI Build Academy and CEO of Orai (400K+ users). Specializes in no-code workflow automation. Enterprise deployments at HP Enterprise, Comcast, and IBM. Forbes 30 Under 30.</p>
+                    <h3 class="text-lg font-semibold text-white">Danish Dhamani</h3>
+                    <p class="text-sm text-emerald-400 mb-3">AI Agents & Workflow Automation</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">Co-founder of AI Build Academy and CEO of Orai (400K+ users). Specializes in no-code workflow automation. Enterprise deployments at HP Enterprise, Comcast, and IBM. Forbes 30 Under 30.</p>
                 </div>
-
-                <!-- Will -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <div class="glow-card bg-brand-surface rounded-2xl p-6 text-center">
                     <img src="assets/images/team/will.jpeg" alt="William Lancaster" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold">William Lancaster</h3>
-                    <p class="text-sm text-blue-600 mb-3">AI Solutions Architect</p>
-                    <p class="text-slate-600 text-sm leading-relaxed">15+ years in software development and AI engineering. Former Head of Engineering at TKS. Enterprise integrations with Copilot, Gemini, and Claude APIs. RAG pipelines and knowledge management specialist.</p>
+                    <h3 class="text-lg font-semibold text-white">William Lancaster</h3>
+                    <p class="text-sm text-emerald-400 mb-3">AI Solutions Architect</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">15+ years in software development and AI engineering. Former Head of Engineering at TKS. Enterprise integrations with Copilot, Gemini, and Claude APIs. RAG pipelines and knowledge management specialist.</p>
                 </div>
-
-                <!-- Mishaal -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <div class="glow-card bg-brand-surface rounded-2xl p-6 text-center">
                     <img src="assets/images/team/mishaal.jpeg" alt="Mishaal Lakhani" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold">Mishaal Lakhani</h3>
-                    <p class="text-sm text-blue-600 mb-3">AI Learning &amp; Enablement</p>
-                    <p class="text-slate-600 text-sm leading-relaxed">1,000+ professionals trained in AI fluency across 22 jurisdictions. Expertise in workflow extraction, process optimization, and enterprise change management for AI adoption.</p>
+                    <h3 class="text-lg font-semibold text-white">Mishaal Lakhani</h3>
+                    <p class="text-sm text-emerald-400 mb-3">AI Learning & Enablement</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">1,000+ professionals trained in AI fluency across 22 jurisdictions. Expertise in workflow extraction, process optimization, and enterprise change management for AI adoption.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Board of Advisors Section -->
-    <section class="py-12 sm:py-16 px-4 sm:px-6 bg-slate-50">
+    <!-- Board of Advisors -->
+    <section class="py-12 sm:py-16 px-4 sm:px-6 bg-brand-surface border-t border-brand-border">
         <div class="max-w-6xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Board of Advisors</p>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Strategic Guidance</h2>
-                <p class="text-lg text-slate-600">
+                <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">Board of Advisors</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Strategic Guidance</h2>
+                <p class="text-lg text-gray-400">
                     Industry leaders providing strategic oversight and enterprise connections.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <!-- Armughan Ahmad -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <div class="glow-card bg-brand-dark rounded-2xl p-6 text-center">
                     <img src="assets/images/team/arm.jpeg" alt="Armughan Ahmad" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold">Armughan Ahmad</h3>
-                    <p class="text-sm text-blue-600 mb-3">Board Advisor</p>
-                    <p class="text-slate-600 text-sm leading-relaxed">Former CEO & President of Appen, President & Managing Partner at KPMG, SVP & GM at Dell Technologies. Board Director at Flexential and Trillium Health Partners. AI Advisor to ServiceNow and TELUS.</p>
+                    <h3 class="text-lg font-semibold text-white">Armughan Ahmad</h3>
+                    <p class="text-sm text-emerald-400 mb-3">Board Advisor</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">Former CEO & President of Appen, President & Managing Partner at KPMG, SVP & GM at Dell Technologies. Board Director at Flexential and Trillium Health Partners. AI Advisor to ServiceNow and TELUS.</p>
                 </div>
-
-                <!-- Rola Dagher -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <div class="glow-card bg-brand-dark rounded-2xl p-6 text-center">
                     <img src="assets/images/team/rola.jpeg" alt="Rola Dagher" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold">Rola Dagher</h3>
-                    <p class="text-sm text-blue-600 mb-3">Chief Growth Officer</p>
-                    <p class="text-slate-600 text-sm leading-relaxed">CEO advisor, Board Director, Investor. Former CEO Cisco Canada, Chief Channel Officer Dell Technologies, Order of Canada recipient.</p>
+                    <h3 class="text-lg font-semibold text-white">Rola Dagher</h3>
+                    <p class="text-sm text-emerald-400 mb-3">Chief Growth Officer</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">CEO advisor, Board Director, Investor. Former CEO Cisco Canada, Chief Channel Officer Dell Technologies, Order of Canada recipient.</p>
                 </div>
-
-                <!-- Arif Bhanji -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <div class="glow-card bg-brand-dark rounded-2xl p-6 text-center">
                     <img src="assets/images/team/arif.jpeg" alt="Arif Bhanji" class="w-16 h-16 rounded-xl object-cover mx-auto mb-3">
-                    <h3 class="text-lg font-semibold">Arif Bhanji</h3>
-                    <p class="text-sm text-blue-600 mb-3">Board Advisor</p>
-                    <p class="text-slate-600 text-sm leading-relaxed">Co-Founder & Co-CEO of Lazer Technologies, a Y Combinator-backed product studio with 90+ engineers from Instagram, Shopify, and Uber. Former Deloitte consultant.</p>
+                    <h3 class="text-lg font-semibold text-white">Arif Bhanji</h3>
+                    <p class="text-sm text-emerald-400 mb-3">Board Advisor</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">Co-Founder & Co-CEO of Lazer Technologies, a Y Combinator-backed product studio with 90+ engineers from Instagram, Shopify, and Uber.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Team's Experience - Scrolling Logos -->
-    <section class="py-8 sm:py-12 border-t border-slate-100 bg-white overflow-hidden">
-        <p class="text-center text-sm font-medium text-slate-500 uppercase tracking-wider mb-8">Built by a team with 100+ years of combined experience across</p>
-
-        <style>
-            @keyframes scrollLogos {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-            }
-            .logo-track {
-                animation: scrollLogos 40s linear infinite;
-                will-change: transform;
-            }
-            .logo-track:hover {
-                animation-play-state: paused;
-            }
-        </style>
+    <!-- Scrolling Logos -->
+    <section class="py-8 sm:py-12 border-t border-brand-border overflow-hidden">
+        <p class="text-center text-sm font-medium text-gray-500 uppercase tracking-wider mb-8">Built by a team with 100+ years of combined experience across</p>
 
         <div class="relative overflow-hidden">
-            <!-- Gradient overlays -->
-            <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-            <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-brand-dark to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-brand-dark to-transparent z-10 pointer-events-none"></div>
 
             <div class="logo-track flex items-center gap-14" style="width: max-content;">
-                <!-- First set of logos -->
-                <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-7 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-7 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="assets/images/logos/un-logo.png" alt="United Nations" class="h-12 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="assets/images/logos/td-logo.png" alt="TD Bank" class="h-8 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="assets/images/logos/rbc-logo.png" alt="RBC" class="h-8 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="assets/images/logos/bmo-logo.png" alt="BMO" class="h-8 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-7 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-7 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-12 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-7 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-14 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-8 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idpw9SCyJ0/w/800/h/309/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Ritz-Carlton" class="h-12 object-contain opacity-70 hover:opacity-100 transition-opacity">
+                <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="assets/images/logos/un-logo.png" alt="United Nations" class="h-12 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
+                <img src="assets/images/logos/td-logo.png" alt="TD Bank" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
+                <img src="assets/images/logos/rbc-logo.png" alt="RBC" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
+                <img src="assets/images/logos/bmo-logo.png" alt="BMO" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
+                <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-12 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-14 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/idpw9SCyJ0/w/800/h/309/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Ritz-Carlton" class="h-12 object-contain opacity-40 hover:opacity-70 transition-opacity">
 
-                <!-- Duplicate set for seamless loop -->
-                <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-7 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-7 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="assets/images/logos/un-logo.png" alt="United Nations" class="h-12 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="assets/images/logos/td-logo.png" alt="TD Bank" class="h-8 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="assets/images/logos/rbc-logo.png" alt="RBC" class="h-8 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="assets/images/logos/bmo-logo.png" alt="BMO" class="h-8 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-7 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-7 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-12 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-7 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-14 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-8 object-contain opacity-70 hover:opacity-100 transition-opacity">
-                <img src="https://cdn.brandfetch.io/idpw9SCyJ0/w/800/h/309/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Ritz-Carlton" class="h-12 object-contain opacity-70 hover:opacity-100 transition-opacity">
+                <!-- Duplicate for seamless loop -->
+                <img src="https://cdn.brandfetch.io/idchmboHEZ/w/800/h/171/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Microsoft" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/id6O2oGzv-/w/800/h/253/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Google" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="assets/images/logos/un-logo.png" alt="United Nations" class="h-12 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
+                <img src="assets/images/logos/td-logo.png" alt="TD Bank" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
+                <img src="assets/images/logos/rbc-logo.png" alt="RBC" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
+                <img src="assets/images/logos/bmo-logo.png" alt="BMO" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity invert">
+                <img src="https://cdn.brandfetch.io/id-UmnExAG/w/800/h/321/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="KPMG" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/idvZsWkFMV/w/800/h/153/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="TELUS" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/idB8IjfqRq/w/800/h/808/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="EY" class="h-12 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/ida_xaMYlM/w/800/h/421/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Cisco" class="h-7 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/idDJQxv5jR/w/801/h/801/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX" alt="PwC" class="h-14 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/idWpOTv-DW/w/800/h/460/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Bell" class="h-8 object-contain opacity-40 hover:opacity-70 transition-opacity">
+                <img src="https://cdn.brandfetch.io/idpw9SCyJ0/w/800/h/309/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX" alt="Ritz-Carlton" class="h-12 object-contain opacity-40 hover:opacity-70 transition-opacity">
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section id="contact" class="py-12 sm:py-20 px-4 sm:px-6">
+    <section id="contact" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-brand-border">
         <div class="max-w-3xl mx-auto text-center">
-            <p class="text-sm font-medium text-blue-600 uppercase tracking-wider mb-4">Next Steps</p>
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Build?</h2>
-            <p class="text-lg text-slate-600 mb-10">
-                Let's discuss how we can help your organization move from AI curiosity to operational transformation.
-                Book a 30-minute call to explore the right engagement for your team.
+            <div class="text-emerald-400 text-sm font-mono uppercase tracking-wider mb-4">Next Steps</div>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to build?</h2>
+            <p class="text-lg text-gray-400 mb-10">
+                Book a 30-minute call to discuss how we can run a session for your team. We'll scope the day, understand your tools and data, and design a session around your organization.
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <img src="assets/images/team/nad.jpeg" alt="Nadim Nasser" class="w-14 h-14 rounded-full object-cover border-2 border-slate-200 shadow-sm">
+                <img src="assets/images/team/nad.jpeg" alt="Nadim Nasser" class="w-14 h-14 rounded-full object-cover border-2 border-emerald-500/30 shadow-lg shadow-emerald-500/10">
                 <div class="text-center sm:text-left">
-                    <p class="text-slate-600 text-sm mb-2">Schedule a call with Nadim</p>
-                    <a href="https://cal.com/nadimnasser/lastmile-intro-call" class="inline-block px-8 py-3 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-colors">
-                        Book an Intro Call
+                    <p class="text-gray-400 text-sm mb-3">Schedule a call with Nadim</p>
+                    <a href="https://cal.com/nadimnasser" class="inline-block px-8 py-3 bg-emerald-500 text-brand-dark font-semibold rounded-full hover:bg-emerald-400 transition-all hover:shadow-lg hover:shadow-emerald-500/20">
+                        Book a Session
                     </a>
                 </div>
             </div>
@@ -1287,32 +545,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-6 border-t border-slate-100">
-        <div class="max-w-6xl mx-auto text-center text-slate-500 text-sm">
-            <p>© 2026 Workflowy</p>
+    <footer class="py-8 px-6 border-t border-brand-border">
+        <div class="max-w-6xl mx-auto text-center text-gray-500 text-sm">
+            <p>&copy; 2026 Workflowy</p>
         </div>
     </footer>
 
-
-
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
-      div.grammarly-desktop-integration {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select:none;
-        user-select:none;
-      }
-
-      div.grammarly-desktop-integration:before {
-        content: attr(data-content);
-      }
-    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;limited&quot;,&quot;isActive&quot;:false,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
+</body>
+</html>
